@@ -1,0 +1,16 @@
+/* Map scene — card layout */
+.scene {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.scene__card-wrap {
+  position: relative;
+  width: min(var(--card-width), 100%);
+}
+
+.scene__card-wrap .card {
+  width: 100%;
+}

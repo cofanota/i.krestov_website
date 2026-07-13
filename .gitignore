@@ -1,0 +1,15 @@
+# macOS
+.DS_Store
+
+# Dependencies
+node_modules/
+
+# Editor / tooling
+.cursor/
+
+# Figma cache
+.figma-cache/
+
+# Environment / secrets
+.env
+.env.*

@@ -1,0 +1,44 @@
+We creating portfolio website that looks like mind map like Miro.
+
+Pages:
+All pages looks like connected blocks with links from a left or right side and stored on a Pages page in Figma.
+with the same reusable menu component. Pages may be navigated only via links in menu. User may not zoom in or out.
+
+All pages in figma is a part of a map group. Map group is a visual representation of how pages actually attached.
+
+Architecture:
+Single-page app with one map canvas. All route cards exist in the same DOM. History API routes: /, /about, /blog, /cases, /contacts.
+
+Loading:
+For showcasing home screen we need to load homepage, all lines to the other blocks and their navigation menus. When user navigates to one of the blocks - we start to load page content.
+
+Content:
+Page content will be provided later in Figma. Implementation uses Figma MCP as source of truth for structure, copy, and assets when ready. All route cards ship as blank shells (menu + empty content area) until Figma content is added.
+
+Pages folder (p:*) may exist for future use but is not the content source of truth for implementation.
+
+Transitions:
+- Camera pans the map canvas to center the active card (ease-in-out, 650ms).
+- Departing card scales to 95% during navigation; arriving card scales from 95% to 100%.
+- Connector lines are drawn dynamically in code between Dot icons (not static SVG assets).
+- Browser Back/Forward must work via popstate.
+
+Use figma MCP to get access to the stylekit and components.
+Check @Design.md for details.
+
+Composer instructions:
+**HARD RULE:** Read [`.cursor/rules/figma-mcp-fresh-stop.mdc`](../.cursor/rules/figma-mcp-fresh-stop.mdc). If Figma MCP is not connected or you do not have a **fresh live fetch** for the target node in **this session**, **STOP** — do not implement from stale cache, transcripts, or guesses. See `Rules/Figma-fetch.md`.
+
+Before implementation, use Figma MCP as the source of truth for structure, components, styles, variables and assets. Run `get_design_context` (+ `get_screenshot` / asset download) for the concrete page node. Do not use stale cached exports. Start from Figma file cpLveNkdlW6XRiHClNtgWn, node 12192:9521, then inspect the concrete page frame from the Pages section that matches the current route.
+
+Follow the Figma page model: every page frame sits on a textured background, has the shared Header, and positions the reusable Map instance to show the current page as a connected block. The visible page content lives inside the card component with a right-side menu and map connector lines.
+
+Use the shared Header from Figma: Changing avatar, Ivan Krestov, "lead product designer & creator", and the Get in Touch button. Reuse Figma components and variants instead of inventing replacement UI.
+
+Build menus and links from Navigation routes. Hide empty or unready pages and links (e.g. Projects until content exists). Show connected map blocks and their menu links; load page content only after user navigates to that block.
+
+JavaScript is required for map routing, pan, scale transitions, and dynamic connector lines.
+
+Keep all implementation constraints from @Design.md: semantic HTML, no CSS frameworks, rem units only, and only Figma-provided styles, variables, icons and components.
+
+If Figma MCP is not accessible, data was not freshly fetched in-session, or Figma component/style data conflicts with local instructions, **stop work immediately** and report what is missing or conflicting before guessing.

@@ -1,0 +1,57 @@
+{
+  "slug": "post-ecosystem",
+  "nodeId": "case-post-ecosystem",
+  "title": "Post ecosystem",
+  "list": {
+    "title": "Post ecosystem",
+    "description": "Description",
+    "tags": ["Lable", "Lable", "Lable", "Lable"]
+  },
+  "hero": {
+    "cover": null,
+    "title": "Post ecosystem",
+    "description": "Description",
+    "labels": ["Lable", "Lable", "Lable", "Lable"]
+  },
+  "meta": {
+    "role": "Role description",
+    "scope": "Scope description",
+    "team": "Team Description",
+    "duration": "Duration description"
+  },
+  "cta": {
+    "label": "Case link",
+    "url": "#"
+  },
+  "awards": [],
+  "sections": [
+    {
+      "id": "post-ecosystem-section-1",
+      "menuLabel": "Subtitle",
+      "title": "Subtitle",
+      "paragraphs": [
+        { "text": "Text", "caption": "Caption" },
+        { "text": "Text", "caption": "Caption" }
+      ],
+      "gallery": {
+        "images": []
+      }
+    },
+    {
+      "id": "post-ecosystem-section-2",
+      "menuLabel": "Subtitle",
+      "title": "Subtitle",
+      "paragraphs": [
+        { "text": "Text", "caption": "Caption" }
+      ]
+    },
+    {
+      "id": "post-ecosystem-section-3",
+      "menuLabel": "Subtitle",
+      "title": "Subtitle",
+      "paragraphs": [
+        { "text": "Text", "caption": "Caption" }
+      ]
+    }
+  ]
+}

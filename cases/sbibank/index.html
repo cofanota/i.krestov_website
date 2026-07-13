@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <title>Ivan Krestov — Product Designer</title>
+  <script>
+    (function () {
+      var stored;
+      try {
+        stored = localStorage.getItem("theme");
+      } catch (error) {
+        stored = null;
+      }
+      var theme =
+        stored === "light" || stored === "dark"
+          ? stored
+          : window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light";
+      document.documentElement.setAttribute("data-theme", theme);
+    })();
+  </script>
+  <script src="/js/background-perf.js"></script>
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/fonts.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/map.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+  <link rel="stylesheet" href="/css/cursor.css">
+</head>
+<body class="page page--home" data-map-node="home">
+  <svg class="page__filters" aria-hidden="true" focusable="false">
+    <defs>
+      <filter id="page-noise" color-interpolation-filters="sRGB">
+        <feTurbulence
+          type="fractalNoise"
+          baseFrequency="0.78"
+          numOctaves="4"
+          stitchTiles="stitch"
+          result="turbulence"
+        >
+          <animate
+            attributeName="seed"
+            dur="7s"
+            values="0;40;80;40;0"
+            repeatCount="indefinite"
+          />
+        </feTurbulence>
+        <feColorMatrix
+          in="turbulence"
+          type="matrix"
+          values="0 0 0 0 0.42  0 0 0 0 0.41  0 0 0 0 0.4  0 0 0 0.5 0"
+        />
+      </filter>
+      <filter id="page-noise-static" color-interpolation-filters="sRGB">
+        <feTurbulence
+          type="fractalNoise"
+          baseFrequency="0.78"
+          numOctaves="4"
+          stitchTiles="stitch"
+          seed="12"
+        />
+        <feColorMatrix
+          type="matrix"
+          values="0 0 0 0 0.42  0 0 0 0 0.41  0 0 0 0 0.4  0 0 0 0.5 0"
+        />
+      </filter>
+    </defs>
+  </svg>
+
+  <div class="page__background" aria-hidden="true">
+    <div class="page__background-noise"></div>
+    <div class="page__background-grid"></div>
+  </div>
+
+  <header class="site-header">
+    <div class="site-header__identity">
+      <div class="site-header__avatar">
+        <img src="/assets/images/avatar.png" alt="" width="48" height="48">
+      </div>
+      <a href="/" class="site-header__name" data-map-target="home">Ivan Krestov</a>
+    </div>
+    <p class="site-header__title">lead product designer &amp; creator</p>
+    <div class="site-header__cta">
+      <a class="btn" href="/contacts" data-map-target="contacts" aria-label="Get in Touch">
+        <span class="btn__label">Get in Touch</span>
+        <span class="btn__icon" aria-hidden="true">
+          <svg class="btn__icon-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18.0978 6.14321L12.7074 20.4122L12.0739 20.4126L10.2562 14.1549L14.2936 9.94869L14.1661 9.82159L9.61625 13.5152L8.74403 13.2779L3.82925 12.1676L3.8297 11.5336L18.0978 6.14321Z" fill="currentColor"/>
+          </svg>
+        </span>
+      </a>
+    </div>
+  </header>
+
+  <div class="theme-switch" role="group" aria-label="Theme">
+    <button
+      type="button"
+      class="theme-switch__segment is-active"
+      data-theme-value="light"
+      aria-pressed="true"
+      aria-label="Light theme"
+    >
+      <svg class="theme-switch__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12.8998 6.44641C13.7818 6.58822 14.5949 6.93586 15.2893 7.43738L17.7283 4.99951L19.0005 6.27283L16.5615 8.70959C17.0635 9.40426 17.4106 10.2177 17.5525 11.1002H21V12.8998H17.5525C17.4106 13.782 17.0632 14.5948 16.5615 15.2893L19.0005 17.7283L17.7283 19.0005L15.2893 16.5615C14.5948 17.0632 13.782 17.4106 12.8998 17.5525V21H11.1002V17.5525C10.2177 17.4106 9.40426 17.0635 8.70959 16.5615L6.27173 19.0005L4.99951 17.7272L7.43738 15.2893C6.9359 14.5949 6.58933 13.7818 6.44751 12.8998H3V11.1002H6.44751C6.58938 10.2179 6.93561 9.40415 7.43738 8.70959L4.99951 6.27173L6.27173 4.99951L8.70959 7.43738C9.40419 6.93558 10.2179 6.58826 11.1002 6.44641V3H12.8998V6.44641ZM12 8.17456C9.88751 8.17456 8.17456 9.88751 8.17456 12C8.17456 14.1125 9.88751 15.8254 12 15.8254C14.1125 15.8254 15.8254 14.1125 15.8254 12C15.8254 9.88751 14.1125 8.17456 12 8.17456Z" fill="currentColor"/>
+      </svg>
+    </button>
+    <button
+      type="button"
+      class="theme-switch__segment"
+      data-theme-value="dark"
+      aria-pressed="false"
+      aria-label="Dark theme"
+    >
+      <svg class="theme-switch__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+        <path d="M13.3183 4.5C14.9252 4.5 16.4132 5.00672 17.6337 5.86719L17.1962 6.74316C16.5739 6.50591 15.899 6.375 15.1933 6.375C12.0867 6.375 9.56831 8.8934 9.56831 12C9.56831 15.1066 12.0867 17.625 15.1933 17.625C15.8991 17.625 16.5738 17.4932 17.1962 17.2559L17.6337 18.1318C16.4131 18.9925 14.9254 19.5 13.3183 19.5C9.17617 19.5 5.81831 16.1421 5.81831 12C5.81831 7.85786 9.17617 4.5 13.3183 4.5Z" fill="currentColor"/>
+      </svg>
+    </button>
+  </div>
+
+  <main class="map-viewport" id="map-viewport">
+    <div class="map-canvas" id="map-canvas">
+      <article class="map-card card map-card--home is-active" data-node="home" id="map-card-home">
+        <div class="card__content" aria-label="Home content">
+          <section class="hero">
+            <div class="hero__headline-block">
+              <h1 class="hero__headline">
+                Flows and <span class="hero__headline-accent">emotions</span><br class="br-desktop">
+                for humans, not just users
+              </h1>
+            </div>
+            <div class="hero__columns">
+              <p class="hero__column">Full stack design with focus on business and tech needs. From ideas to working product.</p>
+              <p class="hero__column">Lead teams of art directors, designers, product managers, and researchers of up to 30 people.</p>
+              <p class="hero__column">Worked with Startups, fintech, B2C, B2B, Saas. Design Lead, Pochtatech. Ex.&nbsp;Design Lead, Mish</p>
+            </div>
+          </section>
+        </div>
+        <div class="card__divider" aria-hidden="true">
+          <img src="/assets/images/divider.svg" alt="" width="1" height="600">
+        </div>
+        <nav class="card__menu" aria-label="Site navigation">
+          <div class="card__menu-bar">
+            <h2 class="card__menu-title">Home</h2>
+            <ul class="card__submenu card__menu-actions">
+              <li>
+                <a class="card__submenu-link" href="/about" data-map-target="about">
+                  <span class="card__submenu-label">About</span>
+                  <span class="dot" data-dot="about"></span>
+                </a>
+              </li>
+              <li>
+                <a class="card__submenu-link" href="/blog" data-map-target="blog">
+                  <span class="card__submenu-label">Blog</span>
+                  <span class="dot" data-dot="blog"></span>
+                </a>
+              </li>
+              <li>
+                <a class="card__submenu-link" href="/cases" data-map-target="cases">
+                  <span class="card__submenu-label">Cases</span>
+                  <span class="dot" data-dot="cases"></span>
+                </a>
+              </li>
+              <li>
+                <a class="card__submenu-link" href="/contacts" data-map-target="contacts">
+                  <span class="card__submenu-label">Contacts</span>
+                  <span class="dot" data-dot="contacts"></span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </article>
+
+      <article class="map-card card map-card--subpage" data-node="about" id="map-card-about">
+        <nav class="card__menu" aria-label="About navigation">
+          <div class="card__menu-bar">
+            <h2 class="card__menu-title">About</h2>
+            <a class="card__back-link card__menu-actions" href="/" data-map-target="home">
+              <span class="dot" data-dot="home"></span>
+              <span class="card__submenu-label">Back</span>
+            </a>
+          </div>
+        </nav>
+        <div class="card__divider" aria-hidden="true">
+          <img src="/assets/images/divider.svg" alt="" width="1" height="600">
+        </div>
+        <div class="card__content card__content--subpage card__content--about" aria-label="About content">
+          <section class="about">
+            <div class="about__body">
+              <div class="about__body-primary">
+                <h1 class="about__headline">Ivan <span class="about__headline-accent">Krestov</span></h1>
+                <p class="about__story">Started career in a small Ivanovo studio, working on websites and visual design. After move to Moscow, progressed into a Design Lead role, working with high-profile clients, receiving international awards, and gaining teaching experience.</p>
+              </div>
+            </div>
+            <div class="about__gallery">
+              <figure class="about__figure about__figure--portrait">
+                <img src="/assets/images/About_avatar.png" alt="" width="400" height="400" decoding="async">
+              </figure>
+              <div class="about__media about__media--video about__media--primary">
+                <video
+                  class="about__video"
+                  width="1280"
+                  height="764"
+                  muted
+                  playsinline
+                  loop
+                  autoplay
+                  preload="none"
+                  poster="/assets/videos/about-britanka-poster.jpg"
+                  data-src="/assets/videos/about-britanka.mp4"
+                  aria-hidden="true"
+                ></video>
+              </div>
+              <div class="about__gallery-stack about__gallery-stack--videos">
+                <div class="about__media about__media--video">
+                  <video
+                    class="about__video"
+                    width="1280"
+                    height="720"
+                    muted
+                    playsinline
+                    loop
+                    autoplay
+                    preload="none"
+                    poster="/assets/images/about-thumb.jpg"
+                    data-src="/assets/videos/ic_herosection_video.mp4"
+                    aria-hidden="true"
+                  ></video>
+                </div>
+                <figure class="about__figure about__figure--prototype">
+                  <video
+                    class="about__video"
+                    width="480"
+                    height="480"
+                    muted
+                    playsinline
+                    loop
+                    autoplay
+                    preload="none"
+                    poster="/assets/videos/about-prototype-poster.jpg"
+                    data-src="/assets/videos/about-prototype.mp4"
+                    aria-hidden="true"
+                  ></video>
+                </figure>
+              </div>
+            </div>
+            <div class="about__highlights">
+              <p class="about__aside-item">Product designer with 10+ years of experience crafting balanced product and design impact at the intersection of user needs and business goals.</p>
+              <p class="about__aside-item">6+ years of leadership experience of teams up to 30 designers. Managing resources, leading people, and helping designers grow</p>
+              <p class="about__aside-item">Expanding my skillset across design, research, and emerging technologies. This helps me bring broader context and more pragmatic solutions to product teams.</p>
+            </div>
+          </section>
+        </div>
+      </article>
+
+      <article class="map-card card map-card--subpage" data-node="blog" id="map-card-blog">
+        <nav class="card__menu" aria-label="Blog navigation">
+          <div class="card__menu-bar">
+            <h2 class="card__menu-title">Blog</h2>
+            <a class="card__back-link card__menu-actions" href="/" data-map-target="home">
+              <span class="dot" data-dot="home"></span>
+              <span class="card__submenu-label">Back</span>
+            </a>
+          </div>
+        </nav>
+        <div class="card__divider" aria-hidden="true">
+          <img src="/assets/images/divider.svg" alt="" width="1" height="600">
+        </div>
+        <div class="card__content card__content--empty" aria-label="Blog content"></div>
+      </article>
+
+      <article class="map-card card map-card--subpage" data-node="cases" id="map-card-cases">
+        <nav class="card__menu" aria-label="Cases navigation">
+          <div class="card__menu-bar">
+            <h2 class="card__menu-title">Cases</h2>
+            <a class="card__back-link card__menu-actions" href="/" data-map-target="home">
+              <span class="dot" data-dot="home"></span>
+              <span class="card__submenu-label">Back</span>
+            </a>
+          </div>
+        </nav>
+        <div class="card__divider" aria-hidden="true">
+          <img src="/assets/images/divider.svg" alt="" width="1" height="600">
+        </div>
+        <div class="card__content card__content--subpage card__content--cases" aria-label="Cases content">
+          <section class="cases">
+            <div class="project-list">
+              <a class="project-row" href="/cases/picksell" data-map-target="case-picksell" data-case-slug="picksell">
+                <div class="project-row__card">
+                  <div class="project-row__type" aria-hidden="true">
+                    <span class="project-row__type-label">Type</span>
+                    <span class="dot project-row__icon"></span>
+                  </div>
+                  <div class="project-row__surface">
+                    <h3 class="project-row__title">Picksell</h3>
+                    <div class="project-row__body">
+                      <p class="project-row__description">Description</p>
+                      <ul class="project-row__labels" aria-label="Tags">
+                        <li><span class="project-label">Lable</span></li>
+                        <li><span class="project-label">Lable</span></li>
+                        <li><span class="project-label">Lable</span></li>
+                        <li><span class="project-label">Lable</span></li>
+                      </ul>
+                    </div>
+                    <span class="project-row__action" aria-hidden="true">
+                      <span class="project-row__action-btn">
+                        <img class="project-row__action-icon" src="/assets/images/chevron-right.svg" alt="" width="24" height="24">
+                      </span>
+                    </span>
+                  </div>
+                </div>
+                <span class="dot project-row__trail" data-dot="case-picksell" aria-hidden="true"></span>
+              </a>
+              <a class="project-row" href="/cases/sbibank" data-map-target="case-sbibank" data-case-slug="sbibank">
+                <div class="project-row__card">
+                  <div class="project-row__type" aria-hidden="true">
+                    <span class="project-row__type-label">Type</span>
+                    <span class="dot project-row__icon"></span>
+                  </div>
+                  <div class="project-row__surface">
+                    <h3 class="project-row__title">SBIBank</h3>
+                    <div class="project-row__body">
+                      <p class="project-row__description">Description</p>
+                      <ul class="project-row__labels" aria-label="Tags">
+                        <li><span class="project-label">Lable</span></li>
+                        <li><span class="project-label">Lable</span></li>
+                        <li><span class="project-label">Lable</span></li>
+                        <li><span class="project-label">Lable</span></li>
+                      </ul>
+                    </div>
+                    <span class="project-row__action" aria-hidden="true">
+                      <span class="project-row__action-btn">
+                        <img class="project-row__action-icon" src="/assets/images/chevron-right.svg" alt="" width="24" height="24">
+                      </span>
+                    </span>
+                  </div>
+                </div>
+                <span class="dot project-row__trail" data-dot="case-sbibank" aria-hidden="true"></span>
+              </a>
+              <a class="project-row" href="/cases/edstore" data-map-target="case-edstore" data-case-slug="edstore">
+                <div class="project-row__card">
+                  <div class="project-row__type" aria-hidden="true">
+                    <span class="project-row__type-label">Type</span>
+                    <span class="dot project-row__icon"></span>
+                  </div>
+                  <div class="project-row__surface">
+                    <h3 class="project-row__title">Edstore</h3>
+                    <div class="project-row__body">
+                      <p class="project-row__description">Description</p>
+                      <ul class="project-row__labels" aria-label="Tags">
+                        <li><span class="project-label">Lable</span></li>
+                        <li><span class="project-label">Lable</span></li>
+                        <li><span class="project-label">Lable</span></li>
+                        <li><span class="project-label">Lable</span></li>
+                      </ul>
+                    </div>
+                    <span class="project-row__action" aria-hidden="true">
+                      <span class="project-row__action-btn">
+                        <img class="project-row__action-icon" src="/assets/images/chevron-right.svg" alt="" width="24" height="24">
+                      </span>
+                    </span>
+                  </div>
+                </div>
+                <span class="dot project-row__trail" data-dot="case-edstore" aria-hidden="true"></span>
+              </a>
+              <a class="project-row" href="/cases/post-ecosystem" data-map-target="case-post-ecosystem" data-case-slug="post-ecosystem">
+                <div class="project-row__card">
+                  <div class="project-row__type" aria-hidden="true">
+                    <span class="project-row__type-label">Type</span>
+                    <span class="dot project-row__icon"></span>
+                  </div>
+                  <div class="project-row__surface">
+                    <h3 class="project-row__title">Post ecosystem</h3>
+                    <div class="project-row__body">
+                      <p class="project-row__description">Description</p>
+                      <ul class="project-row__labels" aria-label="Tags">
+                        <li><span class="project-label">Lable</span></li>
+                        <li><span class="project-label">Lable</span></li>
+                        <li><span class="project-label">Lable</span></li>
+                        <li><span class="project-label">Lable</span></li>
+                      </ul>
+                    </div>
+                    <span class="project-row__action" aria-hidden="true">
+                      <span class="project-row__action-btn">
+                        <img class="project-row__action-icon" src="/assets/images/chevron-right.svg" alt="" width="24" height="24">
+                      </span>
+                    </span>
+                  </div>
+                </div>
+                <span class="dot project-row__trail" data-dot="case-post-ecosystem" aria-hidden="true"></span>
+              </a>
+              <a class="project-row" href="/cases/mindloom" data-map-target="case-mindloom" data-case-slug="mindloom">
+                <div class="project-row__card">
+                  <div class="project-row__type" aria-hidden="true">
+                    <span class="project-row__type-label">Type</span>
+                    <span class="dot project-row__icon"></span>
+                  </div>
+                  <div class="project-row__surface">
+                    <h3 class="project-row__title">Mindloom</h3>
+                    <div class="project-row__body">
+                      <p class="project-row__description">Description</p>
+                      <ul class="project-row__labels" aria-label="Tags">
+                        <li><span class="project-label">Lable</span></li>
+                        <li><span class="project-label">Lable</span></li>
+                        <li><span class="project-label">Lable</span></li>
+                        <li><span class="project-label">Lable</span></li>
+                      </ul>
+                    </div>
+                    <span class="project-row__action" aria-hidden="true">
+                      <span class="project-row__action-btn">
+                        <img class="project-row__action-icon" src="/assets/images/chevron-right.svg" alt="" width="24" height="24">
+                      </span>
+                    </span>
+                  </div>
+                </div>
+                <span class="dot project-row__trail" data-dot="case-mindloom" aria-hidden="true"></span>
+              </a>
+            </div>
+            <div class="cases__nda">
+              <h3 class="cases__nda-title">NDA</h3>
+              <div class="cases__nda-body">
+                <p class="cases__nda-description">Some projects still silent, book a call to talk about EU neobank, gamification, socials and more</p>
+              </div>
+              <a class="btn cases__nda-cta" href="/contacts" data-map-target="contacts">
+                <span class="btn__label">Get in Touch</span>
+              </a>
+            </div>
+          </section>
+        </div>
+      </article>
+
+      <article class="map-card card map-card--subpage" data-node="case-picksell" id="map-card-case-picksell">
+        <nav class="card__menu card__menu--case" aria-label="Picksell navigation">
+          <div class="card__menu-bar card__menu-bar--case">
+            <h2 class="card__menu-title">Picksell</h2>
+            <a class="card__back-link card__menu-actions" href="/cases" data-map-target="cases">
+              <span class="dot" data-dot="cases"></span>
+              <span class="card__submenu-label">Back</span>
+            </a>
+          </div>
+        </nav>
+        <div class="card__divider" aria-hidden="true">
+          <img src="/assets/images/divider.svg" alt="" width="1" height="600">
+        </div>
+        <div class="card__content card__content--subpage card__content--case-detail" data-case-slug="picksell" aria-label="Picksell content">
+          <section class="case-detail" hidden></section>
+        </div>
+      </article>
+
+      <article class="map-card card map-card--subpage" data-node="case-sbibank" id="map-card-case-sbibank">
+        <nav class="card__menu card__menu--case" aria-label="SBIBank navigation">
+          <div class="card__menu-bar card__menu-bar--case">
+            <h2 class="card__menu-title">SBIBank</h2>
+            <a class="card__back-link card__menu-actions" href="/cases" data-map-target="cases">
+              <span class="dot" data-dot="cases"></span>
+              <span class="card__submenu-label">Back</span>
+            </a>
+          </div>
+        </nav>
+        <div class="card__divider" aria-hidden="true">
+          <img src="/assets/images/divider.svg" alt="" width="1" height="600">
+        </div>
+        <div class="card__content card__content--subpage card__content--case-detail" data-case-slug="sbibank" aria-label="SBIBank content">
+          <section class="case-detail" hidden></section>
+        </div>
+      </article>
+
+      <article class="map-card card map-card--subpage" data-node="case-edstore" id="map-card-case-edstore">
+        <nav class="card__menu card__menu--case" aria-label="Edstore navigation">
+          <div class="card__menu-bar card__menu-bar--case">
+            <h2 class="card__menu-title">Edstore</h2>
+            <a class="card__back-link card__menu-actions" href="/cases" data-map-target="cases">
+              <span class="dot" data-dot="cases"></span>
+              <span class="card__submenu-label">Back</span>
+            </a>
+          </div>
+        </nav>
+        <div class="card__divider" aria-hidden="true">
+          <img src="/assets/images/divider.svg" alt="" width="1" height="600">
+        </div>
+        <div class="card__content card__content--subpage card__content--case-detail" data-case-slug="edstore" aria-label="Edstore content">
+          <section class="case-detail" hidden></section>
+        </div>
+      </article>
+
+      <article class="map-card card map-card--subpage" data-node="case-post-ecosystem" id="map-card-case-post-ecosystem">
+        <nav class="card__menu card__menu--case" aria-label="Post ecosystem navigation">
+          <div class="card__menu-bar card__menu-bar--case">
+            <h2 class="card__menu-title">Post ecosystem</h2>
+            <a class="card__back-link card__menu-actions" href="/cases" data-map-target="cases">
+              <span class="dot" data-dot="cases"></span>
+              <span class="card__submenu-label">Back</span>
+            </a>
+          </div>
+        </nav>
+        <div class="card__divider" aria-hidden="true">
+          <img src="/assets/images/divider.svg" alt="" width="1" height="600">
+        </div>
+        <div class="card__content card__content--subpage card__content--case-detail" data-case-slug="post-ecosystem" aria-label="Post ecosystem content">
+          <section class="case-detail" hidden></section>
+        </div>
+      </article>
+
+      <article class="map-card card map-card--subpage" data-node="case-mindloom" id="map-card-case-mindloom">
+        <nav class="card__menu card__menu--case" aria-label="Mindloom navigation">
+          <div class="card__menu-bar card__menu-bar--case">
+            <h2 class="card__menu-title">Mindloom</h2>
+            <a class="card__back-link card__menu-actions" href="/cases" data-map-target="cases">
+              <span class="dot" data-dot="cases"></span>
+              <span class="card__submenu-label">Back</span>
+            </a>
+          </div>
+        </nav>
+        <div class="card__divider" aria-hidden="true">
+          <img src="/assets/images/divider.svg" alt="" width="1" height="600">
+        </div>
+        <div class="card__content card__content--subpage card__content--case-detail" data-case-slug="mindloom" aria-label="Mindloom content">
+          <section class="case-detail" hidden></section>
+        </div>
+      </article>
+
+      <article class="map-card card map-card--subpage" data-node="contacts" id="map-card-contacts">
+        <nav class="card__menu" aria-label="Contacts navigation">
+          <div class="card__menu-bar">
+            <h2 class="card__menu-title">Contacts</h2>
+            <a class="card__back-link card__menu-actions" href="/" data-map-target="home">
+              <span class="dot" data-dot="home"></span>
+              <span class="card__submenu-label">Back</span>
+            </a>
+          </div>
+        </nav>
+        <div class="card__divider" aria-hidden="true">
+          <img src="/assets/images/divider.svg" alt="" width="1" height="600">
+        </div>
+        <div class="card__content card__content--subpage card__content--contacts" aria-label="Contacts content">
+          <section class="contacts">
+            <div class="contacts__headline-block">
+              <h1 class="contacts__headline">
+                <a class="contacts__email" href="mailto:ivan.krestov.21@gmail.com">
+                  <span class="contacts__email-label">ivan.krestov.21@<span class="contacts__email-accent">gmail.com</span></span>
+                  <svg class="contacts__email-arrow" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M29.6567 12.6863L40.9704 24L29.6567 35.3137L28.2425 33.8995L34.5933 26.1532L7.99988 25.0606V22.9393L34.5933 21.9105L28.2425 14.1005L29.6567 12.6863Z" fill="currentColor"/>
+                  </svg>
+                </a>
+              </h1>
+            </div>
+            <div class="contacts__columns">
+              <div class="contacts__column">
+                <p class="contacts__label">Telegram</p>
+                <a class="contact-link" href="https://t.me/ivancross" target="_blank" rel="noopener noreferrer">
+                  <span class="contact-link__icon" aria-hidden="true">
+                    <svg class="contact-link__icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M18.0978 6.14321L12.7074 20.4122L12.0739 20.4126L10.2562 14.1549L14.2936 9.94869L14.1661 9.82159L9.61625 13.5152L8.74403 13.2779L3.82925 12.1676L3.8297 11.5336L18.0978 6.14321Z" fill="currentColor"/>
+                    </svg>
+                  </span>
+                  <span class="contact-link__label">t.me/ivancross</span>
+                </a>
+              </div>
+              <div class="contacts__column">
+                <p class="contacts__label">Linkedin</p>
+                <a class="contact-link" href="https://www.linkedin.com/in/cofanota/" target="_blank" rel="noopener noreferrer">
+                  <span class="contact-link__icon" aria-hidden="true">
+                    <svg class="contact-link__icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M17.4443 5C18.3034 5 19 5.69655 19 6.55566V17.4443C19 18.3034 18.3034 19 17.4443 19H6.55566C5.69655 19 5 18.3034 5 17.4443V6.55566C5 5.69655 5.69655 5 6.55566 5H17.4443ZM7.14551 17.0557H9.2334V10.3145H7.14551V17.0557ZM14.6025 10.1084C13.1721 10.1084 12.5693 11.2227 12.5693 11.2227V10.3145H10.5674V17.0557H12.5693V13.5166C12.5695 12.5688 13.0066 12.0049 13.8418 12.0049C14.6094 12.005 14.9784 12.5469 14.9785 13.5166V17.0557H17.0557V12.7881C17.0557 10.9825 16.0321 10.1086 14.6025 10.1084ZM8.17871 6.94434C7.49689 6.94451 6.94434 7.50168 6.94434 8.18848C6.94443 8.87519 7.49694 9.43244 8.17871 9.43262C8.86063 9.43262 9.41299 8.8753 9.41309 8.18848C9.41309 7.50157 8.86068 6.94434 8.17871 6.94434Z" fill="currentColor"/>
+                    </svg>
+                  </span>
+                  <span class="contact-link__label">linkedin.com/in/cofanota</span>
+                </a>
+              </div>
+              <p class="contacts__column contacts__column--closing">
+                Feel free to DM, always happy to talk
+              </p>
+            </div>
+          </section>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <script src="/assets/vendor/elk.bundled.js"></script>
+  <script src="/js/graph/model.js"></script>
+  <script src="/js/graph/router.js"></script>
+  <script src="/js/graph/layout-elk.js"></script>
+  <script src="/js/graph/renderer.js"></script>
+  <script src="/js/graph/controller.js"></script>
+  <script src="/js/theme.js"></script>
+  <script src="/js/cases-content.js"></script>
+  <script src="/js/map.js"></script>
+  <script src="/js/cursor.js"></script>
+</body>
+</html>

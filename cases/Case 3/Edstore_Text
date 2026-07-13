@@ -1,0 +1,27 @@
+// Format: header fields below → sections [id] → # title → //text + //note pairs → //gallery: @Folder
+// Site reads meta.json; keep this file in sync when editing copy.
+// Do not add manual line breaks — browser wraps via text-wrap: pretty
+
+//description: Story-based mobile learning app optimized for fast, on-the-go content 
+//tags: B2C,Edtech,App
+
+//My role: Led design team, art direction, product strategy, and core concepts
+//scope: Discovery → Core App Flows → Market Research → Brand Guidelines → Value-added Flows → Launch
+//team: Solo designer
+//duration: 6 months
+
+//cta: Behance https://www.behance.net/gallery/178295625/edstore-microlearning-app
+
+
+[edstore-section-1]
+
+
+//text: Early app concepts were based on the team’s previous experiment with a fully featured web platform, but that approach failed. When I joined the team, we shifted the focus to mobile and aimed to make lesson creation easier.
+
+//gallery: @Identity
+
+//text: After ideating around multiple content types and extensively testing the mobile editor, we made a difficult decision to remove it from the app entirely. It may sound counterintuitive, but after 20+ interviews and a survey of 500+ early users, we found that our first audience was not early-stage authors, but experienced experts working with content creation teams.
+
+//text: To fit their needs, I designed the app around a social media-friendly format. I also created content guidelines so users could create not only video lessons, but also text-based content.
+
+//gallery: @Screens

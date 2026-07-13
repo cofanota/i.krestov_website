@@ -1,0 +1,27 @@
+// Format: header fields below → sections [id] → # title → //text + //note pairs → //gallery: @Folder
+// Site reads meta.json; keep this file in sync when editing copy.
+// Do not add manual line breaks — browser wraps via text-wrap: pretty
+
+//description: Family banking with separate parent and child banking apps. Where single user can act in multiple roles within the app
+//tags: B2C,Fintech,App
+
+//My role: Led design team, art direction, product strategy, and core concepts
+//scope: Discovery →  Core App MVP → Child App MVP →  Launch + Support
+//team: Up to 5 designers: product and graphic
+//duration: 12 months
+
+
+[sbibank-section-1]
+## Parent App
+
+//text: Fully native iOS and Android apps built for parents to control family spending, set limits, and handle daily banking scenarios.
+//note: I was based at the client’s office while managing a remote team of three product designers, as well as illustrators and motion designers.
+
+//text: The core idea was to separate family money from personal accounts, so users could instantly understand what they needed to manage. We supported this separation visually with color zones: blue for family finances and neutral colors for personal finances.
+
+
+//text: Family owners had full control over spending, while other parent-level users could manage their own finances. Child accounts were created and controlled by the family owner.
+//text: At the same time, the bank still needed to support single users, so we designed the full banking app experience — from ordering a card to all key payment scenarios, as well as deposits, loans, and loyalty programs.
+
+//gallery: @Parent App
+

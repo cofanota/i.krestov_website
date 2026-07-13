@@ -1,0 +1,153 @@
+@property --ui-scale {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 1;
+}
+
+:root {
+  /* Brand / fill */
+  --fill-bg-lvl-0: #eae7e4;
+  --fill-bg-lvl-1: #ffffff;
+  --fill-bg-lvl-2: #d1cecc;
+
+  /* Text */
+  --text-neutral-primary: #191918;
+  --text-neutral-secondary: #8b8683;
+  --text-neutral-inverse: #f5f2f0;
+  --text-neutral-light: #f5f2f0;
+
+  /* Stroke */
+  --stroke-dark-default: rgba(25, 25, 24, 0.12);
+  --stroke-light-default: rgba(239, 239, 247, 0.2);
+  --stroke-light-hover: rgba(239, 239, 247, 0.4);
+  --stroke-image-border: rgba(25, 25, 24, 0.16);
+
+  --action-primary-base: #191918;
+  --action-primary-hover: #100f0f;
+  --action-primary-active: #2a2928;
+  --action-primary-disabled: #bbb5b2;
+  --action-secondary-base: #d1cecc;
+  --action-secondary-hover: #bbb5b2;
+  --action-secondary-click: #eae7e4;
+  --fill-overlay-selected: rgba(239, 239, 247, 0.24);
+  --action-orange-base: #ff610c;
+  --action-orange-hover: #ff772e;
+  --action-orange-active: #e5560a;
+
+  /* Radius */
+  --radius-pill: 3.5rem;
+  --radius-card: 1rem;
+  --radius-3: 0.75rem;
+  --radius-4: 0.5rem;
+  --radius-menu-item: var(--radius-4);
+  --radius-avatar: 62.5rem;
+
+  /* Spacing */
+  --spacing-0: 0.125rem;
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.375rem;
+  --spacing-3: 0.5rem;
+  --spacing-4: 1rem;
+  --spacing-9: 2.5rem;
+
+  /* Levels */
+  --level-page-padding: 2.5rem;
+  --level-card-padding: 2.5rem;
+  --level-menu-padding-x: 1.625rem;
+  --level-menu-padding-y: 2.5rem;
+
+  /* Typography sizes */
+  --font-size-heading-primary: 2.5rem;
+  --font-size-heading-tertiary: 1.5rem;
+  --font-size-text-secondary: 0.875rem;
+  --font-size-text-reading: 1.125rem;
+  --font-size-text-caption: 0.75rem;
+  --font-size-action-secondary: 0.875rem;
+
+  /* Line heights */
+  --line-height-heading-primary: 1.26;
+  --line-height-heading-tertiary: 1.32;
+  --line-height-text-secondary: 1.4;
+  --line-height-text-reading: 1.4;
+  --line-height-text-caption: 1.3;
+  --line-height-action-secondary: 1.4;
+
+  /* Letter spacing */
+  --letter-spacing-text-secondary: 0.00875rem;
+  --letter-spacing-text-caption: 0.015rem;
+  --letter-spacing-action-secondary: 0.02625rem;
+
+  /* Large-screen scaling (≥ 90rem; overridden in responsive.css) */
+  --ui-scale-ref: 90rem;
+  --ui-scale-max: 1.3;
+  --ui-scale: 1;
+
+  /* Layout */
+  --header-height: 8rem;
+  --icon-size: 1rem;
+  --icon-size-dot: 0.375rem;
+  --card-width: 64rem;
+  --card-min-height: 37.5rem;
+  --card-height: var(--card-min-height);
+  --card-menu-width: 11.25rem;
+  --avatar-size: 3rem;
+  --card-edge-gap: 0;
+  --shadow-lvl-1: 0 0.375rem 1.5rem -0.1875rem rgba(0, 0, 0, 0.16);
+
+  /* Interaction transitions (Button, Menu item) */
+  --btn-transition-duration: 300ms;
+  --btn-transition-easing: ease-out;
+  --map-transition-duration: 780ms;
+  --map-transition-easing: cubic-bezier(0.83, 0, 0.17, 1);
+  --map-card-animation-duration: 550ms;
+  --map-card-animation-easing: cubic-bezier(0.22, 1, 0.36, 1);
+  --map-slide-up: 0.5rem;
+  --map-design-card-width: 1024;
+  --map-origin-x: 512;
+  --map-origin-y: 1000;
+  --map-camera-offset-y: 2.5rem;
+
+  /* Page background */
+  --page-grid-size: 2rem;
+  --page-grid-line: rgba(25, 25, 24, 0.09);
+  --page-noise-opacity: 0.2;
+
+  /* Fonts */
+  --font-heading: "Satoshi", sans-serif;
+  --font-body: "Onest", sans-serif;
+  --font-accent: "Fraunces", serif;
+}
+
+/* Use Colors — Dark mode (Figma collection, resolved via MCP) */
+:root[data-theme="dark"] {
+  --fill-bg-lvl-0: #100f0f;
+  --fill-bg-lvl-1: #2b2928;
+  --fill-bg-lvl-2: #403d3c;
+
+  --text-neutral-primary: #f5f2f0;
+  --text-neutral-secondary: #bbb6b2;
+  --text-neutral-inverse: #100f0f;
+  --text-neutral-light: #f5f2f0;
+
+  --stroke-dark-default: rgba(239, 239, 247, 0.1);
+  --stroke-light-default: rgba(25, 25, 24, 0.1);
+  --stroke-light-hover: rgba(25, 25, 24, 0.3);
+  --stroke-image-border: rgba(25, 25, 24, 0.32);
+
+  --action-primary-base: #eae7e4;
+  --action-primary-hover: #d1cecc;
+  --action-primary-active: #f5f2f0;
+  --action-primary-disabled: #5a5756;
+  --action-secondary-base: #403d3c;
+  --action-secondary-hover: #2b2928;
+  --action-secondary-click: #5a5756;
+  --fill-overlay-selected: rgba(239, 239, 247, 0.16);
+  --action-orange-base: #ff610c;
+  --action-orange-hover: #ff8d50;
+  --action-orange-active: #e5560a;
+
+  --shadow-lvl-1: 0 0.375rem 1.5rem -0.1875rem rgba(0, 0, 0, 0.4);
+
+  --page-grid-line: rgba(239, 239, 247, 0.08);
+  --page-noise-opacity: 0.15;
+}

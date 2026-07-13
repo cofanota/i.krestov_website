@@ -1,0 +1,57 @@
+{
+  "slug": "mindloom",
+  "nodeId": "case-mindloom",
+  "title": "Mindloom",
+  "list": {
+    "title": "Mindloom",
+    "description": "Description",
+    "tags": ["Lable", "Lable", "Lable", "Lable"]
+  },
+  "hero": {
+    "cover": null,
+    "title": "Mindloom",
+    "description": "Description",
+    "labels": ["Lable", "Lable", "Lable", "Lable"]
+  },
+  "meta": {
+    "role": "Role description",
+    "scope": "Scope description",
+    "team": "Team Description",
+    "duration": "Duration description"
+  },
+  "cta": {
+    "label": "Case link",
+    "url": "#"
+  },
+  "awards": [],
+  "sections": [
+    {
+      "id": "mindloom-section-1",
+      "menuLabel": "Subtitle",
+      "title": "Subtitle",
+      "paragraphs": [
+        { "text": "Text", "caption": "Caption" },
+        { "text": "Text", "caption": "Caption" }
+      ],
+      "gallery": {
+        "images": []
+      }
+    },
+    {
+      "id": "mindloom-section-2",
+      "menuLabel": "Subtitle",
+      "title": "Subtitle",
+      "paragraphs": [
+        { "text": "Text", "caption": "Caption" }
+      ]
+    },
+    {
+      "id": "mindloom-section-3",
+      "menuLabel": "Subtitle",
+      "title": "Subtitle",
+      "paragraphs": [
+        { "text": "Text", "caption": "Caption" }
+      ]
+    }
+  ]
+}

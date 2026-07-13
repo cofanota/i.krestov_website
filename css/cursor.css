@@ -1,0 +1,200 @@
+.image-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--level-page-padding);
+}
+
+.image-lightbox[hidden] {
+  display: none;
+}
+
+.image-lightbox__backdrop {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  padding: 0;
+  background-color: rgba(25, 25, 24, 0.72);
+  cursor: pointer;
+}
+
+.image-lightbox__dialog {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: min(90vw, 75rem);
+  max-height: 90vh;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  pointer-events: none;
+}
+
+.image-lightbox__frame {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  max-width: min(90vw, 75rem);
+  max-height: 90vh;
+  pointer-events: auto;
+}
+
+.image-lightbox__viewport {
+  display: inline-block;
+  max-width: min(90vw, 75rem);
+  max-height: 90vh;
+  border-radius: var(--radius-card);
+  box-shadow: inset 0 0 0 0.0625rem var(--stroke-dark-default);
+}
+
+.image-lightbox__viewport.is-sliced {
+  overflow: hidden;
+}
+
+.image-lightbox__img {
+  display: block;
+  max-width: min(90vw, 75rem);
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  border-radius: var(--radius-card);
+}
+
+.image-lightbox__viewport:not(.is-sliced) .image-lightbox__img {
+  box-shadow: none;
+}
+
+.image-lightbox__viewport.is-sliced .image-lightbox__img {
+  max-width: none;
+  max-height: none;
+  border-radius: 0;
+}
+
+.image-lightbox__nav {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--spacing-4);
+  pointer-events: none;
+}
+
+.image-lightbox__nav[hidden] {
+  display: none;
+}
+
+.image-lightbox__nav .case-detail__gallery-btn:not(:disabled) {
+  pointer-events: auto;
+}
+
+.image-lightbox__close {
+  position: fixed;
+  top: var(--level-page-padding);
+  right: var(--level-page-padding);
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: var(--spacing-2);
+  border: none;
+  border-radius: var(--radius-pill);
+  background-color: var(--action-secondary-base);
+  box-shadow: inset 0 0 0 0.0625rem var(--stroke-light-default);
+  cursor: pointer;
+  pointer-events: auto;
+  transition:
+    background-color var(--btn-transition-duration) var(--btn-transition-easing),
+    box-shadow var(--btn-transition-duration) var(--btn-transition-easing);
+}
+
+.image-lightbox__close-icon {
+  display: block;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: var(--text-neutral-primary);
+  -webkit-mask-image: url("/assets/images/close.svg");
+  mask-image: url("/assets/images/close.svg");
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  transition: opacity var(--btn-transition-duration) var(--btn-transition-easing);
+}
+
+.image-lightbox__close:hover,
+.image-lightbox__close:focus-visible {
+  background-color: var(--action-secondary-hover);
+  box-shadow: inset 0 0 0 0.0625rem var(--stroke-light-hover);
+}
+
+.image-lightbox__close:active {
+  background-color: var(--action-secondary-click);
+  box-shadow: inset 0 0 0 0.0625rem var(--stroke-light-hover);
+}
+
+.image-lightbox__close:active .image-lightbox__close-icon {
+  opacity: 0.4;
+}
+
+/* Custom cursor — desktop pointer devices only */
+@media (min-width: 64rem) and (pointer: fine) {
+  :root {
+    --cursor-scale: 1.5;
+  }
+
+  html.has-custom-cursor,
+  html.has-custom-cursor * {
+    cursor: none !important;
+  }
+
+  .custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+    width: calc(1.5rem * var(--cursor-scale));
+    height: calc(1.5rem * var(--cursor-scale));
+    pointer-events: none;
+    opacity: 0;
+    will-change: transform;
+    transition: opacity 120ms ease;
+  }
+
+  .custom-cursor.is-visible {
+    opacity: 1;
+  }
+
+  .custom-cursor__icon {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 80ms ease;
+  }
+
+  .custom-cursor__icon.is-active {
+    opacity: 1;
+  }
+
+  html.has-custom-cursor .image-lightbox__backdrop,
+  html.has-custom-cursor .image-lightbox__dialog,
+  html.has-custom-cursor .image-lightbox__img,
+  html.has-custom-cursor .image-lightbox__close,
+  html.has-custom-cursor .image-lightbox__nav .case-detail__gallery-btn {
+    cursor: none;
+  }
+}

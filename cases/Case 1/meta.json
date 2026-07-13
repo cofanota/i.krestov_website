@@ -1,0 +1,123 @@
+{
+  "slug": "picksell",
+  "nodeId": "case-picksell",
+  "title": "Picksell",
+  "list": {
+    "title": "Picksell",
+    "description": "EU marketplace and payment system powered by open banking technology",
+    "tags": ["B2C", "B2B", "Fintech", "App", "Platform", "SaaS"]
+  },
+  "hero": {
+    "cover": "/cases/Case%201/Cover.png",
+    "title": "Picksell",
+    "description": "EU marketplace and payment system powered by open banking technology",
+    "labels": ["B2C", "B2B", "Fintech", "App", "Platform", "SaaS"]
+  },
+  "meta": {
+    "role": "Led the design team, art direction, product strategy, core concepts and identity",
+    "scope": "Discovery → Brand Guidelines → App MVP → Merchant platform MVP →  Launch  + Support",
+    "team": "Up to 6 designers: product and graphic",
+    "duration": "9 months"
+  },
+  "cta": {
+    "label": "Behance",
+    "url": "https://www.behance.net/gallery/107568635/Picksell"
+  },
+  "awards": [
+    {
+      "name": "Рейтинг Рунета",
+      "image": "/assets/images/cases/picksell/awards/runet.png"
+    },
+    {
+      "name": "Tagline",
+      "image": "/assets/images/cases/picksell/awards/tagline.png"
+    },
+    {
+      "name": "Behance",
+      "image": "/assets/images/cases/badge-ui.svg"
+    }
+  ],
+  "sections": [
+    {
+      "id": "picksell-section-1",
+      "menuLabel": "Identity",
+      "title": "Identity",
+      "paragraphs": [
+        {
+          "text": "Since the product had tons of unclear and tough scenarios we understood that we needed a solid system to talk with users in an emotional and friendly way. This led me to create a simple mascot that literally acts like a helper for customers throughout the journey — from the login screen to placing an order.",
+          "caption": "Picksell identity got a pixel-shaped mascot — dot with a chromatic aberration effect on it. After the identity part I led all illustrations and animations production for use in the product."
+        }
+      ],
+      "gallery": {
+        "images": [
+          "/cases/Case%201/Identity/Logo.png",
+          "/cases/Case%201/Identity/Mascot.png",
+          "/cases/Case%201/Identity/Mascot%20variations.png",
+          "/cases/Case%201/Identity/Sample1.png",
+          "/cases/Case%201/Identity/Sample2.png",
+          "/cases/Case%201/Identity/Sample3.png"
+        ]
+      }
+    },
+    {
+      "id": "picksell-section-2",
+      "menuLabel": "Customer app",
+      "title": "Customer app",
+      "paragraphs": [
+        {
+          "text": "React Native app with clear, cart-oriented user flows. The MVP focused on enabling easy payments from external shops, with the next step being a transition into a full-cycle marketplace. We designed the UX and product architecture to make this transition smooth once the product gained enough traction.",
+          "caption": "It took me about two weeks of research to dive deep into the documentation and understand the limitations of EU payment methods."
+        },
+        {
+          "text": "The payment system required a strong KYC process to verify both sides of each transaction. The key challenge was to make this unusual flow feel as easy as possible, so we invested in clear user communication and shorter flows.",
+          "caption": ""
+        },
+        {
+          "text": "The shopping experience was focused on off-platform purchases and payments via Picksell Pay buttons on merchant websites. At this stage, we did not build a full marketplace-like experience. However, all merchants in the app still had their own pages, and their products were searchable and available for ordering inside the app.",
+          "caption": "Once the core app experience was built, other sub-scenarios were moved to another designer, while I oversaw and controlled the final result."
+        }
+      ],
+      "gallery": {
+        "images": [
+          "/cases/Case%201/App/App%201.png",
+          "/cases/Case%201/App/App%202.png",
+          "/cases/Case%201/App/App%203.png",
+          "/cases/Case%201/App/App%204.png"
+        ]
+      }
+    },
+    {
+      "id": "picksell-section-3",
+      "menuLabel": "Web",
+      "title": "Web",
+      "paragraphs": [
+        {
+          "text": "After defining the core app functionality, it was time to start working on the merchant side in parallel. We began with benchmark research into the tools and services merchants were already using, so we could make the transition as smooth as possible.",
+          "caption": "For the web platform, I proposed the core navigation concept and participated in the research. Two designers worked in parallel to meet the timeline."
+        },
+        {
+          "text": "The tricky part was that merchants already managed their online shops in different ways. Picksell could work either as a payment method or as a fully functional shop: in some cases, it could receive products via API, while in others it could become the product data source for external websites.",
+          "caption": ""
+        },
+        {
+          "text": "The scope was clear: product and variant management, billing, and basic dashboard metrics. However, there was still too much to handle before we could invite merchants to the platform. So we focused on existing shops first, which gave us time to work through more complex flows such as product creation, product lists, and other merchant tools.",
+          "caption": ""
+        },
+        {
+          "text": "As with the app, we also needed to provide account linking flows, KYC, and specific setup steps required to make a shop go live. We created a dedicated onboarding dashboard for new users, allowing them to complete the shop setup through a simple to-do list.",
+          "caption": ""
+        }
+      ],
+      "gallery": {
+        "images": [
+          "/cases/Case%201/Web/Web%201.png",
+          "/cases/Case%201/Web/Web%202.png",
+          "/cases/Case%201/Web/Web%203.png",
+          "/cases/Case%201/Web/Web%204.png",
+          "/cases/Case%201/Web/Web%205.png",
+          "/cases/Case%201/Web/Web%206.png"
+        ]
+      }
+    }
+  ]
+}

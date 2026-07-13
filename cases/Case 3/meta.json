@@ -1,0 +1,69 @@
+{
+  "slug": "edstore",
+  "nodeId": "case-edstore",
+  "title": "Edstore",
+  "list": {
+    "title": "Edstore",
+    "description": "Story-based mobile learning app optimized for fast, on-the-go content",
+    "tags": ["B2C", "Edtech", "App"]
+  },
+  "hero": {
+    "cover": "/cases/Case%203/Cover.png",
+    "title": "Edstore",
+    "description": "Story-based mobile learning app optimized for fast, on-the-go content",
+    "labels": ["B2C", "Edtech", "App"]
+  },
+  "meta": {
+    "role": "Led design team, art direction, product strategy, and core concepts",
+    "scope": "Discovery → Core App Flows → Market Research → Brand Guidelines → Value-added Flows → Launch",
+    "team": "Solo designer",
+    "duration": "6 months"
+  },
+  "cta": {
+    "label": "Behance",
+    "url": "https://www.behance.net/gallery/178295625/edstore-microlearning-app"
+  },
+  "awards": [],
+  "sections": [
+    {
+      "id": "edstore-section-1",
+      "menuLabel": "",
+      "title": "",
+      "paragraphs": [
+        {
+          "text": "Early app concepts were based on the team’s previous experiment with a fully featured web platform, but that approach failed. When I joined the team, we shifted the focus to mobile and aimed to make lesson creation easier.",
+          "caption": ""
+        }
+      ],
+      "gallery": {
+        "images": [
+          "/cases/Case%203/Identity/image%2022.png",
+          "/cases/Case%203/Identity/19.png",
+          "/cases/Case%203/Identity/Group%201.png"
+        ]
+      }
+    },
+    {
+      "id": "edstore-section-2",
+      "menuLabel": "",
+      "title": "",
+      "paragraphs": [
+        {
+          "text": "After ideating around multiple content types and extensively testing the mobile editor, we made a difficult decision to remove it from the app entirely. It may sound counterintuitive, but after 20+ interviews and a survey of 500+ early users, we found that our first audience was not early-stage authors, but experienced experts working with content creation teams.",
+          "caption": ""
+        },
+        {
+          "text": "To fit their needs, I designed the app around a social media-friendly format. I also created content guidelines so users could create not only video lessons, but also text-based content.",
+          "caption": ""
+        }
+      ],
+      "gallery": {
+        "images": [
+          "/cases/Case%203/Screens/App%2014.png",
+          "/cases/Case%203/Screens/App%2015.png",
+          "/cases/Case%203/Screens/App%2016.png"
+        ]
+      }
+    }
+  ]
+}

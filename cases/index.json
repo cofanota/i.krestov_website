@@ -1,0 +1,32 @@
+[
+  {
+    "slug": "picksell",
+    "nodeId": "case-picksell",
+    "folder": "Case 1",
+    "title": "Picksell"
+  },
+  {
+    "slug": "sbibank",
+    "nodeId": "case-sbibank",
+    "folder": "Case 2",
+    "title": "SBIBank"
+  },
+  {
+    "slug": "edstore",
+    "nodeId": "case-edstore",
+    "folder": "Case 3",
+    "title": "Edstore"
+  },
+  {
+    "slug": "post-ecosystem",
+    "nodeId": "case-post-ecosystem",
+    "folder": "Case 4",
+    "title": "Post ecosystem"
+  },
+  {
+    "slug": "mindloom",
+    "nodeId": "case-mindloom",
+    "folder": "Case 5",
+    "title": "Mindloom"
+  }
+]
