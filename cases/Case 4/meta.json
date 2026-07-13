@@ -4,53 +4,73 @@
   "title": "Post ecosystem",
   "list": {
     "title": "Post ecosystem",
-    "description": "Description",
-    "tags": ["Lable", "Lable", "Lable", "Lable"]
+    "description": "Redesign of core customer-facing products for a Russian postal and logistics platform",
+    "tags": ["B2C", "B2B", "Logistics", "App", "Web"]
   },
   "hero": {
-    "cover": null,
+    "cover": "/cases/Case%204/cover.png",
     "title": "Post ecosystem",
-    "description": "Description",
-    "labels": ["Lable", "Lable", "Lable", "Lable"]
+    "description": "Redesign of core customer-facing products for a Russian postal and logistics platform",
+    "labels": ["B2C", "B2B", "Logistics", "App", "Web"]
   },
   "meta": {
-    "role": "Role description",
-    "scope": "Scope description",
-    "team": "Team Description",
-    "duration": "Duration description"
+    "role": "Led the redesign of the service catalog and account ecosystem for a large postal and logistics platform, covering both B2C and B2B users.",
+    "scope": "Discovery → User Flow Mapping → Concept Design → UX interviews → Target Flow Redesign → Metrics",
+    "team": "4 designers",
+    "duration": "2 months (Concept phase)"
   },
   "cta": {
-    "label": "Case link",
-    "url": "#"
+    "label": "",
+    "url": ""
   },
   "awards": [],
   "sections": [
     {
       "id": "post-ecosystem-section-1",
-      "menuLabel": "Subtitle",
-      "title": "Subtitle",
+      "menuLabel": "",
+      "title": "",
       "paragraphs": [
-        { "text": "Text", "caption": "Caption" },
-        { "text": "Text", "caption": "Caption" }
+        {
+          "text": "The lack of a clear structure and fragmented navigation made key services hard to find. The company had significantly expanded its service portfolio, but users struggled to discover relevant products. The fragmented structure also increased delivery time for product and design teams.",
+          "caption": ""
+        }
       ],
       "gallery": {
-        "images": []
+        "images": [
+          "/cases/Case%204/B2C/App%201.png",
+          "/cases/Case%204/B2C/Web%20B2C.png",
+          "/cases/Case%204/B2C/Web%20B2C-1.png",
+          "/cases/Case%204/B2C/Web%20B2C-2.png"
+        ]
       }
     },
     {
       "id": "post-ecosystem-section-2",
-      "menuLabel": "Subtitle",
-      "title": "Subtitle",
+      "menuLabel": "",
+      "title": "",
       "paragraphs": [
-        { "text": "Text", "caption": "Caption" }
-      ]
+        {
+          "text": "The objective was to consolidate business requirements into a clear, scalable structure that would reduce update costs and speed up product releases.",
+          "caption": ""
+        }
+      ],
+      "gallery": {
+        "images": [
+          "/cases/Case%204/B2B/Web%20B2B.png",
+          "/cases/Case%204/B2B/Web%20B2B-1.png",
+          "/cases/Case%204/B2B/Web%20B2B-2.png"
+        ]
+      }
     },
     {
       "id": "post-ecosystem-section-3",
-      "menuLabel": "Subtitle",
-      "title": "Subtitle",
+      "menuLabel": "",
+      "title": "",
       "paragraphs": [
-        { "text": "Text", "caption": "Caption" }
+        {
+          "text": "My team built a new information architecture for the account ecosystem by analyzing all existing sections and evaluating their relevance. I proposed a usability-driven roadmap for future improvements and supervised the design team during concept development. The unified user flow enabled updates to be rolled out across the entire account experience, rather than as isolated incremental changes.",
+          "caption": ""
+        }
       ]
     }
   ]
