@@ -21,12 +21,12 @@
     "slug": "post-ecosystem",
     "nodeId": "case-post-ecosystem",
     "folder": "Case 4",
-    "title": "Post ecosystem"
+    "title": "Post"
   },
   {
-    "slug": "mindloom",
-    "nodeId": "case-mindloom",
+    "slug": "sayme",
+    "nodeId": "case-sayme",
     "folder": "Case 5",
-    "title": "Mindloom"
+    "title": "Sayme"
   }
 ]

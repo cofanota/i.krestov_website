@@ -358,7 +358,7 @@
       "case-sbibank",
       "case-edstore",
       "case-post-ecosystem",
-      "case-mindloom",
+      "case-sayme",
       "contacts",
     ];
     nodeIds.forEach(function (id) {
@@ -386,7 +386,7 @@
       "case-sbibank",
       "case-edstore",
       "case-post-ecosystem",
-      "case-mindloom",
+      "case-sayme",
     ].forEach(function (target) {
       model.addEdge({
         id: "cases-" + target,

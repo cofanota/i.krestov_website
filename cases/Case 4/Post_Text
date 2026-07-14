@@ -2,26 +2,25 @@
 // Site reads meta.json; keep this file in sync when editing copy.
 // Do not add manual line breaks — browser wraps via text-wrap: pretty
 
-//description: Family banking with separate parent and child banking apps. Where single user can act in multiple roles within the app
-//tags: B2C,Fintech,App
-
-//My role: Led design team, art direction, product strategy, and core concepts
-//scope: Discovery →  Core App MVP → Child App MVP →  Launch + Support
-//team: Up to 5 designers: product and graphic
-//duration: 12 months
-
-
-[sbibank-section-1]
-## Parent App
-
-//text: Fully native iOS and Android apps built for parents to control family spending, set limits, and handle daily banking scenarios.
-//note: I was based at the client’s office while managing a remote team of three product designers, as well as illustrators and motion designers.
-
-//text: The core idea was to separate family money from personal accounts, so users could instantly understand what they needed to manage. We supported this separation visually with color zones: blue for family finances and neutral colors for personal finances.
+//description: Redesign of core customer-facing products for a Russian postal and logistics platform
+//tags: B2C,B2B,Logistics,App,Web
+//My role: Led the redesign of the service catalog and account ecosystem for a large postal and logistics platform, covering both B2C and B2B users.
+//scope: Discovery → User Flow Mapping → Concept Design → UX interviews → Target Flow Redesign → Metrics
+//team: 4 designers
+//duration: 2 months (Concept phase)
 
 
-//text: Family owners had full control over spending, while other parent-level users could manage their own finances. Child accounts were created and controlled by the family owner.
-//text: At the same time, the bank still needed to support single users, so we designed the full banking app experience — from ordering a card to all key payment scenarios, as well as deposits, loans, and loyalty programs.
+[post-ecosystem-section-1]
 
-//gallery: @Parent App
+
+//text: The lack of a clear structure and fragmented navigation made key services hard to find. The company had significantly expanded its service portfolio, but users struggled to discover relevant products. The fragmented structure also increased delivery time for product and design teams.
+
+//gallery: @B2C
+//text: The objective was to consolidate business requirements into a clear, scalable structure that would reduce update costs and speed up product releases.
+
+//gallery: @B2B
+//text: My team built a new information architecture for the account ecosystem by analyzing all existing sections and evaluating their relevance. I proposed a usability-driven roadmap for future improvements and supervised the design team during concept development. The unified user flow enabled updates to be rolled out across the entire account experience, rather than as isolated incremental changes.
+
+
+
 

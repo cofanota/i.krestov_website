@@ -58,6 +58,7 @@
 
   /* Typography sizes */
   --font-size-heading-primary: 2.5rem;
+  --font-size-heading-amount: 12rem;
   --font-size-heading-tertiary: 1.5rem;
   --font-size-text-secondary: 0.875rem;
   --font-size-text-reading: 1.125rem;
@@ -66,6 +67,7 @@
 
   /* Line heights */
   --line-height-heading-primary: 1.26;
+  --line-height-heading-amount: 1.26;
   --line-height-heading-tertiary: 1.32;
   --line-height-text-secondary: 1.4;
   --line-height-text-reading: 1.4;
@@ -73,6 +75,7 @@
   --line-height-action-secondary: 1.4;
 
   /* Letter spacing */
+  --letter-spacing-heading-amount: 0.06rem;
   --letter-spacing-text-secondary: 0.00875rem;
   --letter-spacing-text-caption: 0.015rem;
   --letter-spacing-action-secondary: 0.02625rem;

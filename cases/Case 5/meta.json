@@ -1,56 +1,78 @@
 {
-  "slug": "mindloom",
-  "nodeId": "case-mindloom",
-  "title": "Mindloom",
+  "slug": "sayme",
+  "nodeId": "case-sayme",
+  "title": "Sayme",
   "list": {
-    "title": "Mindloom",
-    "description": "Description",
-    "tags": ["Lable", "Lable", "Lable", "Lable"]
+    "title": "Sayme",
+    "description": "Sayme connects talents with their fans on a single platform, where users can ask a talent of their choice to record a personalized video gift",
+    "tags": ["B2C", "Entertainment", "Web"]
   },
   "hero": {
-    "cover": null,
-    "title": "Mindloom",
-    "description": "Description",
-    "labels": ["Lable", "Lable", "Lable", "Lable"]
+    "cover": "/cases/Case%205/cover.png",
+    "title": "Sayme",
+    "description": "Sayme connects talents with their fans on a single platform, where users can ask a talent of their choice to record a personalized video gift",
+    "labels": ["B2C", "Entertainment", "Web"]
   },
   "meta": {
-    "role": "Role description",
-    "scope": "Scope description",
-    "team": "Team Description",
-    "duration": "Duration description"
+    "role": "Hands-on delivery",
+    "scope": "Discovery → User flow map → Brand Guidelines → Flows creation",
+    "team": "Solo designer",
+    "duration": "Solo designer"
   },
   "cta": {
-    "label": "Case link",
-    "url": "#"
+    "label": "",
+    "url": ""
   },
   "awards": [],
   "sections": [
     {
-      "id": "mindloom-section-1",
-      "menuLabel": "Subtitle",
-      "title": "Subtitle",
+      "id": "sayme-section-1",
+      "menuLabel": "",
+      "title": "",
       "paragraphs": [
-        { "text": "Text", "caption": "Caption" },
-        { "text": "Text", "caption": "Caption" }
+        {
+          "text": "I was asked to help design a simple MVP experience for both the client and talent sides.",
+          "caption": ""
+        }
       ],
       "gallery": {
-        "images": []
+        "images": [
+          "/cases/Case%205/Identity/image%2020.png",
+          "/cases/Case%205/Identity/image%2021.png",
+          "/cases/Case%205/Identity/image%2022.png"
+        ]
       }
     },
     {
-      "id": "mindloom-section-2",
-      "menuLabel": "Subtitle",
-      "title": "Subtitle",
+      "id": "sayme-section-2",
+      "menuLabel": "",
+      "title": "",
       "paragraphs": [
-        { "text": "Text", "caption": "Caption" }
-      ]
+        {
+          "text": "The client app lets users browse creators through video profile cards, order personalized video messages, and rate them after delivery. To keep the MVP lean, we deliberately avoided investing in complex content feeds, relying instead on the first creators to generate organic traffic.",
+          "caption": ""
+        },
+        {
+          "text": "The creator app provides an overview of orders, video recording and downloading, basic analytics, and billing tools. As with the client app, we focused on delivering a fast, simple experience.",
+          "caption": ""
+        }
+      ],
+      "gallery": {
+        "images": [
+          "/cases/Case%205/App/App%2017.png",
+          "/cases/Case%205/App/App%2018.png"
+        ]
+      }
     },
     {
-      "id": "mindloom-section-3",
-      "menuLabel": "Subtitle",
-      "title": "Subtitle",
+      "id": "sayme-section-3",
+      "menuLabel": "",
+      "title": "",
       "paragraphs": [
-        { "text": "Text", "caption": "Caption" }
+        {
+          "text": "Together with the client, we agreed to reuse as many components as possible in a cross-platform React Native app. The challenge was not only to build the UI with as few components as possible, but also to propose an effective flow architecture.",
+          "caption": ""
+        }
       ]
     }
   ]

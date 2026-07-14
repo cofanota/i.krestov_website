@@ -81,7 +81,7 @@
       <div class="site-header__avatar">
         <img src="/assets/images/avatar.png" alt="" width="48" height="48">
       </div>
-      <a href="/" class="site-header__name" data-map-target="home">Ivan Krestov</a>
+      <a href="/" class="site-header__name" data-map-target="home">Ivan <span class="site-header__name-accent">Krestov</span></a>
     </div>
     <p class="site-header__title">lead product designer &amp; creator</p>
     <div class="site-header__cta">
@@ -121,21 +121,79 @@
     </button>
   </div>
 
+  <footer class="site-footer" aria-label="Site footer">
+    <p class="site-footer__copy">Designed by human,</p>
+    <p class="site-footer__copy">coded by AI</p>
+  </footer>
+
   <main class="map-viewport" id="map-viewport">
     <div class="map-canvas" id="map-canvas">
       <article class="map-card card map-card--home is-active" data-node="home" id="map-card-home">
         <div class="card__content" aria-label="Home content">
           <section class="hero">
             <div class="hero__headline-block">
-              <h1 class="hero__headline">
-                Flows and <span class="hero__headline-accent">emotions</span><br class="br-desktop">
-                for humans, not just users
-              </h1>
+              <div class="hero__headline-row">
+                <h1 class="hero__headline">
+                  Flows and <span class="hero__headline-accent">emotions</span><br class="br-desktop">
+                  for humans, not just users
+                </h1>
+                <span class="hero__logo" aria-hidden="true"></span>
+              </div>
             </div>
             <div class="hero__columns">
               <p class="hero__column">Full stack design with focus on business and tech needs. From ideas to working product.</p>
               <p class="hero__column">Lead teams of art directors, designers, product managers, and researchers of up to 30 people.</p>
               <p class="hero__column">Worked with Startups, fintech, B2C, B2B, Saas. Design Lead, Pochtatech. Ex.&nbsp;Design Lead, Mish</p>
+            </div>
+            <div class="home-projects" aria-label="Featured projects">
+              <div class="home-projects__header">
+                <h2 class="home-projects__title">Cases</h2>
+                <div class="home-projects__nav case-detail__gallery-nav" hidden>
+                  <button type="button" class="case-detail__gallery-btn case-detail__gallery-btn--prev" aria-label="Previous projects">
+                    <span class="case-detail__gallery-btn-icon case-detail__gallery-btn-icon--prev" aria-hidden="true"></span>
+                  </button>
+                  <button type="button" class="case-detail__gallery-btn case-detail__gallery-btn--next" aria-label="Next projects">
+                    <span class="case-detail__gallery-btn-icon case-detail__gallery-btn-icon--next" aria-hidden="true"></span>
+                  </button>
+                </div>
+              </div>
+              <div class="home-projects__track">
+                <a class="home-project" href="/cases/picksell" data-map-target="case-picksell" data-case-slug="picksell">
+                  <div class="home-project__head">
+                    <h3 class="home-project__title">Picksell</h3>
+                    <span class="home-project__icon" aria-hidden="true"><span class="dot"></span></span>
+                  </div>
+                  <p class="home-project__description">EU marketplace and payment system powered by open banking technology</p>
+                </a>
+                <a class="home-project" href="/cases/sbibank" data-map-target="case-sbibank" data-case-slug="sbibank">
+                  <div class="home-project__head">
+                    <h3 class="home-project__title">SBIBank</h3>
+                    <span class="home-project__icon" aria-hidden="true"><span class="dot"></span></span>
+                  </div>
+                  <p class="home-project__description">Family banking with separate parent and child banking apps. Where single user can act in multiple roles within the app</p>
+                </a>
+                <a class="home-project" href="/cases/edstore" data-map-target="case-edstore" data-case-slug="edstore">
+                  <div class="home-project__head">
+                    <h3 class="home-project__title">Edstore</h3>
+                    <span class="home-project__icon" aria-hidden="true"><span class="dot"></span></span>
+                  </div>
+                  <p class="home-project__description">Story-based mobile learning app optimized for fast, on-the-go content</p>
+                </a>
+                <a class="home-project" href="/cases/post-ecosystem" data-map-target="case-post-ecosystem" data-case-slug="post-ecosystem">
+                  <div class="home-project__head">
+                    <h3 class="home-project__title">Post</h3>
+                    <span class="home-project__icon" aria-hidden="true"><span class="dot"></span></span>
+                  </div>
+                  <p class="home-project__description">Redesign of core customer-facing products for a Russian postal and logistics platform</p>
+                </a>
+                <a class="home-project" href="/cases/sayme" data-map-target="case-sayme" data-case-slug="sayme">
+                  <div class="home-project__head">
+                    <h3 class="home-project__title">Sayme</h3>
+                    <span class="home-project__icon" aria-hidden="true"><span class="dot"></span></span>
+                  </div>
+                  <p class="home-project__description">Sayme connects talents with their fans on a single platform, where users can ask a talent of their choice to record a personalized video gift</p>
+                </a>
+              </div>
             </div>
           </section>
         </div>
@@ -374,7 +432,7 @@
                     <span class="dot project-row__icon"></span>
                   </div>
                   <div class="project-row__surface">
-                    <h3 class="project-row__title">Post ecosystem</h3>
+                    <h3 class="project-row__title">Post</h3>
                     <div class="project-row__body">
                       <p class="project-row__description">Description</p>
                       <ul class="project-row__labels" aria-label="Tags">
@@ -393,14 +451,14 @@
                 </div>
                 <span class="dot project-row__trail" data-dot="case-post-ecosystem" aria-hidden="true"></span>
               </a>
-              <a class="project-row" href="/cases/mindloom" data-map-target="case-mindloom" data-case-slug="mindloom">
+              <a class="project-row" href="/cases/sayme" data-map-target="case-sayme" data-case-slug="sayme">
                 <div class="project-row__card">
                   <div class="project-row__type" aria-hidden="true">
                     <span class="project-row__type-label">Type</span>
                     <span class="dot project-row__icon"></span>
                   </div>
                   <div class="project-row__surface">
-                    <h3 class="project-row__title">Mindloom</h3>
+                    <h3 class="project-row__title">Sayme</h3>
                     <div class="project-row__body">
                       <p class="project-row__description">Description</p>
                       <ul class="project-row__labels" aria-label="Tags">
@@ -417,7 +475,7 @@
                     </span>
                   </div>
                 </div>
-                <span class="dot project-row__trail" data-dot="case-mindloom" aria-hidden="true"></span>
+                <span class="dot project-row__trail" data-dot="case-sayme" aria-hidden="true"></span>
               </a>
             </div>
             <div class="cases__nda">
@@ -488,9 +546,9 @@
       </article>
 
       <article class="map-card card map-card--subpage" data-node="case-post-ecosystem" id="map-card-case-post-ecosystem">
-        <nav class="card__menu card__menu--case" aria-label="Post ecosystem navigation">
+        <nav class="card__menu card__menu--case" aria-label="Post navigation">
           <div class="card__menu-bar card__menu-bar--case">
-            <h2 class="card__menu-title">Post ecosystem</h2>
+            <h2 class="card__menu-title">Post</h2>
             <a class="card__back-link card__menu-actions" href="/cases" data-map-target="cases">
               <span class="dot" data-dot="cases"></span>
               <span class="card__submenu-label">Back</span>
@@ -500,15 +558,15 @@
         <div class="card__divider" aria-hidden="true">
           <img src="/assets/images/divider.svg" alt="" width="1" height="600">
         </div>
-        <div class="card__content card__content--subpage card__content--case-detail" data-case-slug="post-ecosystem" aria-label="Post ecosystem content">
+        <div class="card__content card__content--subpage card__content--case-detail" data-case-slug="post-ecosystem" aria-label="Post content">
           <section class="case-detail" hidden></section>
         </div>
       </article>
 
-      <article class="map-card card map-card--subpage" data-node="case-mindloom" id="map-card-case-mindloom">
-        <nav class="card__menu card__menu--case" aria-label="Mindloom navigation">
+      <article class="map-card card map-card--subpage" data-node="case-sayme" id="map-card-case-sayme">
+        <nav class="card__menu card__menu--case" aria-label="Sayme navigation">
           <div class="card__menu-bar card__menu-bar--case">
-            <h2 class="card__menu-title">Mindloom</h2>
+            <h2 class="card__menu-title">Sayme</h2>
             <a class="card__back-link card__menu-actions" href="/cases" data-map-target="cases">
               <span class="dot" data-dot="cases"></span>
               <span class="card__submenu-label">Back</span>
@@ -518,7 +576,7 @@
         <div class="card__divider" aria-hidden="true">
           <img src="/assets/images/divider.svg" alt="" width="1" height="600">
         </div>
-        <div class="card__content card__content--subpage card__content--case-detail" data-case-slug="mindloom" aria-label="Mindloom content">
+        <div class="card__content card__content--subpage card__content--case-detail" data-case-slug="sayme" aria-label="Sayme content">
           <section class="case-detail" hidden></section>
         </div>
       </article>
@@ -572,7 +630,8 @@
                 </a>
               </div>
               <p class="contacts__column contacts__column--closing">
-                Feel free to DM, always happy to talk
+                Feel free to DM,<br>
+                always happy to talk
               </p>
             </div>
           </section>
@@ -590,6 +649,7 @@
   <script src="/js/theme.js"></script>
   <script src="/js/cases-content.js"></script>
   <script src="/js/map.js"></script>
+  <script src="/js/home-projects.js"></script>
   <script src="/js/cursor.js"></script>
 </body>
 </html>

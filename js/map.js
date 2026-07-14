@@ -9,7 +9,7 @@
     "case-sbibank": "/cases/sbibank",
     "case-edstore": "/cases/edstore",
     "case-post-ecosystem": "/cases/post-ecosystem",
-    "case-mindloom": "/cases/mindloom",
+    "case-sayme": "/cases/sayme",
     contacts: "/contacts",
   };
 
@@ -21,7 +21,7 @@
     "/cases/sbibank": "case-sbibank",
     "/cases/edstore": "case-edstore",
     "/cases/post-ecosystem": "case-post-ecosystem",
-    "/cases/mindloom": "case-mindloom",
+    "/cases/sayme": "case-sayme",
     "/contacts": "contacts",
   };
 
@@ -73,6 +73,21 @@
 
   function getCard(nodeId) {
     return document.querySelector('.map-card[data-node="' + nodeId + '"]');
+  }
+
+  function isCasesNode(nodeId) {
+    return nodeId === "cases" || (nodeId && nodeId.indexOf("case-") === 0);
+  }
+
+  function resetCardScroll(card) {
+    if (!card) {
+      return;
+    }
+
+    var content = card.querySelector(".card__content");
+    if (content) {
+      content.scrollTop = 0;
+    }
   }
 
   function getScale() {
@@ -290,6 +305,10 @@
   }
 
   function setActiveCard(nodeId, instant) {
+    if (isCasesNode(nodeId)) {
+      resetCardScroll(getCard(nodeId));
+    }
+
     cards.forEach(function (card) {
       var isTarget = card.getAttribute("data-node") === nodeId;
       card.classList.toggle("is-active", isTarget);
@@ -404,6 +423,9 @@
     if (toCard) {
       toCard.classList.remove("is-active");
       toCard.classList.add("is-entering");
+      if (isCasesNode(nodeId)) {
+        resetCardScroll(toCard);
+      }
       if (nodeId === "about") {
         syncAboutLayout(nodeId);
       }
