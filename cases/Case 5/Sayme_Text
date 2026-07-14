@@ -2,26 +2,21 @@
 // Site reads meta.json; keep this file in sync when editing copy.
 // Do not add manual line breaks — browser wraps via text-wrap: pretty
 
-//description: Story-based mobile learning app optimized for fast, on-the-go content 
-//tags: B2C,Edtech,App
+//description: Sayme connects talents with their fans on a single platform, where users can ask a talent of their choice to record a personalized video gift
+//tags: B2C,Entertainment,Web
 
-//My role: Led design team, art direction, product strategy, and core concepts
-//scope: Discovery → Core App Flows → Market Research → Brand Guidelines → Value-added Flows → Launch
+//My role: Hands-on delivery
+//scope: Discovery → User flow map → Brand Guidelines → Flows creation
 //team: Solo designer
-//duration: 6 months
-
-//cta: Behance https://www.behance.net/gallery/178295625/edstore-microlearning-app
+//duration: Solo designer
 
 
-[edstore-section-1]
+[Sayme-section-1]
 
 
-//text: Early app concepts were based on the team’s previous experiment with a fully featured web platform, but that approach failed. When I joined the team, we shifted the focus to mobile and aimed to make lesson creation easier.
-
+//text: I was asked to help design a simple MVP experience for both the client and talent sides.
 //gallery: @Identity
-
-//text: After ideating around multiple content types and extensively testing the mobile editor, we made a difficult decision to remove it from the app entirely. It may sound counterintuitive, but after 20+ interviews and a survey of 500+ early users, we found that our first audience was not early-stage authors, but experienced experts working with content creation teams.
-
-//text: To fit their needs, I designed the app around a social media-friendly format. I also created content guidelines so users could create not only video lessons, but also text-based content.
-
-//gallery: @Screens
+//text: The client app lets users browse creators through video profile cards, order personalized video messages, and rate them after delivery. To keep the MVP lean, we deliberately avoided investing in complex content feeds, relying instead on the first creators to generate organic traffic.
+//text: The creator app provides an overview of orders, video recording and downloading, basic analytics, and billing tools. As with the client app, we focused on delivering a fast, simple experience.
+//gallery: @App
+//text: Together with the client, we agreed to reuse as many components as possible in a cross-platform React Native app. The challenge was not only to build the UI with as few components as possible, but also to propose an effective flow architecture.

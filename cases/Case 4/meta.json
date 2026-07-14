@@ -1,15 +1,15 @@
 {
   "slug": "post-ecosystem",
   "nodeId": "case-post-ecosystem",
-  "title": "Post",
+  "title": "Post service",
   "list": {
-    "title": "Post",
+    "title": "Post service",
     "description": "Redesign of core customer-facing products for a Russian postal and logistics platform",
     "tags": ["B2C", "B2B", "Logistics", "App", "Web"]
   },
   "hero": {
     "cover": "/cases/Case%204/cover.png",
-    "title": "Post",
+    "title": "Post service",
     "description": "Redesign of core customer-facing products for a Russian postal and logistics platform",
     "labels": ["B2C", "B2B", "Logistics", "App", "Web"]
   },
