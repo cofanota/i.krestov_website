@@ -4,6 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="color-scheme" content="light dark">
+  <script>
+    (function () {
+      var base = location.hostname === "cofanota.github.io" ? "/i.krestov_website/" : "/";
+      window.SITE_BASE_PATH = base;
+      document.write('<base href="' + base + '">');
+    })();
+  </script>
   <title>Ivan Krestov — Product Designer</title>
   <script>
     (function () {
@@ -22,14 +29,14 @@
       document.documentElement.setAttribute("data-theme", theme);
     })();
   </script>
-  <script src="/js/background-perf.js"></script>
-  <link rel="stylesheet" href="/css/tokens.css">
-  <link rel="stylesheet" href="/css/fonts.css">
-  <link rel="stylesheet" href="/css/base.css">
-  <link rel="stylesheet" href="/css/components.css">
-  <link rel="stylesheet" href="/css/map.css">
-  <link rel="stylesheet" href="/css/responsive.css">
-  <link rel="stylesheet" href="/css/cursor.css">
+  <script src="js/background-perf.js"></script>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/map.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/cursor.css">
 </head>
 <body class="page page--home" data-map-node="home">
   <svg class="page__filters" aria-hidden="true" focusable="false">
@@ -79,13 +86,13 @@
   <header class="site-header">
     <div class="site-header__identity">
       <div class="site-header__avatar">
-        <img src="/assets/images/avatar.png" alt="" width="48" height="48">
+        <img src="assets/images/avatar.png" alt="" width="48" height="48">
       </div>
-      <a href="/" class="site-header__name" data-map-target="home">Ivan <span class="site-header__name-accent">Krestov</span></a>
+      <a href="" class="site-header__name" data-map-target="home">Ivan <span class="site-header__name-accent">Krestov</span></a>
     </div>
     <p class="site-header__title">lead product designer &amp; creator</p>
     <div class="site-header__cta">
-      <a class="btn" href="/contacts" data-map-target="contacts" aria-label="Get in Touch">
+      <a class="btn" href="contacts" data-map-target="contacts" aria-label="Get in Touch">
         <span class="btn__label">Get in Touch</span>
         <span class="btn__icon" aria-hidden="true">
           <svg class="btn__icon-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -158,35 +165,35 @@
                 </div>
               </div>
               <div class="home-projects__track">
-                <a class="home-project" href="/cases/picksell" data-map-target="case-picksell" data-case-slug="picksell">
+                <a class="home-project" href="cases/picksell" data-map-target="case-picksell" data-case-slug="picksell">
                   <div class="home-project__head">
                     <h3 class="home-project__title">Picksell</h3>
                     <span class="home-project__icon" aria-hidden="true"><span class="dot"></span></span>
                   </div>
                   <p class="home-project__description">EU marketplace and payment system powered by open banking technology</p>
                 </a>
-                <a class="home-project" href="/cases/sbibank" data-map-target="case-sbibank" data-case-slug="sbibank">
+                <a class="home-project" href="cases/sbibank" data-map-target="case-sbibank" data-case-slug="sbibank">
                   <div class="home-project__head">
                     <h3 class="home-project__title">SBIBank</h3>
                     <span class="home-project__icon" aria-hidden="true"><span class="dot"></span></span>
                   </div>
                   <p class="home-project__description">Family banking with separate parent and child banking apps. Where single user can act in multiple roles within the app</p>
                 </a>
-                <a class="home-project" href="/cases/edstore" data-map-target="case-edstore" data-case-slug="edstore">
+                <a class="home-project" href="cases/edstore" data-map-target="case-edstore" data-case-slug="edstore">
                   <div class="home-project__head">
                     <h3 class="home-project__title">Edstore</h3>
                     <span class="home-project__icon" aria-hidden="true"><span class="dot"></span></span>
                   </div>
                   <p class="home-project__description">Story-based mobile learning app optimized for fast, on-the-go content</p>
                 </a>
-                <a class="home-project" href="/cases/post-ecosystem" data-map-target="case-post-ecosystem" data-case-slug="post-ecosystem">
+                <a class="home-project" href="cases/post-ecosystem" data-map-target="case-post-ecosystem" data-case-slug="post-ecosystem">
                   <div class="home-project__head">
                     <h3 class="home-project__title">Post</h3>
                     <span class="home-project__icon" aria-hidden="true"><span class="dot"></span></span>
                   </div>
                   <p class="home-project__description">Redesign of core customer-facing products for a Russian postal and logistics platform</p>
                 </a>
-                <a class="home-project" href="/cases/sayme" data-map-target="case-sayme" data-case-slug="sayme">
+                <a class="home-project" href="cases/sayme" data-map-target="case-sayme" data-case-slug="sayme">
                   <div class="home-project__head">
                     <h3 class="home-project__title">Sayme</h3>
                     <span class="home-project__icon" aria-hidden="true"><span class="dot"></span></span>
@@ -198,32 +205,32 @@
           </section>
         </div>
         <div class="card__divider" aria-hidden="true">
-          <img src="/assets/images/divider.svg" alt="" width="1" height="600">
+          <img src="assets/images/divider.svg" alt="" width="1" height="600">
         </div>
         <nav class="card__menu" aria-label="Site navigation">
           <div class="card__menu-bar">
             <h2 class="card__menu-title">Home</h2>
             <ul class="card__submenu card__menu-actions">
               <li>
-                <a class="card__submenu-link" href="/about" data-map-target="about">
+                <a class="card__submenu-link" href="about" data-map-target="about">
                   <span class="card__submenu-label">About</span>
                   <span class="dot" data-dot="about"></span>
                 </a>
               </li>
               <li>
-                <a class="card__submenu-link" href="/blog" data-map-target="blog">
+                <a class="card__submenu-link" href="blog" data-map-target="blog">
                   <span class="card__submenu-label">Blog</span>
                   <span class="dot" data-dot="blog"></span>
                 </a>
               </li>
               <li>
-                <a class="card__submenu-link" href="/cases" data-map-target="cases">
+                <a class="card__submenu-link" href="cases" data-map-target="cases">
                   <span class="card__submenu-label">Cases</span>
                   <span class="dot" data-dot="cases"></span>
                 </a>
               </li>
               <li>
-                <a class="card__submenu-link" href="/contacts" data-map-target="contacts">
+                <a class="card__submenu-link" href="contacts" data-map-target="contacts">
                   <span class="card__submenu-label">Contacts</span>
                   <span class="dot" data-dot="contacts"></span>
                 </a>
@@ -237,14 +244,14 @@
         <nav class="card__menu" aria-label="About navigation">
           <div class="card__menu-bar">
             <h2 class="card__menu-title">About</h2>
-            <a class="card__back-link card__menu-actions" href="/" data-map-target="home">
+            <a class="card__back-link card__menu-actions" href="" data-map-target="home">
               <span class="dot" data-dot="home"></span>
               <span class="card__submenu-label">Back</span>
             </a>
           </div>
         </nav>
         <div class="card__divider" aria-hidden="true">
-          <img src="/assets/images/divider.svg" alt="" width="1" height="600">
+          <img src="assets/images/divider.svg" alt="" width="1" height="600">
         </div>
         <div class="card__content card__content--subpage card__content--about" aria-label="About content">
           <section class="about">
@@ -256,7 +263,7 @@
             </div>
             <div class="about__gallery">
               <figure class="about__figure about__figure--portrait">
-                <img src="/assets/images/About_avatar.png" alt="" width="400" height="400" decoding="async">
+                <img src="assets/images/About_avatar.png" alt="" width="400" height="400" decoding="async">
               </figure>
               <div class="about__media about__media--video about__media--primary">
                 <video
@@ -268,8 +275,8 @@
                   loop
                   autoplay
                   preload="none"
-                  poster="/assets/videos/about-britanka-poster.jpg"
-                  data-src="/assets/videos/about-britanka.mp4"
+                  poster="assets/videos/about-britanka-poster.jpg"
+                  data-src="assets/videos/about-britanka.mp4"
                   aria-hidden="true"
                 ></video>
               </div>
@@ -284,8 +291,8 @@
                     loop
                     autoplay
                     preload="none"
-                    poster="/assets/images/about-thumb.jpg"
-                    data-src="/assets/videos/ic_herosection_video.mp4"
+                    poster="assets/images/about-thumb.jpg"
+                    data-src="assets/videos/ic_herosection_video.mp4"
                     aria-hidden="true"
                   ></video>
                 </div>
@@ -299,8 +306,8 @@
                     loop
                     autoplay
                     preload="none"
-                    poster="/assets/videos/about-prototype-poster.jpg"
-                    data-src="/assets/videos/about-prototype.mp4"
+                    poster="assets/videos/about-prototype-poster.jpg"
+                    data-src="assets/videos/about-prototype.mp4"
                     aria-hidden="true"
                   ></video>
                 </figure>
@@ -319,14 +326,14 @@
         <nav class="card__menu" aria-label="Blog navigation">
           <div class="card__menu-bar">
             <h2 class="card__menu-title">Blog</h2>
-            <a class="card__back-link card__menu-actions" href="/" data-map-target="home">
+            <a class="card__back-link card__menu-actions" href="" data-map-target="home">
               <span class="dot" data-dot="home"></span>
               <span class="card__submenu-label">Back</span>
             </a>
           </div>
         </nav>
         <div class="card__divider" aria-hidden="true">
-          <img src="/assets/images/divider.svg" alt="" width="1" height="600">
+          <img src="assets/images/divider.svg" alt="" width="1" height="600">
         </div>
         <div class="card__content card__content--empty" aria-label="Blog content"></div>
       </article>
@@ -335,19 +342,19 @@
         <nav class="card__menu" aria-label="Cases navigation">
           <div class="card__menu-bar">
             <h2 class="card__menu-title">Cases</h2>
-            <a class="card__back-link card__menu-actions" href="/" data-map-target="home">
+            <a class="card__back-link card__menu-actions" href="" data-map-target="home">
               <span class="dot" data-dot="home"></span>
               <span class="card__submenu-label">Back</span>
             </a>
           </div>
         </nav>
         <div class="card__divider" aria-hidden="true">
-          <img src="/assets/images/divider.svg" alt="" width="1" height="600">
+          <img src="assets/images/divider.svg" alt="" width="1" height="600">
         </div>
         <div class="card__content card__content--subpage card__content--cases" aria-label="Cases content">
           <section class="cases">
             <div class="project-list">
-              <a class="project-row" href="/cases/picksell" data-map-target="case-picksell" data-case-slug="picksell">
+              <a class="project-row" href="cases/picksell" data-map-target="case-picksell" data-case-slug="picksell">
                 <div class="project-row__card">
                   <div class="project-row__type" aria-hidden="true">
                     <span class="project-row__type-label">Type</span>
@@ -366,14 +373,14 @@
                     </div>
                     <span class="project-row__action" aria-hidden="true">
                       <span class="project-row__action-btn">
-                        <img class="project-row__action-icon" src="/assets/images/chevron-right.svg" alt="" width="24" height="24">
+                        <img class="project-row__action-icon" src="assets/images/chevron-right.svg" alt="" width="24" height="24">
                       </span>
                     </span>
                   </div>
                 </div>
                 <span class="dot project-row__trail" data-dot="case-picksell" aria-hidden="true"></span>
               </a>
-              <a class="project-row" href="/cases/sbibank" data-map-target="case-sbibank" data-case-slug="sbibank">
+              <a class="project-row" href="cases/sbibank" data-map-target="case-sbibank" data-case-slug="sbibank">
                 <div class="project-row__card">
                   <div class="project-row__type" aria-hidden="true">
                     <span class="project-row__type-label">Type</span>
@@ -392,14 +399,14 @@
                     </div>
                     <span class="project-row__action" aria-hidden="true">
                       <span class="project-row__action-btn">
-                        <img class="project-row__action-icon" src="/assets/images/chevron-right.svg" alt="" width="24" height="24">
+                        <img class="project-row__action-icon" src="assets/images/chevron-right.svg" alt="" width="24" height="24">
                       </span>
                     </span>
                   </div>
                 </div>
                 <span class="dot project-row__trail" data-dot="case-sbibank" aria-hidden="true"></span>
               </a>
-              <a class="project-row" href="/cases/edstore" data-map-target="case-edstore" data-case-slug="edstore">
+              <a class="project-row" href="cases/edstore" data-map-target="case-edstore" data-case-slug="edstore">
                 <div class="project-row__card">
                   <div class="project-row__type" aria-hidden="true">
                     <span class="project-row__type-label">Type</span>
@@ -418,14 +425,14 @@
                     </div>
                     <span class="project-row__action" aria-hidden="true">
                       <span class="project-row__action-btn">
-                        <img class="project-row__action-icon" src="/assets/images/chevron-right.svg" alt="" width="24" height="24">
+                        <img class="project-row__action-icon" src="assets/images/chevron-right.svg" alt="" width="24" height="24">
                       </span>
                     </span>
                   </div>
                 </div>
                 <span class="dot project-row__trail" data-dot="case-edstore" aria-hidden="true"></span>
               </a>
-              <a class="project-row" href="/cases/post-ecosystem" data-map-target="case-post-ecosystem" data-case-slug="post-ecosystem">
+              <a class="project-row" href="cases/post-ecosystem" data-map-target="case-post-ecosystem" data-case-slug="post-ecosystem">
                 <div class="project-row__card">
                   <div class="project-row__type" aria-hidden="true">
                     <span class="project-row__type-label">Type</span>
@@ -444,14 +451,14 @@
                     </div>
                     <span class="project-row__action" aria-hidden="true">
                       <span class="project-row__action-btn">
-                        <img class="project-row__action-icon" src="/assets/images/chevron-right.svg" alt="" width="24" height="24">
+                        <img class="project-row__action-icon" src="assets/images/chevron-right.svg" alt="" width="24" height="24">
                       </span>
                     </span>
                   </div>
                 </div>
                 <span class="dot project-row__trail" data-dot="case-post-ecosystem" aria-hidden="true"></span>
               </a>
-              <a class="project-row" href="/cases/sayme" data-map-target="case-sayme" data-case-slug="sayme">
+              <a class="project-row" href="cases/sayme" data-map-target="case-sayme" data-case-slug="sayme">
                 <div class="project-row__card">
                   <div class="project-row__type" aria-hidden="true">
                     <span class="project-row__type-label">Type</span>
@@ -470,7 +477,7 @@
                     </div>
                     <span class="project-row__action" aria-hidden="true">
                       <span class="project-row__action-btn">
-                        <img class="project-row__action-icon" src="/assets/images/chevron-right.svg" alt="" width="24" height="24">
+                        <img class="project-row__action-icon" src="assets/images/chevron-right.svg" alt="" width="24" height="24">
                       </span>
                     </span>
                   </div>
@@ -483,7 +490,7 @@
               <div class="cases__nda-body">
                 <p class="cases__nda-description">Some projects still silent, book a call to talk about EU neobank, gamification, socials and more</p>
               </div>
-              <a class="btn cases__nda-cta" href="/contacts" data-map-target="contacts">
+              <a class="btn cases__nda-cta" href="contacts" data-map-target="contacts">
                 <span class="btn__label">Get in Touch</span>
               </a>
             </div>
@@ -495,14 +502,14 @@
         <nav class="card__menu card__menu--case" aria-label="Picksell navigation">
           <div class="card__menu-bar card__menu-bar--case">
             <h2 class="card__menu-title">Picksell</h2>
-            <a class="card__back-link card__menu-actions" href="/cases" data-map-target="cases">
+            <a class="card__back-link card__menu-actions" href="cases" data-map-target="cases">
               <span class="dot" data-dot="cases"></span>
               <span class="card__submenu-label">Back</span>
             </a>
           </div>
         </nav>
         <div class="card__divider" aria-hidden="true">
-          <img src="/assets/images/divider.svg" alt="" width="1" height="600">
+          <img src="assets/images/divider.svg" alt="" width="1" height="600">
         </div>
         <div class="card__content card__content--subpage card__content--case-detail" data-case-slug="picksell" aria-label="Picksell content">
           <section class="case-detail" hidden></section>
@@ -513,14 +520,14 @@
         <nav class="card__menu card__menu--case" aria-label="SBIBank navigation">
           <div class="card__menu-bar card__menu-bar--case">
             <h2 class="card__menu-title">SBIBank</h2>
-            <a class="card__back-link card__menu-actions" href="/cases" data-map-target="cases">
+            <a class="card__back-link card__menu-actions" href="cases" data-map-target="cases">
               <span class="dot" data-dot="cases"></span>
               <span class="card__submenu-label">Back</span>
             </a>
           </div>
         </nav>
         <div class="card__divider" aria-hidden="true">
-          <img src="/assets/images/divider.svg" alt="" width="1" height="600">
+          <img src="assets/images/divider.svg" alt="" width="1" height="600">
         </div>
         <div class="card__content card__content--subpage card__content--case-detail" data-case-slug="sbibank" aria-label="SBIBank content">
           <section class="case-detail" hidden></section>
@@ -531,14 +538,14 @@
         <nav class="card__menu card__menu--case" aria-label="Edstore navigation">
           <div class="card__menu-bar card__menu-bar--case">
             <h2 class="card__menu-title">Edstore</h2>
-            <a class="card__back-link card__menu-actions" href="/cases" data-map-target="cases">
+            <a class="card__back-link card__menu-actions" href="cases" data-map-target="cases">
               <span class="dot" data-dot="cases"></span>
               <span class="card__submenu-label">Back</span>
             </a>
           </div>
         </nav>
         <div class="card__divider" aria-hidden="true">
-          <img src="/assets/images/divider.svg" alt="" width="1" height="600">
+          <img src="assets/images/divider.svg" alt="" width="1" height="600">
         </div>
         <div class="card__content card__content--subpage card__content--case-detail" data-case-slug="edstore" aria-label="Edstore content">
           <section class="case-detail" hidden></section>
@@ -549,14 +556,14 @@
         <nav class="card__menu card__menu--case" aria-label="Post navigation">
           <div class="card__menu-bar card__menu-bar--case">
             <h2 class="card__menu-title">Post</h2>
-            <a class="card__back-link card__menu-actions" href="/cases" data-map-target="cases">
+            <a class="card__back-link card__menu-actions" href="cases" data-map-target="cases">
               <span class="dot" data-dot="cases"></span>
               <span class="card__submenu-label">Back</span>
             </a>
           </div>
         </nav>
         <div class="card__divider" aria-hidden="true">
-          <img src="/assets/images/divider.svg" alt="" width="1" height="600">
+          <img src="assets/images/divider.svg" alt="" width="1" height="600">
         </div>
         <div class="card__content card__content--subpage card__content--case-detail" data-case-slug="post-ecosystem" aria-label="Post content">
           <section class="case-detail" hidden></section>
@@ -567,14 +574,14 @@
         <nav class="card__menu card__menu--case" aria-label="Sayme navigation">
           <div class="card__menu-bar card__menu-bar--case">
             <h2 class="card__menu-title">Sayme</h2>
-            <a class="card__back-link card__menu-actions" href="/cases" data-map-target="cases">
+            <a class="card__back-link card__menu-actions" href="cases" data-map-target="cases">
               <span class="dot" data-dot="cases"></span>
               <span class="card__submenu-label">Back</span>
             </a>
           </div>
         </nav>
         <div class="card__divider" aria-hidden="true">
-          <img src="/assets/images/divider.svg" alt="" width="1" height="600">
+          <img src="assets/images/divider.svg" alt="" width="1" height="600">
         </div>
         <div class="card__content card__content--subpage card__content--case-detail" data-case-slug="sayme" aria-label="Sayme content">
           <section class="case-detail" hidden></section>
@@ -585,14 +592,14 @@
         <nav class="card__menu" aria-label="Contacts navigation">
           <div class="card__menu-bar">
             <h2 class="card__menu-title">Contacts</h2>
-            <a class="card__back-link card__menu-actions" href="/" data-map-target="home">
+            <a class="card__back-link card__menu-actions" href="" data-map-target="home">
               <span class="dot" data-dot="home"></span>
               <span class="card__submenu-label">Back</span>
             </a>
           </div>
         </nav>
         <div class="card__divider" aria-hidden="true">
-          <img src="/assets/images/divider.svg" alt="" width="1" height="600">
+          <img src="assets/images/divider.svg" alt="" width="1" height="600">
         </div>
         <div class="card__content card__content--subpage card__content--contacts" aria-label="Contacts content">
           <section class="contacts">
@@ -640,16 +647,16 @@
     </div>
   </main>
 
-  <script src="/assets/vendor/elk.bundled.js"></script>
-  <script src="/js/graph/model.js"></script>
-  <script src="/js/graph/router.js"></script>
-  <script src="/js/graph/layout-elk.js"></script>
-  <script src="/js/graph/renderer.js"></script>
-  <script src="/js/graph/controller.js"></script>
-  <script src="/js/theme.js"></script>
-  <script src="/js/cases-content.js"></script>
-  <script src="/js/map.js"></script>
-  <script src="/js/home-projects.js"></script>
-  <script src="/js/cursor.js"></script>
+  <script src="assets/vendor/elk.bundled.js"></script>
+  <script src="js/graph/model.js"></script>
+  <script src="js/graph/router.js"></script>
+  <script src="js/graph/layout-elk.js"></script>
+  <script src="js/graph/renderer.js"></script>
+  <script src="js/graph/controller.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/cases-content.js"></script>
+  <script src="js/map.js"></script>
+  <script src="js/home-projects.js"></script>
+  <script src="js/cursor.js"></script>
 </body>
 </html>

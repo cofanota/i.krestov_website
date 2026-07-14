@@ -310,8 +310,8 @@
   height: var(--icon-size);
   padding: var(--spacing-0);
   background-color: var(--text-neutral-primary);
-  -webkit-mask: url("/assets/images/dot.svg") center / var(--icon-size-dot) var(--icon-size-dot) no-repeat;
-  mask: url("/assets/images/dot.svg") center / var(--icon-size-dot) var(--icon-size-dot) no-repeat;
+  -webkit-mask: url("../assets/images/dot.svg") center / var(--icon-size-dot) var(--icon-size-dot) no-repeat;
+  mask: url("../assets/images/dot.svg") center / var(--icon-size-dot) var(--icon-size-dot) no-repeat;
 }
 
 /* Hero section */
@@ -343,8 +343,8 @@
   height: calc(5.93675rem * var(--ui-scale));
   color: var(--text-neutral-primary);
   background-color: currentColor;
-  -webkit-mask: url("/assets/images/hero-logo.svg") center / contain no-repeat;
-  mask: url("/assets/images/hero-logo.svg") center / contain no-repeat;
+  -webkit-mask: url("../assets/images/hero-logo.svg") center / contain no-repeat;
+  mask: url("../assets/images/hero-logo.svg") center / contain no-repeat;
 }
 
 .hero__headline-accent {
@@ -1401,8 +1401,8 @@ a.project-row:focus-visible .project-label {
   width: var(--icon-size);
   height: var(--icon-size);
   background-color: var(--text-neutral-light);
-  -webkit-mask-image: url("/assets/images/link-out.svg");
-  mask-image: url("/assets/images/link-out.svg");
+  -webkit-mask-image: url("../assets/images/link-out.svg");
+  mask-image: url("../assets/images/link-out.svg");
   -webkit-mask-size: contain;
   mask-size: contain;
   -webkit-mask-repeat: no-repeat;
@@ -1634,8 +1634,8 @@ a.project-row:focus-visible .project-label {
   width: var(--icon-size);
   height: var(--icon-size);
   background-color: var(--text-neutral-primary);
-  -webkit-mask-image: url("/assets/images/scale.svg");
-  mask-image: url("/assets/images/scale.svg");
+  -webkit-mask-image: url("../assets/images/scale.svg");
+  mask-image: url("../assets/images/scale.svg");
   -webkit-mask-size: contain;
   mask-size: contain;
   -webkit-mask-repeat: no-repeat;
@@ -1726,11 +1726,11 @@ a.project-row:focus-visible .project-label {
 }
 
 .case-detail__gallery-btn-icon--prev {
-  mask-image: url("/assets/images/arrow-left.svg");
+  mask-image: url("../assets/images/arrow-left.svg");
 }
 
 .case-detail__gallery-btn-icon--next {
-  mask-image: url("/assets/images/arrow-right.svg");
+  mask-image: url("../assets/images/arrow-right.svg");
 }
 
 @media (max-width: 48rem) {

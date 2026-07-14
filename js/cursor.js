@@ -43,6 +43,11 @@
   var cursorEnabled = false;
   var zoomEnabled = false;
 
+  function siteUrl(path) {
+    var base = (window.SITE_BASE_PATH || "/").replace(/\/$/, "");
+    return base + path;
+  }
+
   function canUseCustomCursor() {
     return desktopQuery.matches && !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   }
@@ -55,7 +60,7 @@
     ["base", "search", "hand"].forEach(function (name) {
       var icon = document.createElement("img");
       icon.className = "custom-cursor__icon custom-cursor__icon--" + name;
-      icon.src = "/assets/images/cursors/cursor-" + name + ".png";
+      icon.src = siteUrl("/assets/images/cursors/cursor-" + name + ".png");
       icon.alt = "";
       icon.width = 96;
       icon.height = 96;

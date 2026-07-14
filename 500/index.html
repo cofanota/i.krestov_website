@@ -4,6 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="color-scheme" content="light dark">
+  <script>
+    (function () {
+      var base = location.hostname === "cofanota.github.io" ? "/i.krestov_website/" : "/";
+      window.SITE_BASE_PATH = base;
+      document.write('<base href="' + base + '">');
+    })();
+  </script>
   <title>Something went wrong — Ivan Krestov</title>
   <script>
     (function () {
@@ -22,13 +29,13 @@
       document.documentElement.setAttribute("data-theme", theme);
     })();
   </script>
-  <script src="/js/background-perf.js"></script>
-  <link rel="stylesheet" href="/css/tokens.css">
-  <link rel="stylesheet" href="/css/fonts.css">
-  <link rel="stylesheet" href="/css/base.css">
-  <link rel="stylesheet" href="/css/components.css">
-  <link rel="stylesheet" href="/css/responsive.css">
-  <link rel="stylesheet" href="/css/cursor.css">
+  <script src="js/background-perf.js"></script>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/cursor.css">
 </head>
 <body class="page page--error">
   <svg class="page__filters" aria-hidden="true" focusable="false">
@@ -78,13 +85,13 @@
   <header class="site-header">
     <div class="site-header__identity">
       <div class="site-header__avatar">
-        <img src="/assets/images/avatar.png" alt="" width="48" height="48">
+        <img src="assets/images/avatar.png" alt="" width="48" height="48">
       </div>
-      <a href="/" class="site-header__name">Ivan <span class="site-header__name-accent">Krestov</span></a>
+      <a href="" class="site-header__name">Ivan <span class="site-header__name-accent">Krestov</span></a>
     </div>
     <p class="site-header__title">lead product designer &amp; creator</p>
     <div class="site-header__cta">
-      <a class="btn" href="/contacts" aria-label="Get in Touch">
+      <a class="btn" href="contacts" aria-label="Get in Touch">
         <span class="btn__label">Get in Touch</span>
         <span class="btn__icon" aria-hidden="true">
           <svg class="btn__icon-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -135,7 +142,7 @@
             </h1>
             <p class="error-panel__text">Ooops... something broke - jump back?</p>
           </div>
-          <a class="btn btn--compact error-panel__action" href="/">
+          <a class="btn btn--compact error-panel__action" href="">
             <span class="btn__label">Home</span>
           </a>
         </section>
@@ -143,7 +150,7 @@
     </article>
   </main>
 
-  <script src="/js/theme.js"></script>
-  <script src="/js/cursor.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/cursor.js"></script>
 </body>
 </html>

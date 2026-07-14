@@ -123,8 +123,8 @@
   width: 1.5rem;
   height: 1.5rem;
   background-color: var(--text-neutral-primary);
-  -webkit-mask-image: url("/assets/images/close.svg");
-  mask-image: url("/assets/images/close.svg");
+  -webkit-mask-image: url("../assets/images/close.svg");
+  mask-image: url("../assets/images/close.svg");
   -webkit-mask-size: contain;
   mask-size: contain;
   -webkit-mask-repeat: no-repeat;

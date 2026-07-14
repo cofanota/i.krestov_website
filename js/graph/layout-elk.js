@@ -16,13 +16,18 @@
 
   var elkInstance = null;
 
+  function siteUrl(path) {
+    var base = (global.SITE_BASE_PATH || "/").replace(/\/$/, "");
+    return path.charAt(0) === "/" ? base + path : path;
+  }
+
   function getElk(workerUrl) {
     if (elkInstance) return elkInstance;
     if (typeof global.ELK !== "function") {
       throw new Error("ELK is not loaded. Include /assets/vendor/elk.bundled.js before graph modules.");
     }
     elkInstance = new global.ELK({
-      workerUrl: workerUrl || "/assets/vendor/elk-worker.min.js",
+      workerUrl: siteUrl(workerUrl || "/assets/vendor/elk-worker.min.js"),
       defaultLayoutOptions: DEFAULT_LAYOUT_OPTIONS,
     });
     return elkInstance;

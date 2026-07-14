@@ -7,6 +7,15 @@
 
   var CASE_NODE_PREFIX = "case-";
 
+  function siteUrl(path) {
+    if (!path || /^(?:[a-z][a-z0-9+.-]*:|#)/i.test(path)) {
+      return path;
+    }
+
+    var base = (window.SITE_BASE_PATH || "/").replace(/\/$/, "");
+    return path.charAt(0) === "/" ? base + path : path;
+  }
+
   function isCaseNode(nodeId) {
     return nodeId && nodeId.indexOf(CASE_NODE_PREFIX) === 0;
   }
@@ -33,14 +42,14 @@
     if (indexCache) {
       return Promise.resolve(indexCache);
     }
-    return fetchJson("/cases/index.json").then(function (data) {
+    return fetchJson(siteUrl("/cases/index.json")).then(function (data) {
       indexCache = data;
       return data;
     });
   }
 
   function caseAssetUrl(folder, file) {
-    return "/cases/" + encodeURIComponent(folder) + "/" + file;
+    return siteUrl("/cases/" + encodeURIComponent(folder) + "/" + file);
   }
 
   function loadCaseMeta(folder) {
@@ -108,7 +117,7 @@
           escapeHtml(award.name) +
           '">' +
           '<img src="' +
-          escapeHtml(award.image) +
+          escapeHtml(siteUrl(award.image)) +
           '" alt="' +
           escapeHtml(award.name) +
           '" width="34" height="32" decoding="async">' +
@@ -173,7 +182,7 @@
       figureAttrs +
       ">" +
       '<img src="' +
-      escapeHtml(item.src) +
+      escapeHtml(siteUrl(item.src)) +
       '" alt="" loading="lazy" decoding="async" draggable="false">' +
       renderScaleButton() +
       "</figure>"
@@ -214,7 +223,7 @@
 
     var coverHtml = hero.cover
       ? '<img class="case-detail__cover-img" src="' +
-        escapeHtml(hero.cover) +
+        escapeHtml(siteUrl(hero.cover)) +
         '" alt="" decoding="async">'
       : "";
 

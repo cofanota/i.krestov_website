@@ -1,16 +1,22 @@
 (function () {
   "use strict";
 
+  var SITE_BASE_PATH = (window.SITE_BASE_PATH || "/").replace(/\/$/, "");
+
+  function siteRoute(path) {
+    return SITE_BASE_PATH + path;
+  }
+
   var ROUTES = {
-    home: "/",
-    about: "/about",
-    cases: "/cases",
-    "case-picksell": "/cases/picksell",
-    "case-sbibank": "/cases/sbibank",
-    "case-edstore": "/cases/edstore",
-    "case-post-ecosystem": "/cases/post-ecosystem",
-    "case-sayme": "/cases/sayme",
-    contacts: "/contacts",
+    home: siteRoute("/"),
+    about: siteRoute("/about"),
+    cases: siteRoute("/cases"),
+    "case-picksell": siteRoute("/cases/picksell"),
+    "case-sbibank": siteRoute("/cases/sbibank"),
+    "case-edstore": siteRoute("/cases/edstore"),
+    "case-post-ecosystem": siteRoute("/cases/post-ecosystem"),
+    "case-sayme": siteRoute("/cases/sayme"),
+    contacts: siteRoute("/contacts"),
   };
 
   var PATH_TO_NODE = {
@@ -68,6 +74,9 @@
 
   function nodeFromPath(pathname) {
     var path = pathname.replace(/\/+$/, "") || "/";
+    if (SITE_BASE_PATH && path.indexOf(SITE_BASE_PATH) === 0) {
+      path = path.slice(SITE_BASE_PATH.length) || "/";
+    }
     return PATH_TO_NODE[path] || "home";
   }
 
