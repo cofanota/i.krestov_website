@@ -374,6 +374,7 @@
   flex-direction: column;
   gap: var(--spacing-4);
   --case-gallery-gap: var(--spacing-3);
+  --home-project-width: 13rem;
 }
 
 .home-projects__header {
@@ -426,11 +427,11 @@
 
 .home-project {
   display: flex;
-  flex: 0 0 11.5rem;
+  flex: 0 0 var(--home-project-width);
   flex-direction: column;
   align-items: flex-start;
   gap: var(--spacing-4);
-  min-width: 11.5rem;
+  min-width: var(--home-project-width);
   padding: var(--radius-3) var(--spacing-4) 0.75rem;
   border: none;
   border-bottom: 0.0625rem solid var(--stroke-dark-default);
@@ -486,10 +487,14 @@ a.home-project:active {
 }
 
 .home-project__description {
+  display: -webkit-box;
   width: 100%;
-  height: 2rem;
+  min-height: calc(2 * var(--line-height-text-caption) * 1em);
   margin: 0;
   overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
   font-family: var(--font-body);
   font-size: var(--font-size-text-caption);
   font-weight: 500;
