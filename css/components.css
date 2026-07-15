@@ -404,6 +404,7 @@
   align-items: stretch;
   gap: var(--spacing-3);
   width: 100%;
+  border-radius: var(--radius-card);
   overflow-x: auto;
   overflow-y: hidden;
   scroll-behavior: smooth;
