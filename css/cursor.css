@@ -78,13 +78,12 @@
 }
 
 .image-lightbox__nav {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 var(--spacing-4);
+  position: fixed;
+  left: 50%;
+  bottom: var(--level-page-padding);
+  z-index: 2;
+  justify-content: center;
+  transform: translateX(-50%);
   pointer-events: none;
 }
 
