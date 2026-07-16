@@ -49,8 +49,7 @@
   line-height: var(--line-height-heading-tertiary);
 }
 
-.site-header__name:hover .site-header__name-accent,
-.site-header__name:focus-visible .site-header__name-accent {
+.site-header__name-accent {
   font-family: var(--font-accent);
   font-weight: 400;
   font-variation-settings: "SOFT" 0, "WONK" 1;
@@ -962,17 +961,6 @@ a.project-row:focus-visible {
 a.project-row:active {
   background-color: var(--action-secondary-click);
   border-radius: var(--radius-3);
-}
-
-a.project-row:not(.cases__nda):hover .project-row__title,
-a.project-row:not(.cases__nda):focus-visible .project-row__title,
-a.project-row:not(.cases__nda):active .project-row__title,
-a.home-project:hover .home-project__title,
-a.home-project:focus-visible .home-project__title,
-a.home-project:active .home-project__title {
-  font-family: var(--font-accent);
-  font-weight: 400;
-  font-variation-settings: "SOFT" 0, "WONK" 1;
 }
 
 .project-row__card {
