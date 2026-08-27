@@ -1,3 +1,8 @@
+html:has(body.image-lightbox-open),
+body.image-lightbox-open {
+  overflow: hidden;
+}
+
 .image-lightbox {
   position: fixed;
   inset: 0;
@@ -80,7 +85,7 @@
 .image-lightbox__nav {
   position: fixed;
   left: 50%;
-  bottom: var(--level-page-padding);
+  bottom: calc(var(--nav-pill-clearance) + 0.75rem);
   z-index: 2;
   justify-content: center;
   transform: translateX(-50%);
@@ -146,54 +151,4 @@
 
 .image-lightbox__close:active .image-lightbox__close-icon {
   opacity: 0.4;
-}
-
-/* Custom cursor — desktop pointer devices only */
-@media (min-width: 64rem) and (pointer: fine) {
-  :root {
-    --cursor-scale: 1.5;
-  }
-
-  html.has-custom-cursor,
-  html.has-custom-cursor * {
-    cursor: none !important;
-  }
-
-  .custom-cursor {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 10000;
-    width: calc(1.5rem * var(--cursor-scale));
-    height: calc(1.5rem * var(--cursor-scale));
-    pointer-events: none;
-    opacity: 0;
-    will-change: transform;
-    transition: opacity 120ms ease;
-  }
-
-  .custom-cursor.is-visible {
-    opacity: 1;
-  }
-
-  .custom-cursor__icon {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 80ms ease;
-  }
-
-  .custom-cursor__icon.is-active {
-    opacity: 1;
-  }
-
-  html.has-custom-cursor .image-lightbox__backdrop,
-  html.has-custom-cursor .image-lightbox__dialog,
-  html.has-custom-cursor .image-lightbox__img,
-  html.has-custom-cursor .image-lightbox__close,
-  html.has-custom-cursor .image-lightbox__nav .case-detail__gallery-btn {
-    cursor: none;
-  }
 }

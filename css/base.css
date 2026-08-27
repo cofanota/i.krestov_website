@@ -8,17 +8,16 @@ html {
   font-size: 100%;
   -webkit-text-size-adjust: 100%;
   color-scheme: light dark;
-  height: 100%;
-  overflow: hidden;
-  overscroll-behavior: none;
+  min-height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 body {
   margin: 0;
   min-height: 100%;
-  height: 100%;
-  overflow: hidden;
-  overscroll-behavior: none;
+  overflow-x: hidden;
+  overflow-y: visible;
   font-family: var(--font-body);
   font-weight: 500;
   color: var(--text-neutral-primary);
@@ -88,23 +87,9 @@ h3,
   display: flex;
   flex-direction: column;
   min-height: 100%;
-  height: 100%;
+  min-height: 100dvh;
   position: relative;
-  overflow: hidden;
-  overscroll-behavior: none;
-}
-
-@media (min-width: 64rem) {
-  .page--home {
-    overflow-x: clip;
-  }
-}
-
-.page__filters {
-  position: absolute;
-  width: 0;
-  height: 0;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .page__background {
@@ -118,44 +103,7 @@ h3,
   transform: translateZ(0);
 }
 
-.page__background-noise {
-  position: absolute;
-  inset: 0;
-  background-color: var(--fill-bg-lvl-2);
-  opacity: var(--page-noise-opacity);
-  mix-blend-mode: multiply;
-  filter: url(#page-noise);
-  transform: translateZ(0);
-}
-
-:root[data-theme="dark"] .page__background-noise {
-  mix-blend-mode: soft-light;
-}
-
-:root[data-noise-filter="static"] .page__background-noise {
-  filter: url(#page-noise-static);
-}
-
-:root[data-noise-filter="static"] .page__background-noise,
-:root[data-noise-filter="static"][data-theme="dark"] .page__background-noise {
-  mix-blend-mode: normal;
-}
-
-:root[data-diag~="no-noise"] .page__background-noise {
-  display: none;
-}
-
-:root[data-diag~="no-blend"] .page__background-noise,
-:root[data-diag~="no-blend"][data-theme="dark"] .page__background-noise {
-  mix-blend-mode: normal;
-}
-
-:root[data-diag~="static-noise"] .page__background-noise {
-  filter: url(#page-noise-static);
-}
-
-:root[data-diag~="no-will-change"] .map-canvas,
-:root[data-diag~="no-will-change"][data-noise-filter="animated"] .map-canvas {
+:root[data-diag~="no-will-change"] .page-card {
   will-change: auto;
 }
 
@@ -172,19 +120,12 @@ h3,
   background-size: var(--page-grid-size) var(--page-grid-size);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .page__background-noise {
-    filter: url(#page-noise-static);
-    mix-blend-mode: normal;
-  }
-}
-
-.page > .map-viewport {
+.page-main {
   position: relative;
   z-index: 1;
-  flex: 1;
-  min-height: 0;
-  padding: 0 var(--level-page-padding) var(--level-page-padding);
+  flex: 1 1 auto;
+  width: 100%;
+  min-height: 100%;
 }
 
 .sr-only {

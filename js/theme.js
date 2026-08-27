@@ -64,18 +64,20 @@
   function init() {
     applyTheme(resolveTheme());
 
-    var switchRoot = document.querySelector(".theme-switch");
-    if (!switchRoot) {
+    var switchRoots = document.querySelectorAll(".theme-switch");
+    if (!switchRoots.length) {
       return;
     }
 
-    switchRoot.addEventListener("click", function (event) {
-      var segment = event.target.closest("[data-theme-value]");
-      if (!segment || !switchRoot.contains(segment)) {
-        return;
-      }
+    switchRoots.forEach(function (switchRoot) {
+      switchRoot.addEventListener("click", function (event) {
+        var segment = event.target.closest("[data-theme-value]");
+        if (!segment || !switchRoot.contains(segment)) {
+          return;
+        }
 
-      setTheme(segment.getAttribute("data-theme-value"), true);
+        setTheme(segment.getAttribute("data-theme-value"), true);
+      });
     });
 
     if (typeof systemMq.addEventListener === "function") {

@@ -1,79 +1,93 @@
-/* Compact layout: ≤1023px */
+/* Compact layout: ≤1023px — mobile bottom pill */
 @media (max-width: 63.9375rem) {
   :root {
-    --header-height: 5rem;
     --level-page-padding: 2rem;
     --level-card-padding: 2rem;
+    --content-padding-top: 2rem;
     --font-size-heading-primary: 2.125rem;
     --card-edge-gap: 1.5rem;
-    --map-camera-offset-y: 3.125rem;
-    --theme-switch-height: calc(2.75rem * var(--ui-scale));
-    --chrome-bottom: calc(var(--level-page-padding) + var(--theme-switch-height));
+    --nav-pill-gap: 2.5rem;
+    --nav-pill-clearance: calc(6rem + env(safe-area-inset-bottom, 0px));
   }
 
-  .page > .map-viewport {
-    --card-height: calc(100% - var(--chrome-bottom) - var(--card-edge-gap));
-    --card-min-height: var(--card-height);
+  .site-nav {
+    width: var(--nav-pill-width-mobile);
+    max-width: calc(100vw - 1.5rem);
   }
 
-  .map-card.card {
-    height: var(--card-height);
-    max-height: var(--card-height);
-  }
-
-  .card__menu {
-    flex-shrink: 0;
-    min-height: 0;
-    height: auto;
-  }
-
-  .map-card--subpage .card__menu {
-    height: auto;
-  }
-
-  .site-header {
-    flex-wrap: nowrap;
-    align-items: center;
+  .site-nav__pill {
+    width: 100%;
+    justify-content: space-between;
     gap: var(--spacing-3);
   }
 
-  .site-header__identity {
-    flex: 1 1 auto;
-    min-width: 0;
+  .site-nav__panel {
+    display: none;
   }
 
-  .site-header__name {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+  .site-nav__theme {
+    display: none;
+    margin-right: 0;
   }
 
-  .site-header__title {
-    flex-shrink: 1;
-    min-width: 0;
-    width: auto;
-    order: unset;
-    padding-left: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+  .site-nav__name {
+    display: none;
   }
 
-  .site-header__cta {
-    flex-shrink: 0;
-    margin-left: 0;
+  .site-nav__more {
+    display: inline-flex;
   }
 
-  .site-header__cta .btn .btn__label {
-    position: absolute;
-    width: 0.0625rem;
-    height: 0.0625rem;
-    padding: 0;
-    margin: -0.0625rem;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
+  .site-nav__actions {
+    gap: 0.25rem;
+  }
+
+  .site-nav.is-expanded .site-nav__pill {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "panel theme"
+      "identity actions";
+    align-items: start;
+    column-gap: var(--spacing-3);
+    row-gap: var(--nav-pill-gap);
+  }
+
+  .site-nav.is-expanded .site-nav__panel {
+    display: block;
+    grid-area: panel;
+  }
+
+  .site-nav.is-expanded .site-nav__routes {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-3);
+  }
+
+  .site-nav.is-expanded .site-nav__theme {
+    display: flex;
+    grid-area: theme;
+    justify-self: end;
+    min-height: 0;
+    gap: 0.125rem;
+    padding: 0.125rem;
+    border-radius: 0.375rem;
+  }
+
+  .site-nav.is-expanded .site-nav__theme .theme-switch__segment {
+    padding: 0.125rem;
+    border-radius: 0.375rem;
+  }
+
+  .site-nav.is-expanded .site-nav__identity {
+    grid-area: identity;
+    align-self: center;
+  }
+
+  .site-nav.is-expanded .site-nav__actions {
+    grid-area: actions;
+    justify-self: end;
+    align-self: center;
   }
 
   .about__highlights {
@@ -139,107 +153,22 @@
   .card {
     flex-direction: column;
   }
-
-  .card__divider {
-    display: none;
-  }
-
-  .card__menu {
-    width: 100%;
-    flex-direction: column;
-    justify-content: flex-start;
-    border-top: 0.0625rem solid var(--stroke-dark-default);
-    padding: calc(var(--level-menu-padding-y) * 0.5) var(--level-menu-padding-x);
-  }
-
-  .card__menu-bar {
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: var(--spacing-4);
-    width: 100%;
-    padding: 0;
-  }
-
-  .map-card--subpage .card__menu-bar .card__menu-actions,
-  .map-card--subpage .card__menu-bar .card__menu-title {
-    order: unset;
-  }
-
-  .card__menu-title {
-    flex-shrink: 0;
-    margin-top: 0.375rem;
-    font-size: 1rem;
-    line-height: var(--line-height-heading-tertiary);
-  }
-
-  .card__menu-actions {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    align-items: flex-start;
-    gap: var(--spacing-3);
-  }
-
-  ul.card__menu-actions {
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-
-  .card__back-link.card__menu-actions {
-    align-self: flex-start;
-  }
-
-  .card__submenu {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: var(--spacing-3);
-  }
 }
 
 /* Mobile: ≤520px */
 @media (max-width: 32.5rem) {
   :root {
-    --header-height: 4.5rem;
     --level-page-padding: 1.25rem;
     --level-card-padding: 1.25rem;
     --level-menu-padding-x: 1.25rem;
     --level-menu-padding-y: 1.25rem;
+    --content-padding-top: 1.5rem;
     --font-size-heading-primary: 1.75rem;
     --font-size-heading-amount: 9rem;
     --font-size-heading-tertiary: 1.25rem;
-    --avatar-size: 2.5rem;
+    --avatar-size: 3rem;
     --card-edge-gap: 0.75rem;
-    --map-camera-offset-y: 2.375rem;
-  }
-
-  .site-header {
-    flex-direction: row;
-    align-items: center;
-    gap: var(--spacing-3);
-    padding-top: var(--level-page-padding);
-    padding-bottom: var(--level-page-padding);
-  }
-
-  .site-header__identity {
-    width: auto;
-  }
-
-  .site-header__title {
-    display: none;
-  }
-
-  .site-header__cta {
-    width: auto;
-  }
-
-  .site-header__cta .btn {
-    width: auto;
-    justify-content: center;
-  }
-
-  .page > .map-viewport {
-    padding-top: 0;
+    --nav-pill-clearance: calc(5.75rem + env(safe-area-inset-bottom, 0px));
   }
 
   .hero__headline-block {
@@ -410,63 +339,29 @@
     word-break: break-word;
     direction: ltr;
   }
-
-  ul.card__menu-actions {
-    flex-direction: column;
-    align-items: flex-end;
-  }
-
-  .card__back-link.card__menu-actions {
-    flex-direction: row-reverse;
-  }
-
-  .card__submenu {
-    flex-direction: column;
-    align-items: flex-end;
-    width: auto;
-  }
 }
 
-/* Desktop: cap card height to available viewport space */
+/* Desktop and up: scale from 1024 design units so 1440 is ~1.4× */
 @media (min-width: 64rem) {
   :root {
-    --theme-switch-height: calc(2.75rem * var(--ui-scale));
-    --chrome-bottom: calc(var(--level-page-padding) + var(--theme-switch-height));
-    --card-design-height: 37.5rem;
-  }
-
-  .page > .map-viewport {
-    --card-available-height: calc(100% - var(--chrome-bottom));
-    --card-height: min(var(--card-design-height), var(--card-available-height));
-    --card-min-height: var(--card-height);
-    padding-bottom: var(--chrome-bottom);
-  }
-}
-
-/* Large desktop: proportional scale from 90rem, capped at 1.3 */
-@media (min-width: 90rem) {
-  :root {
-    --theme-switch-height: calc(2.75rem * var(--ui-scale-applied));
-    --chrome-bottom: calc(var(--level-page-padding) + var(--theme-switch-height));
-
     --ui-scale: calc(100vw / var(--ui-scale-ref));
     --ui-scale-applied: min(var(--ui-scale-max), max(1, var(--ui-scale)));
 
-    /* Levels (before --card-width) */
+    /* Levels */
     --level-page-padding: calc(2.5rem * var(--ui-scale-applied));
     --level-card-padding: calc(2.5rem * var(--ui-scale-applied));
     --level-menu-padding-x: calc(1.625rem * var(--ui-scale-applied));
     --level-menu-padding-y: calc(2.5rem * var(--ui-scale-applied));
+    --content-padding-top: calc(3.5rem * var(--ui-scale-applied));
+    --nav-pill-padding: calc(1rem * var(--ui-scale-applied));
+    --nav-pill-gap: calc(2.5rem * var(--ui-scale-applied));
+    --nav-pill-radius: calc(2rem * var(--ui-scale-applied));
+    --nav-pill-blur: calc(0.375rem * var(--ui-scale-applied));
+    --nav-pill-clearance: calc(7.5rem * var(--ui-scale-applied) + env(safe-area-inset-bottom, 0px));
+    --nav-pill-bottom: max(calc(1.5rem * var(--ui-scale-applied)), env(safe-area-inset-bottom, 0px));
 
     /* Layout */
-    --card-width: min(
-      calc(64rem * var(--ui-scale-applied)),
-      calc(100vw - 2 * var(--level-page-padding))
-    );
-    --card-design-height: calc(37.5rem * var(--ui-scale-applied));
-    --card-min-height: var(--card-design-height);
-    --card-menu-width: calc(11.25rem * var(--ui-scale-applied));
-    --header-height: calc(8rem * var(--ui-scale-applied));
+    --card-width: 100%;
     --avatar-size: calc(3rem * var(--ui-scale-applied));
     --icon-size: calc(1rem * var(--ui-scale-applied));
     --icon-size-dot: calc(0.375rem * var(--ui-scale-applied));
@@ -494,10 +389,6 @@
     --radius-3: calc(0.75rem * var(--ui-scale-applied));
     --radius-4: calc(0.5rem * var(--ui-scale-applied));
 
-    /* Map */
-    --map-camera-offset-y: calc(2.5rem * var(--ui-scale-applied));
-    --map-slide-up: calc(0.5rem * var(--ui-scale-applied));
-
     /* Background */
     --page-grid-size: calc(2rem * var(--ui-scale-applied));
 
@@ -506,9 +397,11 @@
       calc(-0.1875rem * var(--ui-scale-applied)) rgba(0, 0, 0, 0.16);
   }
 
-  .page > .map-viewport {
-    --card-available-height: calc(100% - var(--chrome-bottom));
-    --card-height: min(var(--card-design-height), var(--card-available-height));
-    --card-min-height: var(--card-height);
+  .site-nav__more {
+    display: none;
+  }
+
+  .site-nav.is-expanded .site-nav__panel {
+    display: flex;
   }
 }

@@ -22,14 +22,6 @@
     ) || /Chrome|Chromium|Edg\//i.test(navigator.userAgent);
   }
 
-  function shouldUseStaticNoise() {
-    if (isChromiumEngine()) {
-      return false;
-    }
-
-    return isWebKitEngine();
-  }
-
   function readDiagFlags() {
     try {
       var params = new URLSearchParams(window.location.search);
@@ -56,25 +48,6 @@
     }
 
     root.setAttribute("data-diag", flags.join(" "));
-  }
-
-  function applyNoiseMode(flags) {
-    if (flags.indexOf("no-noise") !== -1) {
-      root.setAttribute("data-noise-filter", "off");
-      return;
-    }
-
-    if (flags.indexOf("static-noise") !== -1) {
-      root.setAttribute("data-noise-filter", "static");
-      return;
-    }
-
-    if (shouldUseStaticNoise()) {
-      root.setAttribute("data-noise-filter", "static");
-      return;
-    }
-
-    root.setAttribute("data-noise-filter", "animated");
   }
 
   function percentile(values, p) {
@@ -128,7 +101,6 @@
         frameMsP50: Math.round(percentile(samples, 50) * 10) / 10,
         frameMsP95: Math.round(percentile(samples, 95) * 10) / 10,
         frameMsMax: Math.round(Math.max.apply(null, samples) * 10) / 10,
-        noiseFilter: root.getAttribute("data-noise-filter"),
         diag: root.getAttribute("data-diag") || "",
         engine: isChromiumEngine() ? "chromium" : isWebKitEngine() ? "webkit" : "other",
       };
@@ -147,12 +119,12 @@
     }
 
     var selectors = [
-      ".card__submenu-link",
-      ".card__back-link",
+      ".site-nav__link",
+      ".page-back__link",
       ".btn",
       ".project-row",
       ".contact-link",
-      ".site-header__name",
+      ".site-nav__identity",
     ].join(",");
 
     document.addEventListener(
@@ -177,7 +149,6 @@
   function init() {
     var flags = readDiagFlags();
     applyDiagFlags(flags);
-    applyNoiseMode(flags);
 
     if (flags.indexOf("profile") !== -1) {
       startHoverProfiler();

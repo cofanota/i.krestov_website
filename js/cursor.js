@@ -1,12 +1,4 @@
 (function () {
-  var DESKTOP_QUERY = "(min-width: 64rem) and (pointer: fine)";
-  var CURSOR_SCALE = 1.5;
-  var CURSOR_HOTSPOTS = {
-    base: { x: 7, y: 7 },
-    search: { x: 11, y: 10 },
-    hand: { x: 8, y: 6 },
-  };
-
   var ZOOMABLE_SELECTOR = [
     ".cases__gallery .about__figure img",
     ".cases__gallery .about__thumb",
@@ -14,66 +6,12 @@
 
   var SCALE_BTN_SELECTOR = ".case-detail__scale-btn";
 
-  var INTERACTIVE_SELECTOR = [
-    "a[href]",
-    "button:not(:disabled)",
-    "[role='button']:not([aria-disabled='true'])",
-    ".project-row",
-    "label",
-    "summary",
-    "select",
-    "textarea",
-    "input",
-    "[data-map-target]",
-    ".card__submenu-link",
-    ".case-detail__gallery-btn",
-    ".image-lightbox__nav-btn",
-  ].join(", ");
-
-  var desktopQuery = window.matchMedia(DESKTOP_QUERY);
-  var cursorEl = null;
-  var icons = {};
   var lightboxEl = null;
   var lightboxImg = null;
   var lightboxViewport = null;
   var galleryItems = [];
   var galleryIndex = -1;
-  var lastPointer = { x: 0, y: 0 };
-  var activeState = "base";
-  var cursorEnabled = false;
   var zoomEnabled = false;
-
-  function siteUrl(path) {
-    var base = (window.SITE_BASE_PATH || "/").replace(/\/$/, "");
-    return base + path;
-  }
-
-  function canUseCustomCursor() {
-    return desktopQuery.matches && !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  }
-
-  function createCursor() {
-    cursorEl = document.createElement("div");
-    cursorEl.className = "custom-cursor";
-    cursorEl.setAttribute("aria-hidden", "true");
-
-    ["base", "search", "hand"].forEach(function (name) {
-      var icon = document.createElement("img");
-      icon.className = "custom-cursor__icon custom-cursor__icon--" + name;
-      icon.src = siteUrl("/assets/images/cursors/cursor-" + name + ".png");
-      icon.alt = "";
-      icon.width = 96;
-      icon.height = 96;
-      icon.draggable = false;
-      if (name === "base") {
-        icon.classList.add("is-active");
-      }
-      icons[name] = icon;
-      cursorEl.appendChild(icon);
-    });
-
-    document.body.appendChild(cursorEl);
-  }
 
   function createLightbox() {
     lightboxEl = document.createElement("div");
@@ -262,78 +200,6 @@
     showGalleryItem(Math.min(galleryItems.length - 1, Math.max(0, galleryIndex + delta)));
   }
 
-  function setCursorState(state) {
-    if (!icons[state] || activeState === state) {
-      return;
-    }
-
-    icons[activeState].classList.remove("is-active");
-    icons[state].classList.add("is-active");
-    activeState = state;
-  }
-
-  function moveCursor(x, y) {
-    if (!cursorEl) {
-      return;
-    }
-
-    var hotspot = CURSOR_HOTSPOTS[activeState] || CURSOR_HOTSPOTS.base;
-    cursorEl.style.transform =
-      "translate3d(" +
-      (x - hotspot.x * CURSOR_SCALE) +
-      "px, " +
-      (y - hotspot.y * CURSOR_SCALE) +
-      "px, 0)";
-  }
-
-  function resolveCursorState(target) {
-    if (!(target instanceof Element)) {
-      return "base";
-    }
-
-    if (target.closest(".image-lightbox")) {
-      return "hand";
-    }
-
-    if (target.closest(ZOOMABLE_SELECTOR)) {
-      return "search";
-    }
-
-    if (target.closest(INTERACTIVE_SELECTOR)) {
-      return "hand";
-    }
-
-    return "base";
-  }
-
-  function onPointerMove(event) {
-    lastPointer.x = event.clientX;
-    lastPointer.y = event.clientY;
-
-    if (!cursorEl) {
-      return;
-    }
-
-    cursorEl.classList.add("is-visible");
-    setCursorState(resolveCursorState(event.target));
-    moveCursor(event.clientX, event.clientY);
-  }
-
-  function onPointerOver(event) {
-    if (!cursorEl) {
-      return;
-    }
-
-    setCursorState(resolveCursorState(event.target));
-    moveCursor(event.clientX, event.clientY);
-  }
-
-  function onPointerLeave() {
-    if (cursorEl) {
-      cursorEl.classList.remove("is-visible");
-    }
-  }
-
   function revealLightbox() {
     if (!lightboxEl) {
       return;
@@ -388,7 +254,6 @@
     galleryIndex = -1;
     updateLightboxNav();
     document.body.classList.remove("image-lightbox-open");
-    moveCursor(lastPointer.x, lastPointer.y);
   }
 
   function onClick(event) {
@@ -478,88 +343,14 @@
     document.addEventListener("keydown", onKeyDown);
   }
 
-  function disableZoom() {
-    if (!zoomEnabled) {
-      return;
-    }
-
-    zoomEnabled = false;
-    document.body.classList.remove("image-lightbox-open");
-    document.removeEventListener("click", onClick);
-    document.removeEventListener("keydown", onKeyDown);
-
-    if (lightboxEl) {
-      lightboxEl.remove();
-      lightboxEl = null;
-      lightboxImg = null;
-      lightboxViewport = null;
-      galleryItems = [];
-      galleryIndex = -1;
-    }
-  }
-
-  function enableCursor() {
-    if (cursorEnabled) {
-      return;
-    }
-
-    cursorEnabled = true;
-    document.documentElement.classList.add("has-custom-cursor");
-
-    if (!cursorEl) {
-      createCursor();
-    }
-
-    document.addEventListener("pointermove", onPointerMove, { passive: true });
-    document.addEventListener("pointerover", onPointerOver, { passive: true });
-    document.addEventListener("pointerleave", onPointerLeave, { passive: true });
-  }
-
-  function disableCursor() {
-    if (!cursorEnabled) {
-      return;
-    }
-
-    cursorEnabled = false;
-    document.documentElement.classList.remove("has-custom-cursor");
-
-    document.removeEventListener("pointermove", onPointerMove);
-    document.removeEventListener("pointerover", onPointerOver);
-    document.removeEventListener("pointerleave", onPointerLeave);
-
-    if (cursorEl) {
-      cursorEl.remove();
-      cursorEl = null;
-      icons = {};
-    }
-
-    activeState = "base";
-  }
-
   window.ImageLightbox = {
     open: openLightbox,
     close: closeLightbox,
   };
 
-  function sync() {
-    enableZoom();
-
-    if (canUseCustomCursor()) {
-      enableCursor();
-    } else {
-      disableCursor();
-    }
-  }
-
-  if (typeof desktopQuery.addEventListener === "function") {
-    desktopQuery.addEventListener("change", sync);
-  } else if (typeof desktopQuery.addListener === "function") {
-    desktopQuery.addListener(sync);
-  }
-
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", sync);
+    document.addEventListener("DOMContentLoaded", enableZoom);
   } else {
-    sync();
+    enableZoom();
   }
 })();

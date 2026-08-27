@@ -5,8 +5,6 @@
   var metaCache = {};
   var textCache = {};
 
-  var CASE_NODE_PREFIX = "case-";
-
   function siteUrl(path) {
     if (!path || /^(?:[a-z][a-z0-9+.-]*:|#)/i.test(path)) {
       return path;
@@ -14,10 +12,6 @@
 
     var base = (window.SITE_BASE_PATH || "/").replace(/\/$/, "");
     return path.charAt(0) === "/" ? base + path : path;
-  }
-
-  function isCaseNode(nodeId) {
-    return nodeId && nodeId.indexOf(CASE_NODE_PREFIX) === 0;
   }
 
   function fetchJson(url) {
@@ -330,13 +324,6 @@
       '<hr class="case-detail__divider" aria-hidden="true">' +
       sectionsHtml
     );
-  }
-
-  function updateCaseMenu(card, meta) {
-    var titleEl = card.querySelector(".card__menu-title");
-    if (titleEl) {
-      titleEl.textContent = meta.title;
-    }
   }
 
   var galleryDesktopMq = window.matchMedia("(min-width: 48.0625rem)");
@@ -783,15 +770,14 @@
   }
 
   function hydrateCaseCard(entry) {
-    var card = document.getElementById("map-card-" + entry.nodeId);
-    if (!card) {
-      return Promise.resolve();
-    }
-
-    var host = card.querySelector(".card__content--case-detail");
+    var host = document.querySelector(
+      '.card__content--case-detail[data-case-slug="' + entry.slug + '"]'
+    );
     if (!host) {
       return Promise.resolve();
     }
+
+    var card = host.closest(".card");
 
     return Promise.all([loadCaseMeta(entry.folder), loadCaseText(entry.folder)]).then(
       function (results) {
@@ -806,7 +792,6 @@
         detail.hidden = false;
         host.dataset.hydrated = "true";
 
-        updateCaseMenu(card, meta);
         bindGalleries(detail);
         bindImageScale(detail);
         bindCtaAwards(detail);
@@ -815,7 +800,7 @@
   }
 
   function hydrateCasesList() {
-    var list = document.querySelector("#map-card-cases .project-list");
+    var list = document.querySelector(".card__content--cases .project-list");
     if (!list) {
       return Promise.resolve();
     }
@@ -851,27 +836,41 @@
     });
   }
 
-  function sync(nodeId) {
-    if (nodeId === "cases") {
+  function hydrateCurrentPage() {
+    var page = document.body.getAttribute("data-page");
+
+    if (page === "cases") {
       return hydrateCasesList();
     }
 
-    if (!isCaseNode(nodeId)) {
-      return Promise.resolve();
+    if (page === "case") {
+      var host = document.querySelector(".card__content--case-detail[data-case-slug]");
+      var slug = host && host.getAttribute("data-case-slug");
+      if (!slug) {
+        return Promise.resolve();
+      }
+
+      return loadIndex().then(function (entries) {
+        var entry = entries.find(function (item) {
+          return item.slug === slug;
+        });
+        if (!entry) {
+          return;
+        }
+        return hydrateCaseCard(entry);
+      });
     }
 
-    return loadIndex().then(function (entries) {
-      var entry = entries.find(function (item) {
-        return item.nodeId === nodeId;
-      });
-      if (!entry) {
-        return;
-      }
-      return hydrateCaseCard(entry);
-    });
+    return Promise.resolve();
   }
 
   window.CasesContent = {
-    sync: sync,
+    hydrate: hydrateCurrentPage,
   };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", hydrateCurrentPage);
+  } else {
+    hydrateCurrentPage();
+  }
 })();

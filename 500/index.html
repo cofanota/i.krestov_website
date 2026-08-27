@@ -18,7 +18,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://www.cofanota.com/assets/images/link%20preview.png">
 
-  <title>Something went wrong — Ivan Krestov</title>
+  <title>Server error — Ivan Krestov</title>
   <script>
     (function () {
       var stored;
@@ -44,120 +44,108 @@
   <link rel="stylesheet" href="css/responsive.css">
   <link rel="stylesheet" href="css/cursor.css">
 </head>
-<body class="page page--error">
-  <svg class="page__filters" aria-hidden="true" focusable="false">
-    <defs>
-      <filter id="page-noise" color-interpolation-filters="sRGB">
-        <feTurbulence
-          type="fractalNoise"
-          baseFrequency="0.78"
-          numOctaves="4"
-          stitchTiles="stitch"
-          result="turbulence"
-        >
-          <animate
-            attributeName="seed"
-            dur="7s"
-            values="0;40;80;40;0"
-            repeatCount="indefinite"
-          />
-        </feTurbulence>
-        <feColorMatrix
-          in="turbulence"
-          type="matrix"
-          values="0 0 0 0 0.42  0 0 0 0 0.41  0 0 0 0 0.4  0 0 0 0.5 0"
-        />
-      </filter>
-      <filter id="page-noise-static" color-interpolation-filters="sRGB">
-        <feTurbulence
-          type="fractalNoise"
-          baseFrequency="0.78"
-          numOctaves="4"
-          stitchTiles="stitch"
-          seed="12"
-        />
-        <feColorMatrix
-          type="matrix"
-          values="0 0 0 0 0.42  0 0 0 0 0.41  0 0 0 0 0.4  0 0 0 0.5 0"
-        />
-      </filter>
-    </defs>
-  </svg>
+<body class="page page--error" data-page="error">
 
   <div class="page__background" aria-hidden="true">
-    <div class="page__background-noise"></div>
     <div class="page__background-grid"></div>
   </div>
-
-  <header class="site-header">
-    <div class="site-header__identity">
-      <div class="site-header__avatar">
-        <img src="assets/images/avatar.png" alt="" width="48" height="48">
-      </div>
-      <a href="." class="site-header__name">Ivan <span class="site-header__name-accent">K</span>restov</a>
-    </div>
-    <p class="site-header__title">lead product designer &amp; creator</p>
-    <div class="site-header__cta">
-      <a class="btn" href="contacts" aria-label="Get in Touch">
-        <span class="btn__label">Get in Touch</span>
-        <span class="btn__icon" aria-hidden="true">
-          <svg class="btn__icon-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M18.0978 6.14321L12.7074 20.4122L12.0739 20.4126L10.2562 14.1549L14.2936 9.94869L14.1661 9.82159L9.61625 13.5152L8.74403 13.2779L3.82925 12.1676L3.8297 11.5336L18.0978 6.14321Z" fill="currentColor"/>
-          </svg>
+  <nav class="site-nav" aria-label="Site navigation" data-site-nav>
+    <div class="site-nav__pill">
+      <a class="site-nav__identity" href="">
+        <span class="site-nav__avatar">
+          <img src="assets/images/avatar.png" alt="" width="48" height="48">
         </span>
+        <span class="site-nav__name">Ivan Krestov</span>
       </a>
-    </div>
-  </header>
-
-  <div class="theme-switch" role="group" aria-label="Theme">
-    <button
-      type="button"
-      class="theme-switch__segment is-active"
-      data-theme-value="light"
-      aria-pressed="true"
-      aria-label="Light theme"
-    >
+      <div class="site-nav__panel" id="site-nav-panel">
+        <ul class="site-nav__routes">
+          <li>
+            <a class="site-nav__link" href="">Home</a>
+          </li>
+          <li>
+            <a class="site-nav__link" href="about">About</a>
+          </li>
+          <li>
+            <a class="site-nav__link" href="cases">Cases</a>
+          </li>
+          <li>
+            <a class="site-nav__link" href="contacts">Contacts</a>
+          </li>
+        </ul>
+      </div>
+      <div class="theme-switch site-nav__theme" role="group" aria-label="Theme">
+        <button
+          type="button"
+          class="theme-switch__segment is-active"
+          data-theme-value="light"
+          aria-pressed="true"
+          aria-label="Light theme"
+        >
       <svg class="theme-switch__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
         <path d="M12.8998 6.44641C13.7818 6.58822 14.5949 6.93586 15.2893 7.43738L17.7283 4.99951L19.0005 6.27283L16.5615 8.70959C17.0635 9.40426 17.4106 10.2177 17.5525 11.1002H21V12.8998H17.5525C17.4106 13.782 17.0632 14.5948 16.5615 15.2893L19.0005 17.7283L17.7283 19.0005L15.2893 16.5615C14.5948 17.0632 13.782 17.4106 12.8998 17.5525V21H11.1002V17.5525C10.2177 17.4106 9.40426 17.0635 8.70959 16.5615L6.27173 19.0005L4.99951 17.7272L7.43738 15.2893C6.9359 14.5949 6.58933 13.7818 6.44751 12.8998H3V11.1002H6.44751C6.58938 10.2179 6.93561 9.40415 7.43738 8.70959L4.99951 6.27173L6.27173 4.99951L8.70959 7.43738C9.40419 6.93558 10.2179 6.58826 11.1002 6.44641V3H12.8998V6.44641ZM12 8.17456C9.88751 8.17456 8.17456 9.88751 8.17456 12C8.17456 14.1125 9.88751 15.8254 12 15.8254C14.1125 15.8254 15.8254 14.1125 15.8254 12C15.8254 9.88751 14.1125 8.17456 12 8.17456Z" fill="currentColor"/>
       </svg>
-    </button>
-    <button
-      type="button"
-      class="theme-switch__segment"
-      data-theme-value="dark"
-      aria-pressed="false"
-      aria-label="Dark theme"
-    >
+        </button>
+        <button
+          type="button"
+          class="theme-switch__segment"
+          data-theme-value="dark"
+          aria-pressed="false"
+          aria-label="Dark theme"
+        >
       <svg class="theme-switch__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
         <path d="M13.3183 4.5C14.9252 4.5 16.4132 5.00672 17.6337 5.86719L17.1962 6.74316C16.5739 6.50591 15.899 6.375 15.1933 6.375C12.0867 6.375 9.56831 8.8934 9.56831 12C9.56831 15.1066 12.0867 17.625 15.1933 17.625C15.8991 17.625 16.5738 17.4932 17.1962 17.2559L17.6337 18.1318C16.4131 18.9925 14.9254 19.5 13.3183 19.5C9.17617 19.5 5.81831 16.1421 5.81831 12C5.81831 7.85786 9.17617 4.5 13.3183 4.5Z" fill="currentColor"/>
       </svg>
-    </button>
-  </div>
-
-  <footer class="site-footer" aria-label="Site footer">
-    <p class="site-footer__copy">Designed by human,</p>
-    <p class="site-footer__copy">coded by AI</p>
-  </footer>
-
-  <main class="error-main" id="main">
-    <article class="card error-card">
-      <div class="card__content card__content--error" aria-label="Error content">
-        <section class="error-panel" aria-labelledby="error-title">
-          <div class="error-panel__message">
-            <h1 class="error-panel__code" id="error-title" aria-label="500 Server Error">
-              50<span class="error-panel__code-accent">0</span>
-            </h1>
-            <p class="error-panel__text">Ooops... something broke - jump back?</p>
-          </div>
-          <a class="btn btn--compact error-panel__action" href=".">
-            <span class="btn__label">Home</span>
-          </a>
-        </section>
+        </button>
       </div>
+      <div class="site-nav__actions">
+        <button
+          type="button"
+          class="site-nav__more"
+          aria-expanded="false"
+          aria-controls="site-nav-panel"
+          aria-label="More navigation"
+        >
+            <svg class="site-nav__more-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 10.5C6.82843 10.5 7.5 11.1716 7.5 12C7.5 12.8284 6.82843 13.5 6 13.5C5.17157 13.5 4.5 12.8284 4.5 12C4.5 11.1716 5.17157 10.5 6 10.5ZM12 10.5C12.8284 10.5 13.5 11.1716 13.5 12C13.5 12.8284 12.8284 13.5 12 13.5C11.1716 13.5 10.5 12.8284 10.5 12C10.5 11.1716 11.1716 10.5 12 10.5ZM18 10.5C18.8284 10.5 19.5 11.1716 19.5 12C19.5 12.8284 18.8284 13.5 18 13.5C17.1716 13.5 16.5 12.8284 16.5 12C16.5 11.1716 17.1716 10.5 18 10.5Z" fill="currentColor"/>
+            </svg>
+        </button>
+        <a class="btn site-nav__cta" href="contacts" aria-label="Get in Touch">
+          <span class="btn__label">Get in Touch</span>
+          <span class="btn__icon" aria-hidden="true">
+          <svg class="btn__icon-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18.0978 6.14321L12.7074 20.4122L12.0739 20.4126L10.2562 14.1549L14.2936 9.94869L14.1661 9.82159L9.61625 13.5152L8.74403 13.2779L3.82925 12.1676L3.8297 11.5336L18.0978 6.14321Z" fill="currentColor"/>
+          </svg>
+          </span>
+        </a>
+      </div>
+    </div>
+  </nav>
+  <main class="page-main">
+    <article class="page-card card">
+        <div class="card__content card__content--error" aria-label="Error content">
+          <div class="page-back">
+            <a class="page-back__link" href="">
+              <span class="dot" data-dot="home"></span>
+              <span class="page-back__label">Back</span>
+            </a>
+          </div>
+          <section class="error-panel" aria-labelledby="error-title">
+            <div class="error-panel__message">
+              <h1 class="error-panel__code" id="error-title" aria-label="500 Server Error">
+                50<span class="error-panel__code-accent">0</span>
+              </h1>
+              <p class="error-panel__text">Ooops... something broke - jump back?</p>
+            </div>
+            <a class="btn btn--compact error-panel__action" href="">
+              <span class="btn__label">Home</span>
+            </a>
+          </section>
+        </div>
     </article>
   </main>
 
   <script src="js/theme.js"></script>
+  <script src="js/navigation.js"></script>
   <script src="js/cursor.js"></script>
 </body>
 </html>
