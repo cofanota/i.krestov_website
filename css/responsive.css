@@ -124,8 +124,19 @@
   }
 
   .project-item--folio.has-cover .project-row__cover {
-    height: calc(13.375rem * var(--ui-scale-applied));
+    height: calc(var(--folio-case-cover-height) * var(--ui-scale-applied));
     margin-bottom: calc(0.5rem * var(--ui-scale-applied));
+  }
+
+  .case-detail__cover {
+    height: calc(var(--folio-case-cover-height) * var(--ui-scale-applied));
+    overflow: hidden;
+  }
+
+  .case-detail__cover-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   .folio-card--experience {

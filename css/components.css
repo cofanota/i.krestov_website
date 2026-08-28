@@ -922,7 +922,7 @@ a.project-row.project-row--folio:focus-visible .project-label {
 .project-row--folio .project-row__cover-img {
   display: block;
   width: 100%;
-  height: calc(13.375rem * var(--ui-scale-applied));
+  height: calc(var(--folio-case-cover-height) * var(--ui-scale-applied));
   object-fit: cover;
 }
 
@@ -931,7 +931,7 @@ a.project-row.project-row--folio:focus-visible .project-label {
   .project-item--folio.has-cover:focus-within .project-row__cover,
   a.project-row.project-row--folio:hover .project-row__cover,
   a.project-row.project-row--folio:focus-visible .project-row__cover {
-    height: calc(13.375rem * var(--ui-scale-applied));
+    height: calc(var(--folio-case-cover-height) * var(--ui-scale-applied));
     margin-bottom: calc(0.5rem * var(--ui-scale-applied));
   }
 }
@@ -1781,7 +1781,7 @@ a.project-row.project-row--folio {
   .project-item--folio.has-cover:focus-within .project-row__cover,
   a.project-row.project-row--folio:hover .project-row__cover,
   a.project-row.project-row--folio:focus-visible .project-row__cover {
-    height: calc(13.375rem * var(--ui-scale-applied));
+    height: calc(var(--folio-case-cover-height) * var(--ui-scale-applied));
     margin-bottom: calc(0.5rem * var(--ui-scale-applied));
   }
 }
