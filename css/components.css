@@ -919,6 +919,12 @@ a.project-row.project-row--folio:focus-visible .project-label {
   background-color: #d9d9d9;
 }
 
+.project-row--folio .project-row__cover picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .project-row--folio .project-row__cover-img {
   display: block;
   width: 100%;
@@ -2015,6 +2021,11 @@ a.project-row:focus-visible .project-label {
   width: 100%;
 }
 
+.case-detail__cover picture {
+  display: block;
+  width: 100%;
+}
+
 .case-detail__cover-img {
   display: block;
   width: 100%;
@@ -2349,6 +2360,10 @@ a.project-row:focus-visible .project-label {
   box-shadow: inset 0 0 0 0.0625rem var(--stroke-image-border);
   pointer-events: none;
   z-index: 1;
+}
+
+.case-detail__gallery-item picture {
+  display: contents;
 }
 
 .case-detail__gallery-item img {
