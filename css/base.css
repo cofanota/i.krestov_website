@@ -21,8 +21,24 @@ body {
   font-family: var(--font-body);
   font-weight: 500;
   color: var(--text-neutral-primary);
-  background-color: var(--fill-bg-lvl-2);
+  background-color: var(--fill-bg-lvl-0);
   line-height: var(--line-height-text-secondary);
+}
+
+.page--home .page__background {
+  background-color: var(--fill-bg-lvl-0);
+}
+
+.page--home .page__background-grid {
+  opacity: 0;
+}
+
+.page:not(.page--home) {
+  background-color: var(--fill-bg-lvl-2);
+}
+
+.page:not(.page--home) .page__background {
+  background-color: var(--fill-bg-lvl-2);
 }
 
 img,
@@ -54,8 +70,10 @@ h1,
 h2,
 h3,
 .hero__headline,
+.folio-hero__headline,
 .about__headline,
 .contacts__headline,
+.folio-contact__email,
 .case-detail__title,
 .case-detail__section-title {
   text-wrap: balance;
@@ -63,6 +81,7 @@ h3,
 
 .about__story,
 .hero__column,
+.folio-hero__column,
 .case-detail__text,
 .case-detail__caption,
 .case-detail__description,

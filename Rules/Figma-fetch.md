@@ -13,12 +13,15 @@ Figma file: `cpLveNkdlW6XRiHClNtgWn` (Web-Personal)
 
 | Page / frame | Node ID |
 |--------------|---------|
-| Home (theme control placement) | `12196:6100` |
+| **Home — one-page portfolio (current)** | `12449:8725` |
+| Home shell / bottom pill (nav reference) | `12196:6136` |
+| Mobile collapsed/expanded pill | `12446:16315` |
+| Home (legacy theme placement) | `12196:6100` |
 | Segmented control | `12257:7793` |
-| About card | `12167:13920` |
-| About inner content | `12167:14359` |
-| Contacts card | `12167:14038` |
-| Map / pages overview | `12192:9521` |
+| About card (legacy) | `12167:13920` |
+| About inner content (legacy) | `12167:14359` |
+| Contacts card (legacy) | `12167:14038` |
+| Map / pages overview (legacy) | `12192:9521` |
 
 ### MCP calls (in order)
 

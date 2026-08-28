@@ -29,11 +29,12 @@ Radius tokens for the theme control: `--radius-3` (track), `--radius-4` (segment
 
 | Item | Node ID |
 |------|---------|
-| Home frame (placement) | `12196:6100` |
+| Homepage portfolio frame | `12449:8725` |
+| Bottom pill / nav shell | `12196:6136` |
 | Segmented control instance | `12257:7793` |
 
-- Fixed bottom-right: `right` / `bottom` = `--level-page-padding` (`2.5rem` on desktop).
-- Size: `5.25rem × 2.75rem` (84×44px).
+- Nested in the **fixed bottom pill** on the homepage (not the Figma canvas position between Hero and Cases).
+- Track size follows pill context (~3rem height on desktop, scaled via `--ui-scale-applied`).
 - ST Design kit **Segmented control** — sun = light, moon = dark.
 - Styles: [`.theme-switch`](../css/components.css) in `components.css`.
 

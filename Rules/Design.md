@@ -4,7 +4,7 @@ Use only components and styles applyed in Figma file - if there is any conflicts
 
 ## Global Constraints
 
-- No JavaScript unless explicitly requested
+- No JavaScript unless explicitly requested or allowed in `Rules/Task` (theme, navigation, cases hydration, galleries, About media, cursor)
 - No CSS frameworks
 - Semantic HTML only
 - Full responcive web desktop and laptops, tablet and mobile
@@ -55,4 +55,9 @@ Only avaiable icons to use. Don't create nothing extra.
 
 #Responsivles
 Use provided Web and Mobile grid to match visually. I provide only web format. Create matching solutions for tablets and bigger displays. Goal - is to make enough space to place content and keep using the same components.
+
+## Interactive reveal (cases list)
+
+- Case row covers reveal on `:hover` and `:focus-visible` only when `(hover: hover)` and `(pointer: fine)` — no separate preview control; the row remains a single link to the case page.
+- Use `prefers-reduced-motion: reduce` to skip expand animations where motion is used.
 

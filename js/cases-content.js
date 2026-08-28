@@ -800,7 +800,7 @@
   }
 
   function hydrateCasesList() {
-    var list = document.querySelector(".card__content--cases .project-list");
+    var list = document.querySelector(".project-list--folio");
     if (!list) {
       return Promise.resolve();
     }
@@ -814,9 +814,12 @@
 
         return loadCaseMeta(entry.folder).then(function (meta) {
           var listData = meta.list || {};
+          var hero = meta.hero || {};
           var titleEl = row.querySelector(".project-row__title");
           var descEl = row.querySelector(".project-row__description");
           var labelsEl = row.querySelector(".project-row__labels");
+          var item = row.closest(".project-item--folio");
+          var coverImg = item && item.querySelector(".project-row__cover-img");
 
           if (titleEl) {
             titleEl.textContent = listData.title || meta.title;
@@ -826,6 +829,10 @@
           }
           if (labelsEl) {
             labelsEl.innerHTML = renderLabels(listData.tags);
+          }
+          if (coverImg && hero.cover) {
+            coverImg.src = siteUrl(hero.cover);
+            item.classList.add("has-cover");
           }
         });
       });
@@ -839,7 +846,7 @@
   function hydrateCurrentPage() {
     var page = document.body.getAttribute("data-page");
 
-    if (page === "cases") {
+    if (page === "home") {
       return hydrateCasesList();
     }
 
