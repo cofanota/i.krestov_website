@@ -7,10 +7,15 @@
 html {
   font-size: 100%;
   -webkit-text-size-adjust: 100%;
-  color-scheme: light dark;
+  color-scheme: light;
   min-height: 100%;
   overflow-x: hidden;
   overflow-y: auto;
+  background-color: var(--fill-bg-lvl-0);
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
 }
 
 body {

@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="color-scheme" content="light dark">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#eae7e4">
   <script>
     (function () {
       var base = "/";
@@ -33,7 +34,21 @@
           : window.matchMedia("(prefers-color-scheme: dark)").matches
             ? "dark"
             : "light";
-      document.documentElement.setAttribute("data-theme", theme);
+      var root = document.documentElement;
+      root.setAttribute("data-theme", theme);
+      root.style.colorScheme = theme;
+      var schemeMeta = document.querySelector('meta[name="color-scheme"]');
+      if (schemeMeta) {
+        schemeMeta.setAttribute("content", theme);
+      }
+      var themeColor = document.querySelector('meta[name="theme-color"]');
+      if (themeColor) {
+        themeColor.remove();
+      }
+      themeColor = document.createElement("meta");
+      themeColor.setAttribute("name", "theme-color");
+      themeColor.setAttribute("content", theme === "dark" ? "#100f0f" : "#eae7e4");
+      document.head.appendChild(themeColor);
     })();
   </script>
   <script src="js/background-perf.js"></script>

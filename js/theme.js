@@ -2,6 +2,10 @@
   "use strict";
 
   var STORAGE_KEY = "theme";
+  var THEME_BG = {
+    light: "#eae7e4",
+    dark: "#100f0f"
+  };
   var systemMq = window.matchMedia("(prefers-color-scheme: dark)");
 
   function getSystemTheme() {
@@ -24,8 +28,31 @@
     return getStoredTheme() || getSystemTheme();
   }
 
+  function syncBrowserChrome(theme) {
+    var root = document.documentElement;
+    var color = THEME_BG[theme];
+    var schemeMeta = document.querySelector('meta[name="color-scheme"]');
+    var themeColor;
+
+    root.style.colorScheme = theme;
+
+    if (schemeMeta) {
+      schemeMeta.setAttribute("content", theme);
+    }
+
+    document.querySelectorAll('meta[name="theme-color"]').forEach(function (node) {
+      node.remove();
+    });
+
+    themeColor = document.createElement("meta");
+    themeColor.setAttribute("name", "theme-color");
+    themeColor.setAttribute("content", color);
+    document.head.appendChild(themeColor);
+  }
+
   function applyTheme(theme) {
     document.documentElement.setAttribute("data-theme", theme);
+    syncBrowserChrome(theme);
     syncSegments(theme);
   }
 
