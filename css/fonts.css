@@ -8,6 +8,30 @@
 }
 
 @font-face {
+  font-family: "Satoshi";
+  src: url("../Fonts/Satoshi-Bold.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("../Fonts/Satoshi-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("../Fonts/Satoshi-Black.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
   font-family: "Onest";
   src: url("../Fonts/Onest-Regular.ttf") format("truetype");
   font-weight: 400;
@@ -33,8 +57,8 @@
 
 @font-face {
   font-family: "Fraunces";
-  src: url("../Fonts/Fraunces-Regular.ttf") format("truetype");
-  font-weight: 400;
+  src: url("../Fonts/Fraunces-Variable.ttf") format("truetype");
+  font-weight: 100 900;
   font-style: normal;
   font-display: swap;
 }

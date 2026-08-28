@@ -37,11 +37,11 @@
     })();
   </script>
   <script src="js/background-perf.js"></script>
-  <link rel="stylesheet" href="css/tokens.css">
-  <link rel="stylesheet" href="css/fonts.css">
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/components.css">
-  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/tokens.css?v=20260828h">
+  <link rel="stylesheet" href="css/fonts.css?v=20260828j">
+  <link rel="stylesheet" href="css/base.css?v=20260828">
+  <link rel="stylesheet" href="css/components.css?v=20260828w">
+  <link rel="stylesheet" href="css/responsive.css?v=20260828ab">
   <link rel="stylesheet" href="css/cursor.css">
 </head>
 <body class="page page--home" data-page="home">
@@ -63,7 +63,7 @@
             <a class="site-nav__link" href="#cases" data-nav-section="cases">Cases</a>
           </li>
           <li>
-            <a class="site-nav__link" href="#tools" data-nav-section="tools">Tools</a>
+            <a class="site-nav__link" href="#experience" data-nav-section="experience">Experience</a>
           </li>
           <li>
             <a class="site-nav__link" href="#about" data-nav-section="about">About</a>
@@ -73,6 +73,7 @@
           </li>
         </ul>
       </div>
+      <div class="site-nav__actions">
       <div class="theme-switch site-nav__theme" role="group" aria-label="Theme">
         <button
           type="button"
@@ -97,18 +98,6 @@
       </svg>
         </button>
       </div>
-      <div class="site-nav__actions">
-        <button
-          type="button"
-          class="site-nav__more"
-          aria-expanded="false"
-          aria-controls="site-nav-panel"
-          aria-label="More navigation"
-        >
-            <svg class="site-nav__more-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-              <path d="M6 10.5C6.82843 10.5 7.5 11.1716 7.5 12C7.5 12.8284 6.82843 13.5 6 13.5C5.17157 13.5 4.5 12.8284 4.5 12C4.5 11.1716 5.17157 10.5 6 10.5ZM12 10.5C12.8284 10.5 13.5 11.1716 13.5 12C13.5 12.8284 12.8284 13.5 12 13.5C11.1716 13.5 10.5 12.8284 10.5 12C10.5 11.1716 11.1716 10.5 12 10.5ZM18 10.5C18.8284 10.5 19.5 11.1716 19.5 12C19.5 12.8284 18.8284 13.5 18 13.5C17.1716 13.5 16.5 12.8284 16.5 12C16.5 11.1716 17.1716 10.5 18 10.5Z" fill="currentColor"/>
-            </svg>
-        </button>
         <a class="btn site-nav__cta" href="#contact" aria-label="Get in Touch">
           <span class="btn__label">Get in Touch</span>
           <span class="btn__icon" aria-hidden="true">
@@ -144,8 +133,11 @@
         <section class="folio-card folio-card--cases" id="cases" aria-labelledby="cases-heading">
           <h2 class="folio-card__title" id="cases-heading">Cases</h2>
           <div class="project-list project-list--folio">
-            <div class="project-item project-item--folio">
-              <a class="project-row project-row--folio" href="cases/picksell" data-case-slug="picksell">
+            <div class="project-item project-item--folio has-cover">
+              <a class="project-row project-row--folio" href="Picksell" data-case-slug="picksell">
+                <figure class="project-row__cover" aria-hidden="true">
+                  <img class="project-row__cover-img" src="cases/Case%201/Cover.png" alt="" width="2400" height="640" decoding="async">
+                </figure>
                 <div class="project-row__main">
                   <h3 class="project-row__title">Picksell</h3>
                   <div class="project-row__body">
@@ -157,15 +149,17 @@
                       <li><span class="project-label">Lable</span></li>
                     </ul>
                   </div>
-                  <span class="project-row__link-icon" aria-hidden="true"></span>
+                  <span class="project-row__link-icon" aria-hidden="true">
+                    <img src="assets/images/cases-link.svg" alt="" width="18" height="18">
+                  </span>
                 </div>
-                <figure class="project-row__cover" aria-hidden="true">
-                  <img class="project-row__cover-img" alt="" width="1200" height="675" decoding="async">
-                </figure>
               </a>
             </div>
-            <div class="project-item project-item--folio">
-              <a class="project-row project-row--folio" href="cases/sbibank" data-case-slug="sbibank">
+            <div class="project-item project-item--folio has-cover">
+              <a class="project-row project-row--folio" href="SBIBank" data-case-slug="sbibank">
+                <figure class="project-row__cover" aria-hidden="true">
+                  <img class="project-row__cover-img" src="cases/Case%202/Cover.png" alt="" width="2400" height="640" decoding="async">
+                </figure>
                 <div class="project-row__main">
                   <h3 class="project-row__title">SBIBank</h3>
                   <div class="project-row__body">
@@ -177,15 +171,17 @@
                       <li><span class="project-label">Lable</span></li>
                     </ul>
                   </div>
-                  <span class="project-row__link-icon" aria-hidden="true"></span>
+                  <span class="project-row__link-icon" aria-hidden="true">
+                    <img src="assets/images/cases-link.svg" alt="" width="18" height="18">
+                  </span>
                 </div>
-                <figure class="project-row__cover" aria-hidden="true">
-                  <img class="project-row__cover-img" alt="" width="1200" height="675" decoding="async">
-                </figure>
               </a>
             </div>
-            <div class="project-item project-item--folio">
-              <a class="project-row project-row--folio" href="cases/edstore" data-case-slug="edstore">
+            <div class="project-item project-item--folio has-cover">
+              <a class="project-row project-row--folio" href="Edstore" data-case-slug="edstore">
+                <figure class="project-row__cover" aria-hidden="true">
+                  <img class="project-row__cover-img" src="cases/Case%203/Cover.png" alt="" width="2400" height="640" decoding="async">
+                </figure>
                 <div class="project-row__main">
                   <h3 class="project-row__title">Edstore</h3>
                   <div class="project-row__body">
@@ -197,15 +193,17 @@
                       <li><span class="project-label">Lable</span></li>
                     </ul>
                   </div>
-                  <span class="project-row__link-icon" aria-hidden="true"></span>
+                  <span class="project-row__link-icon" aria-hidden="true">
+                    <img src="assets/images/cases-link.svg" alt="" width="18" height="18">
+                  </span>
                 </div>
-                <figure class="project-row__cover" aria-hidden="true">
-                  <img class="project-row__cover-img" alt="" width="1200" height="675" decoding="async">
-                </figure>
               </a>
             </div>
-            <div class="project-item project-item--folio">
-              <a class="project-row project-row--folio" href="cases/post-ecosystem" data-case-slug="post-ecosystem">
+            <div class="project-item project-item--folio has-cover">
+              <a class="project-row project-row--folio" href="Post-service" data-case-slug="post-ecosystem">
+                <figure class="project-row__cover" aria-hidden="true">
+                  <img class="project-row__cover-img" src="cases/Case%204/cover.png" alt="" width="2400" height="640" decoding="async">
+                </figure>
                 <div class="project-row__main">
                   <h3 class="project-row__title">Post service</h3>
                   <div class="project-row__body">
@@ -217,15 +215,17 @@
                       <li><span class="project-label">Lable</span></li>
                     </ul>
                   </div>
-                  <span class="project-row__link-icon" aria-hidden="true"></span>
+                  <span class="project-row__link-icon" aria-hidden="true">
+                    <img src="assets/images/cases-link.svg" alt="" width="18" height="18">
+                  </span>
                 </div>
-                <figure class="project-row__cover" aria-hidden="true">
-                  <img class="project-row__cover-img" alt="" width="1200" height="675" decoding="async">
-                </figure>
               </a>
             </div>
-            <div class="project-item project-item--folio">
-              <a class="project-row project-row--folio" href="cases/sayme" data-case-slug="sayme">
+            <div class="project-item project-item--folio has-cover">
+              <a class="project-row project-row--folio" href="Sayme" data-case-slug="sayme">
+                <figure class="project-row__cover" aria-hidden="true">
+                  <img class="project-row__cover-img" src="cases/Case%205/cover.png" alt="" width="1200" height="675" decoding="async">
+                </figure>
                 <div class="project-row__main">
                   <h3 class="project-row__title">Sayme</h3>
                   <div class="project-row__body">
@@ -237,11 +237,10 @@
                       <li><span class="project-label">Lable</span></li>
                     </ul>
                   </div>
-                  <span class="project-row__link-icon" aria-hidden="true"></span>
+                  <span class="project-row__link-icon" aria-hidden="true">
+                    <img src="assets/images/cases-link.svg" alt="" width="18" height="18">
+                  </span>
                 </div>
-                <figure class="project-row__cover" aria-hidden="true">
-                  <img class="project-row__cover-img" alt="" width="1200" height="675" decoding="async">
-                </figure>
               </a>
             </div>
           </div>
@@ -299,35 +298,35 @@
             <h2 class="folio-card__title" id="tools-heading">Tools</h2>
             <ul class="tool-list">
               <li class="tool-row">
-                <img class="tool-row__icon" src="assets/images/tools/figma.svg" alt="" width="48" height="48">
+                <img class="tool-row__icon" src="assets/images/tools/figma.svg" alt="" width="32" height="32">
                 <span class="tool-row__name">Figma</span>
               </li>
               <li class="tool-row">
-                <img class="tool-row__icon" src="assets/images/tools/after-effects.svg" alt="" width="48" height="48">
+                <img class="tool-row__icon" src="assets/images/tools/after-effects.svg" alt="" width="32" height="32">
                 <span class="tool-row__name">After Effects</span>
               </li>
               <li class="tool-row">
-                <img class="tool-row__icon" src="assets/images/tools/procreate.svg" alt="" width="48" height="48">
+                <img class="tool-row__icon" src="assets/images/tools/procreate.svg" alt="" width="32" height="32">
                 <span class="tool-row__name">Procreate</span>
               </li>
               <li class="tool-row">
-                <img class="tool-row__icon" src="assets/images/tools/blender.svg" alt="" width="48" height="48">
+                <img class="tool-row__icon" src="assets/images/tools/blender.svg" alt="" width="32" height="32">
                 <span class="tool-row__name">Blender</span>
               </li>
               <li class="tool-row">
-                <img class="tool-row__icon" src="assets/images/tools/unity.svg" alt="" width="48" height="48">
+                <img class="tool-row__icon" src="assets/images/tools/unity.svg" alt="" width="32" height="32">
                 <span class="tool-row__name">Unity</span>
               </li>
               <li class="tool-row">
-                <img class="tool-row__icon" src="assets/images/tools/notion.svg" alt="" width="48" height="48">
+                <img class="tool-row__icon" src="assets/images/tools/notion.svg" alt="" width="32" height="32">
                 <span class="tool-row__name">Notion</span>
               </li>
               <li class="tool-row">
-                <img class="tool-row__icon" src="assets/images/tools/cursor.svg" alt="" width="48" height="48">
+                <img class="tool-row__icon" src="assets/images/tools/cursor.svg" alt="" width="32" height="32">
                 <span class="tool-row__name">Cursor</span>
               </li>
               <li class="tool-row">
-                <img class="tool-row__icon" src="assets/images/tools/chatgpt.svg" alt="" width="48" height="48">
+                <img class="tool-row__icon" src="assets/images/tools/chatgpt.svg" alt="" width="32" height="32">
                 <span class="tool-row__name">ChatGPT</span>
               </li>
             </ul>
@@ -358,13 +357,52 @@
               <img src="assets/images/About_avatar.png" alt="" width="160" height="160" decoding="async">
             </figure>
             <figure class="folio-about__figure folio-about__figure--media">
-              <img src="assets/images/cases-thumb.jpg" alt="" width="400" height="160" decoding="async">
+              <video
+                class="about__video"
+                width="1280"
+                height="720"
+                muted
+                playsinline
+                webkit-playsinline
+                loop
+                autoplay
+                preload="none"
+                poster="assets/images/about-thumb.jpg"
+                data-src="assets/videos/ic_herosection_video.mp4"
+                aria-hidden="true"
+              ></video>
             </figure>
             <figure class="folio-about__figure folio-about__figure--media">
-              <img src="assets/videos/about-britanka-poster.jpg" alt="" width="400" height="160" decoding="async">
+              <video
+                class="about__video"
+                width="1280"
+                height="764"
+                muted
+                playsinline
+                webkit-playsinline
+                loop
+                autoplay
+                preload="none"
+                poster="assets/videos/about-britanka-poster.jpg"
+                data-src="assets/videos/about-britanka.mp4"
+                aria-hidden="true"
+              ></video>
             </figure>
             <figure class="folio-about__figure folio-about__figure--media">
-              <img src="assets/videos/about-prototype-poster.jpg" alt="" width="160" height="160" decoding="async">
+              <video
+                class="about__video"
+                width="480"
+                height="480"
+                muted
+                playsinline
+                webkit-playsinline
+                loop
+                autoplay
+                preload="none"
+                poster="assets/videos/about-prototype-poster.jpg"
+                data-src="assets/videos/about-prototype.mp4"
+                aria-hidden="true"
+              ></video>
             </figure>
           </div>
         </section>
@@ -414,6 +452,7 @@
   <script src="js/theme.js"></script>
   <script src="js/navigation.js"></script>
   <script src="js/cases-content.js"></script>
+  <script src="js/about-media.js"></script>
   <script src="js/cursor.js"></script>
 </body>
 </html>

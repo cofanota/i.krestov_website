@@ -1,8 +1,12 @@
 (function () {
   "use strict";
 
-  var COMPACT_QUERY = "(max-width: 63.9375rem)";
-  var SECTION_IDS = ["home", "cases", "tools", "about", "contact"];
+  var SECTION_IDS = ["home", "cases", "experience", "tools", "about", "contact"];
+  var SCROLL_SECTION_IDS = ["home", "cases", "experience", "about", "contact"];
+
+  function navHighlightId(id) {
+    return id === "tools" ? "experience" : id;
+  }
 
   function prefersReducedMotion() {
     return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -27,9 +31,11 @@
     if (updateHash) {
       if (window.history && typeof window.history.replaceState === "function") {
         var nextUrl =
-          id === "home" ? window.location.pathname + window.location.search : "#" + id;
+          id === "cases"
+            ? window.location.pathname + window.location.search
+            : "#" + id;
         window.history.replaceState(null, "", nextUrl);
-      } else if (id !== "home") {
+      } else if (id !== "cases") {
         window.location.hash = id;
       }
     }
@@ -38,9 +44,10 @@
   }
 
   function setActiveSection(id) {
+    var highlightId = navHighlightId(id);
     document.querySelectorAll("[data-nav-section]").forEach(function (link) {
       var section = link.getAttribute("data-nav-section");
-      if (section === id) {
+      if (section === highlightId) {
         link.setAttribute("aria-current", "true");
       } else {
         link.removeAttribute("aria-current");
@@ -54,79 +61,13 @@
       return;
     }
 
-    var moreBtn = nav.querySelector(".site-nav__more");
-    var panel = nav.querySelector("#site-nav-panel");
-    if (!moreBtn || !panel) {
-      return;
-    }
-
-    var compactMq = window.matchMedia(COMPACT_QUERY);
     var isHome = document.body.getAttribute("data-page") === "home";
 
-    function setExpanded(expanded) {
-      var next = Boolean(expanded) && compactMq.matches;
-      nav.classList.toggle("is-expanded", next);
-      moreBtn.setAttribute("aria-expanded", next ? "true" : "false");
-    }
-
-    function toggleExpanded() {
-      setExpanded(moreBtn.getAttribute("aria-expanded") !== "true");
-    }
-
-    moreBtn.addEventListener("click", function (event) {
-      event.stopPropagation();
-      toggleExpanded();
-    });
-
-    document.addEventListener("click", function (event) {
-      if (!nav.classList.contains("is-expanded")) {
-        return;
-      }
-      if (nav.contains(event.target)) {
-        return;
-      }
-      setExpanded(false);
-    });
-
-    document.addEventListener("keydown", function (event) {
-      if (event.key !== "Escape") {
-        return;
-      }
-      if (!nav.classList.contains("is-expanded")) {
-        return;
-      }
-      setExpanded(false);
-      moreBtn.focus();
-    });
-
-    function onBreakpointChange() {
-      if (!compactMq.matches) {
-        setExpanded(false);
-      }
-    }
-
-    if (typeof compactMq.addEventListener === "function") {
-      compactMq.addEventListener("change", onBreakpointChange);
-    } else if (typeof compactMq.addListener === "function") {
-      compactMq.addListener(onBreakpointChange);
-    }
-
-    setExpanded(false);
-
     if (!isHome) {
-      nav.addEventListener("click", function (event) {
-        var link = event.target.closest(
-          "a.site-nav__link, a.site-nav__cta, a.site-nav__identity"
-        );
-        if (!link) {
-          return;
-        }
-        setExpanded(false);
-      });
       return;
     }
 
-    var sections = SECTION_IDS.map(function (id) {
+    var sections = SCROLL_SECTION_IDS.map(function (id) {
       return document.getElementById(id);
     }).filter(Boolean);
 
@@ -135,7 +76,7 @@
         return "contact";
       }
       if (link.classList.contains("site-nav__identity")) {
-        return "home";
+        return "cases";
       }
       return (
         link.getAttribute("data-nav-section") ||
@@ -159,7 +100,6 @@
       event.preventDefault();
       scrollToSection(id, true);
       setActiveSection(id);
-      setExpanded(false);
     });
 
     document.addEventListener("click", function (event) {
@@ -180,7 +120,7 @@
 
     function syncFromScroll() {
       var marker = window.scrollY + Math.min(160, window.innerHeight * 0.25);
-      var activeId = "home";
+      var activeId = "cases";
 
       sections.forEach(function (section) {
         if (section.offsetTop <= marker) {
@@ -202,19 +142,25 @@
     );
 
     window.addEventListener("hashchange", function () {
-      var id = getSectionIdFromHash(window.location.hash) || "home";
+      var id = getSectionIdFromHash(window.location.hash) || "cases";
       scrollToSection(id, false);
       setActiveSection(id);
     });
 
-    var initialId = getSectionIdFromHash(window.location.hash) || "home";
-    if (initialId !== "home") {
+    if (window.location.hash === "#cases") {
+      if (window.history && typeof window.history.replaceState === "function") {
+        window.history.replaceState(null, "", window.location.pathname + window.location.search);
+      }
+    }
+
+    var initialId = getSectionIdFromHash(window.location.hash) || "cases";
+    if (initialId !== "cases") {
       window.requestAnimationFrame(function () {
         scrollToSection(initialId, false);
         setActiveSection(initialId);
       });
     } else {
-      setActiveSection("home");
+      setActiveSection("cases");
     }
 
     syncFromScroll();

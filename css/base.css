@@ -25,19 +25,21 @@ body {
   line-height: var(--line-height-text-secondary);
 }
 
-.page--home .page__background {
+.page--home .page__background,
+.page--case .page__background {
   background-color: var(--fill-bg-lvl-0);
 }
 
-.page--home .page__background-grid {
+.page--home .page__background-grid,
+.page--case .page__background-grid {
   opacity: 0;
 }
 
-.page:not(.page--home) {
+.page:not(.page--home):not(.page--case) {
   background-color: var(--fill-bg-lvl-2);
 }
 
-.page:not(.page--home) .page__background {
+.page:not(.page--home):not(.page--case) .page__background {
   background-color: var(--fill-bg-lvl-2);
 }
 

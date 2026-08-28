@@ -58,6 +58,7 @@ Use provided Web and Mobile grid to match visually. I provide only web format. C
 
 ## Interactive reveal (cases list)
 
-- Case row covers reveal on `:hover` and `:focus-visible` only when `(hover: hover)` and `(pointer: fine)` — no separate preview control; the row remains a single link to the case page.
+- Case row covers reveal on `:hover` and `:focus-visible` only when `(hover: hover)` and `(pointer: fine)` — no separate preview control; the row remains a single link to the project page at `/{Project}`.
+- On compact/mobile (`max-width: 63.9375rem`) covers stay visible without hover.
 - Use `prefers-reduced-motion: reduce` to skip expand animations where motion is used.
 

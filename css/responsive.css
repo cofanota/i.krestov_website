@@ -1,24 +1,29 @@
 /* Compact layout: ≤1023px — mobile bottom pill */
 @media (max-width: 63.9375rem) {
   :root {
-    --level-page-padding: 2rem;
-    --level-card-padding: 2rem;
+    --level-page-padding: 0.75rem;
+    --level-card-padding: 0.75rem;
     --content-padding-top: 2rem;
     --font-size-heading-primary: 2.125rem;
+    --font-size-heading-secondary: calc(2rem / 1.5);
     --card-edge-gap: 1.5rem;
     --nav-pill-gap: 2.5rem;
     --nav-pill-clearance: calc(6rem + env(safe-area-inset-bottom, 0px));
+    --folio-card-padding-inline: 1.25rem;
+    --folio-card-padding-block: 1.25rem;
   }
 
   .site-nav {
-    width: var(--nav-pill-width-mobile);
+    width: max-content;
     max-width: calc(100vw - 1.5rem);
   }
 
   .site-nav__pill {
-    width: 100%;
-    justify-content: space-between;
-    gap: var(--spacing-3);
+    width: max-content;
+    max-width: 100%;
+    justify-content: flex-start;
+    gap: 0.5rem;
+    padding: var(--nav-pill-padding) 0.75rem;
   }
 
   .site-nav__panel {
@@ -26,36 +31,15 @@
   }
 
   .site-nav__theme {
-    display: none;
-    margin-right: 0;
+    display: flex;
   }
 
   .site-nav__name {
     display: none;
   }
 
-  .site-nav__more {
-    display: inline-flex;
-  }
-
   .site-nav__actions {
-    gap: var(--nav-theme-cta-gap);
-  }
-
-  .site-nav.is-expanded .site-nav__pill {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    grid-template-areas:
-      "panel theme"
-      "identity actions";
-    align-items: start;
-    column-gap: var(--spacing-3);
-    row-gap: var(--nav-pill-gap);
-  }
-
-  .site-nav.is-expanded .site-nav__panel {
-    display: block;
-    grid-area: panel;
+    display: contents;
   }
 
   .site-nav__routes {
@@ -64,39 +48,6 @@
 
   .site-nav__link {
     padding: calc(var(--spacing-0) * 2) calc(var(--spacing-2) * 1.5);
-  }
-
-  .site-nav.is-expanded .site-nav__routes {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--spacing-2);
-  }
-
-  .site-nav.is-expanded .site-nav__theme {
-    display: flex;
-    grid-area: theme;
-    justify-self: end;
-    height: var(--nav-control-height);
-    min-height: var(--nav-control-height);
-    gap: var(--spacing-2);
-    padding: var(--spacing-2);
-    border-radius: var(--nav-theme-radius);
-  }
-
-  .site-nav.is-expanded .site-nav__theme .theme-switch__segment {
-    padding: var(--spacing-2);
-    border-radius: var(--nav-theme-radius);
-  }
-
-  .site-nav.is-expanded .site-nav__identity {
-    grid-area: identity;
-    align-self: center;
-  }
-
-  .site-nav.is-expanded .site-nav__actions {
-    grid-area: actions;
-    justify-self: end;
-    align-self: center;
   }
 
   .about__highlights {
@@ -164,12 +115,91 @@
   .folio-hero__columns {
     grid-template-columns: 1fr;
     gap: var(--spacing-9);
-    padding: var(--spacing-4) var(--spacing-4) var(--spacing-9);
+    padding: var(--spacing-4) 0 var(--spacing-9);
   }
 
   .folio-card {
-    padding: var(--spacing-9) var(--spacing-4);
+    padding: var(--folio-card-padding-block) var(--folio-card-padding-inline);
     gap: var(--spacing-9);
+  }
+
+  .project-item--folio.has-cover .project-row__cover {
+    height: calc(13.375rem * var(--ui-scale-applied));
+    margin-bottom: calc(0.5rem * var(--ui-scale-applied));
+  }
+
+  .folio-card--experience {
+    min-height: 0;
+  }
+
+  .folio-card--tools {
+    padding: var(--folio-card-padding-block) var(--folio-card-padding-inline);
+    gap: var(--spacing-9);
+  }
+
+  .folio-card--tools .tool-list {
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 0.125rem;
+    min-height: 0;
+    padding: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .folio-card--tools .tool-list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .folio-card--tools .tool-row {
+    flex: 0 0 7.5rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+    width: 7.5rem;
+    height: 7.5rem;
+    padding: 0.5rem;
+    background-color: transparent;
+    box-shadow: none;
+    scroll-snap-align: start;
+  }
+
+  .folio-card--tools .tool-row__icon {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .folio-card--tools .tool-row__name {
+    flex: none;
+    width: 100%;
+    text-align: center;
+  }
+
+  .folio-contact {
+    container-type: inline-size;
+    padding: var(--folio-card-padding-block) var(--folio-card-padding-inline);
+    gap: var(--spacing-9);
+  }
+
+  .folio-contact__email {
+    width: 100%;
+    min-width: 0;
+    font-size: min(var(--font-size-heading-primary), 7.2cqi);
+  }
+
+  .folio-contact__email-label {
+    flex: 1 1 auto;
+    min-width: 0;
+    white-space: nowrap;
   }
 
   .project-row--folio .project-row__main {
@@ -188,7 +218,7 @@
   .project-row__link-icon {
     position: absolute;
     right: 0;
-    top: var(--radius-3);
+    top: calc(var(--radius-3) + 0.25rem);
   }
 
   .cases__nda.cases__nda--folio {
@@ -208,13 +238,20 @@
   }
 
   .folio-about__gallery {
-    grid-template-columns: 1fr 1fr;
+    height: auto;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     grid-template-rows: auto auto;
+  }
+
+  .folio-about__figure {
+    height: auto;
+    aspect-ratio: 1 / 1;
   }
 
   .folio-about__figure--portrait {
     grid-column: 1;
     grid-row: 1;
+    width: auto;
   }
 
   .folio-about__figure--media:nth-of-type(2) {
@@ -232,10 +269,6 @@
     grid-row: 2;
   }
 
-  .folio-contact {
-    padding: var(--spacing-9) var(--spacing-4) var(--spacing-9);
-  }
-
   .folio-contact__columns {
     grid-template-columns: 1fr;
     gap: var(--spacing-9);
@@ -245,14 +278,13 @@
     text-align: left;
   }
 
-  .tool-list {
-    min-height: 0;
-    gap: var(--spacing-1);
-  }
-
   .experience-item {
     flex-direction: column;
     gap: var(--spacing-2);
+  }
+
+  .experience-list {
+    flex: 0 0 auto;
   }
 
   .experience-item__company {
@@ -278,10 +310,10 @@
 /* Mobile: ≤520px */
 @media (max-width: 32.5rem) {
   :root {
-    --level-page-padding: 1.25rem;
-    --level-card-padding: 1.25rem;
-    --level-menu-padding-x: 1.25rem;
-    --level-menu-padding-y: 1.25rem;
+    --level-page-padding: 0.75rem;
+    --level-card-padding: 0.75rem;
+    --level-menu-padding-x: 0.75rem;
+    --level-menu-padding-y: 0.75rem;
     --content-padding-top: 1.5rem;
     --font-size-heading-primary: 1.75rem;
     --font-size-heading-amount: 9rem;
@@ -313,23 +345,18 @@
     padding: var(--spacing-4) 0 var(--spacing-9);
   }
 
-  .folio-contact__email {
-    font-size: calc(var(--font-size-heading-primary) - 0.125rem);
-  }
-
   .folio-contact__email-arrow {
     display: none;
   }
 
   .folio-about__gallery {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: var(--spacing-1);
   }
 
   .folio-about__figure--portrait img {
     width: 100%;
-    height: auto;
-    aspect-ratio: 1;
+    height: 100%;
   }
 
   .card__content--about .about__gallery,
@@ -476,11 +503,12 @@
     /* Levels */
     --level-page-padding: calc(3.5rem * var(--ui-scale-applied));
     --level-card-padding: calc(2.5rem * var(--ui-scale-applied));
+    --folio-card-padding-inline: calc(2.75rem * var(--ui-scale-applied));
     --level-menu-padding-x: calc(1.625rem * var(--ui-scale-applied));
     --level-menu-padding-y: calc(2.5rem * var(--ui-scale-applied));
     --content-padding-top: calc(3.5rem * var(--ui-scale-applied));
     --nav-pill-padding: calc(0.5rem * var(--ui-scale-applied));
-    --nav-pill-gap: calc(2.5rem * var(--ui-scale-applied));
+    --nav-pill-gap: calc(5rem * var(--ui-scale-applied));
     --nav-theme-cta-gap: calc(0.5rem * var(--ui-scale-applied));
     --nav-control-height: calc(3rem * var(--ui-scale-applied));
     --nav-theme-radius: calc(1.5rem * var(--ui-scale-applied));
@@ -527,20 +555,8 @@
       calc(-0.1875rem * var(--ui-scale-applied)) rgba(0, 0, 0, 0.16);
   }
 
-  .site-nav__more {
-    display: none;
-  }
-
-  .site-nav.is-expanded .site-nav__panel {
-    display: flex;
-  }
-
   .site-nav__pill {
-    gap: calc(1rem * var(--ui-scale-applied));
-  }
-
-  .site-nav__theme {
-    margin-right: calc(var(--nav-theme-cta-gap) - 1rem * var(--ui-scale-applied));
+    gap: calc(2rem * var(--ui-scale-applied));
   }
 
   .site-nav__link {

@@ -821,6 +821,9 @@
           var item = row.closest(".project-item--folio");
           var coverImg = item && item.querySelector(".project-row__cover-img");
 
+          if (entry.path) {
+            row.setAttribute("href", siteUrl("/" + entry.path));
+          }
           if (titleEl) {
             titleEl.textContent = listData.title || meta.title;
           }

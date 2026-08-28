@@ -54,6 +54,7 @@
   /* Levels */
   --level-page-padding: 2.5rem;
   --level-card-padding: 2.5rem;
+  --folio-card-padding-inline: 2.75rem;
   --level-menu-padding-x: 1.625rem;
   --level-menu-padding-y: 2.5rem;
 
@@ -63,7 +64,7 @@
   --nav-pill-blur: 0.75rem;
   --nav-pill-radius: 2rem;
   --nav-pill-padding: 0.5rem;
-  --nav-pill-gap: 2.5rem;
+  --nav-pill-gap: 5rem;
   --nav-theme-cta-gap: 0.5rem;
   --nav-control-height: 3rem;
   --nav-theme-radius: 1.5rem;

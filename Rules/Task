@@ -4,8 +4,8 @@ Pages:
 The top-level portfolio is a single full-width scrolling page. Section labels in the shared bottom navigation pill act as in-page anchors. Case detail pages remain separate full documents. There is no map canvas, camera pan, zoom, connector lines, top header, or right-side menu.
 
 Architecture:
-One-page portfolio at `/` with anchored sections, plus separate case-detail documents.
-Routes: `/` (Home / Cases / Tools / About / Experience / Contact sections; Experience is on-page only, not in the pill), `/cases/{slug}`.
+One-page portfolio at `/` with anchored sections, plus project documents at the site root.
+Routes: `/` (Home / Cases / Experience / Tools / About / Contact sections; Tools is on-page only, Experience is in the pill), `/{Project}` (e.g. `/Picksell`).
 There are no separate About, Cases list, Contacts, or Blog documents.
 Browser Back/Forward work through normal document navigation and URL hashes for in-page sections.
 
@@ -13,14 +13,14 @@ Layout:
 - Full-width scrolling page on `--fill-bg-lvl-0` (beige); section content lives in white rounded cards (`--radius-section-card`, 2rem).
 - Homepage section order (Figma `12449:8725`): Hero → Cases card → Experience + Tools row → About card → Contact footer.
 - One fixed bottom pill (not the Figma inline header position) that blends identity, section anchors, theme, and the primary CTA.
-  - Desktop: avatar + name, Home / Cases / Tools / About / Contact, theme switch, Get in Touch.
-  - Compact/mobile: collapsed pill with avatar, More, and Get in Touch; expanded state reveals section anchors and the theme switch above the action row.
+  - Desktop: avatar + name, Cases / Experience / About / Contact, theme switch, Get in Touch.
+  - Compact/mobile: avatar, theme switch, and Get in Touch in one row (no More / dots menu). Section anchors stay desktop-only.
 - Case details keep an in-content Back link to the Cases section on the root page.
 - Elements scale proportionally with viewport size (rem + ui-scale tokens). Reserve bottom inset so content is never covered by the pill, including safe-area.
 
 Content:
 Implementation uses Figma MCP as the source of truth for structure, copy, and assets.
-- **Cases list:** titles, descriptions, tags, order, and URLs from `cases/index.json` + per-case `meta.json` (`list` fields). Hover/focus on capable devices reveals `hero.cover` inside each row link; click still navigates to `/cases/{slug}`.
+- **Cases list:** titles, descriptions, tags, order, and URLs from `cases/index.json` + per-case `meta.json` (`list` fields). Hover/focus on capable devices reveals `hero.cover` inside each row link; on compact/mobile the cover stays visible. Click still navigates to `/{Project}` (e.g. `/Picksell`).
 - **Tools:** keep the eight real tools from code (Figma may show repeated placeholders).
 Primary shared reference nodes in file cpLveNkdlW6XRiHClNtgWn:
 - Desktop one-page portfolio (homepage): 12449:8725
