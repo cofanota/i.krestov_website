@@ -291,7 +291,7 @@
               text = textOverrides[section.id];
             }
             return (
-              '<div class="case-detail__text-row">' +
+              '<div class="case-detail__text-row reveal">' +
               '<p class="case-detail__text">' +
               escapeHtml(text) +
               "</p>" +
@@ -309,7 +309,7 @@
         }
 
         var titleHtml = section.title
-          ? '<h3 class="case-detail__section-title">' +
+          ? '<h3 class="case-detail__section-title reveal">' +
             escapeHtml(section.title) +
             "</h3>"
           : "";
@@ -342,11 +342,11 @@
 
     return (
       '<div class="case-detail__hero">' +
-      '<div class="case-detail__headline-row">' +
-      '<h1 class="case-detail__title">' +
+      '<div class="case-detail__headline-row" data-reveal-stagger="0.16">' +
+      '<h1 class="case-detail__title reveal">' +
       escapeHtml(hero.title || meta.title) +
       "</h1>" +
-      '<div class="case-detail__intro">' +
+      '<div class="case-detail__intro reveal">' +
       '<p class="case-detail__description">' +
       escapeHtml(hero.description || "") +
       "</p>" +
@@ -357,13 +357,13 @@
       '<figure class="case-detail__cover">' +
       coverHtml +
       "</figure></div>" +
-      '<div class="case-detail__role-block">' +
+      '<div class="case-detail__role-block reveal">' +
       '<p class="case-detail__meta-label">My role</p>' +
       '<p class="case-detail__role">' +
       escapeHtml(caseMeta.role || "") +
       "</p>" +
       "</div>" +
-      '<div class="case-detail__meta-grid">' +
+      '<div class="case-detail__meta-grid reveal">' +
       '<div class="case-detail__meta-col"><p class="case-detail__meta-label">Scope</p><p class="case-detail__meta-value">' +
       escapeHtml(caseMeta.scope || "") +
       "</p></div>" +
@@ -374,7 +374,7 @@
       escapeHtml(caseMeta.duration || "") +
       "</p></div>" +
       "</div>" +
-      '<div class="case-detail__cta-row">' +
+      '<div class="case-detail__cta-row reveal">' +
       ctaHtml +
       (awardsHtml
         ? '<div class="case-detail__awards"><span class="case-detail__awards-label">Awards:</span><div class="case-detail__awards-list">' +
@@ -856,6 +856,9 @@
         bindGalleries(detail);
         bindImageScale(detail);
         bindCtaAwards(detail);
+        if (window.RevealText) {
+          window.RevealText.scan(detail);
+        }
       }
     );
   }

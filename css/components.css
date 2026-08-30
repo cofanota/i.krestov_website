@@ -724,6 +724,16 @@ a.home-project:active {
   text-align: center;
 }
 
+.folio-hero__logo-wrap {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  padding: 2.5rem;
+  margin: -2.5rem;
+}
+
 .folio-hero__logo {
   display: block;
   flex-shrink: 0;
@@ -763,6 +773,111 @@ a.home-project:active {
   color: var(--action-orange-base);
   font-optical-sizing: auto;
   font-variation-settings: "SOFT" 100, "WONK" 1;
+}
+
+html.is-hero-intro .site-nav {
+  opacity: 0;
+  pointer-events: none;
+}
+
+html.is-hero-intro.is-hero-rest .site-nav {
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html.is-hero-intro .folio-hero {
+  min-height: 0;
+}
+
+html.is-hero-intro .folio-stack__inner > :not(.folio-hero) {
+  transform: translate3d(0, 100vh, 0);
+  pointer-events: none;
+}
+
+html.is-hero-intro.is-hero-rest .folio-stack__inner > :not(.folio-hero) {
+  transform: none;
+  pointer-events: auto;
+  transition: transform 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.folio-hero.is-intro .folio-hero__logo-wrap {
+  filter: blur(1.25rem);
+  transform: var(--hero-logo-from, none);
+  will-change: transform, filter;
+}
+
+.folio-hero.is-intro.is-playing .folio-hero__logo-wrap {
+  filter: blur(0);
+  transform: none;
+  transition:
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.folio-hero.is-intro.is-fast .folio-hero__logo-wrap,
+.folio-hero.is-intro.is-fast.is-playing .folio-hero__logo-wrap {
+  transition-duration: 0.15s;
+}
+
+.folio-hero.is-intro.is-fast.is-landed .folio-hero__headline-line {
+  transition-duration: 0.2s;
+}
+
+.folio-hero.is-intro.is-fast.is-landed .folio-hero__headline-line:nth-child(2) {
+  transition-delay: 0.04s;
+}
+
+html.is-hero-intro.is-hero-rest.is-hero-fast .folio-stack__inner > :not(.folio-hero),
+html.is-hero-intro.is-hero-rest.is-hero-fast .site-nav {
+  transition-duration: 0.2s;
+}
+
+.folio-hero.is-intro .folio-hero__headline {
+  overflow: visible;
+}
+
+.folio-hero.is-intro .folio-hero__headline-line {
+  opacity: 0;
+  filter: blur(1.25rem);
+}
+
+.folio-hero.is-intro.is-landed .folio-hero__headline-line {
+  opacity: 1;
+  filter: blur(0);
+  transition:
+    opacity 2.2s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 2.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.folio-hero.is-intro.is-landed .folio-hero__headline-line:nth-child(2) {
+  transition-delay: 0.12s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.is-hero-intro,
+  html.is-hero-intro body {
+    overflow: auto;
+    height: auto;
+  }
+
+  html.is-hero-intro .site-nav,
+  html.is-hero-intro .folio-stack__inner > :not(.folio-hero) {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: none;
+  }
+
+  .folio-hero.is-intro .folio-hero__logo-wrap,
+  .folio-hero.is-intro.is-playing .folio-hero__logo-wrap,
+  .folio-hero.is-intro .folio-hero__headline-line,
+  .folio-hero.is-intro.is-landed .folio-hero__headline-line {
+    opacity: 1;
+    filter: none;
+    transform: none;
+    transition: none;
+  }
 }
 
 .folio-hero__columns {
@@ -2801,4 +2916,32 @@ a.project-row:focus-visible .project-label {
 
 .btn--compact .btn__label {
   padding: var(--spacing-1) var(--spacing-2);
+}
+
+/* Block wave — in-view text reveal */
+.js-reveal .reveal {
+  opacity: 0;
+  transform: translate3d(0, 1.25rem, 0);
+  transition:
+    opacity 1.4s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0s);
+}
+
+.js-reveal .reveal.is-inview {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.js-reveal .folio-hero__headline .reveal {
+  transition-duration: 2.1s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js-reveal .reveal,
+  .js-reveal .reveal.is-inview {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }

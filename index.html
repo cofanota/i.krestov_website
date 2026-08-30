@@ -51,12 +51,25 @@
       document.head.appendChild(themeColor);
     })();
   </script>
+  <script>
+    (function () {
+      try {
+        if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          document.documentElement.classList.add("js-reveal");
+          var hash = String(window.location.hash || "").replace(/^#/, "");
+          if (!hash || hash === "home") {
+            document.documentElement.classList.add("is-hero-intro");
+          }
+        }
+      } catch (error) {}
+    })();
+  </script>
   <script src="js/background-perf.js"></script>
   <link rel="stylesheet" href="css/tokens.css?v=20260828i">
   <link rel="stylesheet" href="css/fonts.css?v=20260828j">
   <link rel="stylesheet" href="css/base.css?v=20260828a">
-  <link rel="stylesheet" href="css/components.css?v=20260828y">
-  <link rel="stylesheet" href="css/responsive.css?v=20260828ae">
+  <link rel="stylesheet" href="css/components.css?v=20260830f">
+  <link rel="stylesheet" href="css/responsive.css?v=20260830i">
   <link rel="stylesheet" href="css/cursor.css">
 </head>
 <body class="page page--home" data-page="home">
@@ -130,7 +143,9 @@
 
         <section class="folio-hero" id="home">
           <div class="folio-hero__intro">
-            <span class="folio-hero__logo" aria-hidden="true"></span>
+            <span class="folio-hero__logo-wrap" aria-hidden="true">
+              <span class="folio-hero__logo"></span>
+            </span>
             <h1 class="folio-hero__headline">
               <span class="folio-hero__headline-line">
                 Flows and <span class="folio-hero__headline-accent">emotions</span>
@@ -138,15 +153,15 @@
               <span class="folio-hero__headline-line">for humans, not just users</span>
             </h1>
           </div>
-          <div class="folio-hero__columns">
-            <p class="folio-hero__column">Full stack designer with focus on business and tech needs. From rough ideas to polished product.</p>
-            <p class="folio-hero__column">Lead teams of art directors, designers, product managers, and researchers of up to 30 people.</p>
-            <p class="folio-hero__column">Worked with Startups, fintech, B2C, B2B, Saas. Design Lead, Pochtatech<br>Ex. Design Lead, Mish</p>
+          <div class="folio-hero__columns" data-reveal-stagger="0.2">
+            <p class="folio-hero__column reveal">Full stack designer with focus on business and tech needs. From rough ideas to polished product.</p>
+            <p class="folio-hero__column reveal">Lead teams of art directors, designers, product managers, and researchers of up to 30 people.</p>
+            <p class="folio-hero__column reveal">Worked with Startups, fintech, B2C, B2B, Saas. Design Lead, Pochtatech<br>Ex. Design Lead, Mish</p>
           </div>
         </section>
 
         <section class="folio-card folio-card--cases" id="cases" aria-labelledby="cases-heading">
-          <h2 class="folio-card__title" id="cases-heading">Cases</h2>
+          <h2 class="folio-card__title reveal" id="cases-heading">Cases</h2>
           <div class="project-list project-list--folio">
             <div class="project-item project-item--folio has-cover">
               <a class="project-row project-row--folio" href="Picksell" data-case-slug="picksell">
@@ -156,7 +171,7 @@
                     <img class="project-row__cover-img" src="cases/Case%201/Cover.png" alt="" width="2400" height="640" decoding="async" fetchpriority="low">
                   </picture>
                 </figure>
-                <div class="project-row__main">
+                <div class="project-row__main reveal">
                   <h3 class="project-row__title">Picksell</h3>
                   <div class="project-row__body">
                     <p class="project-row__description">EU marketplace and payment system powered by open banking technology</p>
@@ -181,7 +196,7 @@
                     <img class="project-row__cover-img" src="cases/Case%202/Cover.png" alt="" width="2400" height="640" decoding="async" loading="lazy">
                   </picture>
                 </figure>
-                <div class="project-row__main">
+                <div class="project-row__main reveal">
                   <h3 class="project-row__title">SBIBank</h3>
                   <div class="project-row__body">
                     <p class="project-row__description">Family banking with separate parent and child banking apps. Where single user can act in multiple roles within the app</p>
@@ -206,7 +221,7 @@
                     <img class="project-row__cover-img" src="cases/Case%203/Cover.png" alt="" width="2400" height="640" decoding="async" loading="lazy">
                   </picture>
                 </figure>
-                <div class="project-row__main">
+                <div class="project-row__main reveal">
                   <h3 class="project-row__title">Edstore</h3>
                   <div class="project-row__body">
                     <p class="project-row__description">Story-based mobile learning app optimized for fast, on-the-go content</p>
@@ -231,7 +246,7 @@
                     <img class="project-row__cover-img" src="cases/Case%204/cover.png" alt="" width="2400" height="640" decoding="async" loading="lazy">
                   </picture>
                 </figure>
-                <div class="project-row__main">
+                <div class="project-row__main reveal">
                   <h3 class="project-row__title">Post service</h3>
                   <div class="project-row__body">
                     <p class="project-row__description">Redesign of core customer-facing products for a Russian postal and logistics platform</p>
@@ -256,7 +271,7 @@
                     <img class="project-row__cover-img" src="cases/Case%205/cover.png" alt="" width="2850" height="768" decoding="async" loading="lazy">
                   </picture>
                 </figure>
-                <div class="project-row__main">
+                <div class="project-row__main reveal">
                   <h3 class="project-row__title">Sayme</h3>
                   <div class="project-row__body">
                     <p class="project-row__description">Sayme connects talents with their fans on a single platform, where users can ask a talent of their choice to record a personalized video gift</p>
@@ -275,7 +290,7 @@
             </div>
           </div>
           <footer class="cases__nda cases__nda--folio">
-            <p class="cases__nda-description">Some projects still private, book a call to talk about EU neobank, gamification, socials and more</p>
+            <p class="cases__nda-description reveal">Some projects still private, book a call to talk about EU neobank, gamification, socials and more</p>
             <a class="btn btn--orange cases__nda-cta" href="#contact">
               <span class="btn__label">Request Demo</span>
             </a>
@@ -284,37 +299,37 @@
 
         <div class="folio-row folio-row--split">
           <section class="folio-card folio-card--experience" id="experience" aria-labelledby="experience-heading">
-            <h2 class="folio-card__title" id="experience-heading">Experience</h2>
-            <ol class="experience-list">
-              <li class="experience-item">
+            <h2 class="folio-card__title reveal" id="experience-heading">Experience</h2>
+            <ol class="experience-list" data-reveal-stagger="0.16">
+              <li class="experience-item reveal">
                 <p class="experience-item__company">Pochta.tech</p>
                 <div class="experience-item__meta">
                   <p class="experience-item__role">Art Director → Product Design Lead</p>
                   <p class="experience-item__dates">2024 — Present</p>
                 </div>
               </li>
-              <li class="experience-item">
+              <li class="experience-item reveal">
                 <p class="experience-item__company">Mish</p>
                 <div class="experience-item__meta">
                   <p class="experience-item__role">Art Director → Product Design Lead</p>
                   <p class="experience-item__dates">2018 — 2024</p>
                 </div>
               </li>
-              <li class="experience-item">
+              <li class="experience-item reveal">
                 <p class="experience-item__company">Neuron Digital</p>
                 <div class="experience-item__meta">
                   <p class="experience-item__role">Senior Designer</p>
                   <p class="experience-item__dates">2018</p>
                 </div>
               </li>
-              <li class="experience-item">
+              <li class="experience-item reveal">
                 <p class="experience-item__company">Artify agency</p>
                 <div class="experience-item__meta">
                   <p class="experience-item__role">Senior Designer</p>
                   <p class="experience-item__dates">2017</p>
                 </div>
               </li>
-              <li class="experience-item experience-item--muted">
+              <li class="experience-item experience-item--muted reveal">
                 <p class="experience-item__company">Others &amp;<br>Freelance</p>
                 <div class="experience-item__meta">
                   <p class="experience-item__role">Junior / Mid-level Designer</p>
@@ -325,7 +340,7 @@
           </section>
 
           <section class="folio-card folio-card--tools" id="tools" aria-labelledby="tools-heading">
-            <h2 class="folio-card__title" id="tools-heading">Tools</h2>
+            <h2 class="folio-card__title reveal" id="tools-heading">Tools</h2>
             <ul class="tool-list">
               <li class="tool-row">
                 <img class="tool-row__icon" src="assets/images/tools/figma.svg" alt="" width="32" height="32">
@@ -364,19 +379,19 @@
         </div>
 
         <section class="folio-card folio-card--about" id="about" aria-labelledby="about-heading">
-          <h2 class="folio-card__title" id="about-heading">About</h2>
+          <h2 class="folio-card__title reveal" id="about-heading">About</h2>
           <div class="folio-about__intro">
-            <p class="folio-about__story">My experience covers the full product design process — from mapping user flows and prototyping to visual design, illustration, motion, and even vibe coding. I enjoy going beyond just designing screens and taking ownership of the whole experience, from the initial idea to the final product.</p>
-            <ul class="folio-about__bullets">
-              <li class="folio-about__bullet">
+            <p class="folio-about__story reveal">My experience covers the full product design process — from mapping user flows and prototyping to visual design, illustration, motion, and even vibe coding. I enjoy going beyond just designing screens and taking ownership of the whole experience, from the initial idea to the final product.</p>
+            <ul class="folio-about__bullets" data-reveal-stagger="0.2">
+              <li class="folio-about__bullet reveal">
                 <span class="folio-about__bullet-dot" aria-hidden="true"></span>
                 <p>Product designer with 10+ years of experience crafting balanced product and design impact at the intersection of user needs and business goals.</p>
               </li>
-              <li class="folio-about__bullet">
+              <li class="folio-about__bullet reveal">
                 <span class="folio-about__bullet-dot" aria-hidden="true"></span>
                 <p>6+ years of leadership experience of teams up to 30 designers. Managing resources, leading people, and helping designers grow</p>
               </li>
-              <li class="folio-about__bullet">
+              <li class="folio-about__bullet reveal">
                 <span class="folio-about__bullet-dot" aria-hidden="true"></span>
                 <p>Expanding my skillset across design, research, and emerging technologies. This helps me bring broader context and more pragmatic solutions to product teams.</p>
               </li>
@@ -439,14 +454,14 @@
 
         <section class="folio-contact" id="contact" aria-labelledby="contact-heading">
           <h2 class="sr-only" id="contact-heading">Contact</h2>
-          <a class="folio-contact__email" href="mailto:ivan.krestov.21@gmail.com">
+          <a class="folio-contact__email reveal" href="mailto:ivan.krestov.21@gmail.com">
             <span class="folio-contact__email-label">ivan.krestov.21@gmail.com</span>
             <svg class="folio-contact__email-arrow" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <path d="M29.6567 12.6863L40.9704 24L29.6567 35.3137L28.2425 33.8995L34.5933 26.1532L7.99988 25.0606V22.9393L34.5933 21.9105L28.2425 14.1005L29.6567 12.6863Z" fill="currentColor"/>
             </svg>
           </a>
-          <div class="folio-contact__columns">
-            <div class="folio-contact__column">
+          <div class="folio-contact__columns" data-reveal-stagger="0.2">
+            <div class="folio-contact__column reveal">
               <p class="folio-contact__label">Linkedin</p>
               <a class="contact-link" href="https://www.linkedin.com/in/cofanota/" target="_blank" rel="noopener noreferrer">
                 <span class="contact-link__icon" aria-hidden="true">
@@ -457,7 +472,7 @@
                 <span class="contact-link__label">linkedin.com/in/cofanota</span>
               </a>
             </div>
-            <div class="folio-contact__column">
+            <div class="folio-contact__column reveal">
               <p class="folio-contact__label">Telegram</p>
               <a class="contact-link" href="https://t.me/ivancross" target="_blank" rel="noopener noreferrer">
                 <span class="contact-link__icon" aria-hidden="true">
@@ -468,7 +483,7 @@
                 <span class="contact-link__label">t.me/ivancross</span>
               </a>
             </div>
-            <p class="folio-contact__closing">
+            <p class="folio-contact__closing reveal">
               Feel free to DM,<br>
               always happy to talk
             </p>
@@ -481,7 +496,9 @@
 
   <script src="js/theme.js?v=20260828a"></script>
   <script src="js/navigation.js"></script>
-  <script src="js/cases-content.js?v=20260828img2"></script>
+  <script src="js/cases-content.js?v=20260829reveal2"></script>
+  <script src="js/reveal.js?v=20260830d"></script>
+  <script src="js/hero-intro.js?v=20260830f"></script>
   <script src="js/about-media.js"></script>
   <script src="js/cursor.js"></script>
 </body>

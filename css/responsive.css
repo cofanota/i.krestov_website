@@ -13,6 +13,22 @@
     --folio-card-padding-block: 1.25rem;
   }
 
+  h1,
+  h2,
+  h3,
+  .folio-hero__headline,
+  .folio-contact__email,
+  .case-detail__title,
+  .case-detail__section-title,
+  .folio-hero__column,
+  .case-detail__text,
+  .case-detail__caption,
+  .case-detail__description {
+    text-wrap: wrap;
+    hyphens: manual;
+    -webkit-hyphens: manual;
+  }
+
   .site-nav {
     width: max-content;
     max-width: calc(100vw - 1.5rem);
@@ -110,6 +126,10 @@
 
   .folio-row--split {
     grid-template-columns: 1fr;
+  }
+
+  .folio-hero__headline {
+    font-size: var(--font-size-heading-primary);
   }
 
   .folio-hero__columns {
@@ -329,7 +349,7 @@
     --level-card-padding: 0.75rem;
     --level-menu-padding-x: 0.75rem;
     --level-menu-padding-y: 0.75rem;
-    --content-padding-top: 1.5rem;
+    --content-padding-top: 4.5rem;
     --font-size-heading-primary: 1.75rem;
     --font-size-heading-amount: 9rem;
     --font-size-heading-tertiary: 1.25rem;
@@ -340,7 +360,7 @@
 
   .folio-hero__intro {
     gap: 1.5rem;
-    padding-top: var(--spacing-9);
+    padding-top: calc(var(--spacing-9) * 3);
     padding-bottom: var(--spacing-4);
   }
 

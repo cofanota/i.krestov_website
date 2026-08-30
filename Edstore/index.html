@@ -51,6 +51,15 @@
       document.head.appendChild(themeColor);
     })();
   </script>
+  <script>
+    (function () {
+      try {
+        if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          document.documentElement.classList.add("js-reveal");
+        }
+      } catch (error) {}
+    })();
+  </script>
   <script src="js/background-perf.js"></script>
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/fonts.css">
@@ -129,7 +138,7 @@
       <div class="folio-stack__inner">
         <article class="folio-card folio-card--case-detail">
           <div class="page-back">
-            <a class="page-back__link" href="/#cases">
+            <a class="page-back__link reveal" href="/#cases">
               <span class="dot" data-dot="cases"></span>
               <span class="page-back__label">Back</span>
             </a>
@@ -144,7 +153,8 @@
 
   <script src="js/theme.js"></script>
   <script src="js/navigation.js"></script>
-  <script src="js/cases-content.js?v=20260828img2"></script>
+  <script src="js/cases-content.js?v=20260829reveal2"></script>
+  <script src="js/reveal.js?v=20260830a"></script>
   <script src="js/cursor.js"></script>
 </body>
 </html>

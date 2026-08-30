@@ -34,7 +34,7 @@ Before implementation, use Figma MCP as the source of truth for structure, compo
 
 Reuse Figma components and variants instead of inventing replacement UI.
 
-JavaScript is allowed only for page-specific behavior that cannot be done in HTML/CSS alone (theme, mobile pill expand/collapse, cases content hydration, galleries, About media, cursor, section-anchor navigation). Do not reintroduce map routing or History API SPA navigation.
+JavaScript is allowed only for page-specific behavior that cannot be done in HTML/CSS alone (theme, mobile pill expand/collapse, cases content hydration, galleries, About media, cursor, section-anchor navigation, in-view text reveal, home hero intro). Do not reintroduce map routing or History API SPA navigation.
 
 Keep all implementation constraints from @Design.md: semantic HTML, no CSS frameworks, rem units only, and only Figma-provided styles, variables, icons and components.
 
