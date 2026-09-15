@@ -35,8 +35,10 @@
             ? "dark"
             : "light";
       var root = document.documentElement;
+      var color = theme === "dark" ? "#100f0f" : "#eae7e4";
       root.setAttribute("data-theme", theme);
       root.style.colorScheme = theme;
+      root.style.backgroundColor = color;
       var schemeMeta = document.querySelector('meta[name="color-scheme"]');
       if (schemeMeta) {
         schemeMeta.setAttribute("content", theme);
@@ -47,7 +49,7 @@
       }
       themeColor = document.createElement("meta");
       themeColor.setAttribute("name", "theme-color");
-      themeColor.setAttribute("content", theme === "dark" ? "#100f0f" : "#eae7e4");
+      themeColor.setAttribute("content", color);
       document.head.appendChild(themeColor);
     })();
   </script>
@@ -57,7 +59,13 @@
         if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
           document.documentElement.classList.add("js-reveal");
           var hash = String(window.location.hash || "").replace(/^#/, "");
-          if (!hash || hash === "home") {
+          var pending = "";
+          try {
+            pending = sessionStorage.getItem("icross-scroll-section") || "";
+          } catch (error) {
+            pending = "";
+          }
+          if ((!hash || hash === "home") && (!pending || pending === "home")) {
             document.documentElement.classList.add("is-hero-intro");
           }
         }
@@ -67,9 +75,9 @@
   <script src="js/background-perf.js"></script>
   <link rel="stylesheet" href="css/tokens.css?v=20260915z">
   <link rel="stylesheet" href="css/fonts.css?v=20260828j">
-  <link rel="stylesheet" href="css/base.css?v=20260915d">
+  <link rel="stylesheet" href="css/base.css?v=20260915f">
   <link rel="stylesheet" href="css/components.css?v=20260916h">
-  <link rel="stylesheet" href="css/responsive.css?v=20260915ag">
+  <link rel="stylesheet" href="css/responsive.css?v=20260915ah">
   <link rel="stylesheet" href="css/cursor.css">
 </head>
 <body class="page page--home" data-page="home">
@@ -272,8 +280,21 @@
             </div>
             <a class="case-tile reveal" href="Picksell" data-case-slug="picksell">
               <h3 class="case-tile__title">Picksell – European marketplace and payment system</h3>
-              <figure class="case-tile__media case-tile__media--stroke case-tile__media--placeholder">
-                <img src="cases/Case%201/Cover.png" alt="" width="1024" height="1024" decoding="async" loading="lazy">
+              <figure class="case-tile__media case-tile__media--stroke">
+                <video
+                  class="case-tile__video"
+                  width="1024"
+                  height="1024"
+                  muted
+                  playsinline
+                  webkit-playsinline
+                  loop
+                  autoplay
+                  preload="none"
+                  poster="cases/Case%201/App/App%20Vi1.jpg?v=20260915vi1"
+                  data-src="cases/Case%201/App/App%20Vi1.mp4?v=20260915vi1"
+                  aria-hidden="true"
+                ></video>
               </figure>
               <div class="case-tile__footer">
                 <ul class="case-tile__labels" aria-label="Tags">
@@ -531,11 +552,11 @@
     </div>
   </main>
 
-  <script src="js/theme.js?v=20260915h"></script>
-  <script src="js/navigation.js?v=20260915c"></script>
+  <script src="js/theme.js?v=20260915j"></script>
+  <script src="js/navigation.js?v=20260915d"></script>
         <script src="js/cases-content.js?v=20260915a"></script>
   <script src="js/reveal.js?v=20260830d"></script>
-  <script src="js/hero-intro.js?v=20260915e"></script>
+  <script src="js/hero-intro.js?v=20260915f"></script>
   <script src="js/about-media.js?v=20260915a"></script>
   <script src="js/cursor.js?v=20260915a"></script>
 </body>

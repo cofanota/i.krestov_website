@@ -30,11 +30,25 @@
 
   function syncBrowserChrome(theme) {
     var root = document.documentElement;
+    var body = document.body;
     var color = THEME_BG[theme];
     var schemeMeta = document.querySelector('meta[name="color-scheme"]');
-    var themeColor;
+    var probe = document.getElementById("safari-chrome-bg");
 
     root.style.colorScheme = theme;
+    root.style.backgroundColor = color;
+
+    if (body) {
+      body.style.backgroundColor = color;
+      if (!probe) {
+        probe = document.createElement("div");
+        probe.id = "safari-chrome-bg";
+        probe.className = "safari-chrome-bg";
+        probe.setAttribute("aria-hidden", "true");
+        body.insertBefore(probe, body.firstChild);
+      }
+      probe.style.backgroundColor = color;
+    }
 
     if (schemeMeta) {
       schemeMeta.setAttribute("content", theme);
@@ -44,10 +58,13 @@
       node.remove();
     });
 
-    themeColor = document.createElement("meta");
-    themeColor.setAttribute("name", "theme-color");
-    themeColor.setAttribute("content", color);
-    document.head.appendChild(themeColor);
+    ["light", "dark"].forEach(function (scheme) {
+      var themeColor = document.createElement("meta");
+      themeColor.setAttribute("name", "theme-color");
+      themeColor.setAttribute("media", "(prefers-color-scheme: " + scheme + ")");
+      themeColor.setAttribute("content", color);
+      document.head.appendChild(themeColor);
+    });
   }
 
   function applyTheme(theme) {

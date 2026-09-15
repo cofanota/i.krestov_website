@@ -35,8 +35,10 @@
             ? "dark"
             : "light";
       var root = document.documentElement;
+      var color = theme === "dark" ? "#100f0f" : "#eae7e4";
       root.setAttribute("data-theme", theme);
       root.style.colorScheme = theme;
+      root.style.backgroundColor = color;
       var schemeMeta = document.querySelector('meta[name="color-scheme"]');
       if (schemeMeta) {
         schemeMeta.setAttribute("content", theme);
@@ -47,7 +49,7 @@
       }
       themeColor = document.createElement("meta");
       themeColor.setAttribute("name", "theme-color");
-      themeColor.setAttribute("content", theme === "dark" ? "#100f0f" : "#eae7e4");
+      themeColor.setAttribute("content", color);
       document.head.appendChild(themeColor);
     })();
   </script>
@@ -154,7 +156,7 @@
   <script src="js/theme.js"></script>
   <script src="js/navigation.js"></script>
   <script src="js/about-media.js?v=20260915a"></script>
-  <script src="js/cases-content.js?v=20260915a"></script>
+  <script src="js/cases-content.js?v=20260915vi1"></script>
   <script src="js/reveal.js?v=20260830a"></script>
   <script src="js/cursor.js?v=20260915a"></script>
 </body>

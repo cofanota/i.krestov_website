@@ -4,6 +4,7 @@
   var SECTION_IDS = ["home", "cases", "about", "experience", "tools", "contact"];
   var SCROLL_SECTION_IDS = ["home", "cases", "about", "experience", "contact"];
   var SCROLLED_PX = 8;
+  var SCROLL_SECTION_KEY = "icross-scroll-section";
 
   function navHighlightId(id) {
     return id === "tools" ? "experience" : id;
@@ -18,6 +19,51 @@
     return SECTION_IDS.indexOf(id) !== -1 ? id : "";
   }
 
+  function clearSectionHash() {
+    if (!window.location.hash) {
+      return;
+    }
+    if (window.history && typeof window.history.replaceState === "function") {
+      window.history.replaceState(
+        null,
+        "",
+        window.location.pathname + window.location.search
+      );
+    }
+  }
+
+  function takePendingScrollSection() {
+    var stored = "";
+    try {
+      stored = sessionStorage.getItem(SCROLL_SECTION_KEY) || "";
+      sessionStorage.removeItem(SCROLL_SECTION_KEY);
+    } catch (error) {
+      stored = "";
+    }
+    return getSectionIdFromHash(stored);
+  }
+
+  function isHomePath(pathname) {
+    var path = String(pathname || "").replace(/\/index\.html$/i, "");
+    if (!path || path === "/") {
+      return true;
+    }
+    var base = String(window.SITE_BASE_PATH || "/").replace(/\/index\.html$/i, "");
+    if (base.length > 1) {
+      base = base.replace(/\/$/, "");
+    }
+    return path === base;
+  }
+
+  function rememberSectionAndOpen(link, id) {
+    try {
+      sessionStorage.setItem(SCROLL_SECTION_KEY, id);
+    } catch (error) {}
+    var url = new URL(link.href, window.location.href);
+    url.hash = "";
+    window.location.assign(url.pathname + url.search || "/");
+  }
+
   function scrollToSection(id, updateHash) {
     var target = document.getElementById(id);
     if (!target) {
@@ -30,15 +76,7 @@
     });
 
     if (updateHash) {
-      if (window.history && typeof window.history.replaceState === "function") {
-        var nextUrl =
-          id === "home"
-            ? window.location.pathname + window.location.search
-            : "#" + id;
-        window.history.replaceState(null, "", nextUrl);
-      } else if (id !== "home") {
-        window.location.hash = id;
-      }
+      clearSectionHash();
     }
 
     return true;
@@ -101,6 +139,35 @@
     syncPageScrolled();
 
     var isHome = document.body.getAttribute("data-page") === "home";
+
+    document.addEventListener("click", function (event) {
+      if (isHome || event.defaultPrevented || event.button !== 0) {
+        return;
+      }
+      if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
+        return;
+      }
+
+      var link = event.target.closest("a[href]");
+      if (!link || link.target === "_blank") {
+        return;
+      }
+
+      var url;
+      try {
+        url = new URL(link.href, window.location.href);
+      } catch (error) {
+        return;
+      }
+
+      var id = getSectionIdFromHash(url.hash);
+      if (!id || !isHomePath(url.pathname)) {
+        return;
+      }
+
+      event.preventDefault();
+      rememberSectionAndOpen(link, id);
+    });
 
     if (!isHome) {
       return;
@@ -184,9 +251,14 @@
       var id = getSectionIdFromHash(window.location.hash) || "home";
       scrollToSection(id, false);
       setActiveSection(id);
+      clearSectionHash();
     });
 
-    var initialId = getSectionIdFromHash(window.location.hash) || "home";
+    var initialId =
+      takePendingScrollSection() ||
+      getSectionIdFromHash(window.location.hash) ||
+      "home";
+    clearSectionHash();
     if (initialId !== "home") {
       window.requestAnimationFrame(function () {
         scrollToSection(initialId, false);

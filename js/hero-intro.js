@@ -22,7 +22,13 @@
       return false;
     }
     var hash = String(window.location.hash || "").replace(/^#/, "");
-    if (hash && hash !== "home") {
+    var pending = "";
+    try {
+      pending = sessionStorage.getItem("icross-scroll-section") || "";
+    } catch (error) {
+      pending = "";
+    }
+    if ((hash && hash !== "home") || (pending && pending !== "home")) {
       return false;
     }
     return document.documentElement.classList.contains("is-hero-intro");

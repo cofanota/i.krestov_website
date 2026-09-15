@@ -8,7 +8,7 @@
     "tags": ["B2C", "B2B", "Fintech", "App", "E-com", "SaaS"]
   },
   "hero": {
-    "cover": "/cases/Case%201/Picksell%20Case.png",
+    "cover": "/cases/Case%201/Picksell%20Case.png?v=20260915cover",
     "title": "Picksell",
     "description": "EU marketplace and payment system powered by open banking technology",
     "labels": ["B2C", "B2B", "Fintech", "App", "E-com", "SaaS"]
@@ -81,9 +81,9 @@
         "images": [
           "/cases/Case%201/App/App%201.png",
           {
-            "src": "/cases/Case%201/App/App%20Vi1.mp4",
+            "src": "/cases/Case%201/App/App%20Vi1.mp4?v=20260915vi1",
             "type": "video",
-            "poster": "/cases/Case%201/App/App%20Vi1.jpg",
+            "poster": "/cases/Case%201/App/App%20Vi1.jpg?v=20260915vi1",
             "width": 1024,
             "height": 1024
           },

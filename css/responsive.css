@@ -512,16 +512,20 @@
   }
 
   .folio-desk {
+    --folio-desk-ratio: 1024 / calc(328 * 3);
     position: relative;
     inset: auto;
     width: 100%;
     height: auto;
     margin: 0;
     aspect-ratio: var(--folio-desk-ratio);
+    overflow: hidden;
   }
 
   .folio-desk__img {
-    object-position: center bottom;
+    object-fit: cover;
+    object-position: center;
+    transform: none;
   }
 
   .folio-contact__email {
