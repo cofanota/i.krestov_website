@@ -85,7 +85,7 @@ body.image-lightbox-open {
 .image-lightbox__nav {
   position: fixed;
   left: 50%;
-  bottom: calc(var(--nav-pill-clearance) + 0.75rem);
+  bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px));
   z-index: 2;
   justify-content: center;
   transform: translateX(-50%);

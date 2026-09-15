@@ -62,8 +62,8 @@
     }
   }
 
-  function getAboutVideos() {
-    return document.querySelectorAll(".about__video[data-src]");
+  function getAutoplayVideos() {
+    return document.querySelectorAll(".about__video[data-src], .case-tile__video[data-src]");
   }
 
   function playAboutVideos() {
@@ -71,7 +71,7 @@
       return;
     }
 
-    getAboutVideos().forEach(function (video) {
+    getAutoplayVideos().forEach(function (video) {
       if (!isVideoVisible(video)) {
         return;
       }

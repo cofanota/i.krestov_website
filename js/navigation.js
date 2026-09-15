@@ -1,8 +1,9 @@
 (function () {
   "use strict";
 
-  var SECTION_IDS = ["home", "cases", "experience", "tools", "about", "contact"];
-  var SCROLL_SECTION_IDS = ["home", "cases", "experience", "about", "contact"];
+  var SECTION_IDS = ["home", "cases", "about", "experience", "tools", "contact"];
+  var SCROLL_SECTION_IDS = ["home", "cases", "about", "experience", "contact"];
+  var SCROLLED_PX = 8;
 
   function navHighlightId(id) {
     return id === "tools" ? "experience" : id;
@@ -31,11 +32,11 @@
     if (updateHash) {
       if (window.history && typeof window.history.replaceState === "function") {
         var nextUrl =
-          id === "cases"
+          id === "home"
             ? window.location.pathname + window.location.search
             : "#" + id;
         window.history.replaceState(null, "", nextUrl);
-      } else if (id !== "cases") {
+      } else if (id !== "home") {
         window.location.hash = id;
       }
     }
@@ -55,11 +56,21 @@
     });
   }
 
+  function syncPageScrolled() {
+    document.documentElement.classList.toggle(
+      "is-page-scrolled",
+      window.scrollY > SCROLLED_PX
+    );
+  }
+
   function init() {
     var nav = document.querySelector("[data-site-nav]");
     if (!nav) {
       return;
     }
+
+    window.addEventListener("scroll", syncPageScrolled, { passive: true });
+    syncPageScrolled();
 
     var isHome = document.body.getAttribute("data-page") === "home";
 
@@ -76,7 +87,7 @@
         return "contact";
       }
       if (link.classList.contains("site-nav__identity")) {
-        return "cases";
+        return "home";
       }
       return (
         link.getAttribute("data-nav-section") ||
@@ -120,7 +131,7 @@
 
     function syncFromScroll() {
       var marker = window.scrollY + Math.min(160, window.innerHeight * 0.25);
-      var activeId = "cases";
+      var activeId = "home";
 
       sections.forEach(function (section) {
         if (section.offsetTop <= marker) {
@@ -142,25 +153,19 @@
     );
 
     window.addEventListener("hashchange", function () {
-      var id = getSectionIdFromHash(window.location.hash) || "cases";
+      var id = getSectionIdFromHash(window.location.hash) || "home";
       scrollToSection(id, false);
       setActiveSection(id);
     });
 
-    if (window.location.hash === "#cases") {
-      if (window.history && typeof window.history.replaceState === "function") {
-        window.history.replaceState(null, "", window.location.pathname + window.location.search);
-      }
-    }
-
-    var initialId = getSectionIdFromHash(window.location.hash) || "cases";
-    if (initialId !== "cases") {
+    var initialId = getSectionIdFromHash(window.location.hash) || "home";
+    if (initialId !== "home") {
       window.requestAnimationFrame(function () {
         scrollToSection(initialId, false);
         setActiveSection(initialId);
       });
     } else {
-      setActiveSection("cases");
+      setActiveSection("home");
     }
 
     syncFromScroll();

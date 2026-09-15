@@ -864,50 +864,13 @@
   }
 
   function hydrateCasesList() {
-    var list = document.querySelector(".project-list--folio");
+    var list = document.querySelector(".folio-bento");
     if (!list) {
       return Promise.resolve();
     }
 
-    return loadIndex().then(function (entries) {
-      var promises = entries.map(function (entry) {
-        var row = list.querySelector('[data-case-slug="' + entry.slug + '"]');
-        if (!row) {
-          return Promise.resolve();
-        }
-
-        return loadCaseMeta(entry.folder).then(function (meta) {
-          var listData = meta.list || {};
-          var hero = meta.hero || {};
-          var titleEl = row.querySelector(".project-row__title");
-          var descEl = row.querySelector(".project-row__description");
-          var labelsEl = row.querySelector(".project-row__labels");
-          var item = row.closest(".project-item--folio");
-          var coverImg = item && item.querySelector(".project-row__cover-img");
-
-          if (entry.path) {
-            row.setAttribute("href", siteUrl("/" + entry.path));
-          }
-          if (titleEl) {
-            titleEl.textContent = listData.title || meta.title;
-          }
-          if (descEl) {
-            descEl.textContent = listData.description || "";
-          }
-          if (labelsEl) {
-            labelsEl.innerHTML = renderLabels(listData.tags);
-          }
-          if (coverImg && hero.cover) {
-            applyOptimizedImage(coverImg, hero.cover);
-            item.classList.add("has-cover");
-          }
-        });
-      });
-
-      return Promise.all(promises).then(function () {
-        list.dataset.hydrated = "true";
-      });
-    });
+    list.dataset.hydrated = "true";
+    return Promise.resolve();
   }
 
   function hydrateCurrentPage() {

@@ -120,18 +120,26 @@
   function start() {
     if (!shouldPlay()) {
       document.documentElement.classList.remove("is-hero-intro");
+      if (window.RevealText) {
+        window.RevealText.scan(document);
+      }
       return;
     }
 
     hero = document.querySelector(".folio-hero");
     var wrap = document.querySelector(".folio-hero__logo-wrap");
-    if (!hero || !wrap) {
+    if (!hero) {
       document.documentElement.classList.remove("is-hero-intro");
+      if (window.RevealText) {
+        window.RevealText.revealNow(document);
+      }
       return;
     }
 
     hero.classList.add("is-intro");
-    logoFromCenter(wrap);
+    if (wrap) {
+      logoFromCenter(wrap);
+    }
     bindHurry();
 
     requestAnimationFrame(function () {
@@ -143,8 +151,9 @@
       });
     });
 
-    landTimer = window.setTimeout(onLand, LOGO_MOVE_MS);
-    doneTimer = window.setTimeout(finish, LOGO_MOVE_MS + Math.max(TEXT_MS + LINE_STAGGER_MS, REST_MS));
+    var landingDelay = wrap ? LOGO_MOVE_MS : 0;
+    landTimer = window.setTimeout(onLand, landingDelay);
+    doneTimer = window.setTimeout(finish, landingDelay + Math.max(TEXT_MS + LINE_STAGGER_MS, REST_MS));
   }
 
   function init() {

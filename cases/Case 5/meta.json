@@ -4,14 +4,14 @@
   "title": "Sayme",
   "list": {
     "title": "Sayme",
-    "description": "Sayme connects talents with their fans on a single platform, where users can ask a talent of their choice to record a personalized video gift",
-    "tags": ["B2C", "Entertainment", "Web"]
+    "description": "video presents from talants",
+    "tags": ["B2C", "Identity", "App", "0 → 1"]
   },
   "hero": {
     "cover": "/cases/Case%205/cover.png",
     "title": "Sayme",
     "description": "Sayme connects talents with their fans on a single platform, where users can ask a talent of their choice to record a personalized video gift",
-    "labels": ["B2C", "Entertainment", "Web"]
+    "labels": ["B2C", "Identity", "App", "0 → 1"]
   },
   "meta": {
     "role": "Hands-on delivery",
