@@ -1123,10 +1123,6 @@ a.case-tile:active .btn {
   word-break: break-word;
 }
 
-.case-tile__summary {
-  font-weight: 400;
-}
-
 .case-tile__media {
   position: relative;
   flex: 1 1 auto;

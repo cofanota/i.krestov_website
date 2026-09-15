@@ -5,13 +5,13 @@
   "list": {
     "title": "SBI Bank",
     "description": "Apps for parents and kids",
-    "tags": ["B2C", "Fintech", "App", "E-com"]
+    "tags": ["B2C", "Fintech", "App"]
   },
   "hero": {
     "cover": "/cases/Case%202/Cover.png",
     "title": "SBIBank",
     "description": "Family banking with separate parent and child banking apps. Where single user can act in multiple roles within the app",
-    "labels": ["B2C", "Fintech", "App", "E-com"]
+    "labels": ["B2C", "Fintech", "App"]
   },
   "meta": {
     "role": "Led design team, art direction, product strategy, and core concepts",

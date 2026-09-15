@@ -5,13 +5,13 @@
   "list": {
     "title": "Edstore",
     "description": "Micro-learning App",
-    "tags": ["B2C", "Fintech", "App", "E-com"]
+    "tags": ["B2C", "Edtech", "App"]
   },
   "hero": {
     "cover": "/cases/Case%203/Cover.png",
     "title": "Edstore",
     "description": "Story-based mobile learning app optimized for fast, on-the-go content",
-    "labels": ["B2C", "Fintech", "App", "E-com"]
+    "labels": ["B2C", "Edtech", "App"]
   },
   "meta": {
     "role": "Led design team, art direction, product strategy, and core concepts",
