@@ -135,6 +135,7 @@ html.is-page-scrolled .site-nav {
 }
 
 .site-nav__cta.btn .btn__icon {
+  display: none;
   box-sizing: border-box;
   width: calc(1.75rem * var(--ui-scale-applied));
   height: calc(1.75rem * var(--ui-scale-applied));
@@ -738,6 +739,7 @@ a.home-project:active {
 }
 
 .folio-desk {
+  --folio-desk-ratio: 1024 / 328;
   position: absolute;
   z-index: 0;
   left: 0;
@@ -747,10 +749,11 @@ a.home-project:active {
   width: 100%;
   max-width: none;
   height: auto;
-  aspect-ratio: 3840 / 1800;
+  aspect-ratio: var(--folio-desk-ratio);
   margin: 0;
   overflow: hidden;
   pointer-events: none;
+  background-color: var(--fill-bg-lvl-0);
 }
 
 .folio-desk__img {
@@ -761,12 +764,8 @@ a.home-project:active {
   height: 100%;
   object-fit: cover;
   object-position: center bottom;
+  transform: translateY(20px);
   pointer-events: none;
-  opacity: 0;
-  filter: blur(0);
-  transition:
-    opacity var(--btn-transition-duration) var(--btn-transition-easing),
-    filter 0.2s var(--btn-transition-easing);
 }
 
 .folio-desk__img--light {
@@ -774,30 +773,7 @@ a.home-project:active {
 }
 
 .folio-desk__img--dark {
-  opacity: 0;
-}
-
-:root[data-theme="dark"] .folio-desk__img--light {
-  opacity: 0;
-}
-
-:root[data-theme="dark"] .folio-desk__img--dark {
-  opacity: 1;
-}
-
-html.is-theme-switching .folio-desk__img {
-  filter: blur(0.25rem);
-  transition:
-    opacity var(--btn-transition-duration) var(--btn-transition-easing),
-    filter 0.08s var(--btn-transition-easing);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .folio-desk__img,
-  html.is-theme-switching .folio-desk__img {
-    filter: none;
-    transition: none;
-  }
+  opacity: var(--theme-progress);
 }
 
 .folio-hero {
@@ -1191,6 +1167,7 @@ a.case-tile:active .btn {
   gap: calc(0.75rem * var(--ui-scale-applied));
   width: 100%;
   min-width: 0;
+  min-height: var(--case-tile-action-min);
 }
 
 .case-tile__labels {
@@ -1200,7 +1177,7 @@ a.case-tile:active .btn {
   align-items: center;
   gap: var(--spacing-1);
   min-width: 0;
-  min-height: 2.25rem;
+  min-height: var(--case-tile-action-min);
   margin: 0;
   padding: 0;
   list-style: none;
@@ -1224,7 +1201,7 @@ a.case-tile:active .btn {
 .case-tile .btn {
   flex-shrink: 0;
   gap: 0;
-  min-height: 2.25rem;
+  min-height: var(--case-tile-action-min);
   padding: var(--spacing-1);
   pointer-events: none;
 }
@@ -1234,8 +1211,8 @@ a.case-tile:active .btn {
 }
 
 .case-tile .btn--icon {
-  width: 2.25rem;
-  height: 2.25rem;
+  width: var(--case-tile-action-min);
+  height: var(--case-tile-action-min);
   padding: var(--spacing-1);
 }
 

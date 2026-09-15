@@ -65,19 +65,6 @@
     });
   }
 
-  function fadeDeskTheme() {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      return;
-    }
-
-    var root = document.documentElement;
-    root.classList.add("is-theme-switching");
-    window.clearTimeout(fadeDeskTheme.timer);
-    fadeDeskTheme.timer = window.setTimeout(function () {
-      root.classList.remove("is-theme-switching");
-    }, 320);
-  }
-
   function setTheme(theme, persist) {
     if (theme !== "light" && theme !== "dark") {
       return;
@@ -89,32 +76,94 @@
       } catch (error) {
         /* ignore quota / privacy mode */
       }
+      scrollThemeArmed = false;
     }
 
     if (document.documentElement.getAttribute("data-theme") === theme) {
       return;
     }
 
-    fadeDeskTheme();
     applyTheme(theme);
   }
 
   function onSystemThemeChange() {
-    if (getStoredTheme()) {
+    if (getStoredTheme() || scrollThemeArmed) {
       return;
     }
-    fadeDeskTheme();
     applyTheme(getSystemTheme());
+  }
+
+  var SCROLL_THEME_ENTER_PX = 48;
+  var SCROLL_THEME_EXIT_PX = 120;
+  var scrollThemeAtBottom = false;
+  var scrollThemeArmed = false;
+  var scrollThemeFrame = 0;
+
+  function currentTheme() {
+    var attr = document.documentElement.getAttribute("data-theme");
+    return attr === "dark" || attr === "light" ? attr : resolveTheme();
+  }
+
+  function oppositeTheme(theme) {
+    return theme === "dark" ? "light" : "dark";
+  }
+
+  function remainingScrollPx() {
+    var root = document.documentElement;
+    return root.scrollHeight - window.scrollY - window.innerHeight;
+  }
+
+  function pageCanScrollForTheme() {
+    return document.documentElement.scrollHeight > window.innerHeight + SCROLL_THEME_EXIT_PX;
+  }
+
+  function syncScrollTheme() {
+    if (!pageCanScrollForTheme()) {
+      if (scrollThemeArmed) {
+        scrollThemeArmed = false;
+        setTheme(resolveTheme(), false);
+      }
+      scrollThemeAtBottom = false;
+      return;
+    }
+
+    var remaining = remainingScrollPx();
+    var nowAtBottom = scrollThemeAtBottom
+      ? remaining <= SCROLL_THEME_EXIT_PX
+      : remaining <= SCROLL_THEME_ENTER_PX;
+
+    if (nowAtBottom === scrollThemeAtBottom) {
+      return;
+    }
+
+    scrollThemeAtBottom = nowAtBottom;
+
+    if (scrollThemeAtBottom) {
+      scrollThemeArmed = true;
+      setTheme(oppositeTheme(currentTheme()), false);
+      return;
+    }
+
+    if (scrollThemeArmed) {
+      scrollThemeArmed = false;
+      setTheme(resolveTheme(), false);
+    }
+  }
+
+  function requestScrollThemeSync() {
+    if (scrollThemeFrame) {
+      return;
+    }
+    scrollThemeFrame = window.requestAnimationFrame(function () {
+      scrollThemeFrame = 0;
+      syncScrollTheme();
+    });
   }
 
   function init() {
     applyTheme(resolveTheme());
 
     var switchRoots = document.querySelectorAll(".theme-switch");
-    if (!switchRoots.length) {
-      return;
-    }
-
     switchRoots.forEach(function (switchRoot) {
       switchRoot.addEventListener("click", function (event) {
         var segment = event.target.closest("[data-theme-value]");
@@ -131,6 +180,15 @@
     } else if (typeof systemMq.addListener === "function") {
       systemMq.addListener(onSystemThemeChange);
     }
+
+    var isHome = document.body && document.body.getAttribute("data-page") === "home";
+    if (!isHome || !document.querySelector(".folio-desk")) {
+      return;
+    }
+
+    window.addEventListener("scroll", requestScrollThemeSync, { passive: true });
+    window.addEventListener("resize", requestScrollThemeSync);
+    syncScrollTheme();
   }
 
   if (document.readyState === "loading") {

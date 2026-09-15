@@ -4,11 +4,37 @@
   initial-value: 1;
 }
 
+@property --theme-progress {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 0;
+}
+
 :root {
-  /* Brand / fill */
-  --fill-bg-lvl-0: #eae7e4;
-  --fill-bg-lvl-1: #ffffff;
-  --fill-bg-lvl-2: #d1cecc;
+  --theme-progress: 0;
+  --fill-bg-lvl-0-from: #eae7e4;
+  --fill-bg-lvl-0-to: #100f0f;
+  --fill-bg-lvl-1-from: #ffffff;
+  --fill-bg-lvl-1-to: #2b2928;
+  --fill-bg-lvl-2-from: #d1cecc;
+  --fill-bg-lvl-2-to: #403d3c;
+
+  /* Brand / fill — mixed from --theme-progress so the desk fade shares this clock */
+  --fill-bg-lvl-0: color-mix(
+    in srgb,
+    var(--fill-bg-lvl-0-from) calc((1 - var(--theme-progress)) * 100%),
+    var(--fill-bg-lvl-0-to) calc(var(--theme-progress) * 100%)
+  );
+  --fill-bg-lvl-1: color-mix(
+    in srgb,
+    var(--fill-bg-lvl-1-from) calc((1 - var(--theme-progress)) * 100%),
+    var(--fill-bg-lvl-1-to) calc(var(--theme-progress) * 100%)
+  );
+  --fill-bg-lvl-2: color-mix(
+    in srgb,
+    var(--fill-bg-lvl-2-from) calc((1 - var(--theme-progress)) * 100%),
+    var(--fill-bg-lvl-2-to) calc(var(--theme-progress) * 100%)
+  );
 
   /* Text */
   --text-neutral-primary: #191918;
@@ -123,6 +149,13 @@
   --contact-content-top: var(--section-space-block);
   --case-tile-media-min: 16.5rem;
   --case-tile-media-prefer: 22rem;
+  --case-tile-action-min: max(
+    2.25rem,
+    calc(
+      (var(--spacing-1) + var(--spacing-0)) * 2 +
+        (var(--font-size-action-secondary) * var(--line-height-action-secondary))
+    )
+  );
   --folio-bento-gap: 0.75rem;
 
   /* Layout */
@@ -136,6 +169,7 @@
   /* Interaction transitions (Button, Menu item) */
   --btn-transition-duration: 300ms;
   --btn-transition-easing: ease-out;
+  transition: --theme-progress var(--btn-transition-duration) var(--btn-transition-easing);
 
   /* Page background */
   --page-grid-size: 2rem;
@@ -149,9 +183,7 @@
 
 /* Use Colors — Dark mode (Figma collection, resolved via MCP) */
 :root[data-theme="dark"] {
-  --fill-bg-lvl-0: #100f0f;
-  --fill-bg-lvl-1: #2b2928;
-  --fill-bg-lvl-2: #403d3c;
+  --theme-progress: 1;
 
   --text-neutral-primary: #f5f2f0;
   --text-neutral-secondary: #bbb6b2;
@@ -178,4 +210,10 @@
   --shadow-lvl-1: 0 0.375rem 1.5rem -0.1875rem rgba(0, 0, 0, 0.4);
 
   --page-grid-line: rgba(239, 239, 247, 0.08);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    transition: none;
+  }
 }

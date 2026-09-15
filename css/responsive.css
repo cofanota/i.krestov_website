@@ -18,6 +18,7 @@
     --section-space-block-end: 2.5rem;
     --contact-content-top: 7.5rem;
     --case-tile-media-min: 16.5rem;
+    --nav-theme-cta-gap: 0.25rem;
   }
 
   h1,
@@ -64,7 +65,10 @@
   }
 
   .site-nav__actions {
-    display: contents;
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    gap: var(--nav-theme-cta-gap);
   }
 
   .site-nav__routes {
@@ -140,6 +144,14 @@
   .folio-hero__intro {
     flex-direction: column;
     gap: var(--spacing-9);
+    padding-top: max(
+      var(--section-space-block),
+      calc(var(--nav-pill-clearance) + var(--spacing-9))
+    );
+  }
+
+  html.is-page-scrolled .site-nav {
+    padding-inline: 0.25rem;
   }
 
   .folio-hero__lede {
@@ -207,20 +219,21 @@
   @media (min-width: 36rem) {
     :root {
       --contact-content-top: 14.375rem;
-    }
-
-    .site-nav {
-      left: 3.4375rem;
-      right: 3.5625rem;
+      --nav-bar-top: max(0.875rem, env(safe-area-inset-top, 0px));
+      --nav-pill-clearance: calc(3.875rem + env(safe-area-inset-top, 0px));
     }
 
     .site-nav__actions {
       display: flex;
     }
 
+    .folio-hero__intro {
+      padding-top: var(--contact-content-top);
+    }
+
     .folio-contact-scene .folio-contact {
-      padding-right: 3.75rem;
-      padding-left: 3.1875rem;
+      padding-right: var(--level-page-padding);
+      padding-left: var(--level-page-padding);
     }
 
     .folio-contact-scene .folio-contact__columns {
@@ -239,8 +252,8 @@
       --case-tile-media-min: 18rem;
       --section-space-block: 8rem;
       --contact-content-top: 14.375rem;
-      --nav-bar-top: max(3.5rem, env(safe-area-inset-top, 0px));
-      --nav-pill-clearance: calc(6.5rem + env(safe-area-inset-top, 0px));
+      --nav-bar-top: max(0.875rem, env(safe-area-inset-top, 0px));
+      --nav-pill-clearance: calc(3.875rem + env(safe-area-inset-top, 0px));
     }
 
     .site-nav__name {
@@ -452,6 +465,31 @@
     --case-tile-media-min: 12.5rem;
   }
 
+  .case-tile__media {
+    min-height: 0;
+    aspect-ratio: 4 / 3;
+  }
+
+  .case-detail__cover {
+    height: auto;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+  }
+
+  .site-nav__cta.btn .btn__label {
+    display: none;
+  }
+
+  .site-nav__cta.btn .btn__icon {
+    display: flex;
+  }
+
+  .site-nav__cta.btn {
+    width: var(--nav-control-height);
+    min-width: var(--nav-control-height);
+    gap: 0;
+  }
+
   .folio-hero__intro {
     flex-direction: column;
     gap: 1.5rem;
@@ -479,7 +517,7 @@
     width: 100%;
     height: auto;
     margin: 0;
-    aspect-ratio: 837 / 392;
+    aspect-ratio: var(--folio-desk-ratio);
   }
 
   .folio-desk__img {
@@ -670,8 +708,8 @@
     --nav-theme-radius: 1.5rem;
     --nav-pill-radius: 2rem;
     --nav-pill-blur: 0.75rem;
-    --nav-bar-top: max(3.5rem, env(safe-area-inset-top, 0px));
-    --nav-pill-clearance: calc(6.5rem + env(safe-area-inset-top, 0px));
+    --nav-bar-top: max(1.75rem, env(safe-area-inset-top, 0px));
+    --nav-pill-clearance: calc(4.75rem + env(safe-area-inset-top, 0px));
     --nav-pill-bottom: var(--nav-bar-top);
     --hero-headline-pad: 3.5rem;
     --hero-headline-pad-scrolled: 4rem;
@@ -733,14 +771,7 @@
   }
 
   .site-nav__cta.btn .btn__icon {
-    width: 1.75rem;
-    height: 1.75rem;
-    padding: 0.125rem;
-  }
-
-  .site-nav__cta.btn .btn__icon-svg {
-    width: 1.5rem;
-    height: 1.5rem;
+    display: none;
   }
 
   .site-nav__link {
@@ -811,6 +842,18 @@
   .folio-row--split {
     grid-template-columns: minmax(0, 1fr) minmax(14rem, 22%);
   }
+
+  [data-case-slug="donation"] .case-tile__media {
+    flex: 0 0 auto;
+    min-height: 0;
+    aspect-ratio: 1 / 1;
+  }
+
+  [data-case-slug="mindloom"] .case-tile__media {
+    flex: 1 1 0;
+    min-height: 0;
+    aspect-ratio: auto;
+  }
 }
 
 /* Soften the 1024–1366 cliff: keep compact-feeling hero */
@@ -847,8 +890,8 @@
   :root {
     --section-space-block: clamp(6rem, 10vh, 9rem);
     --section-space-block-end: 2.5rem;
-    --nav-bar-top: max(3.5rem, env(safe-area-inset-top, 0px));
-    --nav-pill-clearance: calc(6.5rem + env(safe-area-inset-top, 0px));
+    --nav-bar-top: max(1.75rem, env(safe-area-inset-top, 0px));
+    --nav-pill-clearance: calc(4.75rem + env(safe-area-inset-top, 0px));
     --case-tile-media-min: clamp(14rem, 28vh, 20rem);
   }
 
@@ -875,6 +918,18 @@
     aspect-ratio: 16 / 9;
   }
 
+  [data-case-slug="donation"] .case-tile__media {
+    flex: 0 0 auto;
+    min-height: 0;
+    aspect-ratio: 1 / 1;
+  }
+
+  [data-case-slug="mindloom"] .case-tile__media {
+    flex: 1 1 0;
+    min-height: 0;
+    aspect-ratio: auto;
+  }
+
   .folio-hero__headline {
     font-size: clamp(2rem, 3.5vh, 3rem);
   }
@@ -888,7 +943,11 @@
   }
 
   .folio-hero__intro {
-    padding-top: var(--section-space-block);
+    padding-top: max(
+      var(--section-space-block),
+      var(--contact-content-top),
+      calc(var(--nav-pill-clearance) + var(--spacing-9))
+    );
     padding-bottom: var(--section-space-block-end);
   }
 
@@ -905,9 +964,9 @@
     --content-max-width: 100vw;
     --ui-scale-max: 1;
     --level-page-padding: 3.1875rem;
-    --nav-bar-top: max(3.5rem, env(safe-area-inset-top, 0px));
+    --nav-bar-top: max(1.75rem, env(safe-area-inset-top, 0px));
     --nav-control-height: 3rem;
-    --nav-pill-clearance: calc(6.5rem + env(safe-area-inset-top, 0px));
+    --nav-pill-clearance: calc(4.75rem + env(safe-area-inset-top, 0px));
     --contact-content-top: 14.375rem;
     --section-space-block: clamp(8rem, 14vh, 14rem);
     --case-tile-media-min: clamp(16rem, 22vh, 22rem);
