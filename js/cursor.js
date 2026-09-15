@@ -8,6 +8,7 @@
 
   var lightboxEl = null;
   var lightboxImg = null;
+  var lightboxVideo = null;
   var lightboxViewport = null;
   var galleryItems = [];
   var galleryIndex = -1;
@@ -26,6 +27,7 @@
       '<div class="image-lightbox__frame">' +
       '<div class="image-lightbox__viewport">' +
       '<img class="image-lightbox__img" alt="">' +
+      '<video class="image-lightbox__video" hidden muted playsinline webkit-playsinline loop></video>' +
       "</div>" +
       '<nav class="image-lightbox__nav" hidden aria-label="Gallery navigation">' +
       '<button type="button" class="case-detail__gallery-btn case-detail__gallery-btn--prev image-lightbox__nav-btn" aria-label="Previous image">' +
@@ -43,6 +45,7 @@
 
     document.body.appendChild(lightboxEl);
     lightboxImg = lightboxEl.querySelector(".image-lightbox__img");
+    lightboxVideo = lightboxEl.querySelector(".image-lightbox__video");
     lightboxViewport = lightboxEl.querySelector(".image-lightbox__viewport");
 
     lightboxEl.querySelector(".image-lightbox__backdrop").addEventListener("click", closeLightbox);
@@ -63,13 +66,37 @@
     });
   }
 
+  function stopLightboxVideo() {
+    if (!lightboxVideo) {
+      return;
+    }
+
+    lightboxVideo.pause();
+    lightboxVideo.removeAttribute("src");
+    lightboxVideo.load();
+    lightboxVideo.hidden = true;
+  }
+
   function getGalleryItemData(item) {
+    var video = item.querySelector("video");
+    if (video) {
+      return {
+        type: "video",
+        src: video.dataset.src || video.currentSrc || video.src,
+        poster: video.getAttribute("poster") || "",
+        alt: video.getAttribute("aria-label") || "",
+        sliceCount: 1,
+        sliceIndex: 0,
+      };
+    }
+
     var img = item.querySelector("img");
     if (!img) {
       return null;
     }
 
     return {
+      type: "image",
       src: img.currentSrc || img.src,
       alt: img.alt || "",
       sliceCount: parseInt(item.dataset.sliceCount, 10) || 1,
@@ -150,9 +177,9 @@
       return;
     }
 
-    var label = "Image preview";
+    var label = item && item.type === "video" ? "Video preview" : "Image preview";
     if (item && item.alt) {
-      label = "Image preview: " + item.alt;
+      label += ": " + item.alt;
     }
     if (galleryItems.length > 1 && galleryIndex >= 0) {
       label += " (" + (galleryIndex + 1) + " of " + galleryItems.length + ")";
@@ -167,24 +194,50 @@
 
     galleryIndex = index;
     var item = galleryItems[index];
-    var targetSrc = item.src;
-    var sameSrc = lightboxImg.getAttribute("src") === targetSrc || lightboxImg.src === targetSrc;
 
     resetLightboxImageLayout();
-    lightboxImg.alt = item.alt || "Enlarged preview";
 
-    function applyItem() {
-      fitLightboxSlice(item);
-    }
-
-    if (sameSrc) {
+    if (item.type === "video") {
       lightboxImg.onload = null;
-      applyItem();
+      lightboxImg.removeAttribute("src");
+      lightboxImg.hidden = true;
+      if (lightboxVideo) {
+        lightboxVideo.hidden = false;
+        if (item.poster) {
+          lightboxVideo.setAttribute("poster", item.poster);
+        } else {
+          lightboxVideo.removeAttribute("poster");
+        }
+        if (lightboxVideo.getAttribute("src") !== item.src) {
+          lightboxVideo.setAttribute("src", item.src);
+          lightboxVideo.load();
+        }
+        var playPromise = lightboxVideo.play();
+        if (playPromise && typeof playPromise.catch === "function") {
+          playPromise.catch(function () {});
+        }
+      }
     } else {
-      lightboxImg.onload = applyItem;
-      lightboxImg.src = targetSrc;
-      if (lightboxImg.complete) {
+      stopLightboxVideo();
+      lightboxImg.hidden = false;
+      lightboxImg.alt = item.alt || "Enlarged preview";
+
+      var targetSrc = item.src;
+      var sameSrc = lightboxImg.getAttribute("src") === targetSrc || lightboxImg.src === targetSrc;
+
+      function applyItem() {
+        fitLightboxSlice(item);
+      }
+
+      if (sameSrc) {
+        lightboxImg.onload = null;
         applyItem();
+      } else {
+        lightboxImg.onload = applyItem;
+        lightboxImg.src = targetSrc;
+        if (lightboxImg.complete) {
+          applyItem();
+        }
       }
     }
 
@@ -218,7 +271,9 @@
     galleryItems = [];
     galleryIndex = -1;
     resetLightboxImageLayout();
+    stopLightboxVideo();
 
+    lightboxImg.hidden = false;
     lightboxImg.onload = null;
     lightboxImg.src = image.currentSrc || image.src;
     lightboxImg.alt = image.alt || "Enlarged preview";
@@ -249,6 +304,8 @@
     lightboxEl.hidden = true;
     lightboxImg.onload = null;
     lightboxImg.removeAttribute("src");
+    lightboxImg.hidden = false;
+    stopLightboxVideo();
     resetLightboxImageLayout();
     galleryItems = [];
     galleryIndex = -1;
@@ -266,7 +323,8 @@
       var container = scaleBtn.closest(".case-detail__gallery-item");
       var gallery = scaleBtn.closest(".case-detail__gallery");
       var image = container ? container.querySelector("img") : null;
-      if (image) {
+      var video = container ? container.querySelector("video") : null;
+      if (image || video) {
         event.preventDefault();
         event.stopPropagation();
         if (container) {
@@ -276,7 +334,7 @@
           var galleryItemsEls = gallery.querySelectorAll(".case-detail__gallery-item");
           var startIndex = Array.prototype.indexOf.call(galleryItemsEls, container);
           openGalleryLightbox(gallery, startIndex);
-        } else {
+        } else if (image) {
           openLightbox(image);
         }
       }

@@ -63,7 +63,9 @@
   }
 
   function getAutoplayVideos() {
-    return document.querySelectorAll(".about__video[data-src], .case-tile__video[data-src]");
+    return document.querySelectorAll(
+      ".about__video[data-src], .case-tile__video[data-src], .case-detail__gallery-video[data-src]"
+    );
   }
 
   function playAboutVideos() {
@@ -94,6 +96,10 @@
     window.addEventListener("hashchange", playAboutVideos);
     window.addEventListener("pageshow", playAboutVideos);
   }
+
+  window.AboutMedia = {
+    play: playAboutVideos,
+  };
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", init);

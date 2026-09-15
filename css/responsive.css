@@ -14,6 +14,10 @@
     --hero-headline-pad-scrolled: 0;
     --folio-card-padding-inline: 1.25rem;
     --folio-card-padding-block: 1.25rem;
+    --section-space-block: 7.5rem;
+    --section-space-block-end: 2.5rem;
+    --contact-content-top: 7.5rem;
+    --case-tile-media-min: 16.5rem;
   }
 
   h1,
@@ -135,14 +139,18 @@
 
   .folio-hero__intro {
     flex-direction: column;
+    gap: var(--spacing-9);
   }
 
   .folio-hero__lede {
     flex: 1 1 auto;
     width: 100%;
+    max-width: none;
   }
 
   .folio-hero__headline {
+    flex: 1 1 auto;
+    min-width: 0;
     font-size: var(--font-size-heading-primary);
   }
 
@@ -173,6 +181,11 @@
     height: auto;
   }
 
+  .folio-bento__stack > .case-tile {
+    flex: none;
+    height: auto;
+  }
+
   .case-tile {
     height: auto;
     min-height: 0;
@@ -180,15 +193,61 @@
   }
 
   .case-tile__media {
-    height: 16.5rem;
+    height: auto;
+    min-height: var(--case-tile-media-min);
     flex: none;
+    aspect-ratio: 16 / 9;
   }
 
   .case-tile__title {
     font-size: 1rem;
   }
 
+  /* Tablet / large compact: restore 2-col bento without forced row aspect ratios */
+  @media (min-width: 36rem) {
+    :root {
+      --contact-content-top: 14.375rem;
+    }
+
+    .site-nav {
+      left: 3.4375rem;
+      right: 3.5625rem;
+    }
+
+    .site-nav__actions {
+      display: flex;
+    }
+
+    .folio-contact-scene .folio-contact {
+      padding-right: 3.75rem;
+      padding-left: 3.1875rem;
+    }
+
+    .folio-contact-scene .folio-contact__columns {
+      flex-direction: row;
+      align-items: stretch;
+      gap: 1.375rem;
+    }
+
+    .folio-contact-scene .folio-contact__closing {
+      text-align: right;
+    }
+  }
+
   @media (min-width: 48.0625rem) {
+    :root {
+      --case-tile-media-min: 18rem;
+      --section-space-block: 8rem;
+      --contact-content-top: 14.375rem;
+      --nav-bar-top: max(3.5rem, env(safe-area-inset-top, 0px));
+      --nav-pill-clearance: calc(6.5rem + env(safe-area-inset-top, 0px));
+    }
+
+    .site-nav__name {
+      display: block;
+      font-size: 1.5rem;
+    }
+
     .folio-bento__row--hero,
     .folio-bento__row--pair,
     .folio-bento__row--asymmetric,
@@ -203,8 +262,18 @@
       height: auto;
     }
 
-    .case-tile__media {
-      height: 18rem;
+    .folio-bento__stack > .case-tile {
+      flex: 0 0 auto;
+      height: auto;
+    }
+
+    .folio-bento__row > .case-tile {
+      height: 100%;
+    }
+
+    .folio-bento__row > .case-tile > .case-tile__media {
+      flex: 1 1 auto;
+      min-height: var(--case-tile-media-min);
     }
   }
 
@@ -282,8 +351,13 @@
 
   .folio-contact {
     container-type: inline-size;
-    padding: var(--folio-card-padding-block) var(--folio-card-padding-inline);
-    gap: var(--spacing-9);
+    padding-top: var(--contact-content-top);
+    padding-bottom: 0;
+    gap: 3rem;
+  }
+
+  .folio-contact__email-arrow {
+    display: none;
   }
 
   .folio-contact__email {
@@ -296,6 +370,8 @@
     flex: 1 1 auto;
     min-width: 0;
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .folio-card--about {
@@ -317,7 +393,8 @@
   }
 
   .folio-contact__columns {
-    grid-template-columns: 1fr;
+    flex-direction: column;
+    align-items: flex-start;
     gap: var(--spacing-9);
   }
 
@@ -369,6 +446,10 @@
     --avatar-size: 3rem;
     --card-edge-gap: 0.75rem;
     --nav-pill-clearance: calc(5.25rem + env(safe-area-inset-top, 0px));
+    --section-space-block: 7.5rem;
+    --section-space-block-end: 1rem;
+    --contact-content-top: 7.5rem;
+    --case-tile-media-min: 12.5rem;
   }
 
   .folio-hero__intro {
@@ -376,6 +457,39 @@
     gap: 1.5rem;
     padding-top: calc(var(--spacing-9) * 3);
     padding-bottom: var(--spacing-4);
+  }
+
+  /* Match .folio-hero__intro mobile paddings; image follows in normal flow */
+  .folio-contact {
+    padding-top: calc(var(--spacing-9) * 3);
+    padding-right: var(--level-page-padding);
+    padding-bottom: var(--spacing-4);
+    padding-left: var(--level-page-padding);
+    gap: 1rem;
+  }
+
+  .folio-contact-scene {
+    min-height: 0;
+    overflow: visible;
+  }
+
+  .folio-desk {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    aspect-ratio: 837 / 392;
+  }
+
+  .folio-desk__img {
+    object-position: center bottom;
+  }
+
+  .folio-contact__email {
+    font-size: 1.5rem;
+    line-height: var(--line-height-heading-tertiary);
+    color: var(--text-neutral-primary);
   }
 
   .folio-hero__lede {
@@ -536,14 +650,14 @@
   }
 }
 
-/* Desktop and up: scale from 1024 design units so 1440 is ~1.4× */
+/* Desktop and up: bounded scale from 1024 design units */
 @media (min-width: 64rem) {
   :root {
     --ui-scale: calc(100vw / var(--ui-scale-ref));
     --ui-scale-applied: min(var(--ui-scale-max), max(1, var(--ui-scale)));
 
-    /* Levels */
-    --level-page-padding: calc(3.5rem * var(--ui-scale-applied));
+    /* Figma responsive drafts keep an approximately 51px outer inset. */
+    --level-page-padding: 3.1875rem;
     --level-card-padding: calc(2.5rem * var(--ui-scale-applied));
     --folio-card-padding-inline: calc(2.75rem * var(--ui-scale-applied));
     --level-menu-padding-x: calc(1.625rem * var(--ui-scale-applied));
@@ -552,15 +666,21 @@
     --nav-pill-padding: calc(0.5rem * var(--ui-scale-applied));
     --nav-pill-gap: calc(2.5rem * var(--ui-scale-applied));
     --nav-theme-cta-gap: calc(0.25rem * var(--ui-scale-applied));
-    --nav-control-height: calc(3rem * var(--ui-scale-applied));
-    --nav-theme-radius: calc(1.5rem * var(--ui-scale-applied));
-    --nav-pill-radius: calc(2rem * var(--ui-scale-applied));
-    --nav-pill-blur: calc(0.75rem * var(--ui-scale-applied));
-    --nav-bar-top: max(calc(3.5rem * var(--ui-scale-applied)), env(safe-area-inset-top, 0px));
-    --nav-pill-clearance: calc(6.5rem * var(--ui-scale-applied) + env(safe-area-inset-top, 0px));
+    --nav-control-height: 3rem;
+    --nav-theme-radius: 1.5rem;
+    --nav-pill-radius: 2rem;
+    --nav-pill-blur: 0.75rem;
+    --nav-bar-top: max(3.5rem, env(safe-area-inset-top, 0px));
+    --nav-pill-clearance: calc(6.5rem + env(safe-area-inset-top, 0px));
     --nav-pill-bottom: var(--nav-bar-top);
     --hero-headline-pad: 3.5rem;
     --hero-headline-pad-scrolled: 4rem;
+    --section-space-block: clamp(10rem, 18vh, 16rem);
+    --section-space-block-end: 3.5rem;
+    --contact-content-top: 14.375rem;
+    --case-tile-media-min: 18rem;
+    --case-tile-media-prefer: 22rem;
+    --folio-bento-gap: 0.75rem;
 
     /* Layout */
     --card-width: 100%;
@@ -576,7 +696,7 @@
     --spacing-4: calc(1rem * var(--ui-scale-applied));
     --spacing-9: calc(2.5rem * var(--ui-scale-applied));
 
-    /* Typography */
+    /* Typography — capped via ui-scale-max */
     --font-size-heading-primary: calc(2.5rem * var(--ui-scale-applied));
     --font-size-heading-secondary: calc(2rem * var(--ui-scale-applied));
     --font-size-heading-amount: calc(12rem * var(--ui-scale-applied));
@@ -604,46 +724,217 @@
     gap: calc(2.5rem * var(--ui-scale-applied));
   }
 
+  .site-nav__name {
+    font-size: 1.5rem;
+  }
+
+  .site-nav__cta.btn {
+    font-size: 0.875rem;
+  }
+
+  .site-nav__cta.btn .btn__icon {
+    width: 1.75rem;
+    height: 1.75rem;
+    padding: 0.125rem;
+  }
+
+  .site-nav__cta.btn .btn__icon-svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
   .site-nav__link {
     padding: calc(var(--spacing-0) * 2) calc(var(--spacing-2) * 1.25);
   }
 
-  /* Hero typography stays at its Figma size on larger laptop displays. */
   .folio-hero__intro {
-    gap: 3.5rem;
+    gap: clamp(1.5rem, 3vw, 3.5rem);
   }
 
   .folio-hero__headline {
-    flex: 1 0 40.25rem;
-    min-width: 40.25rem;
-    font-size: 3.5rem;
+    flex: 1 1 auto;
+    flex-basis: 0;
+    min-width: 0;
+    max-width: 100%;
+    font-size: clamp(2.125rem, 3.2vw, 3.5rem);
     text-wrap: wrap;
   }
 
   .folio-hero__headline-accent {
-    font-size: 3.5625rem;
+    font-size: clamp(2.125rem, 3.25vw, 3.5625rem);
   }
 
   .folio-hero__lede {
-    flex: 1 1 0;
+    flex: 0 1 var(--measure-lede);
     width: auto;
     min-width: 0;
-    max-width: 27.5625rem;
-    font-size: 1.2313125rem;
+    max-width: var(--measure-lede);
+    font-size: clamp(1.0625rem, 1.1vw, 1.2313125rem);
     letter-spacing: 0.0123125rem;
+  }
+
+  .case-detail__gallery,
+  .case-detail__gallery-placeholder {
+    --case-gallery-height: clamp(14.5625rem, 18vw, 21.84375rem);
+  }
+
+  .folio-contact__email {
+    font-size: 2.5rem;
+  }
+
+  .folio-contact .btn {
+    min-height: 3rem;
+    padding: 0.5rem;
+    font-size: 0.875rem;
+  }
+
+  .folio-contact .btn__label {
+    padding: 0.375rem 1rem;
+  }
+
+  .folio-contact .btn__icon {
+    width: 1.75rem;
+    height: 1.75rem;
+    padding: 0.25rem;
+  }
+
+  .folio-contact .btn__icon-svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .folio-contact__closing {
+    font-size: 0.875rem;
+    letter-spacing: 0.00875rem;
+  }
+
+  .folio-row--split {
+    grid-template-columns: minmax(0, 1fr) minmax(14rem, 22%);
   }
 }
 
-/* Laptop range: use the compact heading scale from 1024px through 1366px. */
+/* Soften the 1024–1366 cliff: keep compact-feeling hero */
 @media (min-width: 64rem) and (max-width: 85.375rem) {
+  :root {
+    --section-space-block: clamp(8rem, 14vh, 12rem);
+    --case-tile-media-min: 16rem;
+  }
+
   .folio-hero__headline {
-    flex-grow: 0;
-    flex-basis: 29rem;
-    min-width: 29rem;
-    font-size: 2.125rem;
+    font-size: clamp(2rem, 2.6vw, 2.5rem);
   }
 
   .folio-hero__headline-accent {
-    font-size: 2.125rem;
+    font-size: clamp(2rem, 2.6vw, 2.5rem);
+  }
+
+  .folio-hero__lede {
+    max-width: min(var(--measure-lede), 40%);
+  }
+}
+
+/* Large desktop: allow more canvas while keeping content centered */
+@media (min-width: 100rem) {
+  :root {
+    --content-max-width: 120rem;
+    --level-page-padding: 3.1875rem;
+    --section-space-block: clamp(12rem, 16vh, 18rem);
+  }
+}
+
+/* Square / near-square screens: reduce vertical voids, content-driven tiles */
+@media (min-width: 64rem) and (max-aspect-ratio: 5 / 4) {
+  :root {
+    --section-space-block: clamp(6rem, 10vh, 9rem);
+    --section-space-block-end: 2.5rem;
+    --nav-bar-top: max(3.5rem, env(safe-area-inset-top, 0px));
+    --nav-pill-clearance: calc(6.5rem + env(safe-area-inset-top, 0px));
+    --case-tile-media-min: clamp(14rem, 28vh, 20rem);
+  }
+
+  .folio-hero__intro {
+    padding-top: var(--section-space-block);
+    padding-bottom: var(--section-space-block-end);
+  }
+
+  .folio-contact {
+    padding-top: var(--contact-content-top);
+    padding-bottom: 0;
+  }
+
+  .folio-bento__row--hero,
+  .folio-bento__row--split,
+  .folio-bento__row--pair,
+  .folio-bento__row--asymmetric {
+    aspect-ratio: auto;
+    height: auto;
+  }
+
+  .case-tile__media {
+    min-height: var(--case-tile-media-min);
+    aspect-ratio: 16 / 9;
+  }
+
+  .folio-hero__headline {
+    font-size: clamp(2rem, 3.5vh, 3rem);
+  }
+}
+
+/* Also tame square-ish compact tablets (e.g. 900×900, 768×1024) */
+@media (max-width: 63.9375rem) and (max-aspect-ratio: 5 / 4) {
+  :root {
+    --section-space-block: clamp(5rem, 9vh, 7.5rem);
+    --section-space-block-end: 1.5rem;
+  }
+
+  .folio-hero__intro {
+    padding-top: var(--section-space-block);
+    padding-bottom: var(--section-space-block-end);
+  }
+
+  .folio-contact {
+    padding-top: var(--contact-content-top);
+    padding-bottom: 0;
+  }
+}
+
+/* Ultrawide: follow Figma's edge-aligned contact/header composition */
+@media (min-width: 64rem) and (min-aspect-ratio: 2 / 1) {
+  :root {
+    /* Figma 12805:27607 keeps 51–57px edge insets and 48px controls. */
+    --content-max-width: 100vw;
+    --ui-scale-max: 1;
+    --level-page-padding: 3.1875rem;
+    --nav-bar-top: max(3.5rem, env(safe-area-inset-top, 0px));
+    --nav-control-height: 3rem;
+    --nav-pill-clearance: calc(6.5rem + env(safe-area-inset-top, 0px));
+    --contact-content-top: 14.375rem;
+    --section-space-block: clamp(8rem, 14vh, 14rem);
+    --case-tile-media-min: clamp(16rem, 22vh, 22rem);
+  }
+
+  .folio-hero__headline {
+    font-size: clamp(2.25rem, 2.4vw, 3.25rem);
+  }
+
+  .folio-hero__lede {
+    max-width: var(--measure-lede);
+  }
+
+  .folio-contact__email {
+    font-size: 2.5rem;
+  }
+
+  .case-detail__gallery,
+  .case-detail__gallery-placeholder {
+    --case-gallery-height: clamp(16rem, 14vw, 20rem);
+  }
+}
+
+/* Very wide ultrawides (3440+) — keep composition denser, not stretched */
+@media (min-width: 120rem) and (min-aspect-ratio: 2 / 1) {
+  :root {
+    --content-max-width: 100vw;
+    --level-page-padding: 3.1875rem;
   }
 }

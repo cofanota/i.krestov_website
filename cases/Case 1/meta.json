@@ -80,8 +80,29 @@
       "gallery": {
         "images": [
           "/cases/Case%201/App/App%201.png",
+          {
+            "src": "/cases/Case%201/App/App%20Vi1.mp4",
+            "type": "video",
+            "poster": "/cases/Case%201/App/App%20Vi1.jpg",
+            "width": 1024,
+            "height": 1024
+          },
           "/cases/Case%201/App/App%202.png",
+          {
+            "src": "/cases/Case%201/App/App%20Vi2.mp4",
+            "type": "video",
+            "poster": "/cases/Case%201/App/App%20Vi2.jpg",
+            "width": 1024,
+            "height": 1024
+          },
           "/cases/Case%201/App/App%203.png",
+          {
+            "src": "/cases/Case%201/App/App%20Vi3.mp4",
+            "type": "video",
+            "poster": "/cases/Case%201/App/App%20Vi3.jpg",
+            "width": 1024,
+            "height": 1024
+          },
           "/cases/Case%201/App/App%204.png"
         ]
       }

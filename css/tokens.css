@@ -71,6 +71,7 @@
   --nav-theme-radius: 1.5rem;
   --nav-pill-width-mobile: 21.375rem;
   --nav-pill-bottom: max(1.5rem, env(safe-area-inset-bottom, 0px));
+  --nav-bar-top: max(1.5rem, env(safe-area-inset-top, 0px));
   --nav-pill-clearance: calc(6.5rem + env(safe-area-inset-bottom, 0px));
   --nav-route-selected: #403d3c;
   --nav-theme-track: #2b2928;
@@ -111,6 +112,18 @@
   --ui-scale-max: 1.5;
   --ui-scale: 1;
   --ui-scale-applied: 1;
+
+  /* Bounded layout canvas — caps growth on large / ultrawide viewports */
+  --content-max-width: 112rem; /* ~1792px */
+  --content-inline: var(--level-page-padding);
+  --measure-lede: 27.5625rem;
+  --measure-reading: 45rem;
+  --section-space-block: 20rem;
+  --section-space-block-end: 3.5rem;
+  --contact-content-top: var(--section-space-block);
+  --case-tile-media-min: 16.5rem;
+  --case-tile-media-prefer: 22rem;
+  --folio-bento-gap: 0.75rem;
 
   /* Layout */
   --icon-size: 1rem;

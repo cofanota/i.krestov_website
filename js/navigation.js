@@ -56,11 +56,39 @@
     });
   }
 
-  function syncPageScrolled() {
-    document.documentElement.classList.toggle(
-      "is-page-scrolled",
-      window.scrollY > SCROLLED_PX
+  function getNavPaddingResetMarker() {
+    /* Compact: Tools is below Experience — wait for Tools.
+       Desktop: Experience + Tools share one row. */
+    var compact = window.matchMedia("(max-width: 63.9375rem)").matches;
+    if (compact) {
+      return (
+        document.getElementById("tools") ||
+        document.querySelector(".folio-row--split")
+      );
+    }
+    return (
+      document.querySelector(".folio-row--split") ||
+      document.getElementById("experience")
     );
+  }
+
+  function syncPageScrolled() {
+    var scrolled = window.scrollY > SCROLLED_PX;
+    var isHome = document.body.getAttribute("data-page") === "home";
+
+    if (isHome && scrolled) {
+      var marker = getNavPaddingResetMarker();
+      var nav = document.querySelector("[data-site-nav]");
+      if (marker && nav) {
+        var navBottom = nav.getBoundingClientRect().bottom;
+        /* Reset only while leaving the marker — after its bottom clears the header. */
+        if (marker.getBoundingClientRect().bottom <= navBottom) {
+          scrolled = false;
+        }
+      }
+    }
+
+    document.documentElement.classList.toggle("is-page-scrolled", scrolled);
   }
 
   function init() {

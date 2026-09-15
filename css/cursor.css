@@ -63,13 +63,19 @@ body.image-lightbox-open {
   overflow: hidden;
 }
 
-.image-lightbox__img {
+.image-lightbox__img,
+.image-lightbox__video {
   display: block;
   max-width: min(90vw, 75rem);
   max-height: 90vh;
   width: auto;
   height: auto;
   border-radius: var(--radius-card);
+}
+
+.image-lightbox__video[hidden],
+.image-lightbox__img[hidden] {
+  display: none;
 }
 
 .image-lightbox__viewport:not(.is-sliced) .image-lightbox__img {

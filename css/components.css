@@ -2,8 +2,8 @@
 .site-nav {
   position: fixed;
   z-index: 5;
-  left: var(--level-page-padding);
-  right: var(--level-page-padding);
+  left: max(var(--level-page-padding), calc((100vw - var(--content-max-width)) / 2));
+  right: max(var(--level-page-padding), calc((100vw - var(--content-max-width)) / 2));
   top: var(--nav-bar-top);
   bottom: auto;
   transform: none;
@@ -356,6 +356,8 @@ html.is-page-scrolled .site-nav {
   flex: 1 1 0;
   min-width: 0;
   width: 100%;
+  max-width: var(--content-max-width);
+  margin-inline: auto;
   padding: var(--nav-pill-clearance) var(--level-card-padding) var(--spacing-9);
   overflow: visible;
 }
@@ -689,7 +691,10 @@ a.home-project:active {
 
 /* One-page portfolio — Figma Home 12449:8725 */
 .folio-stack {
-  padding: var(--nav-pill-clearance) var(--level-page-padding) var(--spacing-9);
+  padding:
+    var(--nav-pill-clearance)
+    max(var(--level-page-padding), calc((100vw - var(--content-max-width)) / 2))
+    var(--spacing-9);
   background-color: var(--fill-bg-lvl-0);
   transition: padding-inline 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -697,9 +702,10 @@ a.home-project:active {
 .folio-stack__inner {
   display: flex;
   flex-direction: column;
-  gap: calc(0.75rem * var(--ui-scale-applied));
+  gap: calc(var(--folio-bento-gap) * var(--ui-scale-applied));
   width: 100%;
   max-width: 100%;
+  margin-inline: auto;
 }
 
 .folio-hero,
@@ -711,10 +717,87 @@ a.home-project:active {
 
 .page--home .folio-stack {
   padding-top: 0;
+  padding-bottom: 0;
 }
 
 .page--case .folio-stack {
   padding-top: calc(var(--nav-pill-clearance) + 0.5rem);
+}
+
+.folio-contact-scene {
+  position: relative;
+  isolation: isolate;
+  width: 100vw;
+  max-width: 100vw;
+  min-width: 0;
+  min-height: 100vh;
+  min-height: 100svh;
+  margin-inline: calc(50% - 50vw);
+  overflow: hidden;
+  overflow-anchor: none;
+}
+
+.folio-desk {
+  position: absolute;
+  z-index: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: auto;
+  width: 100%;
+  max-width: none;
+  height: auto;
+  aspect-ratio: 3840 / 1800;
+  margin: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.folio-desk__img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center bottom;
+  pointer-events: none;
+  opacity: 0;
+  filter: blur(0);
+  transition:
+    opacity var(--btn-transition-duration) var(--btn-transition-easing),
+    filter 0.2s var(--btn-transition-easing);
+}
+
+.folio-desk__img--light {
+  opacity: 1;
+}
+
+.folio-desk__img--dark {
+  opacity: 0;
+}
+
+:root[data-theme="dark"] .folio-desk__img--light {
+  opacity: 0;
+}
+
+:root[data-theme="dark"] .folio-desk__img--dark {
+  opacity: 1;
+}
+
+html.is-theme-switching .folio-desk__img {
+  filter: blur(0.25rem);
+  transition:
+    opacity var(--btn-transition-duration) var(--btn-transition-easing),
+    filter 0.08s var(--btn-transition-easing);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .folio-desk__img,
+  html.is-theme-switching .folio-desk__img {
+    filter: none;
+    transition: none;
+  }
 }
 
 .folio-hero {
@@ -726,14 +809,16 @@ a.home-project:active {
   flex-direction: row;
   align-items: flex-start;
   gap: calc(3.5rem * var(--ui-scale-applied));
-  padding: calc(20rem * var(--ui-scale-applied)) 0 calc(3.5rem * var(--ui-scale-applied));
+  padding: var(--section-space-block) 0 var(--section-space-block-end);
   text-align: left;
+  min-width: 0;
 }
 
 .folio-hero__lede {
-  flex: 0 0 calc(27.5625rem * var(--ui-scale-applied));
-  width: calc(27.5625rem * var(--ui-scale-applied));
+  flex: 0 0 calc(var(--measure-lede) * var(--ui-scale-applied));
+  width: calc(var(--measure-lede) * var(--ui-scale-applied));
   max-width: 100%;
+  min-width: 0;
   margin: 0;
   font-family: var(--font-body);
   font-size: var(--font-size-text-reading);
@@ -741,6 +826,7 @@ a.home-project:active {
   line-height: var(--line-height-text-reading);
   letter-spacing: var(--letter-spacing-text-secondary);
   color: var(--text-neutral-primary);
+  overflow-wrap: break-word;
 }
 
 .folio-card {
@@ -782,6 +868,7 @@ a.home-project:active {
   color: var(--text-neutral-primary);
   text-align: left;
   text-transform: uppercase;
+  overflow-wrap: break-word;
 }
 
 .folio-hero__headline-line {
@@ -926,9 +1013,11 @@ html.is-hero-intro.is-hero-rest.is-hero-fast .site-nav {
 
 .folio-row--split {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 25vw;
-  gap: calc(0.75rem * var(--ui-scale-applied));
+  grid-template-columns: minmax(0, 1fr) minmax(12rem, 25vw);
+  gap: calc(var(--folio-bento-gap) * var(--ui-scale-applied));
   align-items: stretch;
+  width: 100%;
+  min-width: 0;
 }
 
 .folio-card--experience {
@@ -965,48 +1054,54 @@ html.is-hero-intro.is-hero-rest.is-hero-fast .site-nav {
 .folio-bento {
   display: flex;
   flex-direction: column;
-  gap: calc(0.75rem * var(--ui-scale-applied));
+  gap: calc(var(--folio-bento-gap) * var(--ui-scale-applied));
   width: 100%;
+  min-width: 0;
+  container-type: inline-size;
+  container-name: folio-bento;
   scroll-margin-top: calc(var(--nav-pill-clearance) + 0.5rem);
 }
 
 .folio-bento__row {
   display: grid;
-  gap: calc(0.75rem * var(--ui-scale-applied));
+  gap: calc(var(--folio-bento-gap) * var(--ui-scale-applied));
   align-items: stretch;
   width: 100%;
+  min-width: 0;
+  height: auto;
 }
 
 .folio-bento__row--hero {
   grid-template-columns: minmax(0, 758fr) minmax(0, 561fr);
-  aspect-ratio: 1331 / 666;
-  height: auto;
 }
 
 .folio-bento__row--split {
   grid-template-columns: minmax(0, 485fr) minmax(0, 834fr);
-  aspect-ratio: 1331 / 966;
-  height: auto;
 }
 
 .folio-bento__stack {
   display: flex;
   flex-direction: column;
-  gap: calc(0.75rem * var(--ui-scale-applied));
+  gap: calc(var(--folio-bento-gap) * var(--ui-scale-applied));
   min-width: 0;
-  height: 100%;
+  height: auto;
+}
+
+.folio-bento__stack > .case-tile {
+  flex: 0 0 auto;
+  height: auto;
+}
+
+.folio-bento__stack > .case-tile .case-tile__media {
+  flex: 0 0 auto;
 }
 
 .folio-bento__row--pair {
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  aspect-ratio: 1330 / 658;
-  height: auto;
 }
 
 .folio-bento__row--asymmetric {
   grid-template-columns: minmax(0, 488fr) minmax(0, 830fr);
-  aspect-ratio: 1330 / 658;
-  height: auto;
 }
 
 .case-tile {
@@ -1048,6 +1143,8 @@ a.case-tile:active .btn {
   font-weight: 700;
   line-height: 1.36;
   color: var(--text-neutral-primary);
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .case-tile__summary {
@@ -1057,11 +1154,13 @@ a.case-tile:active .btn {
 .case-tile__media {
   position: relative;
   flex: 1 1 auto;
-  min-height: 0;
+  min-height: var(--case-tile-media-min);
   width: 100%;
+  height: auto;
   margin: 0;
   overflow: hidden;
   border-radius: var(--radius-card);
+  aspect-ratio: 16 / 9;
 }
 
 .case-tile__media--stroke::after {
@@ -1091,6 +1190,7 @@ a.case-tile:active .btn {
   align-items: center;
   gap: calc(0.75rem * var(--ui-scale-applied));
   width: 100%;
+  min-width: 0;
 }
 
 .case-tile__labels {
@@ -1116,6 +1216,9 @@ a.case-tile:active .btn {
   line-height: var(--line-height-text-caption);
   letter-spacing: var(--letter-spacing-text-caption);
   white-space: nowrap;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .case-tile .btn {
@@ -1152,6 +1255,65 @@ a.case-tile:active .btn {
 .btn--orange:active {
   background-color: var(--action-orange-active);
   color: var(--text-neutral-light);
+}
+
+.btn--secondary {
+  gap: 0;
+  background-color: var(--action-secondary-base);
+  color: var(--text-neutral-primary);
+  text-decoration: none;
+  box-shadow: inset 0 0 0 0.0625rem rgba(201, 201, 207, 0.1);
+  outline: none;
+}
+
+.btn--secondary:hover,
+.btn--secondary:focus-visible {
+  background-color: var(--action-secondary-hover);
+  color: var(--text-neutral-primary);
+  box-shadow: inset 0 0 0 0.0625rem rgba(201, 201, 207, 0.1);
+}
+
+.btn--secondary:active {
+  background-color: var(--action-secondary-click);
+  color: var(--text-neutral-primary);
+  box-shadow: inset 0 0 0 0.0625rem rgba(201, 201, 207, 0.1);
+}
+
+.btn--secondary .btn__label {
+  padding: var(--spacing-2) var(--spacing-4);
+}
+
+.btn--secondary .btn__icon {
+  width: 1.75rem;
+  height: 1.75rem;
+  padding: var(--spacing-1);
+}
+
+.btn--secondary .btn__icon-svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.btn__icon-svg--linkedin,
+.btn__icon-svg--send {
+  display: block;
+  background-color: currentColor;
+  -webkit-mask-size: 1.5rem 1.5rem;
+  mask-size: 1.5rem 1.5rem;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+}
+
+.btn__icon-svg--linkedin {
+  -webkit-mask-image: url("../assets/images/linkedin.svg");
+  mask-image: url("../assets/images/linkedin.svg");
+}
+
+.btn__icon-svg--send {
+  -webkit-mask-image: url("../assets/images/send.svg");
+  mask-image: url("../assets/images/send.svg");
 }
 
 .tool-list {
@@ -1220,7 +1382,8 @@ a.case-tile:active .btn {
   align-items: flex-start;
   gap: calc(1.375rem * var(--ui-scale-applied));
   width: 100%;
-  max-width: calc(30.5rem * var(--ui-scale-applied));
+  max-width: min(calc(30.5rem * var(--ui-scale-applied)), 100%);
+  min-width: 0;
 }
 
 .folio-about__note {
@@ -1293,12 +1456,14 @@ a.case-tile:active .btn {
   flex: 0 0 calc(20.625rem * var(--ui-scale-applied));
   width: calc(20.625rem * var(--ui-scale-applied));
   max-width: 45%;
+  min-width: 0;
   margin: 0;
   font-family: var(--font-heading);
   font-size: var(--font-size-heading-tertiary);
   font-weight: 600;
   line-height: var(--line-height-heading-tertiary);
   color: var(--text-neutral-primary);
+  overflow-wrap: break-word;
 }
 
 .experience-item__meta {
@@ -1333,11 +1498,19 @@ a.case-tile:active .btn {
 }
 
 .folio-contact {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
-  gap: calc(3rem * var(--ui-scale-applied));
+  gap: 3rem;
   width: 100%;
-  padding: calc(3rem * var(--ui-scale-applied)) var(--folio-card-padding-inline);
+  min-width: 0;
+  container-type: inline-size;
+  container-name: folio-contact;
+  padding:
+    var(--contact-content-top)
+    max(var(--level-page-padding), calc((100vw - var(--content-max-width)) / 2))
+    0;
 }
 
 .folio-contact__email {
@@ -1345,7 +1518,8 @@ a.case-tile:active .btn {
   align-items: center;
   gap: 0.5rem;
   max-width: 100%;
-  color: var(--action-orange-base);
+  min-width: 0;
+  color: var(--text-neutral-primary);
   font-family: var(--font-heading);
   font-size: var(--font-size-heading-primary);
   font-weight: 700;
@@ -1375,10 +1549,18 @@ a.case-tile:active .btn {
 }
 
 .folio-contact__columns {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
   gap: calc(1.375rem * var(--ui-scale-applied));
-  align-items: flex-start;
+  width: 100%;
+}
+
+.folio-contact__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-1);
 }
 
 .folio-contact__column {
@@ -1398,6 +1580,11 @@ a.case-tile:active .btn {
 }
 
 .folio-contact__closing {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-width: 0;
   margin: 0;
   text-align: right;
   font-size: var(--font-size-text-secondary);
@@ -2083,8 +2270,11 @@ a.project-row:focus-visible .project-label {
   flex-direction: column;
   gap: var(--spacing-4);
   width: 100%;
+  min-width: 0;
   padding-bottom: 5rem;
   --case-gallery-gap: 0.75rem;
+  container-type: inline-size;
+  container-name: case-detail;
 }
 
 .case-detail__hero {
@@ -2092,12 +2282,14 @@ a.project-row:focus-visible .project-label {
   flex-direction: column;
   gap: 3rem;
   padding-bottom: 2.5rem;
+  min-width: 0;
 }
 
 .case-detail__cover {
   position: relative;
   margin: 0;
   width: 100%;
+  min-width: 0;
 }
 
 .case-detail__cover picture {
@@ -2472,6 +2664,27 @@ a.project-row:focus-visible .project-label {
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+}
+
+.case-detail__gallery-item video,
+.case-detail__gallery-video {
+  display: block;
+  height: var(--case-gallery-height);
+  width: var(--case-gallery-height);
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  border-radius: var(--radius-card);
+  object-fit: cover;
+  background-color: var(--fill-bg-lvl-2);
+  -webkit-user-drag: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.case-detail__gallery-item--video {
+  width: var(--case-gallery-height);
 }
 
 .case-detail__gallery-item--slice {
@@ -2852,6 +3065,8 @@ a.project-row:focus-visible .project-label {
   align-items: center;
   gap: 2rem;
   width: 100%;
+  max-width: min(40rem, 100%);
+  margin-inline: auto;
   text-align: center;
 }
 
@@ -2861,6 +3076,7 @@ a.project-row:focus-visible .project-label {
   align-items: center;
   gap: 1.5rem;
   width: 100%;
+  min-width: 0;
 }
 
 .error-panel__code {
@@ -2871,6 +3087,8 @@ a.project-row:focus-visible .project-label {
   font-weight: 400;
   line-height: 0.95;
   letter-spacing: var(--letter-spacing-heading-amount);
+  max-width: 100%;
+  overflow-wrap: break-word;
 }
 
 .error-panel__code-accent {
@@ -2922,5 +3140,49 @@ a.project-row:focus-visible .project-label {
     opacity: 1;
     transform: none;
     transition: none;
+  }
+}
+
+/* Container queries — components adapt to available inline space */
+@container folio-bento (max-width: 48rem) {
+  .folio-bento__row--hero,
+  .folio-bento__row--pair,
+  .folio-bento__row--asymmetric,
+  .folio-bento__row--split {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .folio-bento__stack {
+    height: auto;
+  }
+
+  .folio-bento__stack > .case-tile {
+    flex: none;
+    height: auto;
+  }
+
+  .case-tile {
+    height: auto;
+  }
+
+  .case-tile__media {
+    flex: none;
+    height: auto;
+    min-height: var(--case-tile-media-min);
+  }
+}
+
+@container case-detail (max-width: 48rem) {
+  .case-detail__headline-row,
+  .case-detail__meta-grid,
+  .case-detail__text-row {
+    flex-direction: column;
+    gap: var(--spacing-4);
+  }
+
+  .case-detail__text,
+  .case-detail__caption,
+  .case-detail__meta-col--duration {
+    flex: 1 1 auto;
   }
 }

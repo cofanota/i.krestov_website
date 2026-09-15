@@ -65,6 +65,19 @@
     });
   }
 
+  function fadeDeskTheme() {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return;
+    }
+
+    var root = document.documentElement;
+    root.classList.add("is-theme-switching");
+    window.clearTimeout(fadeDeskTheme.timer);
+    fadeDeskTheme.timer = window.setTimeout(function () {
+      root.classList.remove("is-theme-switching");
+    }, 320);
+  }
+
   function setTheme(theme, persist) {
     if (theme !== "light" && theme !== "dark") {
       return;
@@ -78,6 +91,11 @@
       }
     }
 
+    if (document.documentElement.getAttribute("data-theme") === theme) {
+      return;
+    }
+
+    fadeDeskTheme();
     applyTheme(theme);
   }
 
@@ -85,6 +103,7 @@
     if (getStoredTheme()) {
       return;
     }
+    fadeDeskTheme();
     applyTheme(getSystemTheme());
   }
 
