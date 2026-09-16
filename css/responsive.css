@@ -415,19 +415,22 @@
     text-align: left;
   }
 
-  .experience-item {
-    flex-direction: column;
-    gap: var(--spacing-2);
-  }
+  /* Phone only: stack experience. Tablet (640–1023) keeps the desktop company | role row. */
+  @media (max-width: 39.9375rem) {
+    .experience-item {
+      flex-direction: column;
+      gap: var(--spacing-2);
+    }
 
-  .experience-list {
-    flex: 0 0 auto;
-  }
+    .experience-list {
+      flex: 0 0 auto;
+    }
 
-  .experience-item__company {
-    flex: none;
-    width: 100%;
-    max-width: none;
+    .experience-item__company {
+      flex: none;
+      width: 100%;
+      max-width: none;
+    }
   }
 
   .about__gallery {
