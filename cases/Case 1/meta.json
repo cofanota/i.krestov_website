@@ -2,16 +2,36 @@
   "slug": "picksell",
   "nodeId": "case-picksell",
   "title": "Picksell",
+  "layout": "split",
   "list": {
     "title": "Picksell",
     "description": "European marketplace and payment system",
     "tags": ["B2C", "B2B", "Fintech", "App", "E-com", "SaaS"]
   },
   "hero": {
-    "cover": "/cases/Case%201/Picksell%20Case.png?v=20260915cover",
+    "leadCover": "/cases/Case%201/Picksell%20Case.png?v=20260926hq",
+    "cover": "/cases/Case%201/layout/post.mp4?v=20260923promo",
+    "coverPoster": "/cases/Case%201/layout/hero-cover.png",
+    "mascot": "/cases/Case%201/layout/mascot.png",
+    "app": "/cases/Case%201/layout/web-1.png?v=20260923t",
     "title": "Picksell",
     "description": "EU marketplace and payment system powered by open banking technology",
     "labels": ["B2C", "B2B", "Fintech", "App", "E-com", "SaaS"]
+  },
+  "score": {
+    "label": "Project results",
+    "slides": [
+      { "value": "8,5", "label": "Merchants NPS" },
+      { "value": "12→6", "label": "Month MVP Release" },
+      { "value": "1000+", "label": "Screens" },
+      {
+        "type": "award",
+        "label": "Behance UI Selection",
+        "image": "/cases/Case%201/layout/score-ui.svg",
+        "width": "112.299",
+        "height": "191.453"
+      }
+    ]
   },
   "meta": {
     "role": "Led the design team, art direction, product strategy, core concepts and identity",
@@ -19,125 +39,153 @@
     "team": "Up to 6 designers: product and graphic",
     "duration": "9 months"
   },
-  "cta": {
-    "label": "Behance",
-    "url": "https://www.behance.net/gallery/107568635/Picksell"
+  "story": {
+    "title": "Story",
+    "parts": [
+      {
+        "label": "Identity",
+        "text": "Unclear flows needed a friendlier voice, so I created a pixel mascot that helps people from login through placing an order, then led the illustrations and animations that carried that voice through the product."
+      },
+      {
+        "label": "Customer app",
+        "text": "The React Native MVP made payments from external shops simple, with KYC that felt as easy as a normal checkout. The architecture was designed so the product could grow into a full marketplace."
+      },
+      {
+        "label": "Web",
+        "text": "The merchant platform could work as a payment method or as the shop itself. We started with existing shops — products, billing, and a to-do onboarding — so they could go live while heavier catalog flows were still in progress."
+      }
+    ]
   },
-  "awards": [
-    {
-      "name": "Рейтинг Рунета",
-      "image": "/assets/images/cases/picksell/awards/runet.png"
-    },
-    {
-      "name": "Tagline",
-      "image": "/assets/images/cases/picksell/awards/tagline.png"
-    },
-    {
-      "name": "Behance",
-      "image": "/assets/images/cases/badge-ui.svg"
-    }
+  "identity": {
+    "van": "/cases/Case%201/layout/identity-van.png",
+    "qr": "/cases/Case%201/layout/identity-qr.png?v=20260923o",
+    "nav": "/cases/Case%201/layout/picksell-nav.mp4"
+  },
+  "nav": [
+    { "id": "overview", "label": "Overview" },
+    { "id": "open-banking", "label": "Open Banking & KYC" },
+    { "id": "marketplace", "label": "Marketplace Architecture" },
+    { "id": "product", "label": "Product and Variant Management" },
+    { "id": "design-system", "label": "Cross-Platform Design System" }
   ],
   "sections": [
     {
-      "id": "picksell-section-1",
-      "menuLabel": "Identity",
-      "title": "Identity",
-      "paragraphs": [
+      "id": "open-banking",
+      "menuLabel": "Open Banking & KYC",
+      "title": "Open Banking & KYC",
+      "beats": [
         {
-          "text": "Since the product had tons of unclear and tough scenarios we understood that we needed a solid system to talk with users in an emotional and friendly way. This led me to create a simple mascot that literally acts like a helper for customers throughout the journey — from the login screen to placing an order.",
-          "caption": "Picksell identity got a pixel-shaped mascot — dot with a chromatic aberration effect on it. After the identity part I led all illustrations and animations production for use in the product."
+          "label": "Problem",
+          "text": "Open Banking and KYC flows varied significantly across banks. API responses were unpredictable, and some banks redirected users to external apps or websites."
+        },
+        {
+          "label": "Research",
+          "text": "I analyzed regulatory requirements, bank documentation, API responses, and possible fallback scenarios."
+        },
+        {
+          "label": "Iterations",
+          "text": "We designed a flexible interface framework that could adapt to anything from a single input to 20+ fields and handle external redirects consistently."
+        },
+        {
+          "label": "Outcome",
+          "text": "A scalable KYC and payment flow that made Open Banking feel as simple and familiar as adding a card."
         }
       ],
-      "gallery": {
+      "media": {
+        "type": "phone",
         "images": [
-          "/cases/Case%201/Identity/Logo.png",
-          "/cases/Case%201/Identity/Mascot.png",
-          "/cases/Case%201/Identity/Mascot%20variations.png",
-          "/cases/Case%201/Identity/Sample1.png",
-          "/cases/Case%201/Identity/Sample2.png",
-          "/cases/Case%201/Identity/Sample3.png"
+          "/cases/Case%201/layout/kyc-bank.png?v=20260923kyc2",
+          "/cases/Case%201/layout/kyc-consent.png?v=20260923kyc2",
+          "/cases/Case%201/layout/kyc-select.png?v=20260923kyc2"
         ]
       }
     },
     {
-      "id": "picksell-section-2",
-      "menuLabel": "Customer app",
-      "title": "Customer app",
-      "paragraphs": [
+      "id": "marketplace",
+      "menuLabel": "Marketplace Architecture",
+      "title": "Marketplace Architecture",
+      "beats": [
         {
-          "text": "React Native app with clear, cart-oriented user flows. The MVP focused on enabling easy payments from external shops, with the next step being a transition into a full-cycle marketplace. We designed the UX and product architecture to make this transition smooth once the product gained enough traction.",
-          "caption": "It took me about two weeks of research to dive deep into the documentation and understand the limitations of EU payment methods."
+          "label": "Problem",
+          "text": "The MVP focused on payments, but the product needed to evolve into a full-cycle marketplace without a major redesign."
         },
         {
-          "text": "The payment system required a strong KYC process to verify both sides of each transaction. The key challenge was to make this unusual flow feel as easy as possible, so we invested in clear user communication and shorter flows.",
-          "caption": ""
+          "label": "Research",
+          "text": "We mapped the future customer journey, marketplace features, and dependencies between payments, products, orders, and merchant tools."
         },
         {
-          "text": "The shopping experience was focused on off-platform purchases and payments via Picksell Pay buttons on merchant websites. At this stage, we did not build a full marketplace-like experience. However, all merchants in the app still had their own pages, and their products were searchable and available for ordering inside the app.",
-          "caption": "Once the core app experience was built, other sub-scenarios were moved to another designer, while I oversaw and controlled the final result."
+          "label": "Iterations",
+          "text": "We designed the navigation and product architecture to support both the initial payment-focused MVP and future online shopping scenarios."
+        },
+        {
+          "label": "Outcome",
+          "text": "A scalable foundation that allowed Picksell to launch quickly and expand into a marketplace as the product gained traction."
         }
       ],
-      "gallery": {
-        "images": [
-          "/cases/Case%201/App/App%201.png",
-          {
-            "src": "/cases/Case%201/App/App%20Vi1.mp4?v=20260915vi1",
-            "type": "video",
-            "poster": "/cases/Case%201/App/App%20Vi1.jpg?v=20260915vi1",
-            "width": 1024,
-            "height": 1024
-          },
-          "/cases/Case%201/App/App%202.png",
-          {
-            "src": "/cases/Case%201/App/App%20Vi2.mp4",
-            "type": "video",
-            "poster": "/cases/Case%201/App/App%20Vi2.jpg",
-            "width": 1024,
-            "height": 1024
-          },
-          "/cases/Case%201/App/App%203.png",
-          {
-            "src": "/cases/Case%201/App/App%20Vi3.mp4",
-            "type": "video",
-            "poster": "/cases/Case%201/App/App%20Vi3.jpg",
-            "width": 1024,
-            "height": 1024
-          },
-          "/cases/Case%201/App/App%204.png"
-        ]
+      "media": {
+        "type": "shot",
+        "images": ["/cases/Case%201/layout/market.png"]
       }
     },
     {
-      "id": "picksell-section-3",
-      "menuLabel": "Web",
-      "title": "Web",
-      "paragraphs": [
+      "id": "product",
+      "menuLabel": "Product and Variant Management",
+      "title": "Product and Variant Management",
+      "beats": [
         {
-          "text": "After defining the core app functionality, it was time to start working on the merchant side in parallel. We began with benchmark research into the tools and services merchants were already using, so we could make the transition as smooth as possible.",
-          "caption": "For the web platform, I proposed the core navigation concept and participated in the research. Two designers worked in parallel to meet the timeline."
+          "label": "Problem",
+          "text": "Traditional merchant tools often force sellers to create separate, disconnected product entries for every size, color, or variation."
         },
         {
-          "text": "The tricky part was that merchants already managed their online shops in different ways. Picksell could work either as a payment method or as a fully functional shop: in some cases, it could receive products via API, while in others it could become the product data source for external websites.",
-          "caption": ""
+          "label": "Research",
+          "text": "We analyzed common catalog-management patterns and the difficulties merchants faced when updating large numbers of duplicated products."
         },
         {
-          "text": "The scope was clear: product and variant management, billing, and basic dashboard metrics. However, there was still too much to handle before we could invite merchants to the platform. So we focused on existing shops first, which gave us time to work through more complex flows such as product creation, product lists, and other merchant tools.",
-          "caption": ""
+          "label": "Iterations",
+          "text": "I designed a component-based product editor where one master product contained all its variants, while still supporting CSV imports."
         },
         {
-          "text": "As with the app, we also needed to provide account linking flows, KYC, and specific setup steps required to make a shop go live. We created a dedicated onboarding dashboard for new users, allowing them to complete the shop setup through a simple to-do list.",
-          "caption": ""
+          "label": "Outcome",
+          "text": "A single source of truth that made catalogs faster to create, easier to maintain, and less prone to inconsistencies."
         }
       ],
-      "gallery": {
+      "media": {
+        "type": "web",
         "images": [
-          "/cases/Case%201/Web/Web%201.png",
-          "/cases/Case%201/Web/Web%202.png",
-          "/cases/Case%201/Web/Web%203.png",
-          "/cases/Case%201/Web/Web%204.png",
-          "/cases/Case%201/Web/Web%205.png",
-          "/cases/Case%201/Web/Web%206.png"
+          "/cases/Case%201/layout/web-2.png?v=20260923t"
         ]
+      },
+      "trailingMedia": {
+        "type": "shot",
+        "images": ["/cases/Case%201/layout/app.png"]
+      }
+    },
+    {
+      "id": "design-system",
+      "menuLabel": "Cross-Platform Design System",
+      "title": "Cross-Platform Design System",
+      "mediaFirst": true,
+      "beats": [
+        {
+          "label": "Problem",
+          "text": "Six designers were working across three platforms and more than 1,000 screens, creating a high risk of inconsistency and duplicated work."
+        },
+        {
+          "label": "Research",
+          "text": "We audited shared patterns, platform-specific requirements, accessibility standards, and technical constraints."
+        },
+        {
+          "label": "Iterations",
+          "text": "We built shared components, page-level templates, dedicated libraries, and a unified illustration and motion system."
+        },
+        {
+          "label": "Outcome",
+          "text": "A single source of truth across all platforms, including 1,500+ design elements and 150+ illustrations and animations, fully aligned with WCAG standards."
+        }
+      ],
+      "media": {
+        "type": "shot",
+        "images": ["/cases/Case%201/layout/ds.png"]
       }
     }
   ]

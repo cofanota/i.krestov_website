@@ -5,10 +5,12 @@
   ].join(", ");
 
   var SCALE_BTN_SELECTOR = ".case-detail__scale-btn";
+  var ZOOM_ITEM_SELECTOR = ".case-detail__gallery-item, .case-split__zoom";
 
   var lightboxEl = null;
   var lightboxImg = null;
   var lightboxVideo = null;
+  var lightboxGroup = null;
   var lightboxViewport = null;
   var galleryItems = [];
   var galleryIndex = -1;
@@ -23,11 +25,15 @@
     lightboxEl.setAttribute("aria-label", "Image preview");
     lightboxEl.innerHTML =
       '<button type="button" class="image-lightbox__backdrop" aria-label="Close image preview"></button>' +
+      '<button type="button" class="image-lightbox__close" aria-label="Close image preview">' +
+      '<span class="image-lightbox__close-icon" aria-hidden="true"></span>' +
+      "</button>" +
       '<figure class="image-lightbox__dialog">' +
       '<div class="image-lightbox__frame">' +
       '<div class="image-lightbox__viewport">' +
       '<img class="image-lightbox__img" alt="">' +
       '<video class="image-lightbox__video" hidden muted playsinline webkit-playsinline loop></video>' +
+      '<div class="image-lightbox__group" hidden></div>' +
       "</div>" +
       '<nav class="image-lightbox__nav" hidden aria-label="Gallery navigation">' +
       '<button type="button" class="case-detail__gallery-btn case-detail__gallery-btn--prev image-lightbox__nav-btn" aria-label="Previous image">' +
@@ -37,15 +43,13 @@
       '<span class="case-detail__gallery-btn-icon case-detail__gallery-btn-icon--next" aria-hidden="true"></span>' +
       "</button>" +
       "</nav>" +
-      '<button type="button" class="image-lightbox__close" aria-label="Close image preview">' +
-      '<span class="image-lightbox__close-icon" aria-hidden="true"></span>' +
-      "</button>" +
       "</div>" +
       "</figure>";
 
     document.body.appendChild(lightboxEl);
     lightboxImg = lightboxEl.querySelector(".image-lightbox__img");
     lightboxVideo = lightboxEl.querySelector(".image-lightbox__video");
+    lightboxGroup = lightboxEl.querySelector(".image-lightbox__group");
     lightboxViewport = lightboxEl.querySelector(".image-lightbox__viewport");
 
     lightboxEl.querySelector(".image-lightbox__backdrop").addEventListener("click", closeLightbox);
@@ -77,6 +81,40 @@
     lightboxVideo.hidden = true;
   }
 
+  function clearLightboxGroup() {
+    if (lightboxGroup) {
+      lightboxGroup.hidden = true;
+      lightboxGroup.innerHTML = "";
+    }
+    if (lightboxViewport) {
+      lightboxViewport.classList.remove("is-group");
+    }
+  }
+
+  function renderLightboxGroup(srcs) {
+    if (!lightboxGroup || !lightboxViewport) {
+      return;
+    }
+
+    lightboxGroup.innerHTML = srcs
+      .map(function (src) {
+        var safeSrc = String(src)
+          .replace(/&/g, "&amp;")
+          .replace(/"/g, "&quot;")
+          .replace(/</g, "&lt;");
+        return (
+          '<div class="case-phone">' +
+          '<img class="case-phone__img" alt="" src="' +
+          safeSrc +
+          '">' +
+          "</div>"
+        );
+      })
+      .join("");
+    lightboxGroup.hidden = false;
+    lightboxViewport.classList.add("is-group");
+  }
+
   function getGalleryItemData(item) {
     var video = item.querySelector("video");
     if (video) {
@@ -85,6 +123,19 @@
         src: video.dataset.src || video.currentSrc || video.src,
         poster: video.getAttribute("poster") || "",
         alt: video.getAttribute("aria-label") || "",
+        sliceCount: 1,
+        sliceIndex: 0,
+      };
+    }
+
+    var groupImgs = item.querySelectorAll(".case-phone__img");
+    if (groupImgs.length > 1) {
+      return {
+        type: "group",
+        srcs: Array.prototype.map.call(groupImgs, function (img) {
+          return img.currentSrc || img.src;
+        }),
+        alt: "",
         sliceCount: 1,
         sliceIndex: 0,
       };
@@ -107,7 +158,7 @@
   function collectGalleryItems(galleryEl) {
     var items = [];
 
-    galleryEl.querySelectorAll(".case-detail__gallery-item").forEach(function (item) {
+    galleryEl.querySelectorAll(ZOOM_ITEM_SELECTOR).forEach(function (item) {
       var data = getGalleryItemData(item);
       if (data) {
         items.push(data);
@@ -196,6 +247,16 @@
     var item = galleryItems[index];
 
     resetLightboxImageLayout();
+    clearLightboxGroup();
+
+    if (item.type === "group") {
+      stopLightboxVideo();
+      lightboxImg.hidden = true;
+      renderLightboxGroup(item.srcs || []);
+      updateLightboxNav();
+      updateLightboxLabel(item);
+      return;
+    }
 
     if (item.type === "video") {
       lightboxImg.onload = null;
@@ -208,13 +269,18 @@
         } else {
           lightboxVideo.removeAttribute("poster");
         }
-        if (lightboxVideo.getAttribute("src") !== item.src) {
-          lightboxVideo.setAttribute("src", item.src);
-          lightboxVideo.load();
-        }
-        var playPromise = lightboxVideo.play();
-        if (playPromise && typeof playPromise.catch === "function") {
-          playPromise.catch(function () {});
+        lightboxVideo.dataset.src = item.src;
+        if (window.AboutMedia && typeof window.AboutMedia.playOne === "function") {
+          window.AboutMedia.playOne(lightboxVideo);
+        } else {
+          if (lightboxVideo.getAttribute("src") !== item.src) {
+            lightboxVideo.setAttribute("src", item.src);
+            lightboxVideo.load();
+          }
+          var playPromise = lightboxVideo.play();
+          if (playPromise && typeof playPromise.catch === "function") {
+            playPromise.catch(function () {});
+          }
         }
       }
     } else {
@@ -271,6 +337,7 @@
     galleryItems = [];
     galleryIndex = -1;
     resetLightboxImageLayout();
+    clearLightboxGroup();
     stopLightboxVideo();
 
     lightboxImg.hidden = false;
@@ -307,6 +374,7 @@
     lightboxImg.hidden = false;
     stopLightboxVideo();
     resetLightboxImageLayout();
+    clearLightboxGroup();
     galleryItems = [];
     galleryIndex = -1;
     updateLightboxNav();
@@ -320,18 +388,20 @@
 
     var scaleBtn = event.target.closest(SCALE_BTN_SELECTOR);
     if (scaleBtn) {
-      var container = scaleBtn.closest(".case-detail__gallery-item");
-      var gallery = scaleBtn.closest(".case-detail__gallery");
+      var container = scaleBtn.closest(ZOOM_ITEM_SELECTOR);
+      var gallery =
+        scaleBtn.closest(".case-detail__gallery") ||
+        scaleBtn.closest(".case-split");
       var image = container ? container.querySelector("img") : null;
       var video = container ? container.querySelector("video") : null;
-      if (image || video) {
+      if (image || video || (container && container.querySelector(".case-phone"))) {
         event.preventDefault();
         event.stopPropagation();
         if (container) {
           container.classList.remove("is-scale-visible");
         }
         if (gallery && container) {
-          var galleryItemsEls = gallery.querySelectorAll(".case-detail__gallery-item");
+          var galleryItemsEls = gallery.querySelectorAll(ZOOM_ITEM_SELECTOR);
           var startIndex = Array.prototype.indexOf.call(galleryItemsEls, container);
           openGalleryLightbox(gallery, startIndex);
         } else if (image) {

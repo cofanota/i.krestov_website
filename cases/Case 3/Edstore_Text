@@ -1,8 +1,9 @@
-// Format: header fields below → sections [id] → # title → //text + //note pairs → //gallery: @Folder
+// Format: header fields below → story summary → sections [id] with Problem / Research / Iterations / Outcome
 // Site reads meta.json; keep this file in sync when editing copy.
 // Do not add manual line breaks — browser wraps via text-wrap: pretty
+// Text blocks have no pictures until layout assets are ready.
 
-//description: Story-based mobile learning app optimized for fast, on-the-go content 
+//description: Story-based mobile learning app optimized for fast, on-the-go content
 //tags: B2C,Edtech,App
 
 //My role: Led design team, art direction, product strategy, and core concepts
@@ -12,16 +13,39 @@
 
 //cta: Behance https://www.behance.net/gallery/178295625/edstore-microlearning-app
 
+//story: Mobile — The first concept copied a heavy web platform. We moved to a story-based mobile format with full-screen media, short lesson pages, and quick access to active courses.
+//story: Editor — After 20+ interviews and a survey of 500+ early users, we removed the in-app lesson editor. The audience was experienced experts with content teams, not first-time solo creators.
+//story: Publishing — Lessons followed a social-friendly format, with guidelines so creators could publish both video and text without rebuilding every lesson for the app.
 
-[edstore-section-1]
+
+[web-to-mobile]
+## From Web Platform to Mobile Learning
+
+//problem: The original concept replicated a feature-heavy web platform and was not suited to fast, on-the-go learning.
+//research: We reviewed the previous experiment, analyzed the market, and explored how users consumed educational content on mobile devices.
+//iterations: We shifted to a story-based format with full-screen media, concise lesson pages, and quick access to active courses.
+//outcome: A focused mobile learning product designed around short, engaging content rather than desktop workflows.
+
+//gallery: mobile-lesson.png, mobile-lessons.png, mobile-story.png
 
 
-//text: Early app concepts were based on the team’s previous experiment with a fully featured web platform, but that approach failed. When I joined the team, we shifted the focus to mobile and aimed to make lesson creation easier.
+[removing-editor]
+## Removing the Mobile Editor
 
-//gallery: @Identity
+//problem: The team assumed that creators needed a complete lesson editor inside the app, making the product increasingly complex.
+//research: We tested multiple editor concepts, conducted 20+ interviews, and surveyed more than 500 early users.
+//iterations: The research showed that the primary audience was experienced experts working with content teams, not first-time solo creators. We removed the editor and simplified lesson setup.
+//outcome: A leaner product aligned with real creator workflows, without investing further in a feature the core audience did not need.
 
-//text: After ideating around multiple content types and extensively testing the mobile editor, we made a difficult decision to remove it from the app entirely. It may sound counterintuitive, but after 20+ interviews and a survey of 500+ early users, we found that our first audience was not early-stage authors, but experienced experts working with content creation teams.
+//gallery: editor-settings.png, editor-cards.png, editor-access.png
 
-//text: To fit their needs, I designed the app around a social media-friendly format. I also created content guidelines so users could create not only video lessons, but also text-based content.
 
-//gallery: @Screens
+[social-content]
+## Social-First Content System
+
+//problem: Creators needed to reuse existing content without rebuilding every lesson specifically for the platform.
+//research: We analyzed different content formats and established creator workflows.
+//iterations: We added reusable content packs, consistent media formats, automated content tagging, and guidelines for both video and text-based lessons.
+//outcome: A flexible publishing system that made existing content easier to adapt, distribute, and recommend inside the app.
+
+//gallery: social-search.png, social-profile.png, social-player.png

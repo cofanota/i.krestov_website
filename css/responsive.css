@@ -212,10 +212,9 @@
   }
 
   .case-tile__title {
-    font-size: 1rem;
+    font-size: var(--font-size-text-caption);
   }
 
-  /* Tablet / large compact: restore 2-col bento without forced row aspect ratios */
   @media (min-width: 36rem) {
     :root {
       --contact-content-top: 14.375rem;
@@ -247,6 +246,7 @@
     }
   }
 
+  /* Tablet / large compact: restore 2-col bento without forced row aspect ratios */
   @media (min-width: 48.0625rem) {
     :root {
       --case-tile-media-min: 18rem;
@@ -746,10 +746,12 @@
     --font-size-heading-secondary: calc(2rem * var(--ui-scale-applied));
     --font-size-heading-amount: calc(12rem * var(--ui-scale-applied));
     --font-size-heading-tertiary: calc(1.5rem * var(--ui-scale-applied));
-    --font-size-text-secondary: calc(0.875rem * var(--ui-scale-applied));
+    --font-size-text-primary: calc(1rem * var(--ui-scale-applied));
+    --font-size-text-secondary: calc(0.8125rem * var(--ui-scale-applied));
     --font-size-text-reading: calc(1.125rem * var(--ui-scale-applied));
     --font-size-text-caption: calc(0.75rem * var(--ui-scale-applied));
-    --font-size-action-secondary: calc(0.875rem * var(--ui-scale-applied));
+    --font-size-action-primary: calc(1rem * var(--ui-scale-applied));
+    --font-size-action-secondary: calc(0.8125rem * var(--ui-scale-applied));
 
     /* Radius */
     --radius-pill: calc(3.5rem * var(--ui-scale-applied));
@@ -774,7 +776,7 @@
   }
 
   .site-nav__cta.btn {
-    font-size: 0.875rem;
+    font-size: 0.8125rem;
   }
 
   .site-nav__cta.btn .btn__icon {
@@ -787,6 +789,7 @@
 
   .folio-hero__intro {
     gap: clamp(1.5rem, 3vw, 3.5rem);
+    padding-top: calc(2 * var(--section-space-block) - var(--nav-bar-top) - var(--nav-control-height));
   }
 
   .folio-hero__headline {
@@ -823,7 +826,7 @@
   .folio-contact .btn {
     min-height: 3rem;
     padding: 0.5rem;
-    font-size: 0.875rem;
+    font-size: 0.8125rem;
   }
 
   .folio-contact .btn__label {
@@ -842,7 +845,7 @@
   }
 
   .folio-contact__closing {
-    font-size: 0.875rem;
+    font-size: 0.8125rem;
     letter-spacing: 0.00875rem;
   }
 
@@ -903,7 +906,7 @@
   }
 
   .folio-hero__intro {
-    padding-top: var(--section-space-block);
+    padding-top: calc(2 * var(--section-space-block) - var(--nav-bar-top) - var(--nav-control-height));
     padding-bottom: var(--section-space-block-end);
   }
 

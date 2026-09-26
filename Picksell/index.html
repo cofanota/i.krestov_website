@@ -63,14 +63,14 @@
     })();
   </script>
   <script src="js/background-perf.js"></script>
-  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/tokens.css?v=20260919a">
   <link rel="stylesheet" href="css/fonts.css">
   <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/components.css">
-  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/components.css?v=20260926casepad">
+  <link rel="stylesheet" href="css/responsive.css?v=20260920b">
   <link rel="stylesheet" href="css/cursor.css">
 </head>
-<body class="page page--case" data-page="case">
+<body class="page page--case page--case-split" data-page="case">
 
   <div class="page__background" aria-hidden="true">
     <div class="page__background-grid"></div>
@@ -149,15 +149,47 @@
             <section class="case-detail" hidden></section>
           </div>
         </article>
+
+        <div class="folio-contact-scene">
+          <section class="folio-contact" id="contact" aria-labelledby="contact-heading">
+            <h2 class="sr-only" id="contact-heading">Contact</h2>
+            <a class="folio-contact__email reveal" href="mailto:ivan.krestov.21@gmail.com">
+              <span class="folio-contact__email-label">ivan.krestov.21@gmail.com</span>
+              <svg class="folio-contact__email-arrow" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M29.6567 12.6863L40.9704 24L29.6567 35.3137L28.2425 33.8995L34.5933 26.1532L7.99988 25.0606V22.9393L34.5933 21.9105L28.2425 14.1005L29.6567 12.6863Z" fill="currentColor"/>
+              </svg>
+            </a>
+            <div class="folio-contact__columns">
+              <div class="folio-contact__actions" data-reveal-stagger="0.2">
+                <a class="btn btn--secondary reveal" href="https://www.linkedin.com/in/cofanota/" target="_blank" rel="noopener noreferrer">
+                  <span class="btn__label">LinkedIn</span>
+                  <span class="btn__icon" aria-hidden="true">
+                    <span class="btn__icon-svg btn__icon-svg--linkedin"></span>
+                  </span>
+                </a>
+                <a class="btn btn--secondary reveal" href="https://t.me/ivancross" target="_blank" rel="noopener noreferrer">
+                  <span class="btn__label">Telegram</span>
+                  <span class="btn__icon" aria-hidden="true">
+                    <span class="btn__icon-svg btn__icon-svg--send"></span>
+                  </span>
+                </a>
+              </div>
+              <p class="folio-contact__closing reveal">
+                Feel free to DM,<br>
+                always happy to talk
+              </p>
+            </div>
+          </section>
+        </div>
       </div>
     </div>
   </main>
 
-  <script src="js/theme.js"></script>
+  <script src="js/theme.js?v=20260926footer"></script>
   <script src="js/navigation.js"></script>
-  <script src="js/about-media.js?v=20260915a"></script>
-  <script src="js/cases-content.js?v=20260915vi1"></script>
+  <script src="js/about-media.js?v=20260924all"></script>
+  <script src="js/cases-content.js?v=20260926hq"></script>
   <script src="js/reveal.js?v=20260830a"></script>
-  <script src="js/cursor.js?v=20260915a"></script>
+  <script src="js/cursor.js?v=20260924all"></script>
 </body>
 </html>

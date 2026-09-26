@@ -1,3 +1,11 @@
-[sayme-section-1]
+[shared-architecture]
 
-I was asked to help design a simple MVP experience for both the client and talent sides.
+The MVP required separate client and talent experiences while keeping design and development effort manageable.
+
+[discovery-to-order]
+
+Clients needed to quickly find the right talent and understand the price, delivery time, and expected result without navigating a complex marketplace.
+
+[creator-workflow]
+
+Talents needed to manage incoming requests, record videos, deliver orders, and track earnings without switching between multiple tools.

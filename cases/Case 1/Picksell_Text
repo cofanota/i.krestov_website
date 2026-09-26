@@ -1,50 +1,53 @@
-// Format: header fields below → sections [id] → # title → //text + //note pairs → //gallery: @Folder
+// Format: header fields below → sections [id] → # title → beats
 // Site reads meta.json; keep this file in sync when editing copy.
 // Do not add manual line breaks — browser wraps via text-wrap: pretty
 
 //description: EU marketplace and payment system powered by open banking technology
-//tags: B2C,B2B,Fintech,App,Platform,SaaS
+//tags: B2C,B2B,Fintech,App,E-com,SaaS
 
 //My role: Led the design team, art direction, product strategy, core concepts and identity
 //scope: Discovery → Brand Guidelines → App MVP → Merchant platform MVP →  Launch  + Support
 //team: Up to 6 designers: product and graphic
 //duration: 9 months
 
-//cta: Behance https://www.behance.net/gallery/107568635/Picksell
+[story]
+# Story
 
-[picksell-section-1]
-# Identity
+//identity: Unclear flows needed a friendlier voice, so I created a pixel mascot that helps people from login through placing an order, then led the illustrations and animations that carried that voice through the product.
+//customer-app: The React Native MVP made payments from external shops simple, with KYC that felt as easy as a normal checkout. The architecture was designed so the product could grow into a full marketplace.
+//web: The merchant platform could work as a payment method or as the shop itself. We started with existing shops — products, billing, and a to-do onboarding — so they could go live while heavier catalog flows were still in progress.
 
-//text: Since the product had tons of unclear and tough scenarios we understood that we needed a solid system to talk with users in an emotional and friendly way. This led me to create a simple mascot that literally acts like a helper for customers throughout the journey — from the login screen to placing an order.
-//note: Picksell identity got a pixel-shaped mascot — dot with a chromatic aberration effect on it. After the identity part I led all illustrations and animations production for use in the product.
+[overview]
+# Overview
 
-//gallery: @Identity
+[open-banking]
+# Open Banking & KYC
 
+//problem: Open Banking and KYC flows varied significantly across banks. API responses were unpredictable, and some banks redirected users to external apps or websites.
+//research: I analyzed regulatory requirements, bank documentation, API responses, and possible fallback scenarios.
+//iterations: We designed a flexible interface framework that could adapt to anything from a single input to 20+ fields and handle external redirects consistently.
+//outcome: A scalable KYC and payment flow that made Open Banking feel as simple and familiar as adding a card.
 
-[picksell-section-2]
-# Customer app
+[marketplace]
+# Marketplace Architecture
 
-//text: React Native app with clear, cart-oriented user flows. The MVP focused on enabling easy payments from external shops, with the next step being a transition into a full-cycle marketplace. We designed the UX and product architecture to make this transition smooth once the product gained enough traction.
-//note: It took me about two weeks of research to dive deep into the documentation and understand the limitations of EU payment methods.
+//problem: The MVP focused on payments, but the product needed to evolve into a full-cycle marketplace without a major redesign.
+//research: We mapped the future customer journey, marketplace features, and dependencies between payments, products, orders, and merchant tools.
+//iterations: We designed the navigation and product architecture to support both the initial payment-focused MVP and future online shopping scenarios.
+//outcome: A scalable foundation that allowed Picksell to launch quickly and expand into a marketplace as the product gained traction.
 
-//text: The payment system required a strong KYC process to verify both sides of each transaction. The key challenge was to make this unusual flow feel as easy as possible, so we invested in clear user communication and shorter flows.
+[product]
+# Product and Variant Management
 
-//text: The shopping experience was focused on off-platform purchases and payments via Picksell Pay buttons on merchant websites. At this stage, we did not build a full marketplace-like experience. However, all merchants in the app still had their own pages, and their products were searchable and available for ordering inside the app.
-//note: Once the core app experience was built, other sub-scenarios were moved to another designer, while I oversaw and controlled the final result.
+//problem: Traditional merchant tools often force sellers to create separate, disconnected product entries for every size, color, or variation.
+//research: We analyzed common catalog-management patterns and the difficulties merchants faced when updating large numbers of duplicated products.
+//iterations: I designed a component-based product editor where one master product contained all its variants, while still supporting CSV imports.
+//outcome: A single source of truth that made catalogs faster to create, easier to maintain, and less prone to inconsistencies.
 
-//gallery: @App
+[design-system]
+# Cross-Platform Design System
 
-
-[picksell-section-3]
-# Web
-
-//text: After defining the core app functionality, it was time to start working on the merchant side in parallel. We began with benchmark research into the tools and services merchants were already using, so we could make the transition as smooth as possible.
-//note: For the web platform, I proposed the core navigation concept and participated in the research. Two designers worked in parallel to meet the timeline.
-
-//text: The tricky part was that merchants already managed their online shops in different ways. Picksell could work either as a payment method or as a fully functional shop: in some cases, it could receive products via API, while in others it could become the product data source for external websites.
-
-//text: The scope was clear: product and variant management, billing, and basic dashboard metrics. However, there was still too much to handle before we could invite merchants to the platform. So we focused on existing shops first, which gave us time to work through more complex flows such as product creation, product lists, and other merchant tools.
-
-//text: As with the app, we also needed to provide account linking flows, KYC, and specific setup steps required to make a shop go live. We created a dedicated onboarding dashboard for new users, allowing them to complete the shop setup through a simple to-do list.
-
-//gallery: @Web
+//problem: Six designers were working across three platforms and more than 1,000 screens, creating a high risk of inconsistency and duplicated work.
+//research: We audited shared patterns, platform-specific requirements, accessibility standards, and technical constraints.
+//iterations: We built shared components, page-level templates, dedicated libraries, and a unified illustration and motion system.
+//outcome: A single source of truth across all platforms, including 1,500+ design elements and 150+ illustrations and animations, fully aligned with WCAG standards.

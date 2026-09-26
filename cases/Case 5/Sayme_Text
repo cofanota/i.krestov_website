@@ -1,6 +1,7 @@
-// Format: header fields below → sections [id] → # title → //text + //note pairs → //gallery: @Folder
+// Format: header fields below → story summary → sections [id] with Problem / Research / Iterations / Outcome
 // Site reads meta.json; keep this file in sync when editing copy.
 // Do not add manual line breaks — browser wraps via text-wrap: pretty
+// Text blocks have no pictures until layout assets are ready.
 
 //description: Sayme connects talents with their fans on a single platform, where users can ask a talent of their choice to record a personalized video gift
 //tags: B2C,Entertainment,Web
@@ -10,13 +11,39 @@
 //team: Solo designer
 //duration: Solo designer
 
+//story: Discovery — Clients could find the right talent and see the price, delivery time, and expected result before ordering. Video profiles and a short flow kept that path simple.
+//story: Creator workflow — Talents handled incoming requests, recording, delivery, and earnings in one workspace, from the first task through client review.
+//story: Two apps — Separate client and talent experiences shared navigation, patterns, and a compact component system built for React Native.
 
-[Sayme-section-1]
+
+[shared-architecture]
+## Shared Architecture for Two Apps
+
+//problem: The MVP required separate client and talent experiences while keeping design and development effort manageable.
+//research: We compared both user journeys and identified shared navigation, interface patterns, and reusable components.
+//iterations: We created a compact component system and cross-platform architecture optimized for React Native.
+//outcome: Two distinct experiences built from one consistent foundation, reducing complexity and making the product easier to scale.
+
+//gallery: shared-orders.png, shared-talents.png, shared-balance.png
 
 
-//text: I was asked to help design a simple MVP experience for both the client and talent sides.
-//gallery: @Identity
-//text: The client app lets users browse creators through video profile cards, order personalized video messages, and rate them after delivery. To keep the MVP lean, we deliberately avoided investing in complex content feeds, relying instead on the first creators to generate organic traffic.
-//text: The creator app provides an overview of orders, video recording and downloading, basic analytics, and billing tools. As with the client app, we focused on delivering a fast, simple experience.
-//gallery: @App
-//text: Together with the client, we agreed to reuse as many components as possible in a cross-platform React Native app. The challenge was not only to build the UI with as few components as possible, but also to propose an effective flow architecture.
+[discovery-to-order]
+## From Discovery to Order
+
+//problem: Clients needed to quickly find the right talent and understand the price, delivery time, and expected result without navigating a complex marketplace.
+//research: We mapped the key decision points in the customer journey and defined the minimum information required before placing an order.
+//iterations: We introduced video profile cards, tag-based recommendations, clear pricing, estimated delivery times, and a focused ordering flow.
+//outcome: A simple path from talent discovery to ordering a personalized video, without overbuilding the MVP with a complex content feed.
+
+//gallery: discover-promo.png, discover-record.png, discover-empty.png
+
+
+[creator-workflow]
+## End-to-End Creator Workflow
+
+//problem: Talents needed to manage incoming requests, record videos, deliver orders, and track earnings without switching between multiple tools.
+//research: We mapped the complete creator workflow and prioritized the actions required to fulfil an order quickly.
+//iterations: We designed a task-based dashboard, in-app video recording, client review, order management, ratings, and billing tools.
+//outcome: A single workspace where talents could complete the entire order cycle with minimal effort.
+
+//gallery: creator-login.png, creator-profile.png, creator-record.png

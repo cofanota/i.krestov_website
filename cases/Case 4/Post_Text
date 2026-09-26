@@ -1,4 +1,4 @@
-// Format: header fields below → sections [id] → # title → //text + //note pairs → //gallery: @Folder
+// Format: header fields below → sections [id] → beats Problem / Research / Iterations / Outcome
 // Site reads meta.json; keep this file in sync when editing copy.
 // Do not add manual line breaks — browser wraps via text-wrap: pretty
 
@@ -9,18 +9,30 @@
 //team: 4 designers
 //duration: 2 months (Concept phase)
 
+[service-discovery]
+# Service Discovery
+//Problem: Users struggled to find the right service in a large and fragmented catalog.
+//Research: We reviewed existing sections, mapped user journeys, and interviewed users.
+//Iterations: We simplified navigation, grouped related services, and made key options easier to find.
+//Outcome: A clearer catalog that helped users reach the right service faster.
 
-[post-ecosystem-section-1]
+[unified-shipment]
+# Unified Shipment Flow
+//Problem: Creating a shipment worked differently across mobile, B2C web, and B2B web.
+//Research: We compared the flows and identified the steps that could be shared.
+//Iterations: We created one structure with saved addresses, preset package sizes, and clear delivery options.
+//Outcome: A consistent and familiar shipment flow across all platforms.
 
+[online-offline]
+# Online and Offline Journey
+//Problem: Digital services and post-office visits felt like separate experiences.
+//Research: We mapped the full journey—from preparing a shipment to tracking its delivery.
+//Iterations: We added QR access, shared notifications, tracking, and an address book.
+//Outcome: Users could move between online services and post offices more easily.
 
-//text: The lack of a clear structure and fragmented navigation made key services hard to find. The company had significantly expanded its service portfolio, but users struggled to discover relevant products. The fragmented structure also increased delivery time for product and design teams.
-
-//gallery: @B2C
-//text: The objective was to consolidate business requirements into a clear, scalable structure that would reduce update costs and speed up product releases.
-
-//gallery: @B2B
-//text: My team built a new information architecture for the account ecosystem by analyzing all existing sections and evaluating their relevance. I proposed a usability-driven roadmap for future improvements and supervised the design team during concept development. The unified user flow enabled updates to be rolled out across the entire account experience, rather than as isolated incremental changes.
-
-
-
-
+[scalable-structure]
+# Scalable Product Structure
+//Problem: Separate product structures made updates slow and expensive.
+//Research: We identified shared patterns and the different needs of B2C and B2B users.
+//Iterations: We created a shared structure and reusable design patterns.
+//Outcome: One foundation that could support future updates across the whole ecosystem.

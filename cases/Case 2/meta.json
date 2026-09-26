@@ -2,13 +2,18 @@
   "slug": "sbibank",
   "nodeId": "case-sbibank",
   "title": "SBIBank",
+  "layout": "split",
   "list": {
     "title": "SBI Bank",
     "description": "Apps for parents and kids",
     "tags": ["B2C", "Fintech", "App"]
   },
   "hero": {
-    "cover": "/cases/Case%202/Cover.png",
+    "leadCover": "/cases/Case%202/Cover.png?v=20260926hq",
+    "cover": "/cases/Case%202/layout/sbi-cover.mp4?v=20260926v",
+    "coverPoster": "/cases/Case%202/layout/sbi-cover-poster.jpg?v=20260926v",
+    "mascot": "/cases/Case%202/layout/sbi-icons.png?v=20260926v",
+    "mosaic": "promo",
     "title": "SBIBank",
     "description": "Family banking with separate parent and child banking apps. Where single user can act in multiple roles within the app",
     "labels": ["B2C", "Fintech", "App"]
@@ -19,81 +24,161 @@
     "team": "Up to 5 designers: product and graphic",
     "duration": "12 months"
   },
+  "score": {
+    "label": "Behance UI Selection",
+    "slides": [
+      {
+        "type": "award",
+        "label": "Behance UI Selection",
+        "image": "/cases/Case%202/layout/sbi-ui.png?v=20260926v",
+        "width": "450",
+        "height": "766"
+      }
+    ]
+  },
+  "story": {
+    "title": "Story",
+    "parts": [
+      {
+        "label": "Parent app",
+        "text": "Native iOS and Android apps separated family money from personal accounts. Blue marked shared finances and neutral marked personal ones, so owners could control family spending while each member kept their own."
+      },
+      {
+        "label": "Child app",
+        "text": "The child app stayed savings-first: a goal-based piggy bank, tasks, and history. It taught money in small steps, and a parent could not open a child’s savings without permission."
+      },
+      {
+        "label": "Full bank",
+        "text": "Single users still needed a complete bank, so ordering a card, payments, deposits, loans, and loyalty lived in the same product as the family roles."
+      }
+    ]
+  },
   "cta": {
     "label": "Behance",
     "url": "https://www.behance.net/gallery/88998169/svoj-krug-ot-SBI-Bank"
   },
-  "awards": [
-    {
-      "name": "Рейтинг Рунета",
-      "image": "/assets/images/cases/picksell/awards/runet.png"
-    },
-    {
-      "name": "Tagline",
-      "image": "/assets/images/cases/picksell/awards/tagline.png"
-    },
-    {
-      "name": "Behance",
-      "image": "/assets/images/cases/badge-ui.svg"
-    }
-  ],
   "sections": [
     {
-      "id": "sbibank-section-1",
-      "menuLabel": "Parent App",
-      "title": "Parent App",
-      "paragraphs": [
+      "id": "two-apps",
+      "menuLabel": "Two Apps, One Banking System",
+      "title": "Two Apps, One Banking System",
+      "beats": [
         {
-          "text": "Fully native iOS and Android apps built for parents to control family spending, set limits, and handle daily banking scenarios.",
-          "caption": "I was based at the client’s office while managing a remote team of three product designers, as well as illustrators and motion designers."
+          "label": "Problem",
+          "text": "The team had to deliver native parent and child apps, including the complete banking core, within a reduced MVP timeline."
         },
         {
-          "text": "The core idea was to separate family money from personal accounts, so users could instantly understand what they needed to manage. We supported this separation visually with color zones: blue for family finances and neutral colors for personal finances.",
-          "caption": ""
+          "label": "Research",
+          "text": "We prioritized essential scenarios and identified reusable patterns across accounts, cards, transactions, payments, and family features."
         },
         {
-          "text": "Family owners had full control over spending, while other parent-level users could manage their own finances. Child accounts were created and controlled by the family owner.",
-          "caption": ""
+          "label": "Iterations",
+          "text": "We built a shared design foundation while adapting navigation, content, and functionality to each audience."
         },
         {
-          "text": "At the same time, the bank still needed to support single users, so we designed the full banking app experience — from ordering a card to all key payment scenarios, as well as deposits, loans, and loyalty programs.",
-          "caption": ""
+          "label": "Outcome",
+          "text": "Two connected native apps with a consistent product language, released in six months instead of the initially planned eight."
         }
       ],
-      "gallery": {
+      "media": {
+        "type": "phone",
         "images": [
-          "/cases/Case%202/Parent%20App/App%207.png",
-          "/cases/Case%202/Parent%20App/App%208.png",
-          "/cases/Case%202/Parent%20App/App%209.png"
+          "/cases/Case%202/layout/two-apps-child.png?v=20260925c",
+          "/cases/Case%202/layout/two-apps-family.png?v=20260924b",
+          "/cases/Case%202/layout/two-apps-savings.png?v=20260924b"
         ]
       }
     },
     {
-      "id": "sbibank-section-2",
-      "menuLabel": "Child App",
-      "title": "Child App",
-      "paragraphs": [
+      "id": "family-finances",
+      "menuLabel": "Family and Personal Finances",
+      "title": "Family and Personal Finances",
+      "beats": [
         {
-          "text": "Fully native iOS and Android apps built around a savings-first experience. The app offered a focused set of features: topping up a piggy bank, completing tasks, and checking transaction history.",
-          "caption": "We carefully considered which features would best support children’s financial literacy — without causing harm, and while gradually helping kids understand how money works."
+          "label": "Problem",
+          "text": "Parents needed to manage shared family money without mixing it with their personal accounts, while different family members required different levels of access."
         },
         {
-          "text": "I came up with the idea of a goal-oriented digital piggy bank. For example, a child could save for a dream toy while parents assigned small tasks and goals to help them reach it.",
-          "caption": ""
+          "label": "Research",
+          "text": "We mapped family roles, permissions, spending scenarios, and the needs of both family and single users."
         },
         {
-          "text": "We found that parents were interested in this feature because it helped them learn more about their child’s preferences. They also tended to make tasks easy enough for children to access their money quickly.",
-          "caption": ""
+          "label": "Iterations",
+          "text": "We separated family and personal finances through account structure, permissions, and color-coded interfaces."
         },
         {
-          "text": "On the other hand, older teens could learn how deposits work and invest their pocket money toward larger purchases. Parents had no access to a child’s piggy bank without the child’s permission.",
-          "caption": ""
+          "label": "Outcome",
+          "text": "A clear family banking model where owners could control shared spending while each member retained access to their own finances."
         }
       ],
-      "gallery": {
+      "media": {
+        "type": "phone",
         "images": [
-          "/cases/Case%202/Child%20App/App%205.png",
-          "/cases/Case%202/Child%20App/App%206.png"
+          "/cases/Case%202/layout/child-cards.png?v=20260925a",
+          "/cases/Case%202/layout/family-account.png?v=20260925a",
+          "/cases/Case%202/layout/personal-account.png?v=20260925a"
+        ]
+      }
+    },
+    {
+      "id": "banking-children",
+      "menuLabel": "Banking for Children",
+      "title": "Banking for Children",
+      "beats": [
+        {
+          "label": "Problem",
+          "text": "The child app needed to teach financial responsibility without becoming too complex, restrictive, or dependent on constant parental control."
+        },
+        {
+          "label": "Research",
+          "text": "We explored via survey how parents introduced money to children and found different needs across age groups."
+        },
+        {
+          "label": "Iterations",
+          "text": "We designed rewarded tasks, goal-based piggy banks, child-friendly copy, and age-appropriate controls with parental approval."
+        },
+        {
+          "label": "Outcome",
+          "text": "A savings-first experience that gave children more independence while keeping parents informed and in control."
+        }
+      ],
+      "media": {
+        "type": "phone",
+        "images": [
+          "/cases/Case%202/layout/child-theme.png?v=20260925d",
+          "/cases/Case%202/layout/child-piggy.png?v=20260925d",
+          "/cases/Case%202/layout/child-task.png?v=20260925e"
+        ]
+      }
+    },
+    {
+      "id": "payment-scenarios",
+      "menuLabel": "Complex Payment Scenarios",
+      "title": "Complex Payment Scenarios",
+      "beats": [
+        {
+          "label": "Problem",
+          "text": "The bank supported a wide range of service providers, many of which returned inconsistent or unstructured payment data."
+        },
+        {
+          "label": "Research",
+          "text": "We analyzed key payment types, repeat-payment behavior, provider requirements, and common input patterns."
+        },
+        {
+          "label": "Iterations",
+          "text": "We introduced adaptive local forms, autocomplete, recent-activity templates, and a consistent structure across payment and transfer flows."
+        },
+        {
+          "label": "Outcome",
+          "text": "A scalable payment experience that supported diverse providers while remaining predictable and easy to use."
+        }
+      ],
+      "media": {
+        "type": "phone",
+        "images": [
+          "/cases/Case%202/layout/payment-done.png?v=20260925f",
+          "/cases/Case%202/layout/payment-transfer.png?v=20260925f",
+          "/cases/Case%202/layout/payment-templates.png?v=20260925f"
         ]
       }
     }

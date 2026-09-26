@@ -63,6 +63,44 @@ body.image-lightbox-open {
   overflow: hidden;
 }
 
+.image-lightbox__viewport.is-group {
+  display: block;
+  width: min(90vw, 75rem);
+  max-width: min(90vw, 75rem);
+  max-height: 90vh;
+  padding: 0.75rem;
+  overflow: visible;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.image-lightbox__group {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  gap: 1rem;
+  width: 100%;
+  max-height: calc(90vh - 1.5rem);
+}
+
+.image-lightbox__group[hidden] {
+  display: none;
+}
+
+.image-lightbox__group .case-phone {
+  flex: 1 1 0;
+  min-width: 0;
+  width: auto;
+  max-height: 100%;
+}
+
+.image-lightbox__group .case-phone__img {
+  width: 100%;
+  height: auto;
+  max-height: calc(90vh - 1.5rem);
+  object-fit: contain;
+}
+
 .image-lightbox__img,
 .image-lightbox__video {
   display: block;
@@ -108,9 +146,9 @@ body.image-lightbox-open {
 
 .image-lightbox__close {
   position: fixed;
-  top: var(--level-page-padding);
-  right: var(--level-page-padding);
-  z-index: 2;
+  top: calc(1.5rem + env(safe-area-inset-top, 0px));
+  right: calc(1.5rem + env(safe-area-inset-right, 0px));
+  z-index: 3;
   display: inline-flex;
   align-items: center;
   justify-content: center;

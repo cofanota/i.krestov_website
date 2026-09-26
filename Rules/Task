@@ -36,6 +36,6 @@ Reuse Figma components and variants instead of inventing replacement UI.
 
 JavaScript is allowed only for page-specific behavior that cannot be done in HTML/CSS alone (theme, mobile pill expand/collapse, cases content hydration, galleries, About media, cursor, section-anchor navigation, in-view text reveal, home hero intro). Do not reintroduce map routing or History API SPA navigation.
 
-Keep all implementation constraints from @Design.md: semantic HTML, no CSS frameworks, rem units only, and only Figma-provided styles, variables, icons and components.
+Keep all implementation constraints from @Design.md: semantic HTML, no CSS frameworks, rem units only, and only Figma-provided styles, variables, icons and components. Cutout media must stay transparent (`Rules/Assets.md`, `.cursor/rules/transparent-assets.mdc`).
 
 If Figma MCP is not accessible, data was not freshly fetched in-session, or Figma component/style data conflicts with local instructions, **stop work immediately** and report what is missing or conflicting before guessing.

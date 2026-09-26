@@ -9,6 +9,7 @@ Use only components and styles applyed in Figma file - if there is any conflicts
 - Semantic HTML only
 - Full responcive web desktop and laptops, tablet and mobile
 - Use rem units only
+- Cutout mockups keep real transparency — see `Rules/Assets.md`. Never JPEG, never flatten onto black.
 
 ## Borders and component size
 

@@ -2,6 +2,7 @@
   "slug": "sayme",
   "nodeId": "case-sayme",
   "title": "Sayme",
+  "layout": "split",
   "list": {
     "title": "Sayme",
     "description": "video presents from talents",
@@ -14,66 +15,121 @@
     "labels": ["B2C", "Identity", "App", "0 → 1"]
   },
   "meta": {
-    "role": "Hands-on delivery",
+    "role": "Individual contributor",
     "scope": "Discovery → User flow map → Brand Guidelines → Flows creation",
     "team": "Solo designer",
     "duration": "Solo designer"
   },
-  "cta": {
-    "label": "",
-    "url": ""
+  "story": {
+    "title": "Story",
+    "parts": [
+      {
+        "label": "Discovery",
+        "text": "Clients could find the right talent and see the price, delivery time, and expected result before ordering. Video profiles and a short flow kept that path simple."
+      },
+      {
+        "label": "Creator workflow",
+        "text": "Talents handled incoming requests, recording, delivery, and earnings in one workspace, from the first task through client review."
+      },
+      {
+        "label": "Two apps",
+        "text": "Separate client and talent experiences shared navigation, patterns, and a compact component system built for React Native."
+      }
+    ]
   },
-  "awards": [],
   "sections": [
     {
-      "id": "sayme-section-1",
-      "menuLabel": "",
-      "title": "",
-      "paragraphs": [
+      "id": "shared-architecture",
+      "menuLabel": "Shared Architecture for Two Apps",
+      "title": "Shared Architecture for Two Apps",
+      "beats": [
         {
-          "text": "I was asked to help design a simple MVP experience for both the client and talent sides.",
-          "caption": ""
-        }
-      ],
-      "gallery": {
-        "images": [
-          "/cases/Case%205/Identity/image%2020.png",
-          "/cases/Case%205/Identity/image%2021.png",
-          "/cases/Case%205/Identity/image%2022.png"
-        ]
-      }
-    },
-    {
-      "id": "sayme-section-2",
-      "menuLabel": "",
-      "title": "",
-      "paragraphs": [
-        {
-          "text": "The client app lets users browse creators through video profile cards, order personalized video messages, and rate them after delivery. To keep the MVP lean, we deliberately avoided investing in complex content feeds, relying instead on the first creators to generate organic traffic.",
-          "caption": ""
+          "label": "Problem",
+          "text": "The MVP required separate client and talent experiences while keeping design and development effort manageable."
         },
         {
-          "text": "The creator app provides an overview of orders, video recording and downloading, basic analytics, and billing tools. As with the client app, we focused on delivering a fast, simple experience.",
-          "caption": ""
+          "label": "Research",
+          "text": "We compared both user journeys and identified shared navigation, interface patterns, and reusable components."
+        },
+        {
+          "label": "Iterations",
+          "text": "We created a compact component system and cross-platform architecture optimized for React Native."
+        },
+        {
+          "label": "Outcome",
+          "text": "Two distinct experiences built from one consistent foundation, reducing complexity and making the product easier to scale."
         }
       ],
-      "gallery": {
+      "media": {
+        "type": "phone",
         "images": [
-          "/cases/Case%205/App/App%2017.png",
-          "/cases/Case%205/App/App%2018.png"
+          "/cases/Case%205/layout/shared-orders.png?v=20260925m",
+          "/cases/Case%205/layout/shared-talents.png?v=20260925m",
+          "/cases/Case%205/layout/shared-balance.png?v=20260925m"
         ]
       }
     },
     {
-      "id": "sayme-section-3",
-      "menuLabel": "",
-      "title": "",
-      "paragraphs": [
+      "id": "discovery-to-order",
+      "menuLabel": "From Discovery to Order",
+      "title": "From Discovery to Order",
+      "beats": [
         {
-          "text": "Together with the client, we agreed to reuse as many components as possible in a cross-platform React Native app. The challenge was not only to build the UI with as few components as possible, but also to propose an effective flow architecture.",
-          "caption": ""
+          "label": "Problem",
+          "text": "Clients needed to quickly find the right talent and understand the price, delivery time, and expected result without navigating a complex marketplace."
+        },
+        {
+          "label": "Research",
+          "text": "We mapped the key decision points in the customer journey and defined the minimum information required before placing an order."
+        },
+        {
+          "label": "Iterations",
+          "text": "We introduced video profile cards, tag-based recommendations, clear pricing, estimated delivery times, and a focused ordering flow."
+        },
+        {
+          "label": "Outcome",
+          "text": "A simple path from talent discovery to ordering a personalized video, without overbuilding the MVP with a complex content feed."
         }
-      ]
+      ],
+      "media": {
+        "type": "phone",
+        "images": [
+          "/cases/Case%205/layout/discover-promo.png?v=20260925n",
+          "/cases/Case%205/layout/discover-record.png?v=20260925q",
+          "/cases/Case%205/layout/discover-empty.png?v=20260925n"
+        ]
+      }
+    },
+    {
+      "id": "creator-workflow",
+      "menuLabel": "End-to-End Creator Workflow",
+      "title": "End-to-End Creator Workflow",
+      "beats": [
+        {
+          "label": "Problem",
+          "text": "Talents needed to manage incoming requests, record videos, deliver orders, and track earnings without switching between multiple tools."
+        },
+        {
+          "label": "Research",
+          "text": "We mapped the complete creator workflow and prioritized the actions required to fulfil an order quickly."
+        },
+        {
+          "label": "Iterations",
+          "text": "We designed a task-based dashboard, in-app video recording, client review, order management, ratings, and billing tools."
+        },
+        {
+          "label": "Outcome",
+          "text": "A single workspace where talents could complete the entire order cycle with minimal effort."
+        }
+      ],
+      "media": {
+        "type": "phone",
+        "images": [
+          "/cases/Case%205/layout/creator-login.png?v=20260925p",
+          "/cases/Case%205/layout/creator-profile.png?v=20260925p",
+          "/cases/Case%205/layout/creator-record.png?v=20260925p"
+        ]
+      }
     }
   ]
 }

@@ -1,3 +1,11 @@
-[edstore-section-1]
+[web-to-mobile]
 
-Early app concepts were based on the team’s previous experiment with a fully featured web platform, but that approach failed. When I joined the team, we shifted the focus to mobile and aimed to make lesson creation easier.
+The original concept replicated a feature-heavy web platform and was not suited to fast, on-the-go learning.
+
+[removing-editor]
+
+The team assumed that creators needed a complete lesson editor inside the app, making the product increasingly complex.
+
+[social-content]
+
+Creators needed to reuse existing content without rebuilding every lesson specifically for the platform.

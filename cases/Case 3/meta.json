@@ -2,66 +2,136 @@
   "slug": "edstore",
   "nodeId": "case-edstore",
   "title": "Edstore",
+  "layout": "split",
   "list": {
     "title": "Edstore",
     "description": "Micro-learning App",
     "tags": ["B2C", "Edtech", "App"]
   },
   "hero": {
-    "cover": "/cases/Case%203/Cover.png",
+    "cover": "/cases/Case%203/Cover.png?v=20260926hq",
     "title": "Edstore",
     "description": "Story-based mobile learning app optimized for fast, on-the-go content",
     "labels": ["B2C", "Edtech", "App"]
   },
   "meta": {
-    "role": "Led design team, art direction, product strategy, and core concepts",
+    "role": "Individual contributor",
     "scope": "Discovery → Core App Flows → Market Research → Brand Guidelines → Value-added Flows → Launch",
     "team": "Solo designer",
     "duration": "6 months"
+  },
+  "story": {
+    "title": "Story",
+    "parts": [
+      {
+        "label": "Mobile",
+        "text": "The first concept copied a heavy web platform. We moved to a story-based mobile format with full-screen media, short lesson pages, and quick access to active courses."
+      },
+      {
+        "label": "Editor",
+        "text": "After 20+ interviews and a survey of 500+ early users, we removed the in-app lesson editor. The audience was experienced experts with content teams, not first-time solo creators."
+      },
+      {
+        "label": "Publishing",
+        "text": "Lessons followed a social-friendly format, with guidelines so creators could publish both video and text without rebuilding every lesson for the app."
+      }
+    ]
   },
   "cta": {
     "label": "Behance",
     "url": "https://www.behance.net/gallery/178295625/edstore-microlearning-app"
   },
-  "awards": [],
   "sections": [
     {
-      "id": "edstore-section-1",
-      "menuLabel": "",
-      "title": "",
-      "paragraphs": [
+      "id": "web-to-mobile",
+      "menuLabel": "From Web Platform to Mobile Learning",
+      "title": "From Web Platform to Mobile Learning",
+      "beats": [
         {
-          "text": "Early app concepts were based on the team’s previous experiment with a fully featured web platform, but that approach failed. When I joined the team, we shifted the focus to mobile and aimed to make lesson creation easier.",
-          "caption": ""
+          "label": "Problem",
+          "text": "The original concept replicated a feature-heavy web platform and was not suited to fast, on-the-go learning."
+        },
+        {
+          "label": "Research",
+          "text": "We reviewed the previous experiment, analyzed the market, and explored how users consumed educational content on mobile devices."
+        },
+        {
+          "label": "Iterations",
+          "text": "We shifted to a story-based format with full-screen media, concise lesson pages, and quick access to active courses."
+        },
+        {
+          "label": "Outcome",
+          "text": "A focused mobile learning product designed around short, engaging content rather than desktop workflows."
         }
       ],
-      "gallery": {
+      "media": {
+        "type": "phone",
         "images": [
-          "/cases/Case%203/Identity/image%2022.png",
-          "/cases/Case%203/Identity/19.png",
-          "/cases/Case%203/Identity/Group%201.png"
+          "/cases/Case%203/layout/mobile-lesson.png?v=20260925k",
+          "/cases/Case%203/layout/mobile-lessons.png?v=20260925k",
+          "/cases/Case%203/layout/mobile-story.png?v=20260925k"
         ]
       }
     },
     {
-      "id": "edstore-section-2",
-      "menuLabel": "",
-      "title": "",
-      "paragraphs": [
+      "id": "removing-editor",
+      "menuLabel": "Removing the Mobile Editor",
+      "title": "Removing the Mobile Editor",
+      "beats": [
         {
-          "text": "After ideating around multiple content types and extensively testing the mobile editor, we made a difficult decision to remove it from the app entirely. It may sound counterintuitive, but after 20+ interviews and a survey of 500+ early users, we found that our first audience was not early-stage authors, but experienced experts working with content creation teams.",
-          "caption": ""
+          "label": "Problem",
+          "text": "The team assumed that creators needed a complete lesson editor inside the app, making the product increasingly complex."
         },
         {
-          "text": "To fit their needs, I designed the app around a social media-friendly format. I also created content guidelines so users could create not only video lessons, but also text-based content.",
-          "caption": ""
+          "label": "Research",
+          "text": "We tested multiple editor concepts, conducted 20+ interviews, and surveyed more than 500 early users."
+        },
+        {
+          "label": "Iterations",
+          "text": "The research showed that the primary audience was experienced experts working with content teams, not first-time solo creators. We removed the editor and simplified lesson setup."
+        },
+        {
+          "label": "Outcome",
+          "text": "A leaner product aligned with real creator workflows, without investing further in a feature the core audience did not need."
         }
       ],
-      "gallery": {
+      "media": {
+        "type": "phone",
         "images": [
-          "/cases/Case%203/Screens/App%2014.png",
-          "/cases/Case%203/Screens/App%2015.png",
-          "/cases/Case%203/Screens/App%2016.png"
+          "/cases/Case%203/layout/editor-settings.png?v=20260925j",
+          "/cases/Case%203/layout/editor-cards.png?v=20260925j",
+          "/cases/Case%203/layout/editor-access.png?v=20260925j"
+        ]
+      }
+    },
+    {
+      "id": "social-content",
+      "menuLabel": "Social-First Content System",
+      "title": "Social-First Content System",
+      "beats": [
+        {
+          "label": "Problem",
+          "text": "Creators needed to reuse existing content without rebuilding every lesson specifically for the platform."
+        },
+        {
+          "label": "Research",
+          "text": "We analyzed different content formats and established creator workflows."
+        },
+        {
+          "label": "Iterations",
+          "text": "We added reusable content packs, consistent media formats, automated content tagging, and guidelines for both video and text-based lessons."
+        },
+        {
+          "label": "Outcome",
+          "text": "A flexible publishing system that made existing content easier to adapt, distribute, and recommend inside the app."
+        }
+      ],
+      "media": {
+        "type": "phone",
+        "images": [
+          "/cases/Case%203/layout/social-search.png?v=20260925i",
+          "/cases/Case%203/layout/social-profile.png?v=20260925i",
+          "/cases/Case%203/layout/social-player.png?v=20260925i"
         ]
       }
     }
