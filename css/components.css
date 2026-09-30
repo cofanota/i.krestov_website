@@ -1161,6 +1161,16 @@ a.case-tile:active .btn {
   object-fit: cover;
 }
 
+/* Split row: Beyond’s 1600×1200 frame leads. SBI uses that same ratio; column width stays 100%. */
+[data-case-slug="sbibank"] .case-tile__media,
+[data-case-slug="beyond"] .case-tile__media {
+  flex: 0 0 auto;
+  min-height: 0;
+  height: auto;
+  width: 100%;
+  aspect-ratio: 1600 / 1200;
+}
+
 .case-tile__footer {
   display: flex;
   align-items: center;

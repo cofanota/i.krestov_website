@@ -866,6 +866,47 @@
   }
 }
 
+/* Split row, side by side: Picksell stretches to the SBI + Beyond stack. */
+@media (min-width: 48.0625rem) {
+  .folio-bento__row--split > [data-case-slug="picksell"] {
+    height: 100%;
+    min-height: 0;
+  }
+
+  .folio-bento__row--split > [data-case-slug="picksell"] > .case-tile__media {
+    flex: 1 1 auto;
+    align-self: stretch;
+    min-height: 0;
+    height: auto;
+    aspect-ratio: auto;
+  }
+
+  .folio-bento__row--split > [data-case-slug="picksell"] > .case-tile__media > .case-tile__video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Bento narrower than the two-column switch: keep Picksell on the shared frame. */
+  @container folio-bento (max-width: 48rem) {
+    .folio-bento__row--split > [data-case-slug="picksell"] > .case-tile__media {
+      flex: none;
+      align-self: auto;
+      min-height: 0;
+      height: auto;
+      aspect-ratio: 16 / 9;
+    }
+
+    .folio-bento__row--split > [data-case-slug="picksell"] > .case-tile__media > .case-tile__video {
+      position: static;
+      inset: auto;
+      height: 100%;
+    }
+  }
+}
+
 /* Soften the 1024–1366 cliff: keep compact-feeling hero */
 @media (min-width: 64rem) and (max-width: 85.375rem) {
   :root {
