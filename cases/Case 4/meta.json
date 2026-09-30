@@ -51,8 +51,8 @@
       "media": {
         "type": "web",
         "images": [
-          { "src": "/cases/Case%204/layout/b2c-services.png?v=20260926log", "width": 2560, "height": 1686 },
-          { "src": "/cases/Case%204/layout/b2b-services.png?v=20260926log", "width": 2560, "height": 1686 }
+          { "src": "/cases/Case%204/layout/b2c-services.png?v=20260930log", "width": 2592, "height": 1718 },
+          { "src": "/cases/Case%204/layout/b2b-services.png?v=20260930log", "width": 2592, "height": 1718 }
         ]
       }
     },
@@ -81,8 +81,8 @@
       "media": {
         "type": "web",
         "images": [
-          { "src": "/cases/Case%204/layout/b2c-shipment.png?v=20260926log", "width": 2560, "height": 1686 },
-          { "src": "/cases/Case%204/layout/b2b-shipment.png?v=20260926log", "width": 2560, "height": 1686 }
+          { "src": "/cases/Case%204/layout/b2c-shipment.png?v=20260930log", "width": 2592, "height": 1718 },
+          { "src": "/cases/Case%204/layout/b2b-shipment.png?v=20260930log", "width": 2592, "height": 1718 }
         ]
       }
     },
@@ -111,9 +111,9 @@
       "media": {
         "type": "phone",
         "images": [
-          { "src": "/cases/Case%204/layout/app-home.png?v=20260926log", "width": 563, "height": 1218 },
-          { "src": "/cases/Case%204/layout/app-shipment.png?v=20260926log", "width": 563, "height": 1218 },
-          { "src": "/cases/Case%204/layout/app-notifications.png?v=20260926log", "width": 563, "height": 1218 }
+          { "src": "/cases/Case%204/layout/app-home.png?v=20260930log", "width": 595, "height": 1250 },
+          { "src": "/cases/Case%204/layout/app-shipment.png?v=20260930log", "width": 595, "height": 1250 },
+          { "src": "/cases/Case%204/layout/app-notifications.png?v=20260930log", "width": 595, "height": 1250 }
         ]
       }
     },
@@ -142,8 +142,8 @@
       "media": {
         "type": "web",
         "images": [
-          { "src": "/cases/Case%204/layout/b2c-home.png?v=20260926log", "width": 2560, "height": 1686 },
-          { "src": "/cases/Case%204/layout/b2b-home.png?v=20260926log", "width": 2560, "height": 1686 }
+          { "src": "/cases/Case%204/layout/b2c-home.png?v=20260930log", "width": 2592, "height": 1718 },
+          { "src": "/cases/Case%204/layout/b2b-home.png?v=20260930log", "width": 2592, "height": 1718 }
         ]
       }
     }
