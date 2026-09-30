@@ -56,16 +56,20 @@
   <script>
     (function () {
       try {
+        var hash = String(window.location.hash || "").replace(/^#/, "");
+        var pending = "";
+        try {
+          pending = sessionStorage.getItem("icross-scroll-section") || "";
+        } catch (error) {
+          pending = "";
+        }
+        var atHomeStart = (!hash || hash === "home") && (!pending || pending === "home");
+        if (atHomeStart) {
+          document.documentElement.classList.add("is-nav-at-start");
+        }
         if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
           document.documentElement.classList.add("js-reveal");
-          var hash = String(window.location.hash || "").replace(/^#/, "");
-          var pending = "";
-          try {
-            pending = sessionStorage.getItem("icross-scroll-section") || "";
-          } catch (error) {
-            pending = "";
-          }
-          if ((!hash || hash === "home") && (!pending || pending === "home")) {
+          if (atHomeStart) {
             document.documentElement.classList.add("is-hero-intro");
           }
         }
@@ -76,7 +80,7 @@
   <link rel="stylesheet" href="css/tokens.css?v=20260915z">
   <link rel="stylesheet" href="css/fonts.css?v=20260828j">
   <link rel="stylesheet" href="css/base.css?v=20260915f">
-  <link rel="stylesheet" href="css/components.css?v=20260930ratio2">
+  <link rel="stylesheet" href="css/components.css?v=20260930navsize">
   <link rel="stylesheet" href="css/responsive.css?v=20260930ratio">
   <link rel="stylesheet" href="css/cursor.css">
 </head>
@@ -555,11 +559,11 @@
   </main>
 
   <script src="js/theme.js?v=20260926footer"></script>
-  <script src="js/navigation.js?v=20260915d"></script>
+  <script src="js/navigation.js?v=20260930navstart"></script>
         <script src="js/cases-content.js?v=20260925order"></script>
   <script src="js/reveal.js?v=20260830d"></script>
   <script src="js/hero-intro.js?v=20260915f"></script>
-  <script src="js/about-media.js?v=20260924all"></script>
+  <script src="js/about-media.js?v=20260926play"></script>
   <script src="js/cursor.js?v=20260924all"></script>
 </body>
 </html>

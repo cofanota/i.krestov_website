@@ -37,8 +37,7 @@
     }
 
     if (video.getAttribute("src") !== nextSrc) {
-      delete video.dataset.frameReady;
-      delete video.dataset.framePending;
+      delete video.dataset.playBound;
       video.setAttribute("src", nextSrc);
       video.load();
     }
@@ -49,7 +48,12 @@
       return;
     }
 
+    if (!video.paused && video.readyState >= 2) {
+      return;
+    }
+
     prepareVideo(video);
+    video.preload = "auto";
     ensureSrc(video);
 
     function attempt() {
@@ -59,56 +63,19 @@
       }
     }
 
-    function whenReady() {
-      if (video.readyState >= 2) {
-        attempt();
-      } else {
-        video.addEventListener("loadeddata", attempt, { once: true });
-      }
+    attempt();
+
+    if (video.readyState < 2 && video.dataset.playBound !== "1") {
+      video.dataset.playBound = "1";
+      video.addEventListener(
+        "loadeddata",
+        function () {
+          delete video.dataset.playBound;
+          attempt();
+        },
+        { once: true }
+      );
     }
-
-    if (video.dataset.frameReady !== "1") {
-      if (video.dataset.framePending === "1") {
-        return;
-      }
-      video.dataset.framePending = "1";
-
-      function paintFrame() {
-        if (video.dataset.frameReady === "1") {
-          whenReady();
-          return;
-        }
-
-        var finished = false;
-        function finish() {
-          if (finished) {
-            return;
-          }
-          finished = true;
-          window.clearTimeout(seekTimer);
-          video.dataset.frameReady = "1";
-          whenReady();
-        }
-
-        var seekTimer = window.setTimeout(finish, 1200);
-        video.addEventListener("seeked", finish, { once: true });
-
-        try {
-          video.currentTime = 0.001;
-        } catch (error) {
-          finish();
-        }
-      }
-
-      if (video.readyState >= 1) {
-        paintFrame();
-      } else {
-        video.addEventListener("loadedmetadata", paintFrame, { once: true });
-      }
-      return;
-    }
-
-    whenReady();
   }
 
   function getAutoplayVideos() {
