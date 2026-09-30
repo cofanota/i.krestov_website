@@ -1,7 +1,7 @@
 {
   "slug": "post-ecosystem",
   "nodeId": "case-post-ecosystem",
-  "title": "Logistic ecosystem for web and mobile",
+  "title": "Logistic ecosystem",
   "layout": "split",
   "list": {
     "title": "Logistic ecosystem",
@@ -10,7 +10,7 @@
   },
   "hero": {
     "leadCover": "/cases/Case%204/cover.png?v=20260926hq",
-    "title": "Logistic ecosystem for web and mobile",
+    "title": "Logistic ecosystem",
     "description": "Redesign of core customer-facing products for a large logistics platform",
     "labels": ["B2C", "B2B", "Logistics", "App", "Web"]
   },
