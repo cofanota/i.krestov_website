@@ -25,6 +25,14 @@
     "url": ""
   },
   "awards": [],
+  "score": {
+    "value": "↑2",
+    "label": "MAU, B2C+B2B"
+  },
+  "spotlight": {
+    "map": "/cases/Case%204/layout/ecosystem-map.png?v=20261001hq",
+    "device": "/cases/Case%204/layout/ecosystem-device.png?v=20261001logi"
+  },
   "sections": [
     {
       "id": "service-discovery",

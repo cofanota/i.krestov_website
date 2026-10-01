@@ -577,6 +577,41 @@
     );
   }
 
+  function renderSpotlight(meta) {
+    var spot = meta.spotlight;
+    if (!spot || !spot.map) {
+      return "";
+    }
+
+    var map = wrapZoomable(
+      "case-split__map",
+      renderPlainImg(
+        spot.map,
+        "case-split__map-img",
+        'alt="Ecosystem 3.0 transition map" width="5493" height="3434" decoding="async"'
+      )
+    );
+    var device = spot.device
+      ? wrapZoomable(
+          "case-split__device",
+          renderPlainImg(
+            spot.device,
+            "case-split__device-img",
+            'alt="" width="714" height="714" decoding="async"'
+          )
+        )
+      : "";
+
+    return (
+      '<div class="case-split__mosaic case-split__mosaic--map reveal">' +
+      map +
+      '<div class="case-split__mosaic-side">' +
+      renderScore(meta.score) +
+      device +
+      "</div></div>"
+    );
+  }
+
   function renderSplitSection(section) {
     var beatsHtml = renderBeats(section.beats);
     var imagesHtml = renderMediaRow(section.media);
@@ -681,9 +716,10 @@
       .join("");
 
     var promo = hero.mosaic === "promo";
-    var mosaicTop = promo
-      ? ""
-      : renderScore(meta.score) + wrapZoomable("case-split__mascot", mascotHtml);
+    var mosaicTop =
+      !promo && (mascotHtml || appHtml)
+        ? renderScore(meta.score) + wrapZoomable("case-split__mascot", mascotHtml)
+        : "";
     var mosaicSide = "";
     if (promo) {
       mosaicSide =
@@ -745,9 +781,10 @@
       "</p></div></div></section>";
 
     var storyHtml = renderStory(meta.story);
+    var spotlightHtml = renderSpotlight(meta);
     var mainHtml = leadCoverHtml
-      ? leadCoverHtml + metaHtml + storyHtml + mosaicHtml + sectionsHtml
-      : mosaicHtml + metaHtml + storyHtml + sectionsHtml;
+      ? leadCoverHtml + metaHtml + storyHtml + mosaicHtml + spotlightHtml + sectionsHtml
+      : mosaicHtml + metaHtml + storyHtml + spotlightHtml + sectionsHtml;
 
     return (
       '<div class="case-split">' +
