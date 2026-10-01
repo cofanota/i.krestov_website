@@ -4445,6 +4445,7 @@ html:has(.page--case-split) body {
     max-width: none;
     max-height: none;
     margin: 0;
+    border-radius: 0.5rem;
   }
 
   .case-split__mosaic--map .case-split__mosaic-side {
