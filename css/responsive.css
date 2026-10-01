@@ -473,6 +473,15 @@
     aspect-ratio: 4 / 3;
   }
 
+  .page--home [data-case-slug="donation"] .case-tile__media,
+  .page--home [data-case-slug="picksell"] .case-tile__media,
+  .page--home [data-case-slug="illustrations"] .case-tile__media {
+    flex: 0 0 auto;
+    min-height: 0;
+    height: auto;
+    aspect-ratio: 1 / 1;
+  }
+
   .case-detail__cover {
     height: auto;
     aspect-ratio: 4 / 3;
