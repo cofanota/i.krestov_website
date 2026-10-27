@@ -32,6 +32,13 @@
     var root = document.documentElement;
     var body = document.body;
     var color = THEME_BG[theme];
+    if (
+      theme === "light" &&
+      body &&
+      body.getAttribute("data-page") === "case"
+    ) {
+      color = "#ffffff";
+    }
     var schemeMeta = document.querySelector('meta[name="color-scheme"]');
     var probe = document.getElementById("safari-chrome-bg");
 

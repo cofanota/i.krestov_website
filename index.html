@@ -78,10 +78,10 @@
   </script>
   <script src="js/background-perf.js"></script>
   <link rel="stylesheet" href="css/tokens.css?v=20260915z">
-  <link rel="stylesheet" href="css/fonts.css?v=20260828j">
+  <link rel="stylesheet" href="css/fonts.css?v=20261027headline">
   <link rel="stylesheet" href="css/base.css?v=20260915f">
-  <link rel="stylesheet" href="css/components.css?v=20260930navsize">
-  <link rel="stylesheet" href="css/responsive.css?v=20261001square">
+  <link rel="stylesheet" href="css/components.css?v=20261027headline">
+  <link rel="stylesheet" href="css/responsive.css?v=20261027squares">
   <link rel="stylesheet" href="css/cursor.css">
 </head>
 <body class="page page--home" data-page="home">
@@ -157,9 +157,25 @@
           <div class="folio-hero__intro">
             <h1 class="folio-hero__headline">
               <span class="folio-hero__headline-line">Structuring chaos</span>
-              <span class="folio-hero__headline-line">via flows and <span class="folio-hero__headline-accent">emotions</span></span>
+              <span class="folio-hero__headline-line">via flows and <span class="folio-hero__headline-accent">emot<span class="folio-hero__headline-em">i</span>ons</span></span>
             </h1>
-            <p class="folio-hero__lede reveal">Staff Product Designer with 10+ years of experience building end-to-end digital products across fintech, B2B, B2C and SaaS.</p>
+            <div class="folio-hero__meta reveal">
+              <p class="folio-hero__lede">Staff Product Designer with design leadership experience, turning complex problems into clear product direction, scalable systems, and shipped digital products.</p>
+              <dl class="folio-hero__stats">
+                <div class="folio-hero__stat">
+                  <dt class="folio-hero__stat-value">B2B · B2C · SaaS · Fintech</dt>
+                  <dd class="folio-hero__stat-label">Product Domain<br>Experience</dd>
+                </div>
+                <div class="folio-hero__stat">
+                  <dt class="folio-hero__stat-value">10+</dt>
+                  <dd class="folio-hero__stat-label">years in<br>product design</dd>
+                </div>
+                <div class="folio-hero__stat">
+                  <dt class="folio-hero__stat-value">30+</dt>
+                  <dd class="folio-hero__stat-label">designers in<br>largest team led</dd>
+                </div>
+              </dl>
+            </div>
           </div>
         </section>
 
@@ -174,23 +190,15 @@
               rel="noopener noreferrer"
               data-case-slug="mindloom"
             >
-              <h3 class="case-tile__title">Mindloom – AI therapy platform</h3>
               <figure class="case-tile__media">
                 <img src="cases/Snaps/mindloom.png" alt="" width="3200" height="1800" decoding="async">
+                <figcaption class="sr-only">B2C, Healthcare, SaaS</figcaption>
               </figure>
               <div class="case-tile__footer">
-                <ul class="case-tile__labels" aria-label="Tags">
-                  <li>B2C</li>
-                  <li>Healthcare</li>
-                  <li>SaaS</li>
-                </ul>
-                <span class="btn" aria-hidden="true">
-                  <span class="btn__label">Behance</span>
-                </span>
+                <h3 class="case-tile__title">Mindloom – AI therapy platform<img class="case-tile__title-icon" src="assets/images/link-arrow.svg" alt="" width="24" height="24"></h3>
               </div>
             </a>
             <article class="case-tile reveal" data-case-slug="donation">
-              <h3 class="case-tile__title">Donation via amount wheel</h3>
               <figure class="case-tile__media case-tile__media--stroke">
                 <video
                   class="case-tile__video"
@@ -206,13 +214,10 @@
                   data-src="cases/Snaps/View_Modal%20boxy.mp4"
                   aria-hidden="true"
                 ></video>
+                <figcaption class="sr-only">B2C, Fintech, App</figcaption>
               </figure>
               <div class="case-tile__footer">
-                <ul class="case-tile__labels" aria-label="Tags">
-                  <li>B2C</li>
-                  <li>Fintech</li>
-                  <li>App</li>
-                </ul>
+                <h3 class="case-tile__title">Donation via amount wheel</h3>
               </div>
             </article>
           </div>
@@ -220,7 +225,6 @@
           <div class="folio-bento__row folio-bento__row--split">
             <div class="folio-bento__stack" data-reveal-stagger="0.12">
               <a class="case-tile reveal" href="SBIBank" data-case-slug="sbibank">
-                <h3 class="case-tile__title">SBI Bank – Apps for parents and kids</h3>
                 <figure class="case-tile__media case-tile__media--stroke">
                   <video
                     class="case-tile__video"
@@ -236,18 +240,10 @@
                     data-src="cases/Case%202/layout/sbi-cover.mp4?v=20260926v"
                     aria-hidden="true"
                   ></video>
+                  <figcaption class="sr-only">B2C, Fintech, App</figcaption>
                 </figure>
                 <div class="case-tile__footer">
-                  <ul class="case-tile__labels" aria-label="Tags">
-                    <li>B2C</li>
-                    <li>Fintech</li>
-                    <li>App</li>
-                  </ul>
-                  <span class="btn" aria-hidden="true">
-                    <span class="btn__icon">
-                      <span class="btn__icon-svg btn__icon-svg--chevron"></span>
-                    </span>
-                  </span>
+                  <h3 class="case-tile__title">SBI Bank – Apps for parents and kids</h3>
                 </div>
               </a>
               <a
@@ -257,7 +253,6 @@
                 rel="noopener noreferrer"
                 data-case-slug="beyond"
               >
-                <h3 class="case-tile__title">Beyond – wellness and music festival in Cappadocia</h3>
                 <figure class="case-tile__media case-tile__media--stroke">
                   <video
                     class="case-tile__video"
@@ -273,20 +268,14 @@
                     data-src="cases/Snaps/Beyond.mp4"
                     aria-hidden="true"
                   ></video>
+                  <figcaption class="sr-only">B2C, Festival</figcaption>
                 </figure>
                 <div class="case-tile__footer">
-                  <ul class="case-tile__labels" aria-label="Tags">
-                    <li>B2C</li>
-                    <li>Festival</li>
-                  </ul>
-                  <span class="btn" aria-hidden="true">
-                    <span class="btn__label">Awwwards</span>
-                  </span>
+                  <h3 class="case-tile__title">Beyond – wellness and music festival in Cappadocia<img class="case-tile__title-icon" src="assets/images/link-arrow.svg" alt="" width="24" height="24"></h3>
                 </div>
               </a>
             </div>
             <a class="case-tile reveal" href="Picksell" data-case-slug="picksell">
-              <h3 class="case-tile__title">Picksell – European marketplace and payment system</h3>
               <figure class="case-tile__media case-tile__media--stroke">
                 <video
                   class="case-tile__video"
@@ -302,70 +291,37 @@
                   data-src="cases/Case%201/App/App%20Vi1.mp4?v=20260915vi1"
                   aria-hidden="true"
                 ></video>
+                <figcaption class="sr-only">B2C, B2B, Fintech, App, E-com, SaaS</figcaption>
               </figure>
               <div class="case-tile__footer">
-                <ul class="case-tile__labels" aria-label="Tags">
-                  <li>B2C</li>
-                  <li>B2B</li>
-                  <li>Fintech</li>
-                  <li>App</li>
-                  <li>E-com</li>
-                  <li>SaaS</li>
-                </ul>
-                <span class="btn btn--icon" aria-hidden="true">
-                  <span class="btn__icon">
-                    <span class="btn__icon-svg btn__icon-svg--chevron"></span>
-                  </span>
-                </span>
+                <h3 class="case-tile__title">Picksell – European marketplace and payment system</h3>
               </div>
             </a>
           </div>
 
           <div class="folio-bento__row folio-bento__row--pair" data-reveal-stagger="0.12">
             <a class="case-tile reveal" href="Logistic-platform" data-case-slug="post-ecosystem">
-              <h3 class="case-tile__title">Logistic ecosystem</h3>
               <figure class="case-tile__media">
                 <img src="cases/Snaps/logistic.png" alt="" width="1688" height="1407" decoding="async" loading="lazy">
+                <figcaption class="sr-only">B2C, B2B, Logistics, App, Web</figcaption>
               </figure>
               <div class="case-tile__footer">
-                <ul class="case-tile__labels" aria-label="Tags">
-                  <li>B2C</li>
-                  <li>B2B</li>
-                  <li>Logistics</li>
-                  <li>App</li>
-                  <li>Web</li>
-                </ul>
-                <span class="btn btn--icon" aria-hidden="true">
-                  <span class="btn__icon">
-                    <span class="btn__icon-svg btn__icon-svg--chevron"></span>
-                  </span>
-                </span>
+                <h3 class="case-tile__title">Logistic ecosystem</h3>
               </div>
             </a>
             <a class="case-tile reveal" href="Sayme" data-case-slug="sayme">
-              <h3 class="case-tile__title">Sayme – video presents from talents</h3>
               <figure class="case-tile__media">
                 <img src="cases/Snaps/sayme.png" alt="" width="2800" height="1600" decoding="async" loading="lazy">
+                <figcaption class="sr-only">B2C, Identity, App, 0 → 1</figcaption>
               </figure>
               <div class="case-tile__footer">
-                <ul class="case-tile__labels" aria-label="Tags">
-                  <li>B2C</li>
-                  <li>Identity</li>
-                  <li>App</li>
-                  <li>0 → 1</li>
-                </ul>
-                <span class="btn btn--icon" aria-hidden="true">
-                  <span class="btn__icon">
-                    <span class="btn__icon-svg btn__icon-svg--chevron"></span>
-                  </span>
-                </span>
+                <h3 class="case-tile__title">Sayme – video presents from talents</h3>
               </div>
             </a>
           </div>
 
           <div class="folio-bento__row folio-bento__row--asymmetric" data-reveal-stagger="0.12">
             <article class="case-tile reveal" data-case-slug="illustrations">
-              <h3 class="case-tile__title">Illustrations pack for error states</h3>
               <figure class="case-tile__media">
                 <video
                   class="case-tile__video"
@@ -381,30 +337,19 @@
                   data-src="cases/Snaps/illustrations.mp4"
                   aria-hidden="true"
                 ></video>
+                <figcaption class="sr-only">Illustrations, Motion Design</figcaption>
               </figure>
               <div class="case-tile__footer">
-                <ul class="case-tile__labels" aria-label="Tags">
-                  <li>Illustrations</li>
-                  <li>Motion Design</li>
-                </ul>
+                <h3 class="case-tile__title">Illustrations pack for error states</h3>
               </div>
             </article>
             <a class="case-tile reveal" href="Edstore" data-case-slug="edstore">
-              <h3 class="case-tile__title">Edstore - Micro-learning App</h3>
               <figure class="case-tile__media case-tile__media--stroke">
                 <img src="cases/Snaps/edstore.png" alt="" width="3024" height="3024" decoding="async" loading="lazy">
+                <figcaption class="sr-only">B2C, Edtech, App</figcaption>
               </figure>
               <div class="case-tile__footer">
-                <ul class="case-tile__labels" aria-label="Tags">
-                  <li>B2C</li>
-                  <li>Edtech</li>
-                  <li>App</li>
-                </ul>
-                <span class="btn btn--icon" aria-hidden="true">
-                  <span class="btn__icon">
-                    <span class="btn__icon-svg btn__icon-svg--chevron"></span>
-                  </span>
-                </span>
+                <h3 class="case-tile__title">Edstore - Micro-learning App</h3>
               </div>
             </a>
           </div>
@@ -412,19 +357,11 @@
 
         <section class="folio-card folio-card--about" id="about" aria-labelledby="about-heading">
           <h2 class="sr-only" id="about-heading">About</h2>
-          <div class="folio-about__copy">
-            <p class="folio-about__story reveal">I combine hands-on product design with experience leading complex, cross-functional initiatives—from product strategy and 0→1 exploration to high-fidelity execution and scalable systems.</p>
-            <div class="folio-about__notes" data-reveal-stagger="0.2">
-              <p class="folio-about__note reveal">Partner with product, engineering, and research to turn ambiguous business and customer problems into clear product direction.</p>
-              <p class="folio-about__note reveal">Lead teams of up to 30 designers, art directors, product managers, and researchers—aligning people, decisions, and delivery.</p>
-              <p class="folio-about__note reveal">Build end-to-end digital products across fintech, B2B, B2C, and SaaS, balancing user value, business outcomes, and technical constraints.</p>
-            </div>
-          </div>
           <figure class="folio-about__photo reveal">
             <video
               class="about__video"
               width="1920"
-              height="1080"
+              height="864"
               muted
               playsinline
               webkit-playsinline
@@ -436,10 +373,12 @@
               aria-hidden="true"
             ></video>
           </figure>
+          <div class="folio-about__copy">
+            <p class="folio-about__story reveal">I combine hands-on product design with experience leading complex, cross-functional initiatives—from product strategy and 0→1 exploration to high-fidelity execution and scalable systems.</p>
+          </div>
         </section>
 
-        <div class="folio-row folio-row--split">
-          <section class="folio-card folio-card--experience" id="experience" aria-label="Experience">
+        <section class="folio-card folio-card--experience" id="experience" aria-label="Experience">
             <ol class="experience-list" data-reveal-stagger="0.16">
               <li class="experience-item reveal">
                 <p class="experience-item__company">Pochta.tech</p>
@@ -470,52 +409,14 @@
                 </div>
               </li>
               <li class="experience-item experience-item--muted reveal">
-                <p class="experience-item__company">Others &amp;<br>Freelance</p>
+                <p class="experience-item__company">Others &amp; Freelance</p>
                 <div class="experience-item__meta">
                   <p class="experience-item__role">Junior / Mid-level Designer</p>
                   <p class="experience-item__dates">2014 - 2017</p>
                 </div>
               </li>
             </ol>
-          </section>
-
-          <section class="folio-card folio-card--tools" id="tools" aria-label="Tools">
-            <ul class="tool-list">
-              <li class="tool-row">
-                <img class="tool-row__icon" src="assets/images/tools/figma.svg" alt="" width="32" height="32">
-                <span class="tool-row__name">Figma</span>
-              </li>
-              <li class="tool-row">
-                <img class="tool-row__icon" src="assets/images/tools/after-effects.svg" alt="" width="32" height="32">
-                <span class="tool-row__name">After Effects</span>
-              </li>
-              <li class="tool-row">
-                <img class="tool-row__icon" src="assets/images/tools/procreate.svg" alt="" width="32" height="32">
-                <span class="tool-row__name">Procreate</span>
-              </li>
-              <li class="tool-row">
-                <img class="tool-row__icon" src="assets/images/tools/blender.svg" alt="" width="32" height="32">
-                <span class="tool-row__name">Blender</span>
-              </li>
-              <li class="tool-row">
-                <img class="tool-row__icon" src="assets/images/tools/unity.svg" alt="" width="32" height="32">
-                <span class="tool-row__name">Unity</span>
-              </li>
-              <li class="tool-row">
-                <img class="tool-row__icon" src="assets/images/tools/notion.svg" alt="" width="32" height="32">
-                <span class="tool-row__name">Notion</span>
-              </li>
-              <li class="tool-row">
-                <img class="tool-row__icon" src="assets/images/tools/cursor.svg" alt="" width="32" height="32">
-                <span class="tool-row__name">Cursor</span>
-              </li>
-              <li class="tool-row">
-                <img class="tool-row__icon" src="assets/images/tools/chatgpt.svg" alt="" width="32" height="32">
-                <span class="tool-row__name">ChatGPT</span>
-              </li>
-            </ul>
-          </section>
-        </div>
+        </section>
 
         <div class="folio-contact-scene">
           <section class="folio-contact" id="contact" aria-labelledby="contact-heading">
@@ -559,8 +460,8 @@
   </main>
 
   <script src="js/theme.js?v=20260926footer"></script>
-  <script src="js/navigation.js?v=20260930navstart"></script>
-        <script src="js/cases-content.js?v=20260925order"></script>
+  <script src="js/navigation.js?v=20261027tools"></script>
+        <script src="js/cases-content.js?v=20261027scale"></script>
   <script src="js/reveal.js?v=20260830d"></script>
   <script src="js/hero-intro.js?v=20260915f"></script>
   <script src="js/about-media.js?v=20260926play"></script>

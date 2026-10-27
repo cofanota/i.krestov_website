@@ -44,6 +44,14 @@ html[data-theme="dark"] body {
   background-color: var(--fill-bg-lvl-0);
 }
 
+html:not([data-theme="dark"]):has(.page--case),
+html:not([data-theme="dark"]):has(.page--case) body,
+html:not([data-theme="dark"]) .page--case .page__background,
+html:not([data-theme="dark"]) .page--case .page__background::before,
+html:not([data-theme="dark"]) .page--case .safari-chrome-bg {
+  background-color: #fff;
+}
+
 .page--home .page__background-grid,
 .page--case .page__background-grid {
   opacity: 0;

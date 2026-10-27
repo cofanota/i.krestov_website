@@ -1,13 +1,13 @@
 (function () {
   "use strict";
 
-  var SECTION_IDS = ["home", "cases", "about", "experience", "tools", "contact"];
+  var SECTION_IDS = ["home", "cases", "about", "experience", "contact"];
   var SCROLL_SECTION_IDS = ["home", "cases", "about", "experience", "contact"];
   var SCROLLED_PX = 8;
   var SCROLL_SECTION_KEY = "icross-scroll-section";
 
   function navHighlightId(id) {
-    return id === "tools" ? "experience" : id;
+    return id;
   }
 
   function prefersReducedMotion() {
@@ -95,19 +95,7 @@
   }
 
   function getNavPaddingResetMarker() {
-    /* Compact: Tools is below Experience — wait for Tools.
-       Desktop: Experience + Tools share one row. */
-    var compact = window.matchMedia("(max-width: 63.9375rem)").matches;
-    if (compact) {
-      return (
-        document.getElementById("tools") ||
-        document.querySelector(".folio-row--split")
-      );
-    }
-    return (
-      document.querySelector(".folio-row--split") ||
-      document.getElementById("experience")
-    );
+    return document.getElementById("experience");
   }
 
   function syncPageScrolled() {

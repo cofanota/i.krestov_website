@@ -32,6 +32,14 @@
 }
 
 @font-face {
+  font-family: "Satoshi";
+  src: url("../Fonts/Satoshi-BlackItalic.otf") format("opentype");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
   font-family: "Onest";
   src: url("../Fonts/Onest-Regular.ttf") format("truetype");
   font-weight: 400;

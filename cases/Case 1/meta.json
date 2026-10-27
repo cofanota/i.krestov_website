@@ -13,7 +13,7 @@
     "cover": "/cases/Case%201/layout/post.mp4?v=20260923promo",
     "coverPoster": "/cases/Case%201/layout/hero-cover.png",
     "mascot": "/cases/Case%201/layout/mascot.png",
-    "app": "/cases/Case%201/layout/web-1.png?v=20260923t",
+    "app": "/cases/Case%201/new%20product.png?v=20261027",
     "title": "Picksell",
     "description": "EU marketplace and payment system powered by open banking technology",
     "labels": ["B2C", "B2B", "Fintech", "App", "E-com", "SaaS"]
@@ -91,7 +91,7 @@
           "text": "A scalable KYC and payment flow that made Open Banking feel as simple and familiar as adding a card."
         }
       ],
-      "media": {
+      "trailingMedia": {
         "type": "phone",
         "images": [
           "/cases/Case%201/layout/kyc-bank.png?v=20260923kyc2",
@@ -123,8 +123,12 @@
         }
       ],
       "media": {
-        "type": "shot",
-        "images": ["/cases/Case%201/layout/market.png"]
+        "type": "phone",
+        "images": [
+          "/cases/Case%201/layout/market-phone-1.png?v=20261027",
+          "/cases/Case%201/layout/market-phone-2.png?v=20261027",
+          "/cases/Case%201/layout/market-phone-3.png?v=20261027"
+        ]
       }
     },
     {
@@ -152,12 +156,20 @@
       "media": {
         "type": "web",
         "images": [
-          "/cases/Case%201/layout/web-2.png?v=20260923t"
+          {
+            "src": "/assets/images/picsell%20edit%20product.png?v=20261027",
+            "width": 2592,
+            "height": 1470
+          }
         ]
       },
       "trailingMedia": {
-        "type": "shot",
-        "images": ["/cases/Case%201/layout/app.png"]
+        "type": "phone",
+        "images": [
+          "/cases/Case%201/layout/app-phone-1.png?v=20261027",
+          "/cases/Case%201/layout/app-phone-2.png?v=20261027",
+          "/cases/Case%201/layout/app-phone-3.png?v=20261027"
+        ]
       }
     },
     {

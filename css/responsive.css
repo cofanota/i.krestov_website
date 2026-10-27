@@ -141,35 +141,8 @@
     grid-template-columns: 1fr;
   }
 
-  .folio-hero__intro {
-    flex-direction: column;
-    gap: var(--spacing-9);
-    padding-top: max(
-      var(--section-space-block),
-      calc(var(--nav-pill-clearance) + var(--spacing-9))
-    );
-  }
-
   html.is-page-scrolled .site-nav {
     padding-inline: 0.25rem;
-  }
-
-  .folio-hero__lede {
-    flex: 1 1 auto;
-    width: 100%;
-    max-width: none;
-  }
-
-  .folio-hero__headline {
-    flex: 1 1 auto;
-    min-width: 0;
-    font-size: var(--font-size-heading-primary);
-  }
-
-  .folio-hero__columns {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-9);
-    padding: var(--spacing-4) 0 var(--spacing-9);
   }
 
   .folio-card {
@@ -201,7 +174,7 @@
   .case-tile {
     height: auto;
     min-height: 0;
-    padding: 1.5rem;
+    padding: 0;
   }
 
   .case-tile__media {
@@ -231,8 +204,9 @@
     }
 
     .folio-contact-scene .folio-contact {
-      padding-right: var(--level-page-padding);
-      padding-left: var(--level-page-padding);
+      /* Match about / experience, which add half a card inset inside the page gutter. */
+      padding-right: calc(var(--level-page-padding) + (var(--folio-card-padding-inline) / 2));
+      padding-left: calc(var(--level-page-padding) + (var(--folio-card-padding-inline) / 2));
     }
 
     .folio-contact-scene .folio-contact__columns {
@@ -309,8 +283,9 @@
     min-height: 0;
   }
 
+  .folio-card--experience,
   .folio-card--tools {
-    padding: var(--folio-card-padding-block) var(--folio-card-padding-inline);
+    padding: calc(var(--folio-card-padding-block) / 2) calc(var(--folio-card-padding-inline) / 2);
     gap: 0;
   }
 
@@ -388,21 +363,20 @@
   }
 
   .folio-card--about {
-    grid-template-columns: minmax(0, 1fr);
     align-items: start;
-    padding: var(--folio-card-padding-block) var(--folio-card-padding-inline);
-    gap: 0;
+    padding: calc(var(--folio-card-padding-block) / 2) calc(var(--folio-card-padding-inline) / 2);
+    gap: 1.5rem;
   }
 
   .folio-about__copy {
-    gap: var(--spacing-9);
+    gap: calc(var(--spacing-9) / 2);
   }
 
   .folio-about__photo {
     width: 100%;
     height: auto;
     aspect-ratio: 16 / 9;
-    margin-top: 2.5rem;
+    margin-top: 0;
   }
 
   .folio-contact__columns {
@@ -418,7 +392,7 @@
   /* Phone only: stack experience. Tablet (640–1023) keeps the desktop company | role row. */
   @media (max-width: 39.9375rem) {
     .experience-item {
-      flex-direction: column;
+      grid-template-columns: minmax(0, 1fr);
       gap: var(--spacing-2);
     }
 
@@ -544,21 +518,6 @@
     font-size: 1.5rem;
     line-height: var(--line-height-heading-tertiary);
     color: var(--text-neutral-primary);
-  }
-
-  .folio-hero__lede {
-    flex: 1 1 auto;
-    width: 100%;
-  }
-
-  .folio-hero__headline {
-    font-size: var(--font-size-heading-primary);
-  }
-
-  .folio-hero__columns {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-9);
-    padding: var(--spacing-4) 0 var(--spacing-9);
   }
 
   .folio-contact__email-arrow {
@@ -805,33 +764,6 @@
     padding: calc(var(--spacing-0) * 2) calc(var(--spacing-2) * 1.25);
   }
 
-  .folio-hero__intro {
-    gap: clamp(1.5rem, 3vw, 3.5rem);
-    padding-top: calc(2 * var(--section-space-block) - var(--nav-bar-top) - var(--nav-control-height));
-  }
-
-  .folio-hero__headline {
-    flex: 1 1 auto;
-    flex-basis: 0;
-    min-width: 0;
-    max-width: 100%;
-    font-size: clamp(2.125rem, 3.2vw, 3.5rem);
-    text-wrap: wrap;
-  }
-
-  .folio-hero__headline-accent {
-    font-size: clamp(2.125rem, 3.25vw, 3.5625rem);
-  }
-
-  .folio-hero__lede {
-    flex: 0 1 var(--measure-lede);
-    width: auto;
-    min-width: 0;
-    max-width: var(--measure-lede);
-    font-size: clamp(1.0625rem, 1.1vw, 1.2313125rem);
-    letter-spacing: 0.0123125rem;
-  }
-
   .case-detail__gallery,
   .case-detail__gallery-placeholder {
     --case-gallery-height: clamp(14.5625rem, 18vw, 21.84375rem);
@@ -868,7 +800,51 @@
   }
 
   .folio-row--split {
-    grid-template-columns: minmax(0, 1fr) minmax(14rem, 22%);
+    grid-template-columns: 1fr;
+  }
+
+  .folio-card--tools {
+    padding-inline: 0;
+  }
+
+  .folio-card--tools .tool-list {
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.75rem;
+    width: 100%;
+    min-height: 0;
+    padding: 0;
+    overflow: visible;
+  }
+
+  .folio-card--tools .tool-row {
+    flex: 1 1 0;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.75rem;
+    width: auto;
+    min-width: 0;
+    height: auto;
+    min-height: 0;
+    padding: 0;
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  .folio-card--tools .tool-row__icon {
+    width: 2.1rem;
+    height: 2.1rem;
+  }
+
+  .folio-card--tools .tool-row__name {
+    flex: none;
+    width: 100%;
+    text-align: center;
   }
 
   [data-case-slug="donation"] .case-tile__media {
@@ -925,23 +901,32 @@
   }
 }
 
+/* Mobile home: Picksell and Donation stay square, including when the split-row stretch would apply. */
+@media (max-width: 63.9375rem) {
+  .page--home [data-case-slug="donation"] > .case-tile__media,
+  .page--home [data-case-slug="picksell"] > .case-tile__media {
+    flex: 0 0 auto;
+    align-self: auto;
+    min-height: 0;
+    height: auto;
+    aspect-ratio: 1 / 1;
+  }
+
+  .page--home [data-case-slug="donation"] > .case-tile__media > .case-tile__video,
+  .page--home [data-case-slug="picksell"] > .case-tile__media > .case-tile__video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
 /* Soften the 1024–1366 cliff: keep compact-feeling hero */
 @media (min-width: 64rem) and (max-width: 85.375rem) {
   :root {
     --section-space-block: clamp(8rem, 14vh, 12rem);
     --case-tile-media-min: 16rem;
-  }
-
-  .folio-hero__headline {
-    font-size: clamp(2rem, 2.6vw, 2.5rem);
-  }
-
-  .folio-hero__headline-accent {
-    font-size: clamp(2rem, 2.6vw, 2.5rem);
-  }
-
-  .folio-hero__lede {
-    max-width: min(var(--measure-lede), 40%);
   }
 }
 
@@ -962,11 +947,6 @@
     --nav-bar-top: max(1.75rem, env(safe-area-inset-top, 0px));
     --nav-pill-clearance: calc(4.75rem + env(safe-area-inset-top, 0px));
     --case-tile-media-min: clamp(14rem, 28vh, 20rem);
-  }
-
-  .folio-hero__intro {
-    padding-top: calc(2 * var(--section-space-block) - var(--nav-bar-top) - var(--nav-control-height));
-    padding-bottom: var(--section-space-block-end);
   }
 
   .folio-contact {
@@ -998,10 +978,6 @@
     min-height: 0;
     aspect-ratio: auto;
   }
-
-  .folio-hero__headline {
-    font-size: clamp(2rem, 3.5vh, 3rem);
-  }
 }
 
 /* Also tame square-ish compact tablets (e.g. 900×900, 768×1024) */
@@ -1009,15 +985,6 @@
   :root {
     --section-space-block: clamp(5rem, 9vh, 7.5rem);
     --section-space-block-end: 1.5rem;
-  }
-
-  .folio-hero__intro {
-    padding-top: max(
-      var(--section-space-block),
-      var(--contact-content-top),
-      calc(var(--nav-pill-clearance) + var(--spacing-9))
-    );
-    padding-bottom: var(--section-space-block-end);
   }
 
   .folio-contact {
@@ -1039,14 +1006,6 @@
     --contact-content-top: 14.375rem;
     --section-space-block: clamp(8rem, 14vh, 14rem);
     --case-tile-media-min: clamp(16rem, 22vh, 22rem);
-  }
-
-  .folio-hero__headline {
-    font-size: clamp(2.25rem, 2.4vw, 3.25rem);
-  }
-
-  .folio-hero__lede {
-    max-width: var(--measure-lede);
   }
 
   .folio-contact__email {

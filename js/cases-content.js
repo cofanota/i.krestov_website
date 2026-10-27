@@ -438,9 +438,17 @@
       );
     }
 
-    return wrapZoomable(
-      "case-split__phone-row",
-      media.images.map(renderPhoneFrame).join("")
+    var phones = media.images.map(renderPhoneFrame);
+    var last = phones.length - 1;
+    phones[last] = phones[last].replace(
+      "</div>",
+      renderScaleButton() + "</div>"
+    );
+
+    return (
+      '<figure class="case-split__phone-row case-split__zoom">' +
+      phones.join("") +
+      "</figure>"
     );
   }
 
@@ -615,16 +623,20 @@
   function renderSplitSection(section) {
     var beatsHtml = renderBeats(section.beats);
     var imagesHtml = renderMediaRow(section.media);
-    var bodyHtml = imagesHtml ? imagesHtml + beatsHtml : beatsHtml;
+    var extraHtml = renderMediaRow(section.extraMedia);
+    var titleHtml =
+      '<h2 class="case-split__section-title">' +
+      escapeHtml(section.title || "") +
+      "</h2>";
 
     return (
       '<section class="case-split__card case-split__section reveal" id="' +
       escapeHtml(section.id || "") +
       '">' +
-      '<h2 class="case-split__section-title">' +
-      escapeHtml(section.title || "") +
-      "</h2>" +
-      bodyHtml +
+      titleHtml +
+      beatsHtml +
+      imagesHtml +
+      extraHtml +
       "</section>"
     );
   }
@@ -705,12 +717,17 @@
 
     var sectionsHtml = sections
       .map(function (section) {
-        var trailing = section.trailingMedia
-          ? '<div class="case-split__card case-split__media-card reveal">' +
-            renderMediaRow(section.trailingMedia) +
-            "</div>"
-          : "";
-        var prefix = section.id === "marketplace" ? identityRow : "";
+        var trailing = "";
+        if (section.trailingMedia) {
+          var trailingRow = renderMediaRow(section.trailingMedia);
+          trailing =
+            section.trailingMedia.type === "phone"
+              ? trailingRow
+              : '<div class="case-split__card case-split__media-card reveal">' +
+                trailingRow +
+                "</div>";
+        }
+        var prefix = section.id === "open-banking" ? identityRow : "";
         return prefix + renderSplitSection(section) + trailing;
       })
       .join("");
