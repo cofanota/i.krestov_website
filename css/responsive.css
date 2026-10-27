@@ -788,6 +788,15 @@
     font-size: 0.8125rem;
   }
 
+  /* Case-tile link labels (Behance, Awwwards) stay at the same type as Get in Touch. */
+  .case-tile .btn__label {
+    font-family: var(--font-body);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    line-height: var(--line-height-action-secondary);
+    letter-spacing: var(--letter-spacing-action-secondary);
+  }
+
   .site-nav__cta.btn .btn__icon {
     display: none;
   }
