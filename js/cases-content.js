@@ -264,7 +264,7 @@
       width +
       '" height="' +
       height +
-      '" muted playsinline webkit-playsinline loop autoplay preload="metadata"' +
+      '" muted playsinline webkit-playsinline loop autoplay preload="none"' +
       (poster ? ' poster="' + escapeHtml(poster) + '"' : "") +
       ' data-src="' +
       escapeHtml(src) +
@@ -674,7 +674,7 @@
     if (hero.cover) {
       if (isVideoSrc(hero.cover)) {
         coverHtml =
-          '<video class="case-split__cover-video" width="1080" height="1350" muted playsinline webkit-playsinline loop autoplay preload="metadata"' +
+          '<video class="case-split__cover-video" width="1080" height="1350" muted playsinline webkit-playsinline loop autoplay preload="none"' +
           (hero.coverPoster
             ? ' poster="' + escapeHtml(siteUrl(hero.coverPoster)) + '"'
             : "") +
@@ -702,7 +702,7 @@
       ? wrapZoomable(
           "case-split__app-shot",
           isVideoSrc(hero.app)
-            ? '<video class="case-split__app-shot-img" muted playsinline webkit-playsinline loop autoplay preload="metadata" data-src="' +
+            ? '<video class="case-split__app-shot-img" muted playsinline webkit-playsinline loop autoplay preload="none" data-src="' +
               escapeHtml(siteUrl(hero.app)) +
               '" aria-hidden="true"></video>'
             : '<div class="case-snapshot">' +
@@ -716,7 +716,7 @@
       : "";
 
     var navMedia = isVideoSrc(identity.nav)
-      ? '<video class="case-split__nav-shot-img" width="614" height="614" muted playsinline webkit-playsinline loop autoplay preload="metadata" data-src="' +
+      ? '<video class="case-split__nav-shot-img" width="614" height="614" muted playsinline webkit-playsinline loop autoplay preload="none" data-src="' +
         escapeHtml(siteUrl(identity.nav)) +
         '" aria-hidden="true"></video>'
       : renderPlainImg(

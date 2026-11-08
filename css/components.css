@@ -1315,6 +1315,10 @@ a.case-tile:active .btn {
   background-color: var(--fill-bg-lvl-2);
 }
 
+.case-tile__media picture {
+  display: contents;
+}
+
 .case-tile__media img,
 .case-tile__media video,
 .case-tile__video {

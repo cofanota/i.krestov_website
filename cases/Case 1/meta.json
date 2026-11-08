@@ -10,7 +10,7 @@
   },
   "hero": {
     "leadCover": "/cases/Case%201/Picksell%20Case.png?v=20260926hq",
-    "cover": "/cases/Case%201/layout/post.mp4?v=20260923promo",
+    "cover": "/cases/Case%201/layout/post.mp4?v=20261108m",
     "coverPoster": "/cases/Case%201/layout/hero-cover.png",
     "mascot": "/cases/Case%201/layout/mascot.png",
     "app": "/cases/Case%201/new%20product.png?v=20261027",
@@ -59,7 +59,7 @@
   "identity": {
     "van": "/cases/Case%201/layout/identity-van.png",
     "qr": "/cases/Case%201/layout/identity-qr.png?v=20260923o",
-    "nav": "/cases/Case%201/layout/picksell-nav.mp4"
+    "nav": "/cases/Case%201/layout/picksell-nav.mp4?v=20261108m"
   },
   "nav": [
     { "id": "overview", "label": "Overview" },
