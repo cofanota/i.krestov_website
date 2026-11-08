@@ -37,6 +37,29 @@
     -webkit-hyphens: manual;
   }
 
+  /* 768–1023, including a 785–800 window whose layout viewport is a scrollbar narrower. */
+  @media (min-width: 48rem) {
+    .case-split__title {
+      overflow-wrap: normal;
+      word-break: normal;
+      hyphens: manual;
+      -webkit-hyphens: manual;
+    }
+
+    .case-split__title[data-title-words="1"] {
+      white-space: nowrap;
+      text-wrap: nowrap;
+    }
+
+    .case-split__title-word {
+      display: inline-block;
+      white-space: nowrap;
+      text-wrap: nowrap;
+      overflow-wrap: normal;
+      word-break: normal;
+    }
+  }
+
   .site-nav {
     left: var(--level-page-padding);
     right: var(--level-page-padding);

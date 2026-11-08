@@ -33,5 +33,12 @@
     "nodeId": "case-sayme",
     "folder": "Case 5",
     "title": "Sayme"
+  },
+  {
+    "slug": "mindloom",
+    "path": "Mindloom",
+    "nodeId": "case-mindloom",
+    "folder": "Case 6",
+    "title": "Mindloom"
   }
 ]

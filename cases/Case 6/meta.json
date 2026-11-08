@@ -1,0 +1,161 @@
+{
+  "slug": "mindloom",
+  "nodeId": "case-mindloom",
+  "title": "Mindloom",
+  "layout": "split",
+  "list": {
+    "title": "Mindloom",
+    "description": "Online therapy platform where clients take courses and sessions, therapists create content and track progress, and an integrated AI supports both sides",
+    "tags": ["B2C", "Healthcare", "SaaS"]
+  },
+  "hero": {
+    "leadCover": "/assets/images/ML%20Case%20Cover.png",
+    "title": "Mindloom",
+    "description": "Online therapy platform where clients take courses and sessions, therapists create content and track progress, and an integrated AI supports both sides",
+    "labels": ["B2C", "Healthcare", "SaaS"]
+  },
+  "meta": {
+    "role": "Led a two-designer team across art direction, product strategy, and core concepts.",
+    "scope": "Discovery → Platform MVP → AI Flows MVP → Launch",
+    "team": "2 designers",
+    "duration": "6 months"
+  },
+  "story": {
+    "title": "Story",
+    "parts": [
+      {
+        "label": "Identity and core flows",
+        "text": "The client wanted to bring its therapy methodology into a dedicated digital platform. We designed connected experiences for participants, moderators, and admins, including dashboards, lessons, course browsing and purchase, and progress tracking."
+      },
+      {
+        "label": "Chat and support",
+        "text": "Moderators needed to oversee participants across multiple courses without losing context. We designed a high-volume chat workspace to support up to 100 participants, with access to each person's context within three clicks. AI helped moderators prioritize who needed attention and review participant results."
+      },
+      {
+        "label": "AI tools for users",
+        "text": "Participants could see their progress in a mind map and ask AI for help with a specific challenge at any point in their journey. The AI also used map and course results to surface relevant insights and suggest a next course."
+      }
+    ],
+    "media": {
+      "type": "web",
+      "images": [
+        {
+          "src": "/assets/images/ML_Core.png",
+          "width": 2324,
+          "height": 1368
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "courses-and-sessions",
+      "menuLabel": "Courses and sessions",
+      "title": "Courses and sessions",
+      "beats": [
+        {
+          "label": "Problem",
+          "text": "The client's methodology didn't fit standard course platforms. It needed course and session flows that reflected its approach while giving the team a clear view of participant progress."
+        },
+        {
+          "label": "Research",
+          "text": "We reviewed published courses and identified points where people could lose clarity or momentum. These findings helped us shape task formats around the client's methodology."
+        },
+        {
+          "label": "Iterations",
+          "text": "The client needed to track participant activity, so we structured interactions to capture progress without interrupting the participant's flow."
+        },
+        {
+          "label": "Outcome",
+          "text": "The client team could manage its course content in a structured format and review the participant activity and insights it needed."
+        }
+      ],
+      "media": {
+        "type": "web",
+        "images": [
+          {
+            "src": "/assets/images/ML%20Core.png",
+            "width": 2324,
+            "height": 1368
+          },
+          {
+            "src": "/assets/images/ML%20Core%202.png",
+            "width": 2324,
+            "height": 1368
+          }
+        ]
+      }
+    },
+    {
+      "id": "ai-chat",
+      "menuLabel": "AI chat",
+      "title": "AI chat",
+      "beats": [
+        {
+          "label": "Problem",
+          "text": "People new to therapy may find it difficult to interpret course results and session notes on their own. Asking a specialist for help with every question can also be costly."
+        },
+        {
+          "label": "Research",
+          "text": "We found that participants had a lot of material to make sense of across their session notes and course results. Moderators needed to focus their time on cases requiring personal attention."
+        },
+        {
+          "label": "Iterations",
+          "text": "We explored ways for participants to start a conversation from a specific challenge or point in their progress, so they wouldn't have to repeat all of their context in the chat."
+        },
+        {
+          "label": "Outcome",
+          "text": "We connected chat to the participant's mind map, making it easy to start a conversation about a specific issue."
+        }
+      ],
+      "media": {
+        "type": "web",
+        "images": [
+          {
+            "src": "/assets/images/ML_AI_Chat.png",
+            "width": 2324,
+            "height": 1368
+          }
+        ]
+      }
+    },
+    {
+      "id": "mind-map",
+      "menuLabel": "Mind map",
+      "title": "Mind map",
+      "beats": [
+        {
+          "label": "Problem",
+          "text": "Participants moved through multiple forms, courses, and sessions without a clear overview of their progress or the challenges they were working through."
+        },
+        {
+          "label": "Research",
+          "text": "We reviewed mental health platforms and explored what made it difficult for people to stay oriented and achieve their goals."
+        },
+        {
+          "label": "Iterations",
+          "text": "I developed a mind map to bring course and session activity into one view. We refined its structure and the AI model to determine which information from completed activities would be useful to include."
+        },
+        {
+          "label": "Outcome",
+          "text": "The client reported 30% fewer support calls after the mind map was introduced. Users also said it helped them understand their needs better."
+        }
+      ],
+      "media": {
+        "type": "web",
+        "images": [
+          {
+            "src": "/assets/images/ML_Mind_Map_1.png",
+            "width": 2324,
+            "height": 1368
+          },
+          {
+            "src": "/assets/images/ML_Mind_map.png",
+            "width": 2324,
+            "height": 1368
+          }
+        ]
+      }
+    }
+  ]
+}

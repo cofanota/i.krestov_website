@@ -8,6 +8,7 @@
   var RASTER_EXT = /\.(png|jpe?g)$/i;
   var VIDEO_EXT = /\.(mp4|webm|mov)$/i;
   var COMPACT_MEDIA = "(max-width: 63.9375rem)";
+  var CASE_TITLE_FIT_MQ = "(min-width: 48rem)";
 
   function siteUrl(path) {
     if (!path || /^(?:[a-z][a-z0-9+.-]*:|#)/i.test(path)) {
@@ -477,7 +478,9 @@
           );
         })
         .join("") +
-      "</div></section>"
+      "</div>" +
+      renderMediaRow(story.media) +
+      "</section>"
     );
   }
 
@@ -641,6 +644,26 @@
     );
   }
 
+  function renderCaseTitle(title) {
+    var words = String(title || "")
+      .trim()
+      .split(/\s+/)
+      .filter(Boolean);
+    var count = words.length > 1 ? 2 : 1;
+
+    return (
+      '<h1 class="case-split__title" data-title-words="' +
+      count +
+      '">' +
+      words
+        .map(function (word) {
+          return '<span class="case-split__title-word">' + escapeHtml(word) + "</span>";
+        })
+        .join(" ") +
+      "</h1>"
+    );
+  }
+
   function renderCaseDetailSplit(meta) {
     var hero = meta.hero || {};
     var caseMeta = meta.meta || {};
@@ -779,29 +802,40 @@
         "</figure>"
       : "";
 
+    var labelsHtml = (hero.labels || [])
+      .map(function (label) {
+        return "<li>" + escapeHtml(label) + "</li>";
+      })
+      .join("");
+
     var metaHtml =
-      '<section class="case-split__card case-split__meta reveal">' +
-      '<div class="case-split__meta-role">' +
-      '<p class="case-detail__meta-label">My role</p>' +
-      '<p class="case-split__role">' +
+      '<dl class="case-split__meta">' +
+      '<div class="case-split__meta-row">' +
+      '<dt class="case-detail__meta-label">My role</dt>' +
+      '<dd class="case-split__meta-value">' +
       escapeHtml(caseMeta.role || "") +
-      "</p></div>" +
-      '<div class="case-split__meta-grid">' +
-      '<div class="case-split__meta-col"><p class="case-detail__meta-label">Scope</p><p class="case-split__meta-value">' +
+      "</dd></div>" +
+      '<div class="case-split__meta-row">' +
+      '<dt class="case-detail__meta-label">Scope</dt>' +
+      '<dd class="case-split__meta-value">' +
       escapeHtml(caseMeta.scope || "") +
-      "</p></div>" +
-      '<div class="case-split__meta-col case-split__meta-col--team"><p class="case-detail__meta-label">Team</p><p class="case-split__meta-value">' +
+      "</dd></div>" +
+      '<div class="case-split__meta-row">' +
+      '<dt class="case-detail__meta-label">Team</dt>' +
+      '<dd class="case-split__meta-value">' +
       escapeHtml(caseMeta.team || "") +
-      "</p></div>" +
-      '<div class="case-split__meta-col case-split__meta-col--duration"><p class="case-detail__meta-label">Duration</p><p class="case-split__meta-value">' +
+      "</dd></div>" +
+      '<div class="case-split__meta-row">' +
+      '<dt class="case-detail__meta-label">Duration</dt>' +
+      '<dd class="case-split__meta-value">' +
       escapeHtml(caseMeta.duration || "") +
-      "</p></div></div></section>";
+      "</dd></div></dl>";
 
     var storyHtml = renderStory(meta.story);
     var spotlightHtml = renderSpotlight(meta);
     var mainHtml = leadCoverHtml
-      ? leadCoverHtml + metaHtml + storyHtml + mosaicHtml + spotlightHtml + sectionsHtml
-      : mosaicHtml + metaHtml + storyHtml + spotlightHtml + sectionsHtml;
+      ? leadCoverHtml + storyHtml + mosaicHtml + spotlightHtml + sectionsHtml
+      : mosaicHtml + storyHtml + spotlightHtml + sectionsHtml;
 
     return (
       '<div class="case-split">' +
@@ -812,16 +846,17 @@
       '<span class="btn__label">Back</span>' +
       "</a>" +
       '<div class="case-split__intro reveal">' +
-      '<h1 class="case-split__title">' +
-      escapeHtml(hero.title || meta.title) +
-      "</h1>" +
-      '<div class="case-split__lede">' +
+      '<div class="case-split__brand">' +
+      renderCaseTitle(hero.title || meta.title) +
+      '<ul class="case-split__labels" aria-label="Tags">' +
+      labelsHtml +
+      "</ul></div>" +
+      '<div class="case-split__aside">' +
       '<p class="case-split__description">' +
       escapeHtml(hero.description || "") +
       "</p>" +
-      '<ul class="case-split__labels" aria-label="Tags">' +
-      renderLabels(hero.labels) +
-      "</ul></div></div>" +
+      metaHtml +
+      "</div></div>" +
       '<div class="case-split__main">' +
       mainHtml +
       "</div></div>"
@@ -1501,6 +1536,85 @@
     }
   }
 
+  function longestCaseTitleWord(title) {
+    var words = title.querySelectorAll(".case-split__title-word");
+    var longest = 0;
+    var i;
+
+    for (i = 0; i < words.length; i += 1) {
+      longest = Math.max(longest, words[i].scrollWidth);
+    }
+
+    return longest;
+  }
+
+  function fitCaseTitle(title) {
+    var fitsWide = window.matchMedia(CASE_TITLE_FIT_MQ).matches;
+    var available;
+    var current;
+    var longest;
+    var target;
+
+    if (!fitsWide) {
+      title._vw = 0;
+      if (title.style.fontSize) {
+        title.style.fontSize = "";
+      }
+      return;
+    }
+
+    if (title._vw !== window.innerWidth) {
+      title.style.fontSize = "";
+      title._vw = window.innerWidth;
+    }
+
+    available = title.clientWidth;
+    if (available <= 0) {
+      return;
+    }
+
+    longest = longestCaseTitleWord(title);
+    current = parseFloat(window.getComputedStyle(title).fontSize) || 0;
+    if (!longest || !current || longest <= available + 0.5) {
+      return;
+    }
+
+    target = current * (available / longest);
+    if (target < current - 0.25) {
+      title.style.fontSize = target + "px";
+    }
+  }
+
+  function bindCaseTitleFit(root) {
+    var title = root.querySelector(".case-split__title");
+    var brand;
+
+    if (!title) {
+      return;
+    }
+
+    brand = title.closest(".case-split__brand") || title;
+
+    function refit() {
+      fitCaseTitle(title);
+    }
+
+    refit();
+
+    if (typeof ResizeObserver === "function") {
+      new ResizeObserver(refit).observe(brand);
+    } else {
+      window.addEventListener("resize", refit);
+    }
+
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(function () {
+        title._vw = 0;
+        refit();
+      });
+    }
+  }
+
   function bindCaseSplitNav(root) {
     var split = root.querySelector(".case-split");
     if (!split) {
@@ -1623,6 +1737,7 @@
 
         if (meta.layout === "split") {
           document.body.classList.add("page--case-split");
+          bindCaseTitleFit(detail);
           bindCaseSplitNav(detail);
           bindScoreCarousel(detail);
         } else {
